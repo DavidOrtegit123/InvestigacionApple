@@ -18,7 +18,18 @@ H1/H1b measured pass@1 with the **oracle** document (the correct spec, complete)
 
 - **Models:** Apple Foundation Model and **Qwen3-4B** (`qwen3_4b_mixed_4bit_8bit_static`, `/no_think` on), the H1b pair.
 - **Retriever:** Stage 1 **pipeline B only**, unchanged and frozen: paragraph chunks ≤400 characters, BM25 (k1 1.2, b 0.75) + `NLEmbedding` cosine, RRF (k = 60), top-5 passages, no cutoff. Corpus: the same 4 category manuals as Stage 1. Query: the task's **main** prompt (as written; the name-stripped variant is Stage 1 only).
-- **Retrieval runs live on the iPhone**, right before each task's questions (in each model's block). Retrieval is deterministic and model-independent, so both models get identical passages for the same task.
+- **Retrieval runs on the iPhone**, right before each task's questions (in each model's block). Retrieval is deterministic and model-independent, so both models get identical passages for the same task. *(Amended 2026-10-20 — see §2a: the sentence vectors are precomputed on macOS and bundled.)*
+
+### 2a. Amendment (2026-10-20, before any Stage 2 data)
+
+The on-device smoke test (task_001, 1 repetition, not study data) showed that **iOS 27.0 on the iPhone 16e provides no English `NLEmbedding` sentence model** — `NLEmbedding.sentenceEmbedding(for: .english)` returns nil (macOS 27: revision 1, 512 dimensions), and `NLEmbedding` has no API to request it. Pipeline B therefore silently ranked by BM25 alone (the phone's top-5 equaled a BM25-only ranking exactly).
+
+Change (where the vectors come from only — retriever settings, corpus, prompt and analysis plan unchanged):
+- The `NLEmbedding` vectors (revision 1) of all 140 passages and all 40 task prompts are computed on macOS (`RetrievalHarness export-vectors`) and bundled as `RetrievalVectors.json`; the batch runner always uses them. BM25, RRF fusion and top-5 selection still run on the iPhone.
+- Harness test: with the bundled vectors, every task's full ranking and fused scores equal the live embedding's exactly (all 40 tasks).
+- The batch screen checks readiness (vector revision 1, 0 of 140 passages and 0 prompts without a vector) and refuses to run otherwise, so a BM25-only run can't happen silently.
+
+Paper wording: *"Because iOS 27.0 did not provide the NLEmbedding sentence model, its vectors were computed with the same Apple model (revision 1) on macOS and bundled; keyword scoring, fusion and ranking ran on the iPhone."*
 
 ## 3. What the model sees
 
