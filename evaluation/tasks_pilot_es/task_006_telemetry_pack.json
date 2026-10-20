@@ -1,0 +1,10 @@
+{
+  "id": "task_006_telemetry_pack",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion del empaquetado de telemetria de Kestrel-9, escribe una funcion Python pack_telemetry(values) que reciba una lista de enteros (0-255) y devuelva la cadena empaquetada segun las reglas documentadas, incluyendo el checksum final.",
+  "reference_doc_title": "Kestrel-9 - Empaquetado de Telemetria",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Empaquetado de Telemetria\n\nKestrel-9 empaqueta una lista de lecturas enteras (0-255) en una sola cadena para transmision. Cada lectura se escribe como exactamente 3 digitos decimales con ceros a la izquierda (000-255), concatenados en orden. Al final se agrega un checksum de 2 digitos, calculado como la suma de todas las lecturas modulo 100, tambien con ceros a la izquierda. Ejemplo: [1, 255, 10] -> \"001\"+\"255\"+\"010\"+checksum(266 mod 100 = 66 -> \"66\") = \"00125501066\".",
+  "entry_point": "pack_telemetry",
+  "reference_solution": "def pack_telemetry(values):\n    body = \"\".join(f\"{v:03d}\" for v in values)\n    checksum = sum(values) % 100\n    return body + f\"{checksum:02d}\"\n",
+  "test_code": "def check(candidate):\n    assert candidate([1, 255, 10]) == \"00125501066\"\n    assert candidate([0]) == \"00000\"\n    assert candidate([]) == \"00\"\n    assert candidate([99, 1]) == \"09900100\"\n"
+}

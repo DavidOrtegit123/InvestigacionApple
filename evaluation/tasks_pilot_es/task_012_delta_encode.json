@@ -1,0 +1,10 @@
+{
+  "id": "task_012_delta_encode",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion de la codificacion delta de telemetria de Kestrel-9, escribe una funcion Python delta_encode(values) que reciba una lista de enteros y devuelva la cadena codificada segun las reglas documentadas.",
+  "reference_doc_title": "Kestrel-9 - Codificacion Delta de Telemetria",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Codificacion Delta de Telemetria\n\nKestrel-9 codifica una lista de enteros como una serie de diferencias (deltas) respecto al valor anterior, para ahorrar espacio en listas de lecturas que cambian poco. El primer valor de la lista se escribe tal cual, sin modificar. Cada valor siguiente se escribe como la diferencia (valor actual menos valor anterior), que puede ser negativa. Todos los valores (el primero y los deltas) se escriben separados por comas, sin espacios. Ejemplo: [10, 12, 9, 9] -> \"10,2,-3,0\" (10 tal cual; 12-10=2; 9-12=-3; 9-9=0).",
+  "entry_point": "delta_encode",
+  "reference_solution": "def delta_encode(values):\n    if not values:\n        return \"\"\n    parts = [str(values[0])]\n    for i in range(1, len(values)):\n        parts.append(str(values[i] - values[i - 1]))\n    return \",\".join(parts)\n",
+  "test_code": "def check(candidate):\n    assert candidate([10, 12, 9, 9]) == \"10,2,-3,0\"\n    assert candidate([]) == \"\"\n    assert candidate([5]) == \"5\"\n    assert candidate([0, 0, 0]) == \"0,0,0\"\n    assert candidate([-3, -1, -10]) == \"-3,2,-9\"\n"
+}

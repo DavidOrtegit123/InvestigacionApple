@@ -1,0 +1,10 @@
+{
+  "id": "task_001_zorp_encode",
+  "category": "data_format",
+  "prompt": "Based on the zorplib documentation, write a Python function encode_zorp(value) that takes an integer, a string, or a list (which may contain integers, strings, or other lists) and returns it encoded in ZORP-7 format according to the documented rules.",
+  "reference_doc_title": "zorplib - ZORP-7 Format",
+  "reference_doc_content": "zorplib documentation -- ZORP-7 encoding format\n\nZORP-7 is a compact serialization format used by the legacy Kestrel-9 system. Encoding rules:\n- An integer is encoded as the symbol '#' followed by the number in base 10. Example: 42 -> \"#42\". Negative numbers use '#-' followed by the absolute value. Example: -7 -> \"#-7\".\n- A text string is encoded by wrapping it in the symbol '~'. Example: \"hello\" -> \"~hello~\".\n- A list is encoded by wrapping its individually encoded elements between '<' and '>', separated by ';'. Example: [1, \"a\"] -> \"<#1;~a~>\".\n- An empty list is encoded as \"<>\".",
+  "entry_point": "encode_zorp",
+  "reference_solution": "def encode_zorp(value):\n    if isinstance(value, bool):\n        raise TypeError(\"bool not supported\")\n    if isinstance(value, int):\n        if value < 0:\n            return f\"#-{abs(value)}\"\n        return f\"#{value}\"\n    if isinstance(value, str):\n        return f\"~{value}~\"\n    if isinstance(value, list):\n        return \"<\" + \";\".join(encode_zorp(v) for v in value) + \">\"\n    raise TypeError(f\"unsupported type: {type(value)}\")\n",
+  "test_code": "def check(candidate):\n    assert candidate(42) == \"#42\"\n    assert candidate(-7) == \"#-7\"\n    assert candidate(0) == \"#0\"\n    assert candidate(\"hello\") == \"~hello~\"\n    assert candidate(\"\") == \"~~\"\n    assert candidate([1, \"a\"]) == \"<#1;~a~>\"\n    assert candidate([]) == \"<>\"\n    assert candidate([1, [2, \"b\"]]) == \"<#1;<#2;~b~>>\"\n"
+}

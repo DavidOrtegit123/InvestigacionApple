@@ -1,0 +1,282 @@
+[
+  {
+    "id": "task_001_zorp_encode",
+    "category": "data_format",
+    "prompt": "Based on the zorplib documentation, write a Python function encode_zorp(value) that takes an integer, a string, or a list (which may contain integers, strings, or other lists) and returns it encoded in ZORP-7 format according to the documented rules.",
+    "reference_doc_title": "zorplib - ZORP-7 Format",
+    "reference_doc_content": "zorplib documentation -- ZORP-7 encoding format\n\nZORP-7 is a compact serialization format used by the legacy Kestrel-9 system. Encoding rules:\n- An integer is encoded as the symbol '#' followed by the number in base 10. Example: 42 -> \"#42\". Negative numbers use '#-' followed by the absolute value. Example: -7 -> \"#-7\".\n- A text string is encoded by wrapping it in the symbol '~'. Example: \"hello\" -> \"~hello~\".\n- A list is encoded by wrapping its individually encoded elements between '<' and '>', separated by ';'. Example: [1, \"a\"] -> \"<#1;~a~>\".\n- An empty list is encoded as \"<>\"."
+  },
+  {
+    "id": "task_002_window_limiter",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the WindowLimiter class in the internal Kestrel-9 SDK, write a Python function allow_request(limiter, now) that takes a WindowLimiter instance and an integer timestamp now, and returns True if the request should be allowed according to the documented rules (updating the limiter's internal state), or False if it should be rejected.",
+    "reference_doc_title": "Kestrel-9 SDK - WindowLimiter class",
+    "reference_doc_content": "Kestrel-9 SDK documentation -- WindowLimiter class\n\nWindowLimiter controls how many requests are allowed within a sliding 10-second window. Attributes:\n- max_requests (int): maximum number of requests allowed per window.\n- timestamps (list of int): timestamps (in seconds) of the requests accepted so far, in any order.\n\nRule: when a new request arrives with timestamp now, first discard from timestamps every timestamp earlier than now - 10 (outside the window). Then, if the number of remaining timestamps is less than max_requests, the request is allowed: append now to timestamps and return True. Otherwise the request is rejected: timestamps is not modified and False is returned."
+  },
+  {
+    "id": "task_003_account_id_validation",
+    "category": "validation_rules",
+    "prompt": "Based on the Kestrel-9 account identifier validation rules, write a Python function is_valid_account_id(value) that returns True if value is a valid account identifier according to the documented rules, or False otherwise.",
+    "reference_doc_title": "Kestrel-9 - Account ID validation rules",
+    "reference_doc_content": "Kestrel-9 documentation -- Account ID validation rules\n\nA valid Kestrel-9 Account ID must satisfy ALL of the following rules:\n1. It must be a string of exactly 8 characters.\n2. The first 3 characters must be uppercase letters (A-Z).\n3. The next 4 characters must be digits (0-9).\n4. The last character must be a check digit, computed as the sum of the previous 4 digits, modulo 10.\n\nExample: \"ABC12340\" -- digits 1,2,3,4 sum to 10, modulo 10 = 0, which matches the last character '0' -> valid."
+  },
+  {
+    "id": "task_004_merge_intervals",
+    "category": "bugfix_completion",
+    "prompt": "The Kestrel-9 system documents the expected behavior of the merge_intervals function. Based on that documentation, write a Python function merge_intervals(intervals) that implements exactly the documented behavior.",
+    "reference_doc_title": "Kestrel-9 - merge_intervals specification",
+    "reference_doc_content": "Kestrel-9 documentation -- merge_intervals\n\nmerge_intervals(intervals) takes a list of closed intervals [start, end] (integers, start <= end) and must return a new list of merged intervals, sorted by ascending start, where any pair of intervals that touch or overlap (including the case end_A == start_B) is merged into a single one. The input list may arrive unsorted. Example: [[1,3],[2,6],[8,10],[15,18]] -> [[1,6],[8,10],[15,18]]. Edge example: [[1,4],[4,5]] -> [[1,5]] (they touch at 4, so they are merged)."
+  },
+  {
+    "id": "task_005_frame_decode",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 framing protocol documentation, write a Python function decode_frames(data) that takes a string with one or more concatenated frames and returns a list with the decoded payloads, in order.",
+    "reference_doc_title": "Kestrel-9 - Framing protocol",
+    "reference_doc_content": "Kestrel-9 documentation -- Framing protocol\n\nThe Kestrel-9 framing protocol packs one or more messages into a single string, with no separators between frames. Each frame has the format <length>:<payload>, where <length> is the length in characters of the payload that follows, written in decimal (it may have one or more digits), followed by ':' and then exactly that many payload characters. The next frame starts immediately afterwards, with no space or separator. Example: \"5:hello3:foo\" contains two frames: \"hello\" (length 5) and \"foo\" (length 3)."
+  },
+  {
+    "id": "task_006_telemetry_pack",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 telemetry packing documentation, write a Python function pack_telemetry(values) that takes a list of integers (0-255) and returns the packed string according to the documented rules, including the final checksum.",
+    "reference_doc_title": "Kestrel-9 - Telemetry packing",
+    "reference_doc_content": "Kestrel-9 documentation -- Telemetry packing\n\nKestrel-9 packs a list of integer readings (0-255) into a single string for transmission. Each reading is written as exactly 3 decimal digits with leading zeros (000-255), concatenated in order. At the end a 2-digit checksum is appended, computed as the sum of all readings modulo 100, also with leading zeros. Example: [1, 255, 10] -> \"001\"+\"255\"+\"010\"+checksum(266 mod 100 = 66 -> \"66\") = \"00125501066\"."
+  },
+  {
+    "id": "task_007_rle_kestrel",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 telemetry compression documentation (Kestrel RLE), write a Python function encode_runs(text) that takes a string and returns its compressed version according to the documented rules.",
+    "reference_doc_title": "Kestrel-9 - Telemetry RLE compression",
+    "reference_doc_content": "Kestrel-9 documentation -- Telemetry compression (Kestrel RLE)\n\nKestrel-9 compresses strings of repeated characters with its own variant of run-length encoding: a run of the same character with length greater than 1 is written as <length><character> (for example, 'a' three times is written \"3a\"). A run of length exactly 1 is written ONLY as the character, with no number in front (unlike standard RLE, which always includes the number 1). Example: \"aaabccc\" -> \"3ab3c\" (3 a's, then 'b' with no number because it appears only once, then 3 c's)."
+  },
+  {
+    "id": "task_008_config_line",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 configuration line format documentation, write a Python function parse_config(line) that takes a configuration line and returns a dictionary with the key-value pairs, according to the documented rules.",
+    "reference_doc_title": "Kestrel-9 - Configuration line format",
+    "reference_doc_content": "Kestrel-9 documentation -- Configuration line format\n\nA Kestrel-9 configuration line contains key=value pairs separated by ';'. Each pair has the format KEY=VALUE, where the value may contain the character '=' (the value is everything after the FIRST '=' in that segment; do not use a naive split that breaks if the value contains more '=' signs). Empty segments (for example, a trailing ';' with nothing after it) are ignored. An empty line produces an empty result."
+  },
+  {
+    "id": "task_009_version_tag",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 firmware version format documentation, write a Python function format_version(major, minor, patch) that returns the version string according to the documented rules.",
+    "reference_doc_title": "Kestrel-9 - Firmware version format",
+    "reference_doc_content": "Kestrel-9 documentation -- Firmware version format\n\nKestrel-9 labels firmware versions as \"v{major}.{minor}\" when the patch number is 0, or \"v{major}.{minor}.{patch}\" when patch is not 0. The minor field is always written with 2 digits and leading zeros (for example, minor=2 is written \"02\"). The major and patch fields are written without leading zeros. Example: (1, 2, 0) -> \"v1.02\"; (1, 2, 3) -> \"v1.02.3\"."
+  },
+  {
+    "id": "task_010_coordinate_pack",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 sensor coordinate packing documentation, write a Python function pack_coord(x, y) that returns the compact 8-digit string according to the documented rules.",
+    "reference_doc_title": "Kestrel-9 - Sensor coordinate packing",
+    "reference_doc_content": "Kestrel-9 documentation -- Sensor coordinate packing\n\nKestrel-9 packs a coordinate (x, y), both values in the range [-50.0, 50.0], into a compact 8-digit string. Each component is quantized by multiplying it by 10, rounding to the nearest integer, and adding 500 (so the range becomes 0 to 1000). The result is written as 4 decimal digits with leading zeros. The two components are concatenated in the order x, y, with no separator, giving 8 digits in total. Example: (0.0, 0.0) -> quantized x = 0*10+500 = 500 -> \"0500\"; y likewise -> \"0500\"; result \"05000500\"."
+  },
+  {
+    "id": "task_011_duration_format",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 log duration format documentation, write a Python function format_duration(total_seconds) that returns the formatted string according to the documented rules.",
+    "reference_doc_title": "Kestrel-9 - Log duration format",
+    "reference_doc_content": "Kestrel-9 documentation -- Log duration format\n\nKestrel-9 formats a duration in seconds (a non-negative integer) for its logs with these rules: if the duration is less than 60 seconds, it is written as \"{seconds}s\". If it is greater than or equal to 60 but less than 3600 (one hour), it is written as \"{minutes}m{seconds:02d}s\", with the remaining seconds in 2 digits. If it is greater than or equal to 3600, it is written as \"{hours}h{minutes:02d}m\" -- IMPORTANT: in this last case the remaining seconds are dropped completely and not shown at all (unlike common time-formatting libraries, which normally keep the seconds). Example: 3661 seconds (1 hour, 1 minute, 1 second) is formatted as \"1h01m\", without the remaining second."
+  },
+  {
+    "id": "task_012_delta_encode",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 telemetry delta encoding documentation, write a Python function delta_encode(values) that takes a list of integers and returns the encoded string according to the documented rules.",
+    "reference_doc_title": "Kestrel-9 - Telemetry delta encoding",
+    "reference_doc_content": "Kestrel-9 documentation -- Telemetry delta encoding\n\nKestrel-9 encodes a list of integers as a series of differences (deltas) from the previous value, to save space on lists of readings that change little. The first value of the list is written as is, unchanged. Each following value is written as the difference (current value minus previous value), which may be negative. All values (the first one and the deltas) are written separated by commas, with no spaces. Example: [10, 12, 9, 9] -> \"10,2,-3,0\" (10 as is; 12-10=2; 9-12=-3; 9-9=0)."
+  },
+  {
+    "id": "task_013_priority_tag",
+    "category": "data_format",
+    "prompt": "Based on the Kestrel-9 message priority tagging documentation, write a Python function tag_message(priority, message) that returns the tagged message according to the documented rules, clamping the priority if it is out of range.",
+    "reference_doc_title": "Kestrel-9 - Message priority tagging",
+    "reference_doc_content": "Kestrel-9 documentation -- Message priority tagging\n\nKestrel-9 tags every internal message with its priority before displaying it, in the format \"[P{priority}] {message}\". The system only accepts documented priorities between 0 (lowest) and 5 (highest); any value outside that range must be clamped to the nearest limit before inserting it into the tag -- values below 0 become 0, values above 5 become 5. Example: priority 7 with message \"overheat\" is tagged as \"[P5] overheat\"."
+  },
+  {
+    "id": "task_014_ledger_transfer",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Ledger API of the Vireo accounting system, write a Python function transfer(ledger, src, dst, amount) that transfers amount cents from account src to account dst following exactly the documented protocol, and returns True if the transfer was carried out or False if not.",
+    "reference_doc_title": "Vireo - Ledger API",
+    "reference_doc_content": "Vireo documentation -- Ledger API\n\nA ledger object exposes:\n- ledger.FEE (int): fixed fee in cents charged to the source account for each transfer.\n- ledger.lock(account) / ledger.unlock(account): lock and unlock an account.\n- ledger.balance(account) -> int: current balance in cents.\n- ledger.debit(account, amount) and ledger.credit(account, amount): subtract or add cents.\n\nTransfer protocol:\n1. Lock both accounts in alphabetical order by account name (the smaller one first), regardless of which one is the source.\n2. If the balance of src is less than amount + FEE, unlock both accounts in the reverse order of locking and return False without moving any money.\n3. If it is enough: debit(src, amount + FEE) and then credit(dst, amount).\n4. Unlock both accounts in the reverse order of locking and return True."
+  },
+  {
+    "id": "task_015_paged_fetch",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Orinoco API pagination client, write a Python function fetch_all(client) that uses the documented client to get all the items from all the pages and returns them in a list, in order, applying the documented rules.",
+    "reference_doc_title": "Orinoco - pagination client",
+    "reference_doc_content": "Orinoco API documentation -- cursor pagination\n\nThe client exposes a single method: client.fetch_page(cursor) -> dict.\n- The first call must be made with the special cursor \"START\" (a string, not None).\n- Each response is a dictionary with two keys: \"items\" (a list of dictionaries) and \"next\" (the cursor of the next page, or None if there are no more pages).\n- Keep calling fetch_page with the \"next\" value received until \"next\" is None; the page whose \"next\" is None also contains valid items.\n- Items marked with \"deleted\": True must be left out of the result. The others are returned in the same order in which they arrived."
+  },
+  {
+    "id": "task_016_cache_get_or_load",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Tamarind cache API, write a Python function get_or_load(cache, key, loader, now) that returns the value for key using the documented cache and, only when the rules say so, the loader function.",
+    "reference_doc_title": "Tamarind - cache API",
+    "reference_doc_content": "Tamarind documentation -- cache API\n\nThe cache object exposes:\n- cache.get(key) -> None if the key does not exist, or a tuple (value, expires_at), where expires_at is an integer timestamp in seconds.\n- cache.set(key, value, ttl): stores value for key; ttl is the lifetime in seconds.\n\nRead rule (get-or-load), given the current time now:\n- An entry is valid only if expires_at is strictly greater than now. If it is valid, its value is returned without calling loader.\n- If there is no entry or it has already expired, loader(key) is called exactly once.\n  - If loader returns None, nothing is stored in the cache and None is returned.\n  - Otherwise the value is stored with cache.set(key, value, 30) (a fixed ttl of 30 seconds) and returned."
+  },
+  {
+    "id": "task_017_event_bus_publish",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Halcyon platform EventBus, write a Python function publish(bus, topic, payload) that delivers the event to the subscribers according to the documented rules and returns the number of successful deliveries.",
+    "reference_doc_title": "Halcyon - EventBus",
+    "reference_doc_content": "Halcyon documentation -- EventBus\n\nA bus object has two attributes:\n- bus.subscribers: a dictionary mapping a topic (string) to a list of subscriber functions.\n- bus.dead_letters: a list where undelivered events are recorded.\n\nRules for publishing (topic, payload):\n1. First, call each subscriber in bus.subscribers[topic], in order, with a single argument: payload.\n2. Then call each wildcard subscriber registered under the topic \"*\", in order, with two arguments: (topic, payload).\n3. If a subscriber raises an exception, it is ignored and the others are still called; that call does not count as a successful delivery.\n4. If there was no successful delivery (there were no subscribers, or all of them failed), append the tuple (topic, payload) to bus.dead_letters.\n5. Return the number of successful deliveries."
+  },
+  {
+    "id": "task_018_sensor_read",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Kestrel-9 TH-40 thermal sensor driver, write a Python function read_celsius(sensor) that gets a temperature reading in degrees Celsius using the sensor object as the documentation describes.",
+    "reference_doc_title": "Kestrel-9 - TH-40 sensor driver",
+    "reference_doc_content": "Kestrel-9 TH-40 driver documentation\n\nThe sensor object exposes:\n- sensor.read_raw() -> int: returns a raw reading from the converter. Each call takes a new measurement, and individual readings are noisy.\n- sensor.offset (int) and sensor.gain (int): calibration constants specific to each unit.\n\nReading procedure:\n1. Call read_raw() exactly 3 times.\n2. Take the median of the 3 raw readings (not the mean).\n3. Convert to Celsius with: celsius = (median - offset) * gain / 100.\n4. Round the result to 1 decimal place with round() and return it as a float."
+  },
+  {
+    "id": "task_019_job_queue_process",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Marlin job queue, write a Python function process_next(queue, handler) that processes the next job in the queue with handler according to the documented protocol and returns the documented result.",
+    "reference_doc_title": "Marlin - job queue",
+    "reference_doc_content": "Marlin documentation -- job queue\n\nThe queue object exposes:\n- queue.pop() -> dict or None: takes out the next job, or returns None if the queue is empty. A job is a dictionary with the keys \"id\" (string) and \"attempts\" (int, previous failed attempts).\n- queue.push(job): puts a job back in the queue.\n- queue.ack(job_id): confirms that the job with that id has finished.\n\nprocess_next(queue, handler) protocol:\n- If pop() returns None, return None.\n- Call handler(job). If it returns True: call queue.ack(job[\"id\"]) and return \"done\".\n- If it returns anything else: increase job[\"attempts\"] by 1. If attempts reaches 3 or more, return \"failed\" without putting it back in the queue or confirming it. Otherwise, put it back with queue.push(job) and return \"retry\"."
+  },
+  {
+    "id": "task_020_config_timeout",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Sable configuration client, write a Python function get_timeout_ms(client, service) that gets a service's timeout in milliseconds (int) following the documented lookup order and format.",
+    "reference_doc_title": "Sable - configuration client",
+    "reference_doc_content": "Sable documentation -- configuration client\n\nThe client object exposes client.get(path) -> str. If the path does not exist, it raises KeyError.\n\nService timeouts:\n- Lookup order: first \"services/<service>/timeout\", then \"defaults/timeout\". If neither exists, the timeout is 5000 ms.\n- Values are strings. If the string ends in \"s\" (for example \"3s\"), the number is in seconds and is multiplied by 1000. If it ends in \"ms\" (for example \"250ms\"), it is already in milliseconds. If it has no suffix (for example \"750\"), it is in milliseconds.\n- The result is returned as an int in milliseconds."
+  },
+  {
+    "id": "task_021_batch_upload",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Pelican platform Uploader, write a Python function upload_all(uploader, records) that sends all the records using the uploader according to the documented batching and retry rules, and returns the sorted list of ids that are still failing.",
+    "reference_doc_title": "Pelican - batch Uploader",
+    "reference_doc_content": "Pelican documentation -- batch Uploader\n\nThe uploader object exposes:\n- uploader.max_batch (int): maximum size of a batch.\n- uploader.send(batch) -> list: sends a list of records (dictionaries with an \"id\" key) and returns the list of ids that failed in that batch (empty if all were sent).\n\nRules for upload_all(uploader, records):\n1. Send records in the given order, in consecutive batches of at most max_batch records.\n2. When finished, if any records failed, retry them only once: send them in the same order in which they appeared in records, also in batches of at most max_batch.\n3. Return a sorted list of the ids that also failed in the retry. If nothing failed, no retry is made and [] is returned."
+  },
+  {
+    "id": "task_022_auth_token",
+    "category": "api_usage",
+    "prompt": "Based on the documentation of the Quillon API AuthClient, write a Python function get_token(client, now) that returns a valid access token using the documented client, refreshing it only when the rules say so.",
+    "reference_doc_title": "Quillon - AuthClient",
+    "reference_doc_content": "Quillon documentation -- AuthClient\n\nThe client object has:\n- client.token (str or None): the current token.\n- client.expires_at (int): timestamp in seconds at which the current token expires.\n- client.refresh() -> tuple: requests a new token from the server and returns (new_token, new_expires_at). It does not modify the object by itself.\n\nRules for get_token(client, now):\n- The token must be refreshed if client.token is None, or if the token has less than 60 seconds of life left (expires_at - now < 60).\n- To refresh: call client.refresh() once and store the result in client.token and client.expires_at.\n- If no refresh is needed, refresh() must not be called.\n- Return client.token."
+  },
+  {
+    "id": "task_023_batch_code",
+    "category": "validation_rules",
+    "prompt": "Based on the Vireo batch code documentation, write a Python function is_valid_batch_code(code) that returns True if code is a valid batch code according to the documented rules, or False otherwise.",
+    "reference_doc_title": "Vireo - Batch code format",
+    "reference_doc_content": "Vireo documentation -- Batch code format\n\nA valid Vireo batch code is a string with the exact shape \"BT-YY-HHHH-C\":\n1. It starts with the literal prefix \"BT-\".\n2. YY is a 2-digit year between 20 and 39 (inclusive).\n3. After another \"-\", HHHH is exactly 4 uppercase hexadecimal characters (0-9, A-F). Lowercase letters are not allowed.\n4. After a final \"-\", C is a single check letter: take the numeric value of each of the 4 hex characters (0-15), add them up, and take the result modulo 26; the check letter is the uppercase letter at that position of the alphabet, where 0 = \"A\", 1 = \"B\", ..., 25 = \"Z\".\n\nExample: \"BT-24-00FF-E\": 0 + 0 + 15 + 15 = 30, 30 mod 26 = 4 -> \"E\" -> valid."
+  },
+  {
+    "id": "task_024_sensor_label",
+    "category": "validation_rules",
+    "prompt": "Based on the Halcyon sensor label naming rules, write a Python function is_valid_label(label) that returns True if label follows all the documented rules, or False otherwise.",
+    "reference_doc_title": "Halcyon - Sensor label naming rules",
+    "reference_doc_content": "Halcyon documentation -- Sensor label naming rules\n\nEvery sensor label registered in Halcyon must follow ALL of these rules:\n1. Its length is between 6 and 12 characters (inclusive).\n2. The first character is a lowercase letter (a-z).\n3. It contains only lowercase letters (a-z), digits (0-9), and the underscore \"_\".\n4. It contains at least one digit.\n5. It never contains two underscores in a row (\"__\"), and it does not end with an underscore.\n\nExamples: \"temp_01\" is valid; \"Temp_01\" is invalid (uppercase first letter); \"temp__01\" is invalid (double underscore); \"temperature\" is invalid (no digit)."
+  },
+  {
+    "id": "task_025_flight_slot",
+    "category": "validation_rules",
+    "prompt": "Based on the Pelican airfield slot booking rules, write a Python function is_valid_slot(slot) that returns True if the slot string is valid according to the documented rules, or False otherwise.",
+    "reference_doc_title": "Pelican - Airfield slot booking rules",
+    "reference_doc_content": "Pelican documentation -- Airfield slot booking rules\n\nA slot is written as the string \"HH:MM/R\", for example \"07:45/2\".\n- HH:MM is a 24-hour time with exactly 2 digits for the hour and 2 for the minutes.\n- The minutes must be a multiple of 15 (00, 15, 30 or 45).\n- The time must be between 05:00 and 23:30, both inclusive.\n- R is a single runway digit from 1 to 4.\n- Runway 4 is a short runway that may only be booked for times strictly before 12:00.\n\nExamples: \"07:45/2\" is valid; \"07:40/2\" is invalid (minutes not a multiple of 15); \"12:00/4\" is invalid (runway 4 at noon); \"23:45/1\" is invalid (after 23:30)."
+  },
+  {
+    "id": "task_026_vireo_password",
+    "category": "validation_rules",
+    "prompt": "Based on the Vireo password policy, write a Python function is_valid_password(password, username) that returns True if password satisfies every documented rule for that username, or False otherwise.",
+    "reference_doc_title": "Vireo - Password policy",
+    "reference_doc_content": "Vireo documentation -- Password policy\n\nA password is accepted only if ALL of these rules hold:\n1. It has at least 10 characters.\n2. It contains at least 2 digits (0-9), anywhere.\n3. It contains at least one of these three symbols: \"!\", \"@\" or \"#\". Other symbols are allowed but do not count for this rule.\n4. No character appears 3 or more times in a row (for example \"aaa\" or \"111\" is not allowed; \"aa\" is fine).\n5. It does not contain the username, compared case-insensitively (for example, username \"Ana\" rejects \"xxANAxx12!!\")."
+  },
+  {
+    "id": "task_027_order_quantity",
+    "category": "validation_rules",
+    "prompt": "Based on the Marlin order quantity rules, write a Python function is_valid_quantity(product_type, qty) that returns True if qty is an allowed quantity for that product type according to the documented rules, or False otherwise.",
+    "reference_doc_title": "Marlin - Order quantity rules",
+    "reference_doc_content": "Marlin documentation -- Order quantity rules\n\nThe allowed quantity depends on the product type:\n- \"bulk\": a multiple of 25, from 100 to 10000 (inclusive).\n- \"unit\": any whole number from 1 to 99 (inclusive).\n- \"sample\": exactly 1 or exactly 3 (2 is not allowed).\n- Any other product type is unknown and no quantity is valid for it.\n\nThe quantity must be an int. Booleans (True/False) are NOT valid quantities even though Python treats them as integers, and floats such as 5.0 are not valid either."
+  },
+  {
+    "id": "task_028_coupon_code",
+    "category": "validation_rules",
+    "prompt": "Based on the Tamarind coupon code documentation, write a Python function is_valid_coupon(code) that returns True if code is a valid coupon according to the documented format and check character, or False otherwise.",
+    "reference_doc_title": "Tamarind - Coupon code format",
+    "reference_doc_content": "Tamarind documentation -- Coupon code format\n\nTamarind coupons use a 32-character alphabet that leaves out easily confused characters:\nALPHABET = \"23456789ABCDEFGHJKLMNPQRSTUVWXYZ\"   (no 0, 1, I or O)\nEach character's value is its position in ALPHABET (the \"2\" is 0, the \"3\" is 1, ..., the \"Z\" is 31).\n\nA valid coupon:\n1. Has the shape \"XXXX-XXXX-XXXX\": three groups of 4 characters separated by single \"-\" characters.\n2. Uses only characters from ALPHABET (uppercase only).\n3. Its very last character is a check character: add up the values of the first 11 characters (all characters except the last one, ignoring the dashes), take the sum modulo 32, and the check character is the ALPHABET character with that value.\n\nExample: \"2222-2222-2222\" is valid (all values are 0, sum 0, check character \"2\")."
+  },
+  {
+    "id": "task_029_k9_address",
+    "category": "validation_rules",
+    "prompt": "Based on the Kestrel-9 service address documentation, write a Python function is_valid_address(address) that returns True if address is a valid Kestrel-9 service address according to the documented rules, or False otherwise.",
+    "reference_doc_title": "Kestrel-9 - Service address format",
+    "reference_doc_content": "Kestrel-9 documentation -- Service address format\n\nA Kestrel-9 service address has the form \"k9://HOST:PORT\".\n- It must start with the scheme \"k9://\" (lowercase).\n- HOST is made of 2 to 4 labels separated by single dots. Each label is 1 to 8 characters long and contains only lowercase letters and digits; a label may not start with a digit.\n- PORT is required. It is written in decimal without leading zeros and must be between 1024 and 49151 (inclusive).\n- Nothing may follow the port.\n\nExamples: \"k9://core.alpha:8080\" is valid; \"k9://core:8080\" is invalid (only 1 label); \"k9://core.alpha:80\" is invalid (port below 1024); \"k9://core.alpha:08080\" is invalid (leading zero)."
+  },
+  {
+    "id": "task_030_reading_errors",
+    "category": "validation_rules",
+    "prompt": "Based on the Halcyon telemetry reading validation documentation, write a Python function reading_errors(reading) that takes a reading dictionary and returns the sorted list of documented error codes that apply to it (an empty list if the reading is valid).",
+    "reference_doc_title": "Halcyon - Telemetry reading validation",
+    "reference_doc_content": "Halcyon documentation -- Telemetry reading validation\n\nA reading is a dictionary. Validation reports every problem found as an error code; the result is the list of codes, sorted alphabetically, with no duplicates. An empty list means the reading is valid.\n\n- \"E_MISSING\": at least one of the required keys \"sensor\", \"value\" or \"ts\" is missing. If this error applies, no other checks are performed and the result is exactly [\"E_MISSING\"].\n- \"E_SENSOR\": \"sensor\" is not a string of exactly 6 characters.\n- \"E_VALUE\": \"value\" is not a number (int or float; booleans do not count as numbers), or it is outside the range -40 to 125 (inclusive).\n- \"E_TS\": \"ts\" is not an int, or it is negative.\n- \"E_UNIT\": the optional key \"unit\" is present and is not one of \"C\", \"F\" or \"K\"."
+  },
+  {
+    "id": "task_031_shift_schedule",
+    "category": "validation_rules",
+    "prompt": "Based on the Sable shift schedule rules, write a Python function is_valid_schedule(shifts) that takes a list of (start, end) tuples in minutes and returns True if the schedule satisfies all the documented rules, or False otherwise.",
+    "reference_doc_title": "Sable - Shift schedule rules",
+    "reference_doc_content": "Sable documentation -- Shift schedule rules\n\nA daily schedule is a list of shifts. Each shift is a tuple (start, end) of integer minutes since midnight. The list may come in any order. A schedule is valid only if ALL of these rules hold:\n1. Every shift has start < end, and both values are within 0 to 1440 (inclusive).\n2. Every shift lasts at least 30 minutes and at most 240 minutes.\n3. Shifts may not overlap. In addition, between the end of one shift and the start of the next one (in time order) there must be a break of at least 15 minutes.\n4. The total scheduled time of all shifts together is at most 600 minutes.\nAn empty schedule is valid."
+  },
+  {
+    "id": "task_032_round_price",
+    "category": "bugfix_completion",
+    "prompt": "The Vireo pricing module documents the expected behavior of round_price and lists bugs found in the previous version. Based on that documentation, write a Python function round_price(cents) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Vireo - round_price specification and bug reports",
+    "reference_doc_content": "Vireo documentation -- round_price\n\nround_price(cents) takes an integer amount in cents (it may be negative for refunds) and returns it rounded to the nearest multiple of 10 cents, as an integer.\n\nBug reports fixed in version 2 (the new version must behave as described):\n- Bug #112: the old version used Python's built-in round(), which rounds ties to the nearest even number, so 25 became 20 and 35 became 40. Ties (amounts ending in 5) must ALWAYS round away from zero: 25 -> 30, 35 -> 40.\n- Bug #117: refunds were rounded differently from charges. Rounding must be symmetric around zero: -25 -> -30, -14 -> -10, -16 -> -20."
+  },
+  {
+    "id": "task_033_split_bill",
+    "category": "bugfix_completion",
+    "prompt": "The Pelican payments module documents the expected behavior of split_bill and lists bugs found in the previous version. Based on that documentation, write a Python function split_bill(total_cents, n) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Pelican - split_bill specification and bug reports",
+    "reference_doc_content": "Pelican documentation -- split_bill\n\nsplit_bill(total_cents, n) splits a non-negative integer amount of cents among n people and returns a list of n integers (one share per person, in order).\n\nBug reports fixed in version 2:\n- Bug #41: the old version used plain integer division for every share, so the shares did not add up to the total (for example 100 cents among 3 people gave [33, 33, 33] and one cent was lost). The shares must always add up exactly to total_cents. Each share is total_cents // n, and the leftover cents (total_cents % n) are given one each to the FIRST people in the list: 100 among 3 -> [34, 33, 33].\n- Bug #44: calling it with n equal to 0 or negative crashed with ZeroDivisionError or returned nonsense. For n <= 0 it must raise ValueError."
+  },
+  {
+    "id": "task_034_normalize_tags",
+    "category": "bugfix_completion",
+    "prompt": "The Halcyon content service documents the expected behavior of normalize_tags and lists bugs found in the previous version. Based on that documentation, write a Python function normalize_tags(text) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Halcyon - normalize_tags specification and bug reports",
+    "reference_doc_content": "Halcyon documentation -- normalize_tags\n\nnormalize_tags(text) takes a comma-separated string of tags typed by a user and returns a list of clean tags:\n- Split the text on commas. Remove spaces at both ends of each tag and convert it to lowercase.\n- Drop empty tags (for example from \",,\" or a trailing comma).\n- Tags longer than 20 characters are cut to their first 20 characters.\n\nBug reports fixed in version 2:\n- Bug #208: duplicates were detected case-sensitively, so \"News, news\" produced two tags. Duplicates must be detected after lowercasing and cutting to 20 characters; only the FIRST occurrence is kept.\n- Bug #211: the old version returned the tags sorted alphabetically. The result must keep the order in which each tag first appeared in the text."
+  },
+  {
+    "id": "task_035_parse_duration",
+    "category": "bugfix_completion",
+    "prompt": "The Sable scheduler documents the expected behavior of parse_duration and lists bugs found in the previous version. Based on that documentation, write a Python function parse_duration(text) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Sable - parse_duration specification and bug reports",
+    "reference_doc_content": "Sable documentation -- parse_duration\n\nparse_duration(text) converts a compact duration string into a number of seconds (int).\n- The string is made of up to three parts, in this exact order: hours (\"<digits>h\"), minutes (\"<digits>m\") and seconds (\"<digits>s\"). Each part is optional, but at least one must be present, and each unit may appear at most once.\n- Examples: \"1h30m\" -> 5400, \"45s\" -> 45, \"2h5s\" -> 7205.\n- No spaces or other characters are allowed anywhere.\n\nBug reports fixed in version 2:\n- Bug #77: the old version rejected minute or second values of 60 or more, such as \"90m\". Any number of digits and any value is allowed in every part: \"90m\" -> 5400, \"100s\" -> 100.\n- Bug #79: invalid input crashed with an exception. For ANY invalid input it must return None instead of raising. Invalid examples: \"\" (empty), \"1m1h\" (wrong order), \"1h 30m\" (space), \"h\" (no digits), \"1d\" (unknown unit), \"1h1h\" (repeated unit)."
+  },
+  {
+    "id": "task_036_next_business_day",
+    "category": "bugfix_completion",
+    "prompt": "The Marlin calendar module documents the expected behavior of next_business_day and lists bugs found in the previous version. Based on that documentation, write a Python function next_business_day(day, holidays) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Marlin - next_business_day specification and bug reports",
+    "reference_doc_content": "Marlin documentation -- next_business_day\n\nMarlin numbers days with a non-negative integer day index. The weekday of a day is day % 7, where 0 is Monday and 6 is Sunday; days with weekday 5 (Saturday) or 6 (Sunday) are weekend days.\n\nnext_business_day(day, holidays) returns the day index of the next business day strictly AFTER day. A business day is a day that is not a weekend day and is not in holidays (a set of day indexes).\n\nBug reports fixed in version 2:\n- Bug #9: when day was itself a business day, the old version returned day unchanged. The result must always be strictly greater than day.\n- Bug #12: the old version skipped weekends first and checked holidays only once, so a holiday falling right after a weekend (or two holidays in a row) was returned as a business day. Every candidate day must be checked against both rules until a real business day is found."
+  },
+  {
+    "id": "task_037_compact_log",
+    "category": "bugfix_completion",
+    "prompt": "The Quillon logging tool documents the expected behavior of compact_log and lists bugs found in the previous version. Based on that documentation, write a Python function compact_log(lines) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Quillon - compact_log specification and bug reports",
+    "reference_doc_content": "Quillon documentation -- compact_log\n\ncompact_log(lines) takes a list of log lines (strings) and returns a new, shorter list in which each run of CONSECUTIVE identical lines is replaced by a single entry:\n- A run of length 1 is kept as the line itself.\n- A run of length N > 1 becomes the line followed by \" (xN)\", for example \"disk full (x3)\".\n\nBug reports fixed in version 2:\n- Bug #301: the old version counted identical lines anywhere in the log and merged them, even when other lines were in between. Only consecutive repeats may be merged: [\"a\", \"b\", \"a\"] stays [\"a\", \"b\", \"a\"].\n- Bug #305: blank lines (lines that are empty or contain only whitespace) were being merged, which broke the visual spacing of reports. Blank lines are never merged and are kept exactly as they are, one entry per blank line."
+  },
+  {
+    "id": "task_038_apply_discounts",
+    "category": "bugfix_completion",
+    "prompt": "The Tamarind checkout module documents the expected behavior of apply_discounts and lists bugs found in the previous version. Based on that documentation, write a Python function apply_discounts(price_cents, codes) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Tamarind - apply_discounts specification and bug reports",
+    "reference_doc_content": "Tamarind documentation -- apply_discounts\n\napply_discounts(price_cents, codes) takes an integer price in cents and a list of discount code strings, and returns the final integer price in cents.\n- \"PCT<n>\" (for example \"PCT15\") is a percentage discount of n percent. The discount amount is n percent of the price, rounded DOWN to a whole cent.\n- \"FLAT<n>\" (for example \"FLAT500\") subtracts n cents.\n- Any other code is unknown and is ignored.\n\nBug reports fixed in version 2:\n- Bug #61: codes were applied in the order the customer typed them, so the same codes gave different prices. Now at most ONE percentage code is applied, and it is always applied first, to the original price; then every FLAT code is subtracted.\n- Bug #63: several percentage codes were stacked. If more than one PCT code is given, only the one with the largest n is used.\n- Bug #66: large flat discounts produced negative prices. The final price is never below 0."
+  },
+  {
+    "id": "task_039_merge_settings",
+    "category": "bugfix_completion",
+    "prompt": "The Orinoco configuration library documents the expected behavior of merge_settings and lists bugs found in the previous version. Based on that documentation, write a Python function merge_settings(defaults, overrides) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Orinoco - merge_settings specification and bug reports",
+    "reference_doc_content": "Orinoco documentation -- merge_settings\n\nmerge_settings(defaults, overrides) combines two settings dictionaries and returns a NEW dictionary. For every key in overrides:\n- If the override value is None, the key is removed from the result (if it was there).\n- If both the default value and the override value are dictionaries, they are merged with these same rules, recursively.\n- Otherwise the override value replaces the default value. Lists are replaced as a whole, never combined.\nKeys that appear only in defaults are kept as they are.\n\nBug reports fixed in version 2:\n- Bug #18: when both values were dictionaries, the old version replaced the whole nested dictionary, losing nested defaults. Nested dictionaries must be merged key by key.\n- Bug #22: the old version modified the defaults dictionary passed in by the caller. Neither input dictionary may be modified."
+  },
+  {
+    "id": "task_040_wrap_words",
+    "category": "bugfix_completion",
+    "prompt": "The Kestrel-9 display driver documents the expected behavior of wrap_words and lists bugs found in the previous version. Based on that documentation, write a Python function wrap_words(text, width) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+    "reference_doc_title": "Kestrel-9 - wrap_words specification and bug reports",
+    "reference_doc_content": "Kestrel-9 documentation -- wrap_words\n\nwrap_words(text, width) breaks text into lines for a small display and returns them as a list of strings. width is an integer of at least 2.\n- Words are separated by any amount of whitespace; the output uses a single space between words on the same line.\n- Lines are filled greedily: a word goes on the current line if the line plus one space plus the word fits in width characters; otherwise the current line is finished and the word starts a new line.\n- Empty or whitespace-only text returns an empty list.\n\nBug reports fixed in version 2:\n- Bug #501: words longer than width produced lines longer than width. A word longer than width now always starts on a new line (the current line, if any, is finished first) and is split into pieces: while the remaining part of the word is longer than width, emit a line with its first width-1 characters followed by \"-\", and continue with the rest. The final remaining piece (at most width characters) then becomes the current line, and following words may be added to it with the normal rule.\n- Bug #504: the old version kept extra spaces from the input. Runs of whitespace must never appear in the output."
+  }
+]

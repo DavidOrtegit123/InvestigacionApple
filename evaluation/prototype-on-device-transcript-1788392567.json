@@ -1,0 +1,47 @@
+[
+  {
+    "role" : "assistant",
+    "text" : "Hi David! Import a PDF and ask me anything about it.",
+    "timestamp" : "2026-09-01T02:35:10Z"
+  },
+  {
+    "role" : "user",
+    "text" : "Summarize this document.",
+    "timestamp" : "2026-09-01T02:35:18Z"
+  },
+  {
+    "metrics" : {
+      "inputTokens" : 375,
+      "outputTokens" : 255,
+      "thermalStateAfter" : "Nominal",
+      "thermalStateBefore" : "Nominal",
+      "timeToFirstToken" : 9.974593997001648,
+      "tokensPerSecond" : 22.083013493143792,
+      "totalTime" : 11.547337055206299
+    },
+    "role" : "assistant",
+    "system" : "External",
+    "text" : "\n\nThe document describes the Kestrel-9 Field Handshake Protocol, a rotating challenge code-based method used by Fennick Systems to synchronize sensor pods. It mentions key features: 14 exchanges for stability, default timeout of 42 seconds, and the importance of passive listening over alarms.",
+    "timestamp" : "2026-09-01T02:35:18Z"
+  },
+  {
+    "role" : "user",
+    "text" : "Summarize this document",
+    "timestamp" : "2026-09-01T02:35:47Z"
+  },
+  {
+    "metrics" : {
+      "inputTokens" : 413,
+      "outputTokens" : 119,
+      "thermalStateAfter" : "Nominal",
+      "thermalStateBefore" : "Nominal",
+      "timeToFirstToken" : 4.019356966018677,
+      "tokensPerSecond" : 18.941160500778846,
+      "totalTime" : 6.28261399269104
+    },
+    "role" : "assistant",
+    "system" : "Apple",
+    "text" : "Hello, David. Here is a summary of the document:\n\nThe Kestrel-9 protocol is a special pairing method for sensor pods. It uses a changing code every 4 seconds. This helps avoid problems during transport. The process needs 14 exchanges to work well. If fewer than 14 happen in 42 seconds, the pod listens quietly instead of showing an error. A timeout of 42 seconds is best, as it matches the capacitor's charge. Using more than 60 seconds is not advised.",
+    "timestamp" : "2026-09-01T02:35:47Z"
+  }
+]

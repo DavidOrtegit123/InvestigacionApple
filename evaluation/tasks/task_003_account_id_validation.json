@@ -1,0 +1,10 @@
+{
+  "id": "task_003_account_id_validation",
+  "category": "validation_rules",
+  "prompt": "Based on the Kestrel-9 account identifier validation rules, write a Python function is_valid_account_id(value) that returns True if value is a valid account identifier according to the documented rules, or False otherwise.",
+  "reference_doc_title": "Kestrel-9 - Account ID validation rules",
+  "reference_doc_content": "Kestrel-9 documentation -- Account ID validation rules\n\nA valid Kestrel-9 Account ID must satisfy ALL of the following rules:\n1. It must be a string of exactly 8 characters.\n2. The first 3 characters must be uppercase letters (A-Z).\n3. The next 4 characters must be digits (0-9).\n4. The last character must be a check digit, computed as the sum of the previous 4 digits, modulo 10.\n\nExample: \"ABC12340\" -- digits 1,2,3,4 sum to 10, modulo 10 = 0, which matches the last character '0' -> valid.",
+  "entry_point": "is_valid_account_id",
+  "reference_solution": "def is_valid_account_id(value):\n    if not isinstance(value, str) or len(value) != 8:\n        return False\n    letters, digits, check = value[:3], value[3:7], value[7]\n    if not letters.isalpha() or not letters.isupper():\n        return False\n    if not digits.isdigit() or not check.isdigit():\n        return False\n    expected = sum(int(d) for d in digits) % 10\n    return int(check) == expected\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"ABC12340\") is True\n    assert candidate(\"abc12340\") is False\n    assert candidate(\"ABC12341\") is False\n    assert candidate(\"AB123400\") is False\n    assert candidate(\"ABCDE123\") is False\n    assert candidate(\"ABC1234\") is False\n    assert candidate(\"ABC123400\") is False\n"
+}

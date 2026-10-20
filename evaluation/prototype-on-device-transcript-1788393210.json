@@ -1,0 +1,51 @@
+[
+  {
+    "role" : "assistant",
+    "text" : "Hi David! Import a PDF and ask me anything about it.",
+    "timestamp" : "2026-09-02T23:51:26Z"
+  },
+  {
+    "role" : "user",
+    "text" : "Summarize this document.",
+    "timestamp" : "2026-09-02T23:52:35Z"
+  },
+  {
+    "metrics" : {
+      "inputTokens" : 414,
+      "outputTokens" : 137,
+      "thermalStateAfter" : "Nominal",
+      "thermalStateBefore" : "Nominal",
+      "timeToFirstToken" : 4.20097804069519,
+      "tokensPerSecond" : 20.33856421123712,
+      "totalTime" : 6.735972046852112
+    },
+    "retrievedContext" : "Kestrel-9 Field Handshake Protocol — Internal Reference Sheet\nThe Kestrel-9 protocol is an experimental pairing procedure used by the Fennick Systems\ncalibration team to synchronize sensor pods before a field deployment. Unlike standard\nBluetooth pairing, Kestrel-9 relies on a rotating challenge code that changes every four\nseconds, which the team adopted after early prototypes suffered frequent desynchronization\nduring transport.\nA full Kestrel-9 handshake requires exactly 14 challenge-response exchanges before the\nconnection is considered stable. If fewer than 14 exchanges complete within the pairing\nwindow, the sensor pod automatically falls back to passive listening mode instead of raising\nan error, a decision made after field engineer Renn Okafor-Vance argued that silent fallback\nwas safer than an alarm during remote deployments.\nThe default pairing timeout is set to 42 seconds, chosen to match the average charge cycle\nof the Ondrata capacitor bank used in the Mark III sensor pods. Increasing the timeout\nbeyond 60 seconds is not recommended, since the capacitor bank begins bleeding stored\ncharge after that point.",
+    "retrievedDocumentTitle" : "Kestrel-9 Field Handshake Protocol — Internal Reference Sheet",
+    "role" : "assistant",
+    "system" : "Apple",
+    "text" : "Hello, David. Here is a summary of the document:\n\nThe Kestrel-9 protocol is a pairing method for sensor pods. It uses a rotating code that changes every four seconds. The team uses this to avoid problems during transport.\n\nThe handshake needs 14 exchanges to stay stable. If fewer than 14 happen in 42 seconds, the pod listens quietly instead of showing an error. This is safer, says Renn Okafor-Vance.\n\nThe default timeout is 42 seconds. This matches the Ondrata capacitor bank. Longer than 60 seconds is not good because the capacitor loses charge.",
+    "timestamp" : "2026-09-02T23:52:35Z"
+  },
+  {
+    "role" : "user",
+    "text" : "Summarize this document.",
+    "timestamp" : "2026-09-02T23:52:53Z"
+  },
+  {
+    "metrics" : {
+      "inputTokens" : 375,
+      "outputTokens" : 255,
+      "thermalStateAfter" : "Nominal",
+      "thermalStateBefore" : "Nominal",
+      "timeToFirstToken" : 11.903280973434448,
+      "tokensPerSecond" : 18.583991762244942,
+      "totalTime" : 13.721486926078796
+    },
+    "retrievedContext" : "Kestrel-9 Field Handshake Protocol — Internal Reference Sheet\nThe Kestrel-9 protocol is an experimental pairing procedure used by the Fennick Systems\ncalibration team to synchronize sensor pods before a field deployment. Unlike standard\nBluetooth pairing, Kestrel-9 relies on a rotating challenge code that changes every four\nseconds, which the team adopted after early prototypes suffered frequent desynchronization\nduring transport.\nA full Kestrel-9 handshake requires exactly 14 challenge-response exchanges before the\nconnection is considered stable. If fewer than 14 exchanges complete within the pairing\nwindow, the sensor pod automatically falls back to passive listening mode instead of raising\nan error, a decision made after field engineer Renn Okafor-Vance argued that silent fallback\nwas safer than an alarm during remote deployments.\nThe default pairing timeout is set to 42 seconds, chosen to match the average charge cycle\nof the Ondrata capacitor bank used in the Mark III sensor pods. Increasing the timeout\nbeyond 60 seconds is not recommended, since the capacitor bank begins bleeding stored\ncharge after that point.",
+    "retrievedDocumentTitle" : "Kestrel-9 Field Handshake Protocol — Internal Reference Sheet",
+    "role" : "assistant",
+    "system" : "External",
+    "text" : "\n\nThe document describes the Kestrel-9 Field Handshake Protocol, a rotating challenge code-based method used by Fennick Systems to synchronize sensor pods. It mentions key features: 14 exchanges for stability, default timeout of 42 seconds, and the importance of passive listening over alarms.",
+    "timestamp" : "2026-09-02T23:52:53Z"
+  }
+]

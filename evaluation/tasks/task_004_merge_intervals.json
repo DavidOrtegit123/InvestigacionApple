@@ -1,0 +1,10 @@
+{
+  "id": "task_004_merge_intervals",
+  "category": "bugfix_completion",
+  "prompt": "The Kestrel-9 system documents the expected behavior of the merge_intervals function. Based on that documentation, write a Python function merge_intervals(intervals) that implements exactly the documented behavior.",
+  "reference_doc_title": "Kestrel-9 - merge_intervals specification",
+  "reference_doc_content": "Kestrel-9 documentation -- merge_intervals\n\nmerge_intervals(intervals) takes a list of closed intervals [start, end] (integers, start <= end) and must return a new list of merged intervals, sorted by ascending start, where any pair of intervals that touch or overlap (including the case end_A == start_B) is merged into a single one. The input list may arrive unsorted. Example: [[1,3],[2,6],[8,10],[15,18]] -> [[1,6],[8,10],[15,18]]. Edge example: [[1,4],[4,5]] -> [[1,5]] (they touch at 4, so they are merged).",
+  "entry_point": "merge_intervals",
+  "reference_solution": "def merge_intervals(intervals):\n    if not intervals:\n        return []\n    ordered = sorted(intervals, key=lambda iv: iv[0])\n    merged = [list(ordered[0])]\n    for start, end in ordered[1:]:\n        last = merged[-1]\n        if start <= last[1]:\n            last[1] = max(last[1], end)\n        else:\n            merged.append([start, end])\n    return merged\n",
+  "test_code": "def check(candidate):\n    assert candidate([[1,3],[2,6],[8,10],[15,18]]) == [[1,6],[8,10],[15,18]]\n    assert candidate([[1,4],[4,5]]) == [[1,5]]\n    assert candidate([]) == []\n    assert candidate([[5,5]]) == [[5,5]]\n    assert candidate([[3,5],[1,2]]) == [[1,2],[3,5]]\n"
+}

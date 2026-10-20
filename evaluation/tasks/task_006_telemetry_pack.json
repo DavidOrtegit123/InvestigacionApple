@@ -1,0 +1,10 @@
+{
+  "id": "task_006_telemetry_pack",
+  "category": "data_format",
+  "prompt": "Based on the Kestrel-9 telemetry packing documentation, write a Python function pack_telemetry(values) that takes a list of integers (0-255) and returns the packed string according to the documented rules, including the final checksum.",
+  "reference_doc_title": "Kestrel-9 - Telemetry packing",
+  "reference_doc_content": "Kestrel-9 documentation -- Telemetry packing\n\nKestrel-9 packs a list of integer readings (0-255) into a single string for transmission. Each reading is written as exactly 3 decimal digits with leading zeros (000-255), concatenated in order. At the end a 2-digit checksum is appended, computed as the sum of all readings modulo 100, also with leading zeros. Example: [1, 255, 10] -> \"001\"+\"255\"+\"010\"+checksum(266 mod 100 = 66 -> \"66\") = \"00125501066\".",
+  "entry_point": "pack_telemetry",
+  "reference_solution": "def pack_telemetry(values):\n    body = \"\".join(f\"{v:03d}\" for v in values)\n    checksum = sum(values) % 100\n    return body + f\"{checksum:02d}\"\n",
+  "test_code": "def check(candidate):\n    assert candidate([1, 255, 10]) == \"00125501066\"\n    assert candidate([0]) == \"00000\"\n    assert candidate([]) == \"00\"\n    assert candidate([99, 1]) == \"09900100\"\n"
+}

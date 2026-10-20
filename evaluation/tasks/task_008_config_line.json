@@ -1,0 +1,10 @@
+{
+  "id": "task_008_config_line",
+  "category": "data_format",
+  "prompt": "Based on the Kestrel-9 configuration line format documentation, write a Python function parse_config(line) that takes a configuration line and returns a dictionary with the key-value pairs, according to the documented rules.",
+  "reference_doc_title": "Kestrel-9 - Configuration line format",
+  "reference_doc_content": "Kestrel-9 documentation -- Configuration line format\n\nA Kestrel-9 configuration line contains key=value pairs separated by ';'. Each pair has the format KEY=VALUE, where the value may contain the character '=' (the value is everything after the FIRST '=' in that segment; do not use a naive split that breaks if the value contains more '=' signs). Empty segments (for example, a trailing ';' with nothing after it) are ignored. An empty line produces an empty result.",
+  "entry_point": "parse_config",
+  "reference_solution": "def parse_config(line):\n    result = {}\n    if not line:\n        return result\n    for segment in line.split(';'):\n        if not segment:\n            continue\n        key, _, value = segment.partition('=')\n        result[key] = value\n    return result\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"a=1;b=2\") == {\"a\": \"1\", \"b\": \"2\"}\n    assert candidate(\"x=\") == {\"x\": \"\"}\n    assert candidate(\"\") == {}\n    assert candidate(\"a=1==2\") == {\"a\": \"1==2\"}\n    assert candidate(\"solo=yes;\") == {\"solo\": \"yes\"}\n"
+}

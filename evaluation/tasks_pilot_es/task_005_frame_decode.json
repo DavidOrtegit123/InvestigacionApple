@@ -1,0 +1,10 @@
+{
+  "id": "task_005_frame_decode",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion del protocolo de framing de Kestrel-9, escribe una funcion Python decode_frames(data) que reciba una cadena con uno o mas frames concatenados y devuelva una lista con los payloads decodificados, en orden.",
+  "reference_doc_title": "Kestrel-9 - Protocolo de Framing",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Protocolo de Framing\n\nEl protocolo de framing de Kestrel-9 empaqueta uno o mas mensajes en una sola cadena, sin separadores entre frames. Cada frame tiene el formato <longitud>:<payload>, donde <longitud> es la longitud en caracteres del payload que le sigue, escrita en decimal (puede tener uno o mas digitos), seguida de ':' y despues exactamente esa cantidad de caracteres de payload. El siguiente frame comienza inmediatamente despues, sin espacio ni separador. Ejemplo: \"5:hello3:foo\" contiene dos frames: \"hello\" (longitud 5) y \"foo\" (longitud 3).",
+  "entry_point": "decode_frames",
+  "reference_solution": "def decode_frames(data):\n    result = []\n    i = 0\n    n = len(data)\n    while i < n:\n        colon = data.index(':', i)\n        length = int(data[i:colon])\n        start = colon + 1\n        end = start + length\n        result.append(data[start:end])\n        i = end\n    return result\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"5:hello3:foo\") == [\"hello\", \"foo\"]\n    assert candidate(\"0:3:abc\") == [\"\", \"abc\"]\n    assert candidate(\"11:hello world\") == [\"hello world\"]\n    assert candidate(\"\") == []\n    assert candidate(\"1:a1:b1:c\") == [\"a\", \"b\", \"c\"]\n"
+}

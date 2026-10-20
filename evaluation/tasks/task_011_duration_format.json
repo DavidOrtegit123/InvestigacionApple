@@ -1,0 +1,10 @@
+{
+  "id": "task_011_duration_format",
+  "category": "data_format",
+  "prompt": "Based on the Kestrel-9 log duration format documentation, write a Python function format_duration(total_seconds) that returns the formatted string according to the documented rules.",
+  "reference_doc_title": "Kestrel-9 - Log duration format",
+  "reference_doc_content": "Kestrel-9 documentation -- Log duration format\n\nKestrel-9 formats a duration in seconds (a non-negative integer) for its logs with these rules: if the duration is less than 60 seconds, it is written as \"{seconds}s\". If it is greater than or equal to 60 but less than 3600 (one hour), it is written as \"{minutes}m{seconds:02d}s\", with the remaining seconds in 2 digits. If it is greater than or equal to 3600, it is written as \"{hours}h{minutes:02d}m\" -- IMPORTANT: in this last case the remaining seconds are dropped completely and not shown at all (unlike common time-formatting libraries, which normally keep the seconds). Example: 3661 seconds (1 hour, 1 minute, 1 second) is formatted as \"1h01m\", without the remaining second.",
+  "entry_point": "format_duration",
+  "reference_solution": "def format_duration(total_seconds):\n    if total_seconds < 60:\n        return f\"{total_seconds}s\"\n    if total_seconds < 3600:\n        minutes = total_seconds // 60\n        seconds = total_seconds % 60\n        return f\"{minutes}m{seconds:02d}s\"\n    hours = total_seconds // 3600\n    minutes = (total_seconds % 3600) // 60\n    return f\"{hours}h{minutes:02d}m\"\n",
+  "test_code": "def check(candidate):\n    assert candidate(45) == \"45s\"\n    assert candidate(125) == \"2m05s\"\n    assert candidate(3661) == \"1h01m\"\n    assert candidate(59) == \"59s\"\n    assert candidate(3600) == \"1h00m\"\n    assert candidate(7325) == \"2h02m\"\n"
+}

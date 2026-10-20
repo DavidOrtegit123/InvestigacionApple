@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Xcode user-specific data
+xcuserdata/
+DerivedData/
+*.xcuserstate
+
+# Python
+__pycache__/
+*.pyc
+
+# Core AI model exports (multi-GB; re-export with coreai-models — see README)
+ArchivedModels/
+*_static/
+*.aimodel
+*.aimodelc
+
+# Not part of the public research repo
+Presentation/
+docs/superpowers/
+evaluation/figures/*.pptx

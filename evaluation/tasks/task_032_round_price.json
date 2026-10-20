@@ -1,0 +1,10 @@
+{
+  "id": "task_032_round_price",
+  "prompt": "The Vireo pricing module documents the expected behavior of round_price and lists bugs found in the previous version. Based on that documentation, write a Python function round_price(cents) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+  "reference_doc_title": "Vireo - round_price specification and bug reports",
+  "reference_doc_content": "Vireo documentation -- round_price\n\nround_price(cents) takes an integer amount in cents (it may be negative for refunds) and returns it rounded to the nearest multiple of 10 cents, as an integer.\n\nBug reports fixed in version 2 (the new version must behave as described):\n- Bug #112: the old version used Python's built-in round(), which rounds ties to the nearest even number, so 25 became 20 and 35 became 40. Ties (amounts ending in 5) must ALWAYS round away from zero: 25 -> 30, 35 -> 40.\n- Bug #117: refunds were rounded differently from charges. Rounding must be symmetric around zero: -25 -> -30, -14 -> -10, -16 -> -20.",
+  "entry_point": "round_price",
+  "reference_solution": "def round_price(cents):\n    sign = -1 if cents < 0 else 1\n    magnitude = abs(cents)\n    return sign * ((magnitude + 5) // 10 * 10)\n",
+  "test_code": "def check(candidate):\n    assert candidate(0) == 0\n    assert candidate(14) == 10\n    assert candidate(16) == 20\n    assert candidate(25) == 30\n    assert candidate(35) == 40\n    assert candidate(1005) == 1010\n    assert candidate(-25) == -30\n    assert candidate(-14) == -10\n    assert candidate(-16) == -20\n    assert candidate(-5) == -10\n",
+  "category": "bugfix_completion"
+}

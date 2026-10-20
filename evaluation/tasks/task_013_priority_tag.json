@@ -1,0 +1,10 @@
+{
+  "id": "task_013_priority_tag",
+  "category": "data_format",
+  "prompt": "Based on the Kestrel-9 message priority tagging documentation, write a Python function tag_message(priority, message) that returns the tagged message according to the documented rules, clamping the priority if it is out of range.",
+  "reference_doc_title": "Kestrel-9 - Message priority tagging",
+  "reference_doc_content": "Kestrel-9 documentation -- Message priority tagging\n\nKestrel-9 tags every internal message with its priority before displaying it, in the format \"[P{priority}] {message}\". The system only accepts documented priorities between 0 (lowest) and 5 (highest); any value outside that range must be clamped to the nearest limit before inserting it into the tag -- values below 0 become 0, values above 5 become 5. Example: priority 7 with message \"overheat\" is tagged as \"[P5] overheat\".",
+  "entry_point": "tag_message",
+  "reference_solution": "def tag_message(priority, message):\n    clamped = max(0, min(5, priority))\n    return f\"[P{clamped}] {message}\"\n",
+  "test_code": "def check(candidate):\n    assert candidate(7, \"overheat\") == \"[P5] overheat\"\n    assert candidate(-2, \"ok\") == \"[P0] ok\"\n    assert candidate(3, \"nominal\") == \"[P3] nominal\"\n    assert candidate(0, \"boot\") == \"[P0] boot\"\n    assert candidate(5, \"max\") == \"[P5] max\"\n"
+}

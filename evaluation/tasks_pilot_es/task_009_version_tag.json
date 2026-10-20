@@ -1,0 +1,10 @@
+{
+  "id": "task_009_version_tag",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion del formato de version de firmware de Kestrel-9, escribe una funcion Python format_version(major, minor, patch) que devuelva la cadena de version segun las reglas documentadas.",
+  "reference_doc_title": "Kestrel-9 - Formato de Version de Firmware",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Formato de Version de Firmware\n\nKestrel-9 etiqueta versiones de firmware como \"v{major}.{minor}\" cuando el numero de parche (patch) es 0, o \"v{major}.{minor}.{patch}\" cuando patch es distinto de 0. El campo minor siempre se escribe con 2 digitos y ceros a la izquierda (por ejemplo, minor=2 se escribe \"02\"). Los campos major y patch se escriben sin ceros a la izquierda. Ejemplo: (1, 2, 0) -> \"v1.02\"; (1, 2, 3) -> \"v1.02.3\".",
+  "entry_point": "format_version",
+  "reference_solution": "def format_version(major, minor, patch):\n    base = f\"v{major}.{minor:02d}\"\n    if patch == 0:\n        return base\n    return f\"{base}.{patch}\"\n",
+  "test_code": "def check(candidate):\n    assert candidate(1, 2, 0) == \"v1.02\"\n    assert candidate(1, 2, 3) == \"v1.02.3\"\n    assert candidate(0, 0, 0) == \"v0.00\"\n    assert candidate(10, 5, 12) == \"v10.05.12\"\n    assert candidate(2, 0, 0) == \"v2.00\"\n"
+}

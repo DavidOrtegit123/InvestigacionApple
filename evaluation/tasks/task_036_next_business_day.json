@@ -1,0 +1,10 @@
+{
+  "id": "task_036_next_business_day",
+  "prompt": "The Marlin calendar module documents the expected behavior of next_business_day and lists bugs found in the previous version. Based on that documentation, write a Python function next_business_day(day, holidays) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+  "reference_doc_title": "Marlin - next_business_day specification and bug reports",
+  "reference_doc_content": "Marlin documentation -- next_business_day\n\nMarlin numbers days with a non-negative integer day index. The weekday of a day is day % 7, where 0 is Monday and 6 is Sunday; days with weekday 5 (Saturday) or 6 (Sunday) are weekend days.\n\nnext_business_day(day, holidays) returns the day index of the next business day strictly AFTER day. A business day is a day that is not a weekend day and is not in holidays (a set of day indexes).\n\nBug reports fixed in version 2:\n- Bug #9: when day was itself a business day, the old version returned day unchanged. The result must always be strictly greater than day.\n- Bug #12: the old version skipped weekends first and checked holidays only once, so a holiday falling right after a weekend (or two holidays in a row) was returned as a business day. Every candidate day must be checked against both rules until a real business day is found.",
+  "entry_point": "next_business_day",
+  "reference_solution": "def next_business_day(day, holidays):\n    candidate = day + 1\n    while candidate % 7 in (5, 6) or candidate in holidays:\n        candidate += 1\n    return candidate\n",
+  "test_code": "def check(candidate):\n    assert candidate(0, set()) == 1\n    assert candidate(3, set()) == 4\n    assert candidate(4, set()) == 7\n    assert candidate(5, set()) == 7\n    assert candidate(4, {7}) == 8\n    assert candidate(4, {7, 8, 9}) == 10\n    assert candidate(1, {2, 3}) == 4\n    assert candidate(3, {4}) == 7\n",
+  "category": "bugfix_completion"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "task_010_coordinate_pack",
+  "category": "data_format",
+  "prompt": "Based on the Kestrel-9 sensor coordinate packing documentation, write a Python function pack_coord(x, y) that returns the compact 8-digit string according to the documented rules.",
+  "reference_doc_title": "Kestrel-9 - Sensor coordinate packing",
+  "reference_doc_content": "Kestrel-9 documentation -- Sensor coordinate packing\n\nKestrel-9 packs a coordinate (x, y), both values in the range [-50.0, 50.0], into a compact 8-digit string. Each component is quantized by multiplying it by 10, rounding to the nearest integer, and adding 500 (so the range becomes 0 to 1000). The result is written as 4 decimal digits with leading zeros. The two components are concatenated in the order x, y, with no separator, giving 8 digits in total. Example: (0.0, 0.0) -> quantized x = 0*10+500 = 500 -> \"0500\"; y likewise -> \"0500\"; result \"05000500\".",
+  "entry_point": "pack_coord",
+  "reference_solution": "def pack_coord(x, y):\n    def quantize(v):\n        return round(v * 10) + 500\n    qx = quantize(x)\n    qy = quantize(y)\n    return f\"{qx:04d}{qy:04d}\"\n",
+  "test_code": "def check(candidate):\n    assert candidate(0.0, 0.0) == \"05000500\"\n    assert candidate(-50.0, 50.0) == \"00001000\"\n    assert candidate(50.0, -50.0) == \"10000000\"\n    assert candidate(3.0, -3.0) == \"05300470\"\n    assert candidate(1.0, 2.0) == \"05100520\"\n"
+}

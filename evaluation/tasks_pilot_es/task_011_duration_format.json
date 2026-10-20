@@ -1,0 +1,10 @@
+{
+  "id": "task_011_duration_format",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion del formato de duracion en bitacoras de Kestrel-9, escribe una funcion Python format_duration(total_seconds) que devuelva la cadena formateada segun las reglas documentadas.",
+  "reference_doc_title": "Kestrel-9 - Formato de Duracion en Bitacoras",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Formato de Duracion en Bitacoras\n\nKestrel-9 formatea una duracion en segundos (entero no negativo) para sus bitacoras con estas reglas: si la duracion es menor a 60 segundos, se escribe como \"{segundos}s\". Si es mayor o igual a 60 pero menor a 3600 (una hora), se escribe como \"{minutos}m{segundos:02d}s\", con los segundos restantes en 2 digitos. Si es mayor o igual a 3600, se escribe como \"{horas}h{minutos:02d}m\" -- IMPORTANTE: en este ultimo caso los segundos restantes se descartan por completo, no se muestran en absoluto (a diferencia de bibliotecas de formato de tiempo comunes, que normalmente conservan los segundos). Ejemplo: 3661 segundos (1 hora, 1 minuto, 1 segundo) se formatea como \"1h01m\", sin el segundo restante.",
+  "entry_point": "format_duration",
+  "reference_solution": "def format_duration(total_seconds):\n    if total_seconds < 60:\n        return f\"{total_seconds}s\"\n    if total_seconds < 3600:\n        minutes = total_seconds // 60\n        seconds = total_seconds % 60\n        return f\"{minutes}m{seconds:02d}s\"\n    hours = total_seconds // 3600\n    minutes = (total_seconds % 3600) // 60\n    return f\"{hours}h{minutes:02d}m\"\n",
+  "test_code": "def check(candidate):\n    assert candidate(45) == \"45s\"\n    assert candidate(125) == \"2m05s\"\n    assert candidate(3661) == \"1h01m\"\n    assert candidate(59) == \"59s\"\n    assert candidate(3600) == \"1h00m\"\n    assert candidate(7325) == \"2h02m\"\n"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "task_008_config_line",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion del formato de linea de configuracion de Kestrel-9, escribe una funcion Python parse_config(line) que reciba una linea de configuracion y devuelva un diccionario con los pares clave-valor, segun las reglas documentadas.",
+  "reference_doc_title": "Kestrel-9 - Formato de Linea de Configuracion",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Formato de Linea de Configuracion\n\nUna linea de configuracion de Kestrel-9 contiene pares clave=valor separados por ';'. Cada par tiene el formato CLAVE=VALOR, donde el valor puede contener el caracter '=' (el valor es todo lo que sigue despues del PRIMER '=' en ese segmento; no se debe usar un split ingenuo que se rompa si el valor tiene mas signos '='). Segmentos vacios (por ejemplo, un ';' final sin nada despues) se ignoran. Una linea vacia produce un resultado vacio.",
+  "entry_point": "parse_config",
+  "reference_solution": "def parse_config(line):\n    result = {}\n    if not line:\n        return result\n    for segment in line.split(';'):\n        if not segment:\n            continue\n        key, _, value = segment.partition('=')\n        result[key] = value\n    return result\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"a=1;b=2\") == {\"a\": \"1\", \"b\": \"2\"}\n    assert candidate(\"x=\") == {\"x\": \"\"}\n    assert candidate(\"\") == {}\n    assert candidate(\"a=1==2\") == {\"a\": \"1==2\"}\n    assert candidate(\"solo=yes;\") == {\"solo\": \"yes\"}\n"
+}

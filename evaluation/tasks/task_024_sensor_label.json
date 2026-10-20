@@ -1,0 +1,10 @@
+{
+  "id": "task_024_sensor_label",
+  "prompt": "Based on the Halcyon sensor label naming rules, write a Python function is_valid_label(label) that returns True if label follows all the documented rules, or False otherwise.",
+  "reference_doc_title": "Halcyon - Sensor label naming rules",
+  "reference_doc_content": "Halcyon documentation -- Sensor label naming rules\n\nEvery sensor label registered in Halcyon must follow ALL of these rules:\n1. Its length is between 6 and 12 characters (inclusive).\n2. The first character is a lowercase letter (a-z).\n3. It contains only lowercase letters (a-z), digits (0-9), and the underscore \"_\".\n4. It contains at least one digit.\n5. It never contains two underscores in a row (\"__\"), and it does not end with an underscore.\n\nExamples: \"temp_01\" is valid; \"Temp_01\" is invalid (uppercase first letter); \"temp__01\" is invalid (double underscore); \"temperature\" is invalid (no digit).",
+  "entry_point": "is_valid_label",
+  "reference_solution": "def is_valid_label(label):\n    if not isinstance(label, str) or not 6 <= len(label) <= 12:\n        return False\n    if not (\"a\" <= label[0] <= \"z\"):\n        return False\n    allowed = set(\"abcdefghijklmnopqrstuvwxyz0123456789_\")\n    if any(ch not in allowed for ch in label):\n        return False\n    if not any(ch.isdigit() for ch in label):\n        return False\n    return \"__\" not in label and not label.endswith(\"_\")\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"temp_01\") is True\n    assert candidate(\"a1b2c3\") is True\n    assert candidate(\"abcdefghij12\") is True\n    assert candidate(\"Temp_01\") is False\n    assert candidate(\"1temp_01\") is False\n    assert candidate(\"temp__01\") is False\n    assert candidate(\"temp01_\") is False\n    assert candidate(\"temperature\") is False\n    assert candidate(\"t_1\") is False\n    assert candidate(\"abcdefghij123\") is False\n    assert candidate(\"temp-01\") is False\n",
+  "category": "validation_rules"
+}

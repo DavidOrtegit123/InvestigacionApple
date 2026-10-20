@@ -1,0 +1,10 @@
+{
+  "id": "task_002_window_limiter",
+  "category": "api_usage",
+  "prompt": "Basandote en la documentacion de la clase WindowLimiter del SDK interno de Kestrel-9, escribe una funcion Python allow_request(limiter, now) que reciba una instancia de WindowLimiter y un timestamp entero now, y devuelva True si la peticion debe permitirse segun las reglas documentadas (actualizando el estado interno del limiter), o False si debe rechazarse.",
+  "reference_doc_title": "SDK Kestrel-9 - clase WindowLimiter",
+  "reference_doc_content": "Documentacion del SDK de Kestrel-9 -- clase WindowLimiter\n\nWindowLimiter controla cuantas peticiones se permiten dentro de una ventana deslizante de 10 segundos. Atributos:\n- max_requests (int): numero maximo de peticiones permitidas por ventana.\n- timestamps (list of int): marcas de tiempo (en segundos) de las peticiones aceptadas hasta ahora, en cualquier orden.\n\nRegla: al recibir una nueva peticion con timestamp now, primero se deben descartar de timestamps todas las marcas anteriores a now - 10 (fuera de la ventana). Despues, si el numero de marcas restantes es menor que max_requests, la peticion se permite: se agrega now a timestamps y se devuelve True. Si no, la peticion se rechaza: no se modifica timestamps y se devuelve False.",
+  "entry_point": "allow_request",
+  "reference_solution": "def allow_request(limiter, now):\n    limiter.timestamps = [t for t in limiter.timestamps if t >= now - 10]\n    if len(limiter.timestamps) < limiter.max_requests:\n        limiter.timestamps.append(now)\n        return True\n    return False\n",
+  "test_code": "class _Limiter:\n    def __init__(self, max_requests, timestamps):\n        self.max_requests = max_requests\n        self.timestamps = list(timestamps)\n\ndef check(candidate):\n    lim = _Limiter(max_requests=2, timestamps=[])\n    assert candidate(lim, 0) is True\n    assert candidate(lim, 1) is True\n    assert candidate(lim, 2) is False\n    assert candidate(lim, 11) is True\n    lim2 = _Limiter(max_requests=1, timestamps=[100])\n    assert candidate(lim2, 105) is False\n    assert candidate(lim2, 111) is True\n"
+}

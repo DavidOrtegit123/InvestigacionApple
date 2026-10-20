@@ -1,0 +1,10 @@
+{
+  "id": "task_010_coordinate_pack",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion del empaquetado de coordenadas de sensor de Kestrel-9, escribe una funcion Python pack_coord(x, y) que devuelva la cadena compacta de 8 digitos segun las reglas documentadas.",
+  "reference_doc_title": "Kestrel-9 - Empaquetado de Coordenadas de Sensor",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Empaquetado de Coordenadas de Sensor\n\nKestrel-9 empaqueta una coordenada (x, y), ambos valores en el rango [-50.0, 50.0], en una cadena compacta de 8 digitos. Cada componente se cuantiza multiplicandolo por 10, redondeando al entero mas cercano, y sumando 500 (para que el rango quede entre 0 y 1000). El resultado se escribe como 4 digitos decimales con ceros a la izquierda. Los dos componentes se concatenan en orden x, y, sin separador, dando 8 digitos en total. Ejemplo: (0.0, 0.0) -> x cuantizado = 0*10+500 = 500 -> \"0500\"; y igual -> \"0500\"; resultado \"05000500\".",
+  "entry_point": "pack_coord",
+  "reference_solution": "def pack_coord(x, y):\n    def quantize(v):\n        return round(v * 10) + 500\n    qx = quantize(x)\n    qy = quantize(y)\n    return f\"{qx:04d}{qy:04d}\"\n",
+  "test_code": "def check(candidate):\n    assert candidate(0.0, 0.0) == \"05000500\"\n    assert candidate(-50.0, 50.0) == \"00001000\"\n    assert candidate(50.0, -50.0) == \"10000000\"\n    assert candidate(3.0, -3.0) == \"05300470\"\n    assert candidate(1.0, 2.0) == \"05100520\"\n"
+}

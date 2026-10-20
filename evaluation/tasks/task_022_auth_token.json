@@ -1,0 +1,10 @@
+{
+  "id": "task_022_auth_token",
+  "category": "api_usage",
+  "prompt": "Based on the documentation of the Quillon API AuthClient, write a Python function get_token(client, now) that returns a valid access token using the documented client, refreshing it only when the rules say so.",
+  "reference_doc_title": "Quillon - AuthClient",
+  "reference_doc_content": "Quillon documentation -- AuthClient\n\nThe client object has:\n- client.token (str or None): the current token.\n- client.expires_at (int): timestamp in seconds at which the current token expires.\n- client.refresh() -> tuple: requests a new token from the server and returns (new_token, new_expires_at). It does not modify the object by itself.\n\nRules for get_token(client, now):\n- The token must be refreshed if client.token is None, or if the token has less than 60 seconds of life left (expires_at - now < 60).\n- To refresh: call client.refresh() once and store the result in client.token and client.expires_at.\n- If no refresh is needed, refresh() must not be called.\n- Return client.token.",
+  "entry_point": "get_token",
+  "reference_solution": "def get_token(client, now):\n    if client.token is None or client.expires_at - now < 60:\n        client.token, client.expires_at = client.refresh()\n    return client.token\n",
+  "test_code": "class _Client:\n    def __init__(self, token, expires_at):\n        self.token = token\n        self.expires_at = expires_at\n        self.refresh_calls = 0\n    def refresh(self):\n        self.refresh_calls += 1\n        return (\"tok%d\" % self.refresh_calls, 1000 * self.refresh_calls)\n\ndef check(candidate):\n    c = _Client(\"old\", 200)\n    assert candidate(c, 140) == \"old\"\n    assert c.refresh_calls == 0\n    assert candidate(c, 141) == \"tok1\"\n    assert c.refresh_calls == 1 and c.token == \"tok1\" and c.expires_at == 1000\n    c = _Client(None, 99999)\n    assert candidate(c, 0) == \"tok1\"\n    assert c.refresh_calls == 1 and c.expires_at == 1000\n"
+}

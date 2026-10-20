@@ -1,0 +1,10 @@
+{
+  "id": "task_018_sensor_read",
+  "category": "api_usage",
+  "prompt": "Based on the documentation of the Kestrel-9 TH-40 thermal sensor driver, write a Python function read_celsius(sensor) that gets a temperature reading in degrees Celsius using the sensor object as the documentation describes.",
+  "reference_doc_title": "Kestrel-9 - TH-40 sensor driver",
+  "reference_doc_content": "Kestrel-9 TH-40 driver documentation\n\nThe sensor object exposes:\n- sensor.read_raw() -> int: returns a raw reading from the converter. Each call takes a new measurement, and individual readings are noisy.\n- sensor.offset (int) and sensor.gain (int): calibration constants specific to each unit.\n\nReading procedure:\n1. Call read_raw() exactly 3 times.\n2. Take the median of the 3 raw readings (not the mean).\n3. Convert to Celsius with: celsius = (median - offset) * gain / 100.\n4. Round the result to 1 decimal place with round() and return it as a float.",
+  "entry_point": "read_celsius",
+  "reference_solution": "def read_celsius(sensor):\n    readings = sorted(sensor.read_raw() for _ in range(3))\n    median = readings[1]\n    return float(round((median - sensor.offset) * sensor.gain / 100, 1))\n",
+  "test_code": "class _Sensor:\n    def __init__(self, readings, offset, gain):\n        self._readings = list(readings)\n        self.offset = offset\n        self.gain = gain\n        self.calls = 0\n    def read_raw(self):\n        self.calls += 1\n        return self._readings.pop(0)\n\ndef check(candidate):\n    s = _Sensor([520, 900, 510], offset=500, gain=150)\n    assert candidate(s) == 30.0\n    assert s.calls == 3\n    s = _Sensor([400, 401, 999, 5], offset=100, gain=33)\n    assert candidate(s) == 99.3\n    assert s.calls == 3\n    s = _Sensor([107, 103, 105], offset=100, gain=8)\n    assert candidate(s) == 0.4\n"
+}

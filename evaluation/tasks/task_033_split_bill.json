@@ -1,0 +1,10 @@
+{
+  "id": "task_033_split_bill",
+  "prompt": "The Pelican payments module documents the expected behavior of split_bill and lists bugs found in the previous version. Based on that documentation, write a Python function split_bill(total_cents, n) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+  "reference_doc_title": "Pelican - split_bill specification and bug reports",
+  "reference_doc_content": "Pelican documentation -- split_bill\n\nsplit_bill(total_cents, n) splits a non-negative integer amount of cents among n people and returns a list of n integers (one share per person, in order).\n\nBug reports fixed in version 2:\n- Bug #41: the old version used plain integer division for every share, so the shares did not add up to the total (for example 100 cents among 3 people gave [33, 33, 33] and one cent was lost). The shares must always add up exactly to total_cents. Each share is total_cents // n, and the leftover cents (total_cents % n) are given one each to the FIRST people in the list: 100 among 3 -> [34, 33, 33].\n- Bug #44: calling it with n equal to 0 or negative crashed with ZeroDivisionError or returned nonsense. For n <= 0 it must raise ValueError.",
+  "entry_point": "split_bill",
+  "reference_solution": "def split_bill(total_cents, n):\n    if n <= 0:\n        raise ValueError(\"n must be positive\")\n    base, extra = divmod(total_cents, n)\n    return [base + 1 if i < extra else base for i in range(n)]\n",
+  "test_code": "def check(candidate):\n    assert candidate(100, 3) == [34, 33, 33]\n    assert candidate(101, 3) == [34, 34, 33]\n    assert candidate(99, 3) == [33, 33, 33]\n    assert candidate(5, 1) == [5]\n    assert candidate(2, 4) == [1, 1, 0, 0]\n    assert candidate(0, 2) == [0, 0]\n    for bad in (0, -2):\n        try:\n            candidate(10, bad)\n        except ValueError:\n            pass\n        else:\n            raise AssertionError(\"expected ValueError\")\n",
+  "category": "bugfix_completion"
+}

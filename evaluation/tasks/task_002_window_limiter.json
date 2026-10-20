@@ -1,0 +1,10 @@
+{
+  "id": "task_002_window_limiter",
+  "category": "api_usage",
+  "prompt": "Based on the documentation of the WindowLimiter class in the internal Kestrel-9 SDK, write a Python function allow_request(limiter, now) that takes a WindowLimiter instance and an integer timestamp now, and returns True if the request should be allowed according to the documented rules (updating the limiter's internal state), or False if it should be rejected.",
+  "reference_doc_title": "Kestrel-9 SDK - WindowLimiter class",
+  "reference_doc_content": "Kestrel-9 SDK documentation -- WindowLimiter class\n\nWindowLimiter controls how many requests are allowed within a sliding 10-second window. Attributes:\n- max_requests (int): maximum number of requests allowed per window.\n- timestamps (list of int): timestamps (in seconds) of the requests accepted so far, in any order.\n\nRule: when a new request arrives with timestamp now, first discard from timestamps every timestamp earlier than now - 10 (outside the window). Then, if the number of remaining timestamps is less than max_requests, the request is allowed: append now to timestamps and return True. Otherwise the request is rejected: timestamps is not modified and False is returned.",
+  "entry_point": "allow_request",
+  "reference_solution": "def allow_request(limiter, now):\n    limiter.timestamps = [t for t in limiter.timestamps if t >= now - 10]\n    if len(limiter.timestamps) < limiter.max_requests:\n        limiter.timestamps.append(now)\n        return True\n    return False\n",
+  "test_code": "class _Limiter:\n    def __init__(self, max_requests, timestamps):\n        self.max_requests = max_requests\n        self.timestamps = list(timestamps)\n\ndef check(candidate):\n    lim = _Limiter(max_requests=2, timestamps=[])\n    assert candidate(lim, 0) is True\n    assert candidate(lim, 1) is True\n    assert candidate(lim, 2) is False\n    assert candidate(lim, 11) is True\n    lim2 = _Limiter(max_requests=1, timestamps=[100])\n    assert candidate(lim2, 105) is False\n    assert candidate(lim2, 111) is True\n"
+}

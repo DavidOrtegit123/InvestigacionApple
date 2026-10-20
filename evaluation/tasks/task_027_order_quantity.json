@@ -1,0 +1,10 @@
+{
+  "id": "task_027_order_quantity",
+  "prompt": "Based on the Marlin order quantity rules, write a Python function is_valid_quantity(product_type, qty) that returns True if qty is an allowed quantity for that product type according to the documented rules, or False otherwise.",
+  "reference_doc_title": "Marlin - Order quantity rules",
+  "reference_doc_content": "Marlin documentation -- Order quantity rules\n\nThe allowed quantity depends on the product type:\n- \"bulk\": a multiple of 25, from 100 to 10000 (inclusive).\n- \"unit\": any whole number from 1 to 99 (inclusive).\n- \"sample\": exactly 1 or exactly 3 (2 is not allowed).\n- Any other product type is unknown and no quantity is valid for it.\n\nThe quantity must be an int. Booleans (True/False) are NOT valid quantities even though Python treats them as integers, and floats such as 5.0 are not valid either.",
+  "entry_point": "is_valid_quantity",
+  "reference_solution": "def is_valid_quantity(product_type, qty):\n    if isinstance(qty, bool) or not isinstance(qty, int):\n        return False\n    if product_type == \"bulk\":\n        return 100 <= qty <= 10000 and qty % 25 == 0\n    if product_type == \"unit\":\n        return 1 <= qty <= 99\n    if product_type == \"sample\":\n        return qty in (1, 3)\n    return False\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"bulk\", 100) is True\n    assert candidate(\"bulk\", 10000) is True\n    assert candidate(\"bulk\", 125) is True\n    assert candidate(\"bulk\", 110) is False\n    assert candidate(\"bulk\", 75) is False\n    assert candidate(\"bulk\", 10025) is False\n    assert candidate(\"unit\", 1) is True\n    assert candidate(\"unit\", 99) is True\n    assert candidate(\"unit\", 0) is False\n    assert candidate(\"unit\", 100) is False\n    assert candidate(\"sample\", 3) is True\n    assert candidate(\"sample\", 2) is False\n    assert candidate(\"unit\", True) is False\n    assert candidate(\"unit\", 5.0) is False\n    assert candidate(\"crate\", 10) is False\n",
+  "category": "validation_rules"
+}

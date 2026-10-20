@@ -1,0 +1,10 @@
+{
+  "id": "task_013_priority_tag",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion del etiquetado de prioridad de mensajes de Kestrel-9, escribe una funcion Python tag_message(priority, message) que devuelva el mensaje etiquetado segun las reglas documentadas, ajustando (clamp) la prioridad si esta fuera de rango.",
+  "reference_doc_title": "Kestrel-9 - Etiquetado de Prioridad de Mensajes",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Etiquetado de Prioridad de Mensajes\n\nKestrel-9 etiqueta cada mensaje interno con su prioridad antes de mostrarlo, en el formato \"[P{prioridad}] {mensaje}\". El sistema solo acepta prioridades documentadas entre 0 (mas baja) y 5 (mas alta); cualquier valor fuera de ese rango debe ajustarse (clamp) al limite mas cercano antes de insertarlo en la etiqueta -- valores menores a 0 se convierten en 0, valores mayores a 5 se convierten en 5. Ejemplo: prioridad 7 con mensaje \"overheat\" se etiqueta como \"[P5] overheat\".",
+  "entry_point": "tag_message",
+  "reference_solution": "def tag_message(priority, message):\n    clamped = max(0, min(5, priority))\n    return f\"[P{clamped}] {message}\"\n",
+  "test_code": "def check(candidate):\n    assert candidate(7, \"overheat\") == \"[P5] overheat\"\n    assert candidate(-2, \"ok\") == \"[P0] ok\"\n    assert candidate(3, \"nominal\") == \"[P3] nominal\"\n    assert candidate(0, \"boot\") == \"[P0] boot\"\n    assert candidate(5, \"max\") == \"[P5] max\"\n"
+}

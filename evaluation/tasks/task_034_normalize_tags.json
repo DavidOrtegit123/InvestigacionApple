@@ -1,0 +1,10 @@
+{
+  "id": "task_034_normalize_tags",
+  "prompt": "The Halcyon content service documents the expected behavior of normalize_tags and lists bugs found in the previous version. Based on that documentation, write a Python function normalize_tags(text) that implements exactly the documented behavior, including the fixes described in the bug reports.",
+  "reference_doc_title": "Halcyon - normalize_tags specification and bug reports",
+  "reference_doc_content": "Halcyon documentation -- normalize_tags\n\nnormalize_tags(text) takes a comma-separated string of tags typed by a user and returns a list of clean tags:\n- Split the text on commas. Remove spaces at both ends of each tag and convert it to lowercase.\n- Drop empty tags (for example from \",,\" or a trailing comma).\n- Tags longer than 20 characters are cut to their first 20 characters.\n\nBug reports fixed in version 2:\n- Bug #208: duplicates were detected case-sensitively, so \"News, news\" produced two tags. Duplicates must be detected after lowercasing and cutting to 20 characters; only the FIRST occurrence is kept.\n- Bug #211: the old version returned the tags sorted alphabetically. The result must keep the order in which each tag first appeared in the text.",
+  "entry_point": "normalize_tags",
+  "reference_solution": "def normalize_tags(text):\n    result = []\n    seen = set()\n    for raw in text.split(\",\"):\n        tag = raw.strip().lower()[:20]\n        if not tag or tag in seen:\n            continue\n        seen.add(tag)\n        result.append(tag)\n    return result\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"News, news ,Sports\") == [\"news\", \"sports\"]\n    assert candidate(\"zeta,alpha,Zeta\") == [\"zeta\", \"alpha\"]\n    assert candidate(\"\") == []\n    assert candidate(\" , ,a,\") == [\"a\"]\n    long1 = \"abcdefghijklmnopqrstuvwxyz\"\n    long2 = \"ABCDEFGHIJKLMNOPQRSTXX\"\n    assert candidate(long1 + \",\" + long2) == [\"abcdefghijklmnopqrst\"]\n    assert candidate(\"  Machine Learning ,AI\") == [\"machine learning\", \"ai\"]\n",
+  "category": "bugfix_completion"
+}

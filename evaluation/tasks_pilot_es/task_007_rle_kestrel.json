@@ -1,0 +1,10 @@
+{
+  "id": "task_007_rle_kestrel",
+  "category": "data_format",
+  "prompt": "Basandote en la documentacion de la compresion de telemetria de Kestrel-9 (RLE Kestrel), escribe una funcion Python encode_runs(text) que reciba una cadena y devuelva su version comprimida segun las reglas documentadas.",
+  "reference_doc_title": "Kestrel-9 - Compresion RLE de Telemetria",
+  "reference_doc_content": "Documentacion de Kestrel-9 -- Compresion de Telemetria (RLE Kestrel)\n\nKestrel-9 comprime cadenas de caracteres repetidos con una variante propia de run-length encoding: una racha de un mismo caracter con longitud mayor a 1 se escribe como <longitud><caracter> (por ejemplo, 3 veces 'a' se escribe \"3a\"). Una racha de longitud exactamente 1 se escribe SOLO como el caracter, sin ningun numero delante (a diferencia de RLE estandar, que siempre incluye el numero 1). Ejemplo: \"aaabccc\" -> \"3ab3c\" (3 a's, luego 'b' sin numero porque aparece una sola vez, luego 3 c's).",
+  "entry_point": "encode_runs",
+  "reference_solution": "def encode_runs(text):\n    if not text:\n        return \"\"\n    result = []\n    prev = text[0]\n    count = 1\n    for ch in text[1:]:\n        if ch == prev:\n            count += 1\n        else:\n            result.append(f\"{count}{prev}\" if count > 1 else prev)\n            prev = ch\n            count = 1\n    result.append(f\"{count}{prev}\" if count > 1 else prev)\n    return \"\".join(result)\n",
+  "test_code": "def check(candidate):\n    assert candidate(\"aaabccc\") == \"3ab3c\"\n    assert candidate(\"\") == \"\"\n    assert candidate(\"abc\") == \"abc\"\n    assert candidate(\"aaaa\") == \"4a\"\n    assert candidate(\"aabbaa\") == \"2a2b2a\"\n"
+}
