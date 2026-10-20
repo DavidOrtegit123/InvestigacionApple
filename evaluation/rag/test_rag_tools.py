@@ -58,5 +58,62 @@ class BuilderTests(unittest.TestCase):
                          {"task_id": "t1", "variant": "stripped", "query": "Plain"})
 
 
+from score_retrieval import (check_reproduction, gold_passages, score_pipeline_a,
+                             score_pipeline_b, summarize)
+
+
+class ScorerTests(unittest.TestCase):
+    SECTIONS = [{"title": "A - one", "task_id": "t1", "category": "data_format",
+                 "content": "Hello world.\nSecond line."}]
+
+    def passages(self):
+        return [{"id": "m#0.1", "section_title": "A - one", "section_index": 0, "passage_index": 1,
+                 "text": "Second line."},
+                {"id": "m#0.0", "section_title": "A - one", "section_index": 0, "passage_index": 0,
+                 "text": "Hello world."}]
+
+    def test_check_reproduction_accepts_complete_passages(self):
+        self.assertEqual(check_reproduction(self.passages(), self.SECTIONS), [])
+
+    def test_check_reproduction_flags_lost_text(self):
+        passages = self.passages()
+        passages[0]["text"] = "Second"
+        self.assertTrue(check_reproduction(passages, self.SECTIONS))
+
+    def test_check_reproduction_flags_unknown_section(self):
+        passages = self.passages() + [{"id": "m#1.0", "section_title": "Z", "section_index": 1,
+                                       "passage_index": 0, "text": "x"}]
+        self.assertTrue(any("unknown" in p for p in check_reproduction(passages, self.SECTIONS)))
+
+    def test_gold_passages(self):
+        self.assertEqual(sorted(gold_passages(self.passages(), self.SECTIONS)["t1"]), ["m#0.0", "m#0.1"])
+
+    def test_pipeline_b_hit(self):
+        gold = {"t1": ["m#0.0", "m#0.1"]}
+        result = {"task_id": "t1", "ranking": ["m#1.0", "m#0.1", "m#1.1", "m#1.2", "m#1.3", "m#0.0"]}
+        self.assertEqual(score_pipeline_b(result, gold), {"hit": 1, "coverage": 0.5, "reciprocal_rank": 0.5})
+
+    def test_pipeline_b_miss_uses_full_ranking_for_mrr(self):
+        gold = {"t1": ["m#0.0"]}
+        result = {"task_id": "t1", "ranking": ["m#1.0", "m#1.1", "m#1.2", "m#1.3", "m#1.4", "m#1.5", "m#0.0"]}
+        self.assertEqual(score_pipeline_b(result, gold), {"hit": 0, "coverage": 0.0, "reciprocal_rank": 1 / 7})
+
+    def test_pipeline_a(self):
+        self.assertEqual(score_pipeline_a({"retrieved_manual_ids": ["data_format", "api_usage"]}, "data_format"),
+                         {"recall_at_1": 1})
+        self.assertEqual(score_pipeline_a({"retrieved_manual_ids": ["api_usage"]}, "data_format"),
+                         {"recall_at_1": 0})
+        self.assertEqual(score_pipeline_a({"retrieved_manual_ids": []}, "data_format"), {"recall_at_1": 0})
+
+    def test_summarize(self):
+        rows = [{"variant": "main", "category": "a", "hit": 1},
+                {"variant": "main", "category": "a", "hit": 0},
+                {"variant": "main", "category": "b", "hit": 1}]
+        summary = summarize(rows, ["hit"])
+        self.assertEqual(summary["main"]["all"], {"n": 3, "hit": 2 / 3})
+        self.assertEqual(summary["main"]["a"], {"n": 2, "hit": 0.5})
+        self.assertEqual(summary["main"]["b"], {"n": 1, "hit": 1.0})
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,2673 @@
+{
+  "settings": {
+    "top_k": 5,
+    "passages": 140,
+    "passages_without_vector": 0
+  },
+  "pipeline_a": {
+    "summary": {
+      "main": {
+        "all": {
+          "n": 40,
+          "recall_at_1": 0.45
+        },
+        "api_usage": {
+          "n": 10,
+          "recall_at_1": 0.7
+        },
+        "bugfix_completion": {
+          "n": 10,
+          "recall_at_1": 0.5
+        },
+        "data_format": {
+          "n": 10,
+          "recall_at_1": 0.3
+        },
+        "validation_rules": {
+          "n": 10,
+          "recall_at_1": 0.3
+        }
+      },
+      "stripped": {
+        "all": {
+          "n": 40,
+          "recall_at_1": 0.4
+        },
+        "api_usage": {
+          "n": 10,
+          "recall_at_1": 0.7
+        },
+        "bugfix_completion": {
+          "n": 10,
+          "recall_at_1": 0.4
+        },
+        "data_format": {
+          "n": 10,
+          "recall_at_1": 0.3
+        },
+        "validation_rules": {
+          "n": 10,
+          "recall_at_1": 0.2
+        }
+      }
+    },
+    "per_query": [
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "data_format",
+          "api_usage"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_005_frame_decode",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "data_format",
+          "api_usage"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "data_format",
+          "bugfix_completion"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "data_format",
+          "validation_rules",
+          "api_usage"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_009_version_tag",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_010_coordinate_pack",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "data_format",
+          "api_usage",
+          "validation_rules",
+          "bugfix_completion"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_011_duration_format",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "data_format",
+          "validation_rules",
+          "api_usage"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "main",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_014_ledger_transfer",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_015_paged_fetch",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_017_event_bus_publish",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_018_sensor_read",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_019_job_queue_process",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_020_config_timeout",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_021_batch_upload",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_022_auth_token",
+        "variant": "main",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_023_batch_code",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_030_reading_errors",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_031_shift_schedule",
+        "variant": "main",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "data_format",
+          "bugfix_completion"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_032_round_price",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_033_split_bill",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "data_format",
+          "api_usage"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_034_normalize_tags",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_035_parse_duration",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_036_next_business_day",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_040_wrap_words",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "data_format",
+          "api_usage",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "data_format",
+          "api_usage"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "data_format",
+          "bugfix_completion"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_005_frame_decode",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_009_version_tag",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "data_format",
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_010_coordinate_pack",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_011_duration_format",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "stripped",
+        "category": "data_format",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_014_ledger_transfer",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_015_paged_fetch",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_017_event_bus_publish",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_018_sensor_read",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_019_job_queue_process",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_020_config_timeout",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_021_batch_upload",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_022_auth_token",
+        "variant": "stripped",
+        "category": "api_usage",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_023_batch_code",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_030_reading_errors",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_031_shift_schedule",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "data_format",
+          "bugfix_completion"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_032_round_price",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_033_split_bill",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_034_normalize_tags",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "data_format",
+          "api_usage"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_035_parse_duration",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "data_format",
+          "api_usage",
+          "validation_rules"
+        ],
+        "recall_at_1": 1
+      },
+      {
+        "task_id": "task_036_next_business_day",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "bugfix_completion",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ],
+        "recall_at_1": 0
+      },
+      {
+        "task_id": "task_040_wrap_words",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules"
+        ],
+        "recall_at_1": 0
+      }
+    ]
+  },
+  "pipeline_b": {
+    "summary": {
+      "main": {
+        "all": {
+          "n": 40,
+          "hit": 0.85,
+          "coverage": 0.3345833333333333,
+          "reciprocal_rank": 0.6959511077158136
+        },
+        "api_usage": {
+          "n": 10,
+          "hit": 1.0,
+          "coverage": 0.3666666666666667,
+          "reciprocal_rank": 0.8833333333333332
+        },
+        "bugfix_completion": {
+          "n": 10,
+          "hit": 0.8,
+          "coverage": 0.335,
+          "reciprocal_rank": 0.6771645021645021
+        },
+        "data_format": {
+          "n": 10,
+          "hit": 0.8,
+          "coverage": 0.31666666666666665,
+          "reciprocal_rank": 0.6040909090909091
+        },
+        "validation_rules": {
+          "n": 10,
+          "hit": 0.8,
+          "coverage": 0.31999999999999995,
+          "reciprocal_rank": 0.6192156862745098
+        }
+      },
+      "stripped": {
+        "all": {
+          "n": 40,
+          "hit": 0.725,
+          "coverage": 0.2708333333333333,
+          "reciprocal_rank": 0.6073689446214553
+        },
+        "api_usage": {
+          "n": 10,
+          "hit": 0.9,
+          "coverage": 0.31666666666666665,
+          "reciprocal_rank": 0.7208333333333333
+        },
+        "bugfix_completion": {
+          "n": 10,
+          "hit": 0.6,
+          "coverage": 0.21333333333333332,
+          "reciprocal_rank": 0.5948632668144864
+        },
+        "data_format": {
+          "n": 10,
+          "hit": 0.8,
+          "coverage": 0.3166666666666667,
+          "reciprocal_rank": 0.6186111111111112
+        },
+        "validation_rules": {
+          "n": 10,
+          "hit": 0.6,
+          "coverage": 0.23666666666666666,
+          "reciprocal_rank": 0.4951680672268908
+        }
+      }
+    },
+    "per_query": [
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 0.3333333333333333
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.6666666666666666,
+        "reciprocal_rank": 0.3333333333333333
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 0.25
+      },
+      {
+        "task_id": "task_005_frame_decode",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 0.2
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.09090909090909091
+      },
+      {
+        "task_id": "task_009_version_tag",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 0.3333333333333333
+      },
+      {
+        "task_id": "task_010_coordinate_pack",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_011_duration_format",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.08333333333333333
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "main",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.6666666666666666,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_014_ledger_transfer",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_015_paged_fetch",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.5
+      },
+      {
+        "task_id": "task_017_event_bus_publish",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_018_sensor_read",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_019_job_queue_process",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_020_config_timeout",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.3333333333333333
+      },
+      {
+        "task_id": "task_021_batch_upload",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_022_auth_token",
+        "variant": "main",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_023_batch_code",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.5
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.058823529411764705
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.1
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.2,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.2
+      },
+      {
+        "task_id": "task_030_reading_errors",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_031_shift_schedule",
+        "variant": "main",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.6666666666666666,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_032_round_price",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.3333333333333333
+      },
+      {
+        "task_id": "task_033_split_bill",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_034_normalize_tags",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.6666666666666666,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_035_parse_duration",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.045454545454545456
+      },
+      {
+        "task_id": "task_036_next_business_day",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.2,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.14285714285714285
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_040_wrap_words",
+        "variant": "main",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.4,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 0.25
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 0.3333333333333333
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.16666666666666666
+      },
+      {
+        "task_id": "task_005_frame_decode",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.1111111111111111
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.125
+      },
+      {
+        "task_id": "task_009_version_tag",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 0.2
+      },
+      {
+        "task_id": "task_010_coordinate_pack",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_011_duration_format",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.6666666666666666,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 0.5
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "stripped",
+        "category": "data_format",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_014_ledger_transfer",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.25
+      },
+      {
+        "task_id": "task_015_paged_fetch",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.5
+      },
+      {
+        "task_id": "task_017_event_bus_publish",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_018_sensor_read",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_019_job_queue_process",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_020_config_timeout",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.125
+      },
+      {
+        "task_id": "task_021_batch_upload",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 0.3333333333333333
+      },
+      {
+        "task_id": "task_022_auth_token",
+        "variant": "stripped",
+        "category": "api_usage",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_023_batch_code",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.14285714285714285
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 0.25
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.058823529411764705
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.08333333333333333
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.2,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.08333333333333333
+      },
+      {
+        "task_id": "task_030_reading_errors",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_031_shift_schedule",
+        "variant": "stripped",
+        "category": "validation_rules",
+        "hit": 1,
+        "coverage": 0.6666666666666666,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_032_round_price",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.09090909090909091
+      },
+      {
+        "task_id": "task_033_split_bill",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 0.5
+      },
+      {
+        "task_id": "task_034_normalize_tags",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_035_parse_duration",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.024390243902439025
+      },
+      {
+        "task_id": "task_036_next_business_day",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.4,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 0,
+        "coverage": 0.0,
+        "reciprocal_rank": 0.16666666666666666
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.25,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "task_id": "task_040_wrap_words",
+        "variant": "stripped",
+        "category": "bugfix_completion",
+        "hit": 1,
+        "coverage": 0.4,
+        "reciprocal_rank": 1.0
+      }
+    ]
+  },
+  "failures": {
+    "pipeline_a": [
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "data_format",
+          "api_usage"
+        ]
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "data_format",
+          "api_usage"
+        ]
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "data_format",
+          "bugfix_completion"
+        ]
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "data_format",
+          "validation_rules",
+          "api_usage"
+        ]
+      },
+      {
+        "task_id": "task_011_duration_format",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "data_format",
+          "validation_rules",
+          "api_usage"
+        ]
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_015_paged_fetch",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_032_round_price",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "main",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "data_format",
+          "api_usage"
+        ]
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "data_format",
+          "bugfix_completion"
+        ]
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_010_coordinate_pack",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "data_format",
+          "bugfix_completion",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_022_auth_token",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "api_usage",
+          "bugfix_completion",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "data_format",
+          "validation_rules"
+        ]
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "validation_rules",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_031_shift_schedule",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "data_format",
+          "bugfix_completion"
+        ]
+      },
+      {
+        "task_id": "task_036_next_business_day",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "bugfix_completion",
+          "validation_rules",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "api_usage",
+          "validation_rules",
+          "bugfix_completion",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "validation_rules",
+          "bugfix_completion",
+          "api_usage",
+          "data_format"
+        ]
+      },
+      {
+        "task_id": "task_040_wrap_words",
+        "variant": "stripped",
+        "retrieved_manual_ids": [
+          "data_format",
+          "bugfix_completion",
+          "api_usage",
+          "validation_rules"
+        ]
+      }
+    ],
+    "pipeline_b": [
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.6666666666666666
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_005_frame_decode",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "main",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_009_version_tag",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_010_coordinate_pack",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_011_duration_format",
+        "variant": "main",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.6666666666666666
+      },
+      {
+        "task_id": "task_014_ledger_transfer",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_015_paged_fetch",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_017_event_bus_publish",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_018_sensor_read",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_019_job_queue_process",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_020_config_timeout",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_021_batch_upload",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_022_auth_token",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_023_batch_code",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "main",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "main",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.2
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_030_reading_errors",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_031_shift_schedule",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.6666666666666666
+      },
+      {
+        "task_id": "task_032_round_price",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_033_split_bill",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_034_normalize_tags",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.6666666666666666
+      },
+      {
+        "task_id": "task_035_parse_duration",
+        "variant": "main",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_036_next_business_day",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.2
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "main",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_040_wrap_words",
+        "variant": "main",
+        "hit": 1,
+        "coverage": 0.4
+      },
+      {
+        "task_id": "task_001_zorp_encode",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_002_window_limiter",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_003_account_id_validation",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_004_merge_intervals",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_005_frame_decode",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_006_telemetry_pack",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_007_rle_kestrel",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_008_config_line",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_009_version_tag",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_010_coordinate_pack",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_011_duration_format",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.6666666666666666
+      },
+      {
+        "task_id": "task_012_delta_encode",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_013_priority_tag",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_014_ledger_transfer",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_015_paged_fetch",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_016_cache_get_or_load",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_017_event_bus_publish",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_018_sensor_read",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_019_job_queue_process",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_020_config_timeout",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_021_batch_upload",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_022_auth_token",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_023_batch_code",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_024_sensor_label",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_025_flight_slot",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_026_vireo_password",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_027_order_quantity",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_028_coupon_code",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.2
+      },
+      {
+        "task_id": "task_029_k9_address",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_030_reading_errors",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_031_shift_schedule",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.6666666666666666
+      },
+      {
+        "task_id": "task_032_round_price",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_033_split_bill",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_034_normalize_tags",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.3333333333333333
+      },
+      {
+        "task_id": "task_035_parse_duration",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_036_next_business_day",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.4
+      },
+      {
+        "task_id": "task_037_compact_log",
+        "variant": "stripped",
+        "hit": 0,
+        "coverage": 0.0
+      },
+      {
+        "task_id": "task_038_apply_discounts",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.5
+      },
+      {
+        "task_id": "task_039_merge_settings",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.25
+      },
+      {
+        "task_id": "task_040_wrap_words",
+        "variant": "stripped",
+        "hit": 1,
+        "coverage": 0.4
+      }
+    ]
+  }
+}
