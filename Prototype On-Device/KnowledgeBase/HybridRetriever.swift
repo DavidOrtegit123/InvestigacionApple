@@ -36,6 +36,18 @@ struct HybridRetriever {
         passageVectors.filter { $0 == nil }.count
     }
 
+    /// Revision of the sentence embedding in use, or nil if the OS didn't
+    /// provide one — in which case ranking silently falls back to BM25 alone.
+    var embeddingRevision: Int? {
+        embedding?.revision
+    }
+
+    /// Whether the query itself gets a vector; without one, its semantic
+    /// ranking is empty and only BM25 counts.
+    func hasQueryVector(for query: String) -> Bool {
+        embedding?.vector(for: query) != nil
+    }
+
     func retrieve(for query: String) -> [Passage] {
         rankAll(for: query).prefix(Self.topK).map(\.passage)
     }

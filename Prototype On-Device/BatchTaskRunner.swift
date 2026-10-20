@@ -32,6 +32,34 @@ enum BatchContextMode: String, CaseIterable, Identifiable {
     }
 }
 
+/// Whether the device can run pipeline B as pre-specified. If the OS
+/// provides no English sentence embedding (or it can't vectorize some
+/// text), `HybridRetriever` silently ranks by BM25 alone — a different
+/// retriever than the one Stage 2 is designed to test, first caught in the
+/// on-device smoke test (2026-10-20).
+struct RetrievalCheck {
+    /// The Stage 1 (Mac) embedding revision; a different one would rank differently.
+    static let expectedEmbeddingRevision = 1
+
+    let embeddingRevision: Int?
+    let passageCount: Int
+    let passagesWithoutVector: Int
+    let promptsWithoutVector: Int
+
+    var isReady: Bool {
+        embeddingRevision == Self.expectedEmbeddingRevision
+            && passagesWithoutVector == 0
+            && promptsWithoutVector == 0
+    }
+
+    var summary: String {
+        let revision = embeddingRevision.map(String.init) ?? "no disponible"
+        return "Embedding inglés: revisión \(revision) (Mac: \(Self.expectedEmbeddingRevision)) · "
+            + "pasajes sin vector: \(passagesWithoutVector) de \(passageCount) · "
+            + "preguntas sin vector: \(promptsWithoutVector)"
+    }
+}
+
 /// Drives `TutorViewModel` through the full pass@1 evaluation set across
 /// both backends, so the tasks don't have to be typed into the chat by
 /// hand one at a time. Every message still goes through
@@ -65,6 +93,24 @@ final class BatchRunner: ObservableObject {
         } catch {
             loadErrorMessage = "Failed to decode BatchTasks.json: \(error.localizedDescription)"
         }
+    }
+
+    /// Pipeline B over all 40 specs (the corpus is always the full set, not
+    /// just a session's range).
+    func makeRetriever() -> HybridRetriever {
+        HybridRetriever(documents: RetrievalCorpus.manuals(from: allTasks.map {
+            RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
+        }))
+    }
+
+    func checkRetrieval(using retriever: HybridRetriever? = nil) -> RetrievalCheck {
+        let retriever = retriever ?? makeRetriever()
+        return RetrievalCheck(
+            embeddingRevision: retriever.embeddingRevision,
+            passageCount: retriever.passages.count,
+            passagesWithoutVector: retriever.passagesWithoutVector,
+            promptsWithoutVector: allTasks.filter { !retriever.hasQueryVector(for: $0.prompt) }.count
+        )
     }
 
     /// For each backend in turn, runs the no-RAG control (a chosen subset
@@ -113,6 +159,18 @@ final class BatchRunner: ObservableObject {
         contextMode: BatchContextMode = .oracle
     ) async {
         guard !isRunning else { return }
+
+        // Built once per run; refuse to start rather than silently run a
+        // BM25-only retriever.
+        let retriever: HybridRetriever? = contextMode == .retrieved ? makeRetriever() : nil
+        if let retriever {
+            let check = checkRetrieval(using: retriever)
+            guard check.isReady else {
+                statusText = "No se corrió: la recuperación híbrida no está completa en este dispositivo. \(check.summary)"
+                return
+            }
+        }
+
         isRunning = true
         completedCount = 0
 
@@ -125,14 +183,6 @@ final class BatchRunner: ObservableObject {
         let originalSystem = viewModel.selectedSystem
         let originalMaterialID = viewModel.selectedMaterialID
         let originalMaterials = viewModel.materialsStore.materials
-
-        // Built once per run from every task (not just this session's
-        // range): the corpus is always all 40 specs.
-        let retriever: HybridRetriever? = contextMode == .retrieved
-            ? HybridRetriever(documents: RetrievalCorpus.manuals(from: self.allTasks.map {
-                RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
-            }))
-            : nil
 
         // Set aside the student's own materials for the whole run —
         // `referenceDocument(for:)` only returns nil when the materials
