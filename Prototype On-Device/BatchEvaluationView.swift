@@ -21,6 +21,7 @@ struct BatchEvaluationView: View {
     /// set yet" and is replaced with the task count on appear.
     @State private var firstTaskNumber = 1
     @State private var lastTaskNumber = 0
+    @State private var contextMode: BatchContextMode = .oracle
     @State private var exportURL: URL?
     @State private var isShowingExportSheet = false
 
@@ -61,12 +62,26 @@ struct BatchEvaluationView: View {
     /// Answers the run will generate across both backends — shown before
     /// starting so a session's length (and heat) can be judged up front.
     private var estimatedAnswerCount: Int {
-        (noRagTaskIDs.count * noRagSamplesPerTask + selectedTasks.count * samplesPerTask) * TutorSystem.allCases.count
+        let noRagAnswers = contextMode == .oracle ? noRagTaskIDs.count * noRagSamplesPerTask : 0
+        return (noRagAnswers + selectedTasks.count * samplesPerTask) * TutorSystem.allCases.count
     }
 
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    Picker("Contexto", selection: $contextMode) {
+                        ForEach(BatchContextMode.allCases) { mode in
+                            Text(mode.label).tag(mode)
+                        }
+                    }
+                    .disabled(runner.isRunning)
+                } footer: {
+                    if contextMode == .retrieved {
+                        Text("Cada tarea recibe los 5 pasajes recuperados en el dispositivo (búsqueda híbrida en los 4 manuales) en lugar de su documento. No corre el control sin RAG.")
+                    }
+                }
+
                 Section {
                     LabeledContent("Tareas cargadas", value: "\(runner.allTasks.count)")
                     if let error = runner.loadErrorMessage {
@@ -104,13 +119,13 @@ struct BatchEvaluationView: View {
                         value: $noRagSampleSize,
                         in: 0...max(selectedTasks.count, 1)
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode == .retrieved)
                     Stepper(
                         "Repeticiones del control sin RAG: \(noRagSamplesPerTask)",
                         value: $noRagSamplesPerTask,
                         in: 1...10
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode == .retrieved)
                     LabeledContent("Respuestas totales", value: "\(estimatedAnswerCount)")
                 }
 
@@ -130,7 +145,8 @@ struct BatchEvaluationView: View {
                                     taskIDs: Set(selectedTasks.map(\.id)),
                                     noRagTaskIDs: noRagTaskIDs,
                                     samplesPerTask: samplesPerTask,
-                                    noRagSamplesPerTask: noRagSamplesPerTask
+                                    noRagSamplesPerTask: noRagSamplesPerTask,
+                                    contextMode: contextMode
                                 )
                             }
                         }
