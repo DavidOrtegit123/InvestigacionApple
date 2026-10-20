@@ -1,0 +1,202 @@
+[
+  {
+    "task_id": "task_001_zorp_encode",
+    "variant": "main",
+    "query": "Based on the zorplib documentation, write a Python function encode_zorp(value) that takes an integer, a string, or a list (which may contain integers, strings, or other lists) and returns it encoded in ZORP-7 format according to the documented rules."
+  },
+  {
+    "task_id": "task_002_window_limiter",
+    "variant": "main",
+    "query": "Based on the documentation of the WindowLimiter class in the internal Kestrel-9 SDK, write a Python function allow_request(limiter, now) that takes a WindowLimiter instance and an integer timestamp now, and returns True if the request should be allowed according to the documented rules (updating the limiter's internal state), or False if it should be rejected."
+  },
+  {
+    "task_id": "task_003_account_id_validation",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 account identifier validation rules, write a Python function is_valid_account_id(value) that returns True if value is a valid account identifier according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_004_merge_intervals",
+    "variant": "main",
+    "query": "The Kestrel-9 system documents the expected behavior of the merge_intervals function. Based on that documentation, write a Python function merge_intervals(intervals) that implements exactly the documented behavior."
+  },
+  {
+    "task_id": "task_005_frame_decode",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 framing protocol documentation, write a Python function decode_frames(data) that takes a string with one or more concatenated frames and returns a list with the decoded payloads, in order."
+  },
+  {
+    "task_id": "task_006_telemetry_pack",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 telemetry packing documentation, write a Python function pack_telemetry(values) that takes a list of integers (0-255) and returns the packed string according to the documented rules, including the final checksum."
+  },
+  {
+    "task_id": "task_007_rle_kestrel",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 telemetry compression documentation (Kestrel RLE), write a Python function encode_runs(text) that takes a string and returns its compressed version according to the documented rules."
+  },
+  {
+    "task_id": "task_008_config_line",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 configuration line format documentation, write a Python function parse_config(line) that takes a configuration line and returns a dictionary with the key-value pairs, according to the documented rules."
+  },
+  {
+    "task_id": "task_009_version_tag",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 firmware version format documentation, write a Python function format_version(major, minor, patch) that returns the version string according to the documented rules."
+  },
+  {
+    "task_id": "task_010_coordinate_pack",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 sensor coordinate packing documentation, write a Python function pack_coord(x, y) that returns the compact 8-digit string according to the documented rules."
+  },
+  {
+    "task_id": "task_011_duration_format",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 log duration format documentation, write a Python function format_duration(total_seconds) that returns the formatted string according to the documented rules."
+  },
+  {
+    "task_id": "task_012_delta_encode",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 telemetry delta encoding documentation, write a Python function delta_encode(values) that takes a list of integers and returns the encoded string according to the documented rules."
+  },
+  {
+    "task_id": "task_013_priority_tag",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 message priority tagging documentation, write a Python function tag_message(priority, message) that returns the tagged message according to the documented rules, clamping the priority if it is out of range."
+  },
+  {
+    "task_id": "task_014_ledger_transfer",
+    "variant": "main",
+    "query": "Based on the documentation of the Ledger API of the Vireo accounting system, write a Python function transfer(ledger, src, dst, amount) that transfers amount cents from account src to account dst following exactly the documented protocol, and returns True if the transfer was carried out or False if not."
+  },
+  {
+    "task_id": "task_015_paged_fetch",
+    "variant": "main",
+    "query": "Based on the documentation of the Orinoco API pagination client, write a Python function fetch_all(client) that uses the documented client to get all the items from all the pages and returns them in a list, in order, applying the documented rules."
+  },
+  {
+    "task_id": "task_016_cache_get_or_load",
+    "variant": "main",
+    "query": "Based on the documentation of the Tamarind cache API, write a Python function get_or_load(cache, key, loader, now) that returns the value for key using the documented cache and, only when the rules say so, the loader function."
+  },
+  {
+    "task_id": "task_017_event_bus_publish",
+    "variant": "main",
+    "query": "Based on the documentation of the Halcyon platform EventBus, write a Python function publish(bus, topic, payload) that delivers the event to the subscribers according to the documented rules and returns the number of successful deliveries."
+  },
+  {
+    "task_id": "task_018_sensor_read",
+    "variant": "main",
+    "query": "Based on the documentation of the Kestrel-9 TH-40 thermal sensor driver, write a Python function read_celsius(sensor) that gets a temperature reading in degrees Celsius using the sensor object as the documentation describes."
+  },
+  {
+    "task_id": "task_019_job_queue_process",
+    "variant": "main",
+    "query": "Based on the documentation of the Marlin job queue, write a Python function process_next(queue, handler) that processes the next job in the queue with handler according to the documented protocol and returns the documented result."
+  },
+  {
+    "task_id": "task_020_config_timeout",
+    "variant": "main",
+    "query": "Based on the documentation of the Sable configuration client, write a Python function get_timeout_ms(client, service) that gets a service's timeout in milliseconds (int) following the documented lookup order and format."
+  },
+  {
+    "task_id": "task_021_batch_upload",
+    "variant": "main",
+    "query": "Based on the documentation of the Pelican platform Uploader, write a Python function upload_all(uploader, records) that sends all the records using the uploader according to the documented batching and retry rules, and returns the sorted list of ids that are still failing."
+  },
+  {
+    "task_id": "task_022_auth_token",
+    "variant": "main",
+    "query": "Based on the documentation of the Quillon API AuthClient, write a Python function get_token(client, now) that returns a valid access token using the documented client, refreshing it only when the rules say so."
+  },
+  {
+    "task_id": "task_023_batch_code",
+    "variant": "main",
+    "query": "Based on the Vireo batch code documentation, write a Python function is_valid_batch_code(code) that returns True if code is a valid batch code according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_024_sensor_label",
+    "variant": "main",
+    "query": "Based on the Halcyon sensor label naming rules, write a Python function is_valid_label(label) that returns True if label follows all the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_025_flight_slot",
+    "variant": "main",
+    "query": "Based on the Pelican airfield slot booking rules, write a Python function is_valid_slot(slot) that returns True if the slot string is valid according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_026_vireo_password",
+    "variant": "main",
+    "query": "Based on the Vireo password policy, write a Python function is_valid_password(password, username) that returns True if password satisfies every documented rule for that username, or False otherwise."
+  },
+  {
+    "task_id": "task_027_order_quantity",
+    "variant": "main",
+    "query": "Based on the Marlin order quantity rules, write a Python function is_valid_quantity(product_type, qty) that returns True if qty is an allowed quantity for that product type according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_028_coupon_code",
+    "variant": "main",
+    "query": "Based on the Tamarind coupon code documentation, write a Python function is_valid_coupon(code) that returns True if code is a valid coupon according to the documented format and check character, or False otherwise."
+  },
+  {
+    "task_id": "task_029_k9_address",
+    "variant": "main",
+    "query": "Based on the Kestrel-9 service address documentation, write a Python function is_valid_address(address) that returns True if address is a valid Kestrel-9 service address according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_030_reading_errors",
+    "variant": "main",
+    "query": "Based on the Halcyon telemetry reading validation documentation, write a Python function reading_errors(reading) that takes a reading dictionary and returns the sorted list of documented error codes that apply to it (an empty list if the reading is valid)."
+  },
+  {
+    "task_id": "task_031_shift_schedule",
+    "variant": "main",
+    "query": "Based on the Sable shift schedule rules, write a Python function is_valid_schedule(shifts) that takes a list of (start, end) tuples in minutes and returns True if the schedule satisfies all the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_032_round_price",
+    "variant": "main",
+    "query": "The Vireo pricing module documents the expected behavior of round_price and lists bugs found in the previous version. Based on that documentation, write a Python function round_price(cents) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_033_split_bill",
+    "variant": "main",
+    "query": "The Pelican payments module documents the expected behavior of split_bill and lists bugs found in the previous version. Based on that documentation, write a Python function split_bill(total_cents, n) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_034_normalize_tags",
+    "variant": "main",
+    "query": "The Halcyon content service documents the expected behavior of normalize_tags and lists bugs found in the previous version. Based on that documentation, write a Python function normalize_tags(text) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_035_parse_duration",
+    "variant": "main",
+    "query": "The Sable scheduler documents the expected behavior of parse_duration and lists bugs found in the previous version. Based on that documentation, write a Python function parse_duration(text) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_036_next_business_day",
+    "variant": "main",
+    "query": "The Marlin calendar module documents the expected behavior of next_business_day and lists bugs found in the previous version. Based on that documentation, write a Python function next_business_day(day, holidays) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_037_compact_log",
+    "variant": "main",
+    "query": "The Quillon logging tool documents the expected behavior of compact_log and lists bugs found in the previous version. Based on that documentation, write a Python function compact_log(lines) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_038_apply_discounts",
+    "variant": "main",
+    "query": "The Tamarind checkout module documents the expected behavior of apply_discounts and lists bugs found in the previous version. Based on that documentation, write a Python function apply_discounts(price_cents, codes) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_039_merge_settings",
+    "variant": "main",
+    "query": "The Orinoco configuration library documents the expected behavior of merge_settings and lists bugs found in the previous version. Based on that documentation, write a Python function merge_settings(defaults, overrides) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_040_wrap_words",
+    "variant": "main",
+    "query": "The Kestrel-9 display driver documents the expected behavior of wrap_words and lists bugs found in the previous version. Based on that documentation, write a Python function wrap_words(text, width) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  }
+]
