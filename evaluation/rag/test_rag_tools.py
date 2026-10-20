@@ -115,5 +115,70 @@ class ScorerTests(unittest.TestCase):
         self.assertEqual(summary["main"]["b"], {"n": 1, "hit": 1.0})
 
 
+from stage2_tests import analyze, expected_context, holm
+from score_code_tasks import matched_answers
+
+
+def result(task_id, system, condition, passed):
+    return {"taskId": task_id, "system": system, "ragCondition": condition, "passed": passed}
+
+
+class Stage2Tests(unittest.TestCase):
+    def test_scorer_labels_three_conditions(self):
+        entries = [
+            {"role": "user", "text": "q"},
+            {"role": "assistant", "system": "Apple", "text": "a", "retrievedContext": "x",
+             "retrievedDocumentTitle": "Retrieved (hybrid top-5)"},
+            {"role": "user", "text": "q"},
+            {"role": "assistant", "system": "Apple", "text": "a", "retrievedContext": "x",
+             "retrievedDocumentTitle": "zorplib - ZORP-7 Format"},
+            {"role": "user", "text": "q"},
+            {"role": "assistant", "system": "Apple", "text": "a"},
+        ]
+        self.assertEqual([p["ragCondition"] for p in matched_answers(entries)],
+                         ["retrieved", "with_rag", "no_rag"])
+
+    def test_holm_stops_at_first_failure(self):
+        out = holm({"a": 0.001, "b": 0.03, "c": 0.04})
+        self.assertTrue(out["a"]["significant"])
+        self.assertFalse(out["b"]["significant"])
+        self.assertFalse(out["c"]["significant"])  # 0.04 < 0.05, but Holm already stopped
+        self.assertAlmostEqual(out["a"]["threshold"], 0.05 / 3)
+        self.assertAlmostEqual(out["b"]["threshold"], 0.05 / 2)
+        self.assertAlmostEqual(out["c"]["threshold"], 0.05)
+
+    def test_holm_all_significant(self):
+        out = holm({"a": 0.01, "b": 0.02, "c": 0.04})
+        self.assertTrue(all(v["significant"] for v in out.values()))
+
+    def test_analyze_pairs_by_task_with_documented_signs(self):
+        oracle = [result("t1", "Apple", "with_rag", True), result("t1", "Apple", "with_rag", True),
+                  result("t2", "Apple", "with_rag", True), result("t2", "Apple", "with_rag", False),
+                  result("t1", "Qwen3-4B", "with_rag", True), result("t1", "Qwen3-4B", "with_rag", True),
+                  result("t2", "Qwen3-4B", "with_rag", True), result("t2", "Qwen3-4B", "with_rag", True),
+                  result("t1", "Apple", "no_rag", True)]  # ignored: wrong condition
+        retrieved = [result("t1", "Apple", "retrieved", False), result("t1", "Apple", "retrieved", False),
+                     result("t2", "Apple", "retrieved", True), result("t2", "Apple", "retrieved", False),
+                     result("t1", "Qwen3-4B", "retrieved", True), result("t1", "Qwen3-4B", "retrieved", False),
+                     result("t2", "Qwen3-4B", "retrieved", False), result("t2", "Qwen3-4B", "retrieved", False)]
+        report = analyze(oracle, retrieved)
+        self.assertEqual(report["tests"]["R1a"]["tasks"], 2)
+        self.assertEqual(report["tests"]["R1a"]["meanOracle"], 0.75)
+        self.assertEqual(report["tests"]["R1a"]["meanRetrieved"], 0.25)
+        self.assertEqual(report["tests"]["R1b"]["meanOracle"], 1.0)
+        self.assertEqual(report["tests"]["R1b"]["meanRetrieved"], 0.25)
+        self.assertEqual(report["tests"]["R2"]["mcnemarFirstAnswer"]["b"], 1)  # t2: Apple pass, Qwen fail
+        self.assertEqual(report["tests"]["R2"]["mcnemarFirstAnswer"]["c"], 1)  # t1: Qwen pass, Apple fail
+        self.assertEqual(set(report["holm"]), {"R1a", "R1b", "R2"})
+
+    def test_expected_context_formats_stage_one_top_five(self):
+        passages = {f"m#0.{i}": {"section_title": f"S{i}", "text": f"text {i}"} for i in range(6)}
+        stage1 = {"pipeline_b": [{"task_id": "t1", "variant": "main",
+                                  "ranking": ["m#0.5", "m#0.0", "m#0.1", "m#0.2", "m#0.3", "m#0.4"]},
+                                 {"task_id": "t1", "variant": "stripped", "ranking": ["m#0.4"]}]}
+        self.assertEqual(expected_context("t1", stage1, passages),
+                         "## S5\ntext 5\n\n## S0\ntext 0\n\n## S1\ntext 1\n\n## S2\ntext 2\n\n## S3\ntext 3")
+
+
 if __name__ == "__main__":
     unittest.main()
