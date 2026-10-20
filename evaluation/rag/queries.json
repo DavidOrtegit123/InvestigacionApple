@@ -198,5 +198,205 @@
     "task_id": "task_040_wrap_words",
     "variant": "main",
     "query": "The Kestrel-9 display driver documents the expected behavior of wrap_words and lists bugs found in the previous version. Based on that documentation, write a Python function wrap_words(text, width) that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_001_zorp_encode",
+    "variant": "stripped",
+    "query": "Write a Python function that takes an integer, a string, or a list (which may contain integers, strings, or other lists) and returns it encoded in the documented format according to the documented rules."
+  },
+  {
+    "task_id": "task_002_window_limiter",
+    "variant": "stripped",
+    "query": "Based on the documentation of the internal request limiter class, write a Python function that takes a limiter instance and an integer timestamp, and returns True if the request should be allowed according to the documented rules (updating the limiter's internal state), or False if it should be rejected."
+  },
+  {
+    "task_id": "task_003_account_id_validation",
+    "variant": "stripped",
+    "query": "Based on the account identifier validation rules, write a Python function that returns True if a value is a valid account identifier according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_004_merge_intervals",
+    "variant": "stripped",
+    "query": "The system documents the expected behavior of a function that merges intervals. Based on that documentation, write a Python function that takes a list of intervals and implements exactly the documented behavior."
+  },
+  {
+    "task_id": "task_005_frame_decode",
+    "variant": "stripped",
+    "query": "Based on the framing protocol documentation, write a Python function that takes a string with one or more concatenated frames and returns a list with the decoded payloads, in order."
+  },
+  {
+    "task_id": "task_006_telemetry_pack",
+    "variant": "stripped",
+    "query": "Based on the telemetry packing documentation, write a Python function that takes a list of integers (0-255) and returns the packed string according to the documented rules, including the final checksum."
+  },
+  {
+    "task_id": "task_007_rle_kestrel",
+    "variant": "stripped",
+    "query": "Based on the telemetry compression documentation, write a Python function that takes a string and returns its compressed version according to the documented rules."
+  },
+  {
+    "task_id": "task_008_config_line",
+    "variant": "stripped",
+    "query": "Based on the configuration line format documentation, write a Python function that takes a configuration line and returns a dictionary with the key-value pairs, according to the documented rules."
+  },
+  {
+    "task_id": "task_009_version_tag",
+    "variant": "stripped",
+    "query": "Based on the firmware version format documentation, write a Python function that takes major, minor, and patch numbers and returns the version string according to the documented rules."
+  },
+  {
+    "task_id": "task_010_coordinate_pack",
+    "variant": "stripped",
+    "query": "Based on the sensor coordinate packing documentation, write a Python function that takes x and y coordinates and returns the compact 8-digit string according to the documented rules."
+  },
+  {
+    "task_id": "task_011_duration_format",
+    "variant": "stripped",
+    "query": "Based on the log duration format documentation, write a Python function that takes a total number of seconds and returns the formatted string according to the documented rules."
+  },
+  {
+    "task_id": "task_012_delta_encode",
+    "variant": "stripped",
+    "query": "Based on the telemetry delta encoding documentation, write a Python function that takes a list of integers and returns the encoded string according to the documented rules."
+  },
+  {
+    "task_id": "task_013_priority_tag",
+    "variant": "stripped",
+    "query": "Based on the message priority tagging documentation, write a Python function that takes a priority and a message and returns the tagged message according to the documented rules, clamping the priority if it is out of range."
+  },
+  {
+    "task_id": "task_014_ledger_transfer",
+    "variant": "stripped",
+    "query": "Based on the documentation of the ledger interface of the accounting system, write a Python function that moves an amount in cents from a source account to a destination account following exactly the documented protocol, and returns True if the operation was carried out or False if not."
+  },
+  {
+    "task_id": "task_015_paged_fetch",
+    "variant": "stripped",
+    "query": "Based on the documentation of the pagination client, write a Python function that uses the documented client to get all the items from all the pages and returns them in a list, in order, applying the documented rules."
+  },
+  {
+    "task_id": "task_016_cache_get_or_load",
+    "variant": "stripped",
+    "query": "Based on the documentation of the cache interface, write a Python function that takes a cache, a key, a loader function, and the current time, and returns the value for the key using the documented cache and, only when the rules say so, the loader function."
+  },
+  {
+    "task_id": "task_017_event_bus_publish",
+    "variant": "stripped",
+    "query": "Based on the documentation of the platform's event bus, write a Python function that takes a bus, a topic, and a payload, delivers the event to the subscribers according to the documented rules, and returns the number of successful deliveries."
+  },
+  {
+    "task_id": "task_018_sensor_read",
+    "variant": "stripped",
+    "query": "Based on the documentation of the thermal sensor driver, write a Python function that takes a sensor object and gets a temperature reading in degrees Celsius using it as the documentation describes."
+  },
+  {
+    "task_id": "task_019_job_queue_process",
+    "variant": "stripped",
+    "query": "Based on the documentation of the job queue, write a Python function that takes a queue and a handler, processes the next job in the queue with the handler according to the documented protocol, and returns the documented result."
+  },
+  {
+    "task_id": "task_020_config_timeout",
+    "variant": "stripped",
+    "query": "Based on the documentation of the configuration client, write a Python function that takes a client and a service name and gets that service's timeout in milliseconds (int) following the documented lookup order and format."
+  },
+  {
+    "task_id": "task_021_batch_upload",
+    "variant": "stripped",
+    "query": "Based on the documentation of the platform's uploader, write a Python function that takes an uploader and a list of records, sends all the records using the uploader according to the documented batching and retry rules, and returns the sorted list of ids that are still failing."
+  },
+  {
+    "task_id": "task_022_auth_token",
+    "variant": "stripped",
+    "query": "Based on the documentation of the authentication client, write a Python function that takes a client and the current time and returns a valid access token using the documented client, refreshing it only when the rules say so."
+  },
+  {
+    "task_id": "task_023_batch_code",
+    "variant": "stripped",
+    "query": "Based on the batch code documentation, write a Python function that returns True if a code is a valid batch code according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_024_sensor_label",
+    "variant": "stripped",
+    "query": "Based on the sensor label naming rules, write a Python function that returns True if a label follows all the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_025_flight_slot",
+    "variant": "stripped",
+    "query": "Based on the airfield slot booking rules, write a Python function that returns True if a slot string is valid according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_026_vireo_password",
+    "variant": "stripped",
+    "query": "Based on the password policy, write a Python function that takes a password and a username and returns True if the password satisfies every documented rule for that username, or False otherwise."
+  },
+  {
+    "task_id": "task_027_order_quantity",
+    "variant": "stripped",
+    "query": "Based on the order quantity rules, write a Python function that takes a product type and a quantity and returns True if the quantity is allowed for that product type according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_028_coupon_code",
+    "variant": "stripped",
+    "query": "Based on the coupon code documentation, write a Python function that returns True if a code is a valid coupon according to the documented format and check character, or False otherwise."
+  },
+  {
+    "task_id": "task_029_k9_address",
+    "variant": "stripped",
+    "query": "Based on the service address documentation, write a Python function that returns True if an address is a valid service address according to the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_030_reading_errors",
+    "variant": "stripped",
+    "query": "Based on the telemetry reading validation documentation, write a Python function that takes a reading dictionary and returns the sorted list of documented error codes that apply to it (an empty list if the reading is valid)."
+  },
+  {
+    "task_id": "task_031_shift_schedule",
+    "variant": "stripped",
+    "query": "Based on the shift schedule rules, write a Python function that takes a list of (start, end) tuples in minutes and returns True if the schedule satisfies all the documented rules, or False otherwise."
+  },
+  {
+    "task_id": "task_032_round_price",
+    "variant": "stripped",
+    "query": "The pricing module documents the expected behavior of a function that rounds a price given in cents, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_033_split_bill",
+    "variant": "stripped",
+    "query": "The payments module documents the expected behavior of a function that splits a bill total (in cents) n ways, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_034_normalize_tags",
+    "variant": "stripped",
+    "query": "The content service documents the expected behavior of a function that normalizes the tags in a text, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_035_parse_duration",
+    "variant": "stripped",
+    "query": "The scheduler documents the expected behavior of a function that parses a duration from text, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_036_next_business_day",
+    "variant": "stripped",
+    "query": "The calendar module documents the expected behavior of a function that finds the next business day for a given day and a set of holidays, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_037_compact_log",
+    "variant": "stripped",
+    "query": "The logging tool documents the expected behavior of a function that compacts a list of log lines, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_038_apply_discounts",
+    "variant": "stripped",
+    "query": "The checkout module documents the expected behavior of a function that applies discount codes to a price in cents, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_039_merge_settings",
+    "variant": "stripped",
+    "query": "The configuration library documents the expected behavior of a function that merges default settings with overrides, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
+  },
+  {
+    "task_id": "task_040_wrap_words",
+    "variant": "stripped",
+    "query": "The display driver documents the expected behavior of a function that wraps the words of a text to a given width, and lists bugs found in the previous version. Based on that documentation, write a Python function that implements exactly the documented behavior, including the fixes described in the bug reports."
   }
 ]
