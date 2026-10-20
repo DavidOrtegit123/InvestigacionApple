@@ -24,7 +24,7 @@ The main study (H1) and follow-up (H1b) measured only the **generation stage** o
 - **Main variant:** each task's `prompt`, exactly as used in the main study (40 queries).
 - **Name-stripped variant (Stage 1 only, robustness check):** 40 rewritten prompts with the system/library names and function/parameter identifiers removed, keeping the described behavior (e.g. *"Write a Python function that encodes an integer, a string, or a nested list in the documented format."*).
   - Drafted by the assistant, **reviewed and approved by the researcher** before any retrieval run.
-  - Automatic check: no stripped query contains its task's `entry_point`, or any word from its gold section heading that is not in the macOS word list `/usr/share/dict/words` (case-insensitive) — i.e. coined names such as "zorplib" or "Kestrel".
+  - Automatic check (tokens compared lowercase, tokens = runs of `[a-z0-9_]`): a stripped query may not contain (a) its task's `entry_point`; (b) any token of the system name — the part of the heading before the first `" - "` (e.g. `kestrel`, `9`, `sdk`, `zorplib`); (c) any other heading token that looks like an identifier — contains `_` or a digit, is camelCase (`WindowLimiter`, `EventBus`), or is all-caps with ≥3 letters (`ZORP`, `RLE`). A dictionary-based rule was rejected because most system names are real words (Kestrel, Marlin, Pelican, Sable, Vireo).
   - Fixed before any Stage 1 results are seen; never edited afterward.
 
 ## 4. Pipelines
@@ -37,10 +37,10 @@ Both pipelines run on the same corpus and the same queries. Neither depends on a
 - If no manual passes the 0.9 cutoff, the result is empty and counts as a miss.
 
 ### Pipeline B — hybrid passage retrieval ("proper RAG")
-- **Chunking:** each manual is split into sections at `## ` heading lines; each section into paragraphs (blank-line separated); paragraphs over 400 characters are split at sentence boundaries (a single sentence over 400 characters is split at 400). Each passage records its manual, section heading, and position, and its indexed text is `"<section heading>: <passage text>"`.
-- **Keyword score:** BM25 with k1 = 1.2, b = 0.75 (standard defaults). Tokenization: lowercase, tokens = maximal runs of `[a-z0-9_]` (so `encode_zorp` stays one token), no stemming, no stop-word removal. IDF = `ln(1 + (N − n + 0.5) / (n + 0.5))`.
+- **Chunking:** each manual is split into sections at `## ` heading lines; each section into paragraphs (blank-line separated); paragraphs over 400 characters are split at sentence boundaries (`NLTokenizer(unit: .sentence)`), packing consecutive whole sentences greedily while the passage stays ≤400 characters (a single sentence over 400 characters is split every 400 characters). Each passage records its manual, section heading, and position, and its indexed text is `"<section heading>: <passage text>"`.
+- **Keyword score:** BM25 with k1 = 1.2, b = 0.75 (standard defaults). Tokenization: lowercase, tokens = maximal runs of `[a-z0-9_]` (so `encode_zorp` stays one token), no stemming, no stop-word removal. IDF = `ln(1 + (N − n + 0.5) / (n + 0.5))`. Every query token counts, including repeats. Only passages with a BM25 score > 0 enter the keyword ranking (a passage sharing no word with the query has no keyword rank).
 - **Semantic score:** cosine distance between `NLEmbedding.sentenceEmbedding(for: .english)` vectors of the query and of each passage's indexed text (the same embedding the app already uses; Apple's documentation recommends `NLEmbedding`, not `NLContextualEmbedding`, for similarity).
-- **Fusion:** Reciprocal Rank Fusion, `score = Σ 1 / (60 + rank)` over the two rankings (ranks 1-based).
+- **Fusion:** Reciprocal Rank Fusion, `score = Σ 1 / (60 + rank)` over the two rankings (ranks 1-based). A passage in neither ranking scores 0 and stays in the full ranking (needed for MRR).
 - **Output:** top **k = 5** passages. No cutoff.
 - **Ties:** broken by passage order in the corpus (manual order, then position), so runs are deterministic.
 - **Missing vector:** if `NLEmbedding` returns no vector for a passage, it is excluded from the semantic ranking only and is ranked by BM25 alone. Such passages are counted and reported.
