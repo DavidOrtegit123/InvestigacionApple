@@ -303,6 +303,9 @@ _A running log of the study design and research-scope decisions, kept separate f
 - `BatchEvaluationView.swift` — research screen (linked from `ProfileView`) with a run button, progress bar (shows sample n/N, cool-down countdown, and thermal waits), "Desde/Hasta tarea" range selector, "Repeticiones por tarea (con RAG)", "Control sin RAG (extra): n de N tareas", and "Repeticiones del control sin RAG" steppers, a total-answers estimate, and export, for the batch harness above.
 - `BatchTasks.json` — trimmed copy (id/category/prompt/title/content only) of `evaluation/tasks/*.json`, bundled as an app resource. Currently all 40 English tasks (001–040); regenerate after adding tasks (a short Python snippet copying those five fields from every `evaluation/tasks/*.json`, sorted by filename).
 
+**Project root (repo files)**
+- `README.md` — public overview of the project, requirements, and how to re-export the (not committed) Core AI models. `.gitignore` — what stays out of the public repo (see Environment Notes).
+
 **`evaluation/`** (outside the Xcode project — offline researcher tooling, on-device exemption per Architecture Rule #1)
 - `score_transcripts.py` — offline RAGAS-style LLM-judge scoring (earlier phase, still functional; no longer the primary metric, see Research Design & Decisions Log 2026-09-23).
 - `tasks/*.json` — pass@1 task definitions (prompt, fictional reference doc, reference solution, unit test), in English; 40/40 authored (10 per category), complete.
@@ -330,6 +333,14 @@ Before writing, modifying, or deleting ANY code in this Xcode project, you must 
 4. **Alternatives:** At least one other way to solve it and why your chosen path is better.
 
 *You must wait for user approval before generating any code files.*
+
+## Git Workflow
+
+- **Every feature or big change gets its own branch**, created from an up-to-date `main` before the first edit, named by type: `feature/<short-name>`, `fix/<short-name>`, `docs/<short-name>`.
+- Commit to that branch, push it, and merge it into `main` through a **pull request** (`gh pr create`). Never commit or push big changes directly to `main`.
+- **Exception:** small documentation-only updates (e.g. updating this md file) may be committed directly to `main` (decided 2026-10-19).
+- Commit, push, and open PRs only when the user asks. The Pre-Coding Protocol above still applies before any code change.
+- Before each commit, check the staged files for secrets, model files, and personal data — the repo will be public.
 
 ## Current Status
 
@@ -369,7 +380,7 @@ _Last updated: 2026-10-12_
 
 ## Environment Notes
 
-- This project folder is **not a git repository** (no `.git` found here or in parent directories, checked 2026-08-30). Don't assume git history/branches exist.
+- This project folder is a **git repository** (since 2026-10-19), with remote `origin` = `https://github.com/DavidOrtegit123/InvestigacionApple.git` and default branch `main`. The repo is meant to become **public**: never commit secrets (API keys go in environment variables) or personal data. `.gitignore` keeps out model exports (`*_static/`, `*.aimodel`, `ArchivedModels/` — too big for GitHub; re-export them, see `README.md`), Xcode user data, `.DS_Store`, `__pycache__`, `Presentation/`, `docs/superpowers/` and `evaluation/figures/*.pptx`. See "Git Workflow" for branching.
 - `CLAUDE.md` is a **symlink** to `AGENTS.md` (the real file) — both Claude and Codex read identical content with zero duplication. Edit either name; don't recreate `CLAUDE.md` as a standalone file or the symlink breaks.
 - **Simulator testing is currently blocked**: only iOS 26.0/26.1 simulator runtimes were available, but the project's deployment target tracks the connected physical device's iOS 26.6, so `RunCodeSnippet` and simulator-based `BuildProject`/`RunProject` destinations fail with an OS-version mismatch. Build/run against the physical device ("Carlos's iPhone") instead, or check again later — Apple may ship a matching simulator runtime. (Note: `IPHONEOS_DEPLOYMENT_TARGET` is now `27.0`, not `26.6` — this note predates that bump. **Update 2026-10-06:** an iOS 27.0 simulator runtime (24A434) is now installed — the only one left after the cleanup below — but simulator testing still hasn't been retried, and simulators can't give meaningful Core AI latency/thermal numbers anyway.)
 - **Metal Toolchain is required to build `.aimodel` resources.** Not installed by default; install with `xcodebuild -downloadComponent MetalToolchain` (≈840MB download). Without it, any build containing a Core AI `.aimodel` file fails with a missing-Metal-compiler error.
