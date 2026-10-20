@@ -41,6 +41,25 @@ enum RetrievalCorpus {
         }
     }
 
+    /// Title of the pinned document carrying Stage 3's whole sections
+    /// (evaluation/rag_stage3_design.md); the scorer labels these
+    /// answers "retrieved_parent".
+    static let parentSectionsDocumentTitle = "Retrieved (parent sections top-3)"
+
+    /// Whole spec sections in the given order, each as `## <title>` plus
+    /// its full content, separated by blank lines. Titles not in `specs`
+    /// are skipped.
+    static func formattedSections(_ titles: [String], from specs: [Spec]) -> String {
+        let contentByTitle = Dictionary(specs.map { ($0.title, $0.content) }, uniquingKeysWith: { first, _ in first })
+        return titles
+            .compactMap { title in
+                contentByTitle[title].map {
+                    "\(PassageChunker.sectionHeadingPrefix)\(title)\n\($0.trimmingCharacters(in: .whitespacesAndNewlines))"
+                }
+            }
+            .joined(separator: "\n\n")
+    }
+
     /// Passages in rank order, each under its section heading, separated
     /// by blank lines.
     static func formatted(_ passages: [Passage]) -> String {

@@ -54,6 +54,21 @@ struct HybridRetriever {
         rankAll(for: query).prefix(Self.topK).map(\.passage)
     }
 
+    /// Sections handed over whole in parent-section retrieval (RAG Stage 3).
+    static let sectionTopK = 3
+
+    /// Parent-section ("small-to-big") retrieval: the same fused passage
+    /// ranking, mapped to the section each passage sits in — the titles of
+    /// the first `limit` distinct sections, best first.
+    func retrieveSectionTitles(for query: String, limit: Int = sectionTopK) -> [String] {
+        var titles: [String] = []
+        for ranked in rankAll(for: query) where !titles.contains(ranked.passage.sectionTitle) {
+            titles.append(ranked.passage.sectionTitle)
+            if titles.count == limit { break }
+        }
+        return titles
+    }
+
     /// Every passage, best first. Ties are broken by corpus order.
     func rankAll(for query: String) -> [RankedPassage] {
         let keywordScores = keywordIndex.scores(for: query)

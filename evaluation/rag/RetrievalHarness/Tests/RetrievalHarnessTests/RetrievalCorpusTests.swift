@@ -86,6 +86,49 @@ import Testing
         }
     }
 
+    private struct PassagesFile: Decodable {
+        struct Record: Decodable { let id: String; let section_title: String }
+        let passages: [Record]
+    }
+
+    /// Stage 3: the top-3 sections are Stage 1's passage ranking mapped to
+    /// sections (first 3 distinct), for every task.
+    @Test func topThreeSectionsMatchStageOneRankingForEveryTask() throws {
+        let tasks = try loadTasks()
+        let results = try JSONDecoder().decode(ResultsFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("retrieval_results.json")))
+        let passages = try JSONDecoder().decode(PassagesFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("passages.json")))
+        let sectionByPassage = Dictionary(uniqueKeysWithValues: passages.passages.map { ($0.id, $0.section_title) })
+        var expected: [String: [String]] = [:]
+        for result in results.pipeline_b where result.variant == "main" {
+            var titles: [String] = []
+            for id in result.ranking {
+                guard let title = sectionByPassage[id] else { continue }
+                if !titles.contains(title) { titles.append(title) }
+                if titles.count == HybridRetriever.sectionTopK { break }
+            }
+            expected[result.task_id] = titles
+        }
+        let retriever = HybridRetriever(documents: RetrievalCorpus.manuals(from: specs(tasks)))
+        for task in tasks {
+            #expect(retriever.retrieveSectionTitles(for: task.prompt) == expected[task.id], "sections differ for \(task.id)")
+        }
+    }
+
+    /// Stage 3: every delivered section is exactly that spec's section of the corpus manuals.
+    @Test func formattedSectionsEqualTheCorpusSections() throws {
+        let tasks = try loadTasks()
+        let corpus = try JSONDecoder().decode(CorpusFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("corpus.json")))
+        var count = 0
+        for manual in corpus.manuals {
+            for section in PassageChunker.sections(in: manual.content, untitledSectionTitle: manual.title) {
+                #expect(RetrievalCorpus.formattedSections([section.title], from: specs(tasks)) == "## \(section.title)\n\(section.body)")
+                count += 1
+            }
+        }
+        #expect(count == 40)
+        #expect(RetrievalCorpus.formattedSections(["Missing - title"], from: specs(tasks)).isEmpty)
+    }
+
     @Test func formatsPassagesInRankOrderWithHeadings() {
         let passages = [
             Passage(documentID: "m", sectionTitle: "Beta - two", sectionIndex: 1, passageIndex: 0, text: "Second spec."),

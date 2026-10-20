@@ -33,15 +33,20 @@ IMPORT_LINE_RE = re.compile(r"^\s*(import|from)\s+\w")
 # Title of the pinned document carrying Stage 2's retrieved passages
 # (RetrievalCorpus.retrievedDocumentTitle in the app).
 RETRIEVED_DOCUMENT_TITLE = "Retrieved (hybrid top-5)"
+# Stage 3's whole retrieved sections (RetrievalCorpus.parentSectionsDocumentTitle).
+PARENT_SECTIONS_DOCUMENT_TITLE = "Retrieved (parent sections top-3)"
 
 
 def rag_condition(entry):
-    """no_rag (no document), with_rag (the oracle document — H1/H1b), or
-    retrieved (Stage 2's retrieved passages), read from the transcript."""
+    """no_rag (no document), with_rag (the oracle document — H1/H1b),
+    retrieved (Stage 2's retrieved passages), or retrieved_parent (Stage 3's
+    whole retrieved sections), read from the transcript."""
     if not entry.get("retrievedContext"):
         return "no_rag"
     if entry.get("retrievedDocumentTitle") == RETRIEVED_DOCUMENT_TITLE:
         return "retrieved"
+    if entry.get("retrievedDocumentTitle") == PARENT_SECTIONS_DOCUMENT_TITLE:
+        return "retrieved_parent"
     return "with_rag"
 
 

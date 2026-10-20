@@ -21,6 +21,9 @@ enum BatchContextMode: String, CaseIterable, Identifiable {
     /// Pipeline B's top-5 passages, retrieved live on the device from the
     /// 4 category manuals (Stage 2, evaluation/rag_stage2_design.md).
     case retrieved
+    /// The same ranking, but the top-3 sections it points to, delivered
+    /// whole (Stage 3, exploratory, evaluation/rag_stage3_design.md).
+    case retrievedParent
 
     var id: String { rawValue }
 
@@ -28,8 +31,12 @@ enum BatchContextMode: String, CaseIterable, Identifiable {
         switch self {
         case .oracle: "Documento correcto (oracle)"
         case .retrieved: "Recuperado (híbrido top-5)"
+        case .retrievedParent: "Recuperado (secciones completas top-3)"
         }
     }
+
+    /// Retrieved modes run the hybrid retriever and skip the no-RAG block.
+    var usesRetrieval: Bool { self != .oracle }
 }
 
 /// Whether the device can run pipeline B as pre-specified. Without
@@ -103,11 +110,16 @@ final class BatchRunner: ObservableObject {
     /// exactly like the live embedding).
     func makeRetriever() -> HybridRetriever {
         HybridRetriever(
-            documents: RetrievalCorpus.manuals(from: allTasks.map {
-                RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
-            }),
+            documents: RetrievalCorpus.manuals(from: retrievalSpecs),
             embedding: PrecomputedEmbedding.loadBundled()
         )
+    }
+
+    /// Every task's spec — the retrieval corpus, whatever the session's range.
+    private var retrievalSpecs: [RetrievalCorpus.Spec] {
+        allTasks.map {
+            RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
+        }
     }
 
     func checkRetrieval(using retriever: HybridRetriever? = nil) -> RetrievalCheck {
@@ -169,7 +181,8 @@ final class BatchRunner: ObservableObject {
 
         // Built once per run; refuse to start rather than silently run a
         // BM25-only retriever.
-        let retriever: HybridRetriever? = contextMode == .retrieved ? makeRetriever() : nil
+        let retriever: HybridRetriever? = contextMode.usesRetrieval ? makeRetriever() : nil
+        let specs = retrievalSpecs
         if let retriever {
             let check = checkRetrieval(using: retriever)
             guard check.isReady else {
@@ -266,20 +279,24 @@ final class BatchRunner: ObservableObject {
                     viewModel.materialsStore.remove(id: id)
                 }
 
-            case .retrieved:
-                // Retrieved comparison: right before each task, retrieve
-                // its top-5 passages on the device and pin them as the only
-                // document, so the unchanged prompt path puts them under
-                // "Reference material" in place of the oracle spec.
+            case .retrieved, .retrievedParent:
+                // Retrieved comparison: right before each task, retrieve on
+                // the device — the top-5 passages (Stage 2) or the top-3
+                // whole sections they point to (Stage 3) — and pin the text
+                // as the only document, so the unchanged prompt path puts it
+                // under "Reference material" in place of the oracle spec.
                 guard let retriever else { break }
                 await waitUntilCool(label: "Antes de Recuperado · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
                 for task in allTasks {
+                    let isParent = contextMode == .retrievedParent
                     let material = ImportedMaterial(
                         id: "retrieved-\(task.id)",
-                        title: RetrievalCorpus.retrievedDocumentTitle,
+                        title: isParent ? RetrievalCorpus.parentSectionsDocumentTitle : RetrievalCorpus.retrievedDocumentTitle,
                         topic: "general",
                         keywords: [],
-                        content: RetrievalCorpus.formatted(retriever.retrieve(for: task.prompt)),
+                        content: isParent
+                            ? RetrievalCorpus.formattedSections(retriever.retrieveSectionTitles(for: task.prompt), from: specs)
+                            : RetrievalCorpus.formatted(retriever.retrieve(for: task.prompt)),
                         kind: .pdf,
                         importedAt: .now
                     )

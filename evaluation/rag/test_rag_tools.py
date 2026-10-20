@@ -180,5 +180,51 @@ class Stage2Tests(unittest.TestCase):
                          "## S5\ntext 5\n\n## S0\ntext 0\n\n## S1\ntext 1\n\n## S2\ntext 2\n\n## S3\ntext 3")
 
 
+import json  # noqa: E402
+import stage3_tests  # noqa: E402
+
+
+class Stage3Tests(unittest.TestCase):
+    def test_scorer_labels_parent_sections(self):
+        entries = [
+            {"role": "user", "text": "q"},
+            {"role": "assistant", "system": "Apple", "text": "a", "retrievedContext": "x",
+             "retrievedDocumentTitle": "Retrieved (parent sections top-3)"},
+        ]
+        self.assertEqual([p["ragCondition"] for p in matched_answers(entries)], ["retrieved_parent"])
+
+    def test_analyze_signs_and_pairing(self):
+        oracle = [result("t1", s, "with_rag", True) for s in ("Apple", "Qwen3-4B")]
+        retrieved = [result("t1", "Apple", "retrieved", False), result("t1", "Apple", "retrieved", False),
+                     result("t1", "Qwen3-4B", "retrieved", True), result("t1", "Qwen3-4B", "retrieved", False)]
+        parent = [result("t1", "Apple", "retrieved_parent", True), result("t1", "Apple", "retrieved_parent", False),
+                  result("t1", "Qwen3-4B", "retrieved_parent", True), result("t1", "Qwen3-4B", "retrieved_parent", True),
+                  result("t1", "Apple", "retrieved", True)]  # ignored: wrong condition for parent
+        report = stage3_tests.analyze(oracle, retrieved, parent)
+        t = report["tests"]
+        self.assertEqual((t["E1a"]["meanRetrieved"], t["E1a"]["meanParent"]), (0.0, 0.5))
+        self.assertEqual((t["E1b"]["meanRetrieved"], t["E1b"]["meanParent"]), (0.5, 1.0))
+        self.assertEqual((t["E2"]["meanApple"], t["E2"]["meanQwen"]), (0.5, 1.0))
+        # First answers: Apple True, Qwen True -> concordant.
+        self.assertEqual((t["E2"]["mcnemarFirstAnswer"]["b"], t["E2"]["mcnemarFirstAnswer"]["c"]), (0, 0))
+        self.assertEqual(set(report["holm"]), {"E1a", "E1b", "E2"})
+
+    def test_expected_sections_take_first_three_distinct(self):
+        passages = {f"p{i}": {"section_title": title} for i, title in enumerate(["A", "A", "B", "A", "C", "D"])}
+        stage1 = {"pipeline_b": [{"task_id": "t", "variant": "main", "ranking": [f"p{i}" for i in range(6)]},
+                                 {"task_id": "t", "variant": "stripped", "ranking": ["p5"]}]}
+        self.assertEqual(stage3_tests.expected_sections(stage1, passages), {"t": ["A", "B", "C"]})
+        self.assertEqual(stage3_tests.expected_context(["B", "A"], {"A": " a text\n", "B": "b text"}),
+                         "## B\nb text\n\n## A\na text")
+
+    def test_real_sections_put_gold_in_top_three_for_31_tasks(self):
+        tasks = stage3_tests.load_tasks()
+        stage1 = json.loads((stage3_tests.RAG_DIR / "retrieval_results.json").read_text())
+        passages = {p["id"]: p for p in json.loads((stage3_tests.RAG_DIR / "passages.json").read_text())["passages"]}
+        sections = stage3_tests.expected_sections(stage1, passages)
+        self.assertEqual(len(sections), 40)
+        self.assertEqual(sum(t["reference_doc_title"] in sections[t["id"]] for t in tasks), 31)
+
+
 if __name__ == "__main__":
     unittest.main()
