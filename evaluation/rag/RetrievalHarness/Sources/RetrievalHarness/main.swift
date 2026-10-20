@@ -85,9 +85,40 @@ nonisolated struct RetrievalResults: Encodable {
     }
 }
 
+nonisolated struct BatchTaskRecord: Decodable {
+    let category: String
+    let prompt: String
+    let referenceDocTitle: String
+    let referenceDocContent: String
+}
+
 let arguments = CommandLine.arguments
+
+// Stage 2: `RetrievalHarness export-vectors <BatchTasks.json> <RetrievalVectors.json>`
+// embeds every passage of the app's corpus and every task prompt with the
+// live English NLEmbedding, for bundling (see PrecomputedEmbedding).
+if arguments.count == 4, arguments[1] == "export-vectors" {
+    let taskDecoder = JSONDecoder()
+    taskDecoder.keyDecodingStrategy = .convertFromSnakeCase
+    let tasks = try taskDecoder.decode([BatchTaskRecord].self, from: Data(contentsOf: URL(fileURLWithPath: arguments[2])))
+    let manuals = RetrievalCorpus.manuals(from: tasks.map {
+        RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
+    })
+    let passageTexts = manuals.flatMap { PassageChunker.passages(for: $0) }.map(\.indexedText)
+    guard let precomputed = PrecomputedEmbedding.compute(for: passageTexts + tasks.map(\.prompt)) else {
+        print("English sentence embedding unavailable, or a text got no vector")
+        exit(1)
+    }
+    let vectorEncoder = JSONEncoder()
+    vectorEncoder.outputFormatting = [.sortedKeys]
+    try vectorEncoder.encode(precomputed).write(to: URL(fileURLWithPath: arguments[3]))
+    print("\(precomputed.vectors.count) vectors (\(passageTexts.count) passages, \(tasks.count) prompts), revision \(precomputed.revision), dimension \(precomputed.dimension) -> \(arguments[3])")
+    exit(0)
+}
+
 guard arguments.count == 4 else {
     print("usage: RetrievalHarness <corpus.json> <queries.json> <output-directory>")
+    print("       RetrievalHarness export-vectors <BatchTasks.json> <RetrievalVectors.json>")
     exit(2)
 }
 

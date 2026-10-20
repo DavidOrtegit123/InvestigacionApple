@@ -21,10 +21,12 @@ struct HybridRetriever {
 
     let passages: [Passage]
     private let keywordIndex: BM25Index
-    private let embedding: NLEmbedding?
+    private let embedding: (any SentenceVectorSource)?
     private let passageVectors: [[Double]?]
 
-    init(documents: [KnowledgeDocument], embedding: NLEmbedding? = NLEmbedding.sentenceEmbedding(for: .english)) {
+    /// `embedding` defaults to the live English sentence embedding; pass a
+    /// `PrecomputedEmbedding` where the OS doesn't provide one.
+    init(documents: [KnowledgeDocument], embedding: (any SentenceVectorSource)? = NLEmbedding.sentenceEmbedding(for: .english)) {
         passages = documents.flatMap { PassageChunker.passages(for: $0) }
         keywordIndex = BM25Index(documents: passages.map(\.indexedText))
         self.embedding = embedding

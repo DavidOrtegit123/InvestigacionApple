@@ -65,6 +65,27 @@ import Testing
         }
     }
 
+    /// The bundled vectors (used on iOS, which lacks the embedding) must
+    /// rank every passage exactly as the live embedding does, for every task.
+    @Test func bundledVectorsRankExactlyLikeTheLiveEmbedding() throws {
+        let tasks = try loadTasks()
+        let vectorsURL = Self.batchTasksURL.deletingLastPathComponent().appendingPathComponent("RetrievalVectors.json")
+        let precomputed = try JSONDecoder().decode(PrecomputedEmbedding.self, from: Data(contentsOf: vectorsURL))
+        #expect(precomputed.revision == 1) // Stage 1's revision
+        #expect(precomputed.vectors.count == 180)
+        let manuals = RetrievalCorpus.manuals(from: specs(tasks))
+        let live = HybridRetriever(documents: manuals)
+        let bundled = HybridRetriever(documents: manuals, embedding: precomputed)
+        #expect(bundled.passagesWithoutVector == 0)
+        for task in tasks {
+            #expect(bundled.hasQueryVector(for: task.prompt), "no bundled vector for \(task.id)")
+            let liveRanking = live.rankAll(for: task.prompt)
+            let bundledRanking = bundled.rankAll(for: task.prompt)
+            #expect(bundledRanking.map(\.passage.id) == liveRanking.map(\.passage.id), "ranking differs for \(task.id)")
+            #expect(bundledRanking.map(\.fusedScore) == liveRanking.map(\.fusedScore), "scores differ for \(task.id)")
+        }
+    }
+
     @Test func formatsPassagesInRankOrderWithHeadings() {
         let passages = [
             Passage(documentID: "m", sectionTitle: "Beta - two", sectionIndex: 1, passageIndex: 0, text: "Second spec."),

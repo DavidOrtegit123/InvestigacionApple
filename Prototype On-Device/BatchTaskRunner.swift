@@ -32,11 +32,12 @@ enum BatchContextMode: String, CaseIterable, Identifiable {
     }
 }
 
-/// Whether the device can run pipeline B as pre-specified. If the OS
-/// provides no English sentence embedding (or it can't vectorize some
-/// text), `HybridRetriever` silently ranks by BM25 alone — a different
-/// retriever than the one Stage 2 is designed to test, first caught in the
-/// on-device smoke test (2026-10-20).
+/// Whether the device can run pipeline B as pre-specified. Without
+/// sentence vectors (iOS 27.0 provides no English `NLEmbedding`, so they
+/// come from the bundled `RetrievalVectors.json`), `HybridRetriever`
+/// silently ranks by BM25 alone — a different retriever than the one
+/// Stage 2 is designed to test, first caught in the on-device smoke test
+/// (2026-10-20).
 struct RetrievalCheck {
     /// The Stage 1 (Mac) embedding revision; a different one would rank differently.
     static let expectedEmbeddingRevision = 1
@@ -54,7 +55,7 @@ struct RetrievalCheck {
 
     var summary: String {
         let revision = embeddingRevision.map(String.init) ?? "no disponible"
-        return "Embedding inglés: revisión \(revision) (Mac: \(Self.expectedEmbeddingRevision)) · "
+        return "Vectores precalculados: revisión \(revision) (Mac: \(Self.expectedEmbeddingRevision)) · "
             + "pasajes sin vector: \(passagesWithoutVector) de \(passageCount) · "
             + "preguntas sin vector: \(promptsWithoutVector)"
     }
@@ -96,11 +97,17 @@ final class BatchRunner: ObservableObject {
     }
 
     /// Pipeline B over all 40 specs (the corpus is always the full set, not
-    /// just a session's range).
+    /// just a session's range), with the bundled macOS-computed vectors
+    /// rather than the live embedding iOS doesn't provide — always, so every
+    /// device ranks identically (RetrievalHarness tests show they rank
+    /// exactly like the live embedding).
     func makeRetriever() -> HybridRetriever {
-        HybridRetriever(documents: RetrievalCorpus.manuals(from: allTasks.map {
-            RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
-        }))
+        HybridRetriever(
+            documents: RetrievalCorpus.manuals(from: allTasks.map {
+                RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
+            }),
+            embedding: PrecomputedEmbedding.loadBundled()
+        )
     }
 
     func checkRetrieval(using retriever: HybridRetriever? = nil) -> RetrievalCheck {
