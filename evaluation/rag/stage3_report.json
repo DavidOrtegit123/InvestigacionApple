@@ -1,0 +1,448 @@
+{
+  "tests": {
+    "E1a": {
+      "system": "Apple",
+      "tasks": 40,
+      "meanRetrieved": 0.195,
+      "meanParent": 0.3,
+      "wilcoxon": {
+        "n": 17,
+        "w_plus": 115.0,
+        "w_minus": 38.0,
+        "p_value": 0.0679931640625
+      }
+    },
+    "E1b": {
+      "system": "Qwen3-4B",
+      "tasks": 40,
+      "meanRetrieved": 0.27,
+      "meanParent": 0.4699999999999999,
+      "wilcoxon": {
+        "n": 16,
+        "w_plus": 112.5,
+        "w_minus": 23.5,
+        "p_value": 0.016876220703125
+      }
+    },
+    "E2": {
+      "tasks": 40,
+      "meanApple": 0.3,
+      "meanQwen": 0.4699999999999999,
+      "wilcoxon": {
+        "n": 16,
+        "w_plus": 11.0,
+        "w_minus": 125.0,
+        "p_value": 0.0015869140625
+      },
+      "mcnemarFirstAnswer": {
+        "b": 1,
+        "c": 7,
+        "p_value": 0.0703125
+      }
+    }
+  },
+  "holm": {
+    "E2": {
+      "p": 0.0015869140625,
+      "threshold": 0.016666666666666666,
+      "significant": true
+    },
+    "E1b": {
+      "p": 0.016876220703125,
+      "threshold": 0.025,
+      "significant": true
+    },
+    "E1a": {
+      "p": 0.0679931640625,
+      "threshold": 0.05,
+      "significant": false
+    }
+  },
+  "perTask": [
+    {
+      "taskId": "task_001_zorp_encode",
+      "appleOracle": 0.2,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.2,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.8
+    },
+    {
+      "taskId": "task_002_window_limiter",
+      "appleOracle": 1.0,
+      "appleRetrieved": 1.0,
+      "appleParent": 1.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_003_account_id_validation",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.8,
+      "appleParent": 0.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_004_merge_intervals",
+      "appleOracle": 1.0,
+      "appleRetrieved": 1.0,
+      "appleParent": 0.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 0.4
+    },
+    {
+      "taskId": "task_005_frame_decode",
+      "appleOracle": 0.2,
+      "appleRetrieved": 0.2,
+      "appleParent": 0.2,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.8,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_006_telemetry_pack",
+      "appleOracle": 0.4,
+      "appleRetrieved": 1.0,
+      "appleParent": 0.8,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_007_rle_kestrel",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.4,
+      "appleParent": 0.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_008_config_line",
+      "appleOracle": 1.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_009_version_tag",
+      "appleOracle": 0.6,
+      "appleRetrieved": 1.0,
+      "appleParent": 1.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_010_coordinate_pack",
+      "appleOracle": 0.6,
+      "appleRetrieved": 0.8,
+      "appleParent": 1.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_011_duration_format",
+      "appleOracle": 1.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_012_delta_encode",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.6,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_013_priority_tag",
+      "appleOracle": 1.0,
+      "appleRetrieved": 1.0,
+      "appleParent": 1.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_014_ledger_transfer",
+      "appleOracle": 0.8,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_015_paged_fetch",
+      "appleOracle": 1.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 1.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_016_cache_get_or_load",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_017_event_bus_publish",
+      "appleOracle": 0.6,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.2,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.8
+    },
+    {
+      "taskId": "task_018_sensor_read",
+      "appleOracle": 1.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 1.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_019_job_queue_process",
+      "appleOracle": 0.8,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_020_config_timeout",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_021_batch_upload",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.2,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_022_auth_token",
+      "appleOracle": 1.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 1.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_023_batch_code",
+      "appleOracle": 0.2,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.4,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_024_sensor_label",
+      "appleOracle": 0.6,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.6,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_025_flight_slot",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.2,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_026_vireo_password",
+      "appleOracle": 0.6,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_027_order_quantity",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.2,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_028_coupon_code",
+      "appleOracle": 0.2,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_029_k9_address",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_030_reading_errors",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_031_shift_schedule",
+      "appleOracle": 0.2,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.2,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.8,
+      "qwenParent": 0.6
+    },
+    {
+      "taskId": "task_032_round_price",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.2
+    },
+    {
+      "taskId": "task_033_split_bill",
+      "appleOracle": 0.8,
+      "appleRetrieved": 0.4,
+      "appleParent": 0.4,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 1.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_034_normalize_tags",
+      "appleOracle": 1.0,
+      "appleRetrieved": 0.2,
+      "appleParent": 0.8,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_035_parse_duration",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_036_next_business_day",
+      "appleOracle": 0.4,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.4,
+      "qwenOracle": 1.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 1.0
+    },
+    {
+      "taskId": "task_037_compact_log",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_038_apply_discounts",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_039_merge_settings",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    },
+    {
+      "taskId": "task_040_wrap_words",
+      "appleOracle": 0.0,
+      "appleRetrieved": 0.0,
+      "appleParent": 0.0,
+      "qwenOracle": 0.0,
+      "qwenRetrieved": 0.0,
+      "qwenParent": 0.0
+    }
+  ],
+  "descriptive": {
+    "goldInTop3=True": {
+      "tasks": 31,
+      "appleOracle": 0.40645161290322573,
+      "appleRetrieved": 0.2064516129032258,
+      "appleParent": 0.3870967741935484,
+      "qwenOracle": 0.6129032258064516,
+      "qwenRetrieved": 0.2838709677419355,
+      "qwenParent": 0.5935483870967742
+    },
+    "goldInTop3=False": {
+      "tasks": 9,
+      "appleOracle": 0.4,
+      "appleRetrieved": 0.15555555555555556,
+      "appleParent": 0.0,
+      "qwenOracle": 0.5777777777777778,
+      "qwenRetrieved": 0.2222222222222222,
+      "qwenParent": 0.044444444444444446
+    }
+  },
+  "retrievalMatch": {
+    "matched": 400,
+    "mismatched": [],
+    "mismatchedAnswers": 0
+  }
+}
