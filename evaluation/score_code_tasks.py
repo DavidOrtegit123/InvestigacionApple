@@ -30,6 +30,25 @@ TASKS_DIR = os.path.join(os.path.dirname(__file__), "tasks")
 CODE_FENCE_RE = re.compile(r"```[^\n`]*\n(.*?)```", re.DOTALL)
 IMPORT_LINE_RE = re.compile(r"^\s*(import|from)\s+\w")
 
+# Title of the pinned document carrying Stage 2's retrieved passages
+# (RetrievalCorpus.retrievedDocumentTitle in the app).
+RETRIEVED_DOCUMENT_TITLE = "Retrieved (hybrid top-5)"
+# Stage 3's whole retrieved sections (RetrievalCorpus.parentSectionsDocumentTitle).
+PARENT_SECTIONS_DOCUMENT_TITLE = "Retrieved (parent sections top-3)"
+
+
+def rag_condition(entry):
+    """no_rag (no document), with_rag (the oracle document — H1/H1b),
+    retrieved (Stage 2's retrieved passages), or retrieved_parent (Stage 3's
+    whole retrieved sections), read from the transcript."""
+    if not entry.get("retrievedContext"):
+        return "no_rag"
+    if entry.get("retrievedDocumentTitle") == RETRIEVED_DOCUMENT_TITLE:
+        return "retrieved"
+    if entry.get("retrievedDocumentTitle") == PARENT_SECTIONS_DOCUMENT_TITLE:
+        return "retrieved_parent"
+    return "with_rag"
+
 
 def matched_answers(entries):
     """Pairs each assistant answer with the user question immediately
@@ -60,7 +79,7 @@ def matched_answers(entries):
                 "question": previous_question,
                 "answer": entry.get("text", ""),
                 "system": entry.get("system", "Unknown"),
-                "ragCondition": "with_rag" if entry.get("retrievedContext") else "no_rag",
+                "ragCondition": rag_condition(entry),
                 "timestamp": entry.get("timestamp"),
                 "sourceFile": entry.get("_sourceFile"),
             })

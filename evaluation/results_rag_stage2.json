@@ -1,0 +1,3602 @@
+[
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 7\n    (~value~)\n           ^\nSyntaxError: f-string: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 7\n    (~value~)\n           ^\nSyntaxError: f-string: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 7\n    (~value~)\n           ^\nSyntaxError: f-string: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 8\n    (~value~)\n           ^\nSyntaxError: f-string: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 7\n    (~value~)\n           ^\nSyntaxError: f-string: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 14, in decode_frames\nValueError: invalid literal for int() with base 10: ''\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 9, in decode_frames\nValueError: invalid literal for int() with base 10: 'o3'\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 14, in decode_frames\nValueError: invalid literal for int() with base 10: ''\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 12, in decode_frames\nValueError: invalid literal for int() with base 10: 'ello3'\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\n  File \"<string>\", line 16, in encode_runs\nIndexError: string index out of range\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def encode_runs(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def encode_runs(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "'parse_config' not defined in candidate source",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_001_zorp_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_002_window_limiter",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_003_account_id_validation",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_004_merge_intervals",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 18, in decode_frames\nValueError: invalid literal for int() with base 10: 'f'\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_005_frame_decode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_006_telemetry_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_007_rle_kestrel",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 4, in parse_config\nValueError: Invalid scheme\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 4, in parse_config\nValueError: Invalid scheme\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_008_config_line",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 4, in parse_config\nValueError: Invalid scheme\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_009_version_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_010_coordinate_pack",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def format_duration(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_011_duration_format",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_012_delta_encode",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_013_priority_tag",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792526133.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 1\n    cache.get(key) -> None if the key does not exist, or a tuple (value, expires_at), where expires_at is an integer timestamp in seconds.\n                   ^\nSyntaxError: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "'get_or_load' not defined in candidate source",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 22, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\n  File \"<string>\", line 13, in publish\nIndexError: list index out of range\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 22, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 22, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 22, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "'read_celsius' not defined in candidate source",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 13, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 13, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 13, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 13, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 11, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 11, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 1\n    client.get(path) -> str.\n                     ^\nSyntaxError: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 11, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 1\n    client.get(path) -> str.\n                     ^\nSyntaxError: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 21, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 18, in check\n  File \"<string>\", line 28, in upload_all\nTypeError: '<' not supported between instances of 'dict' and 'dict'\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 18, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 21, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 21, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_label(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 3, in is_valid_label\nNameError: name 'bus' is not defined\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_label(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_label(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_slot(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_slot(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_slot(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_slot(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 2\n    The quantity must be an int. Booleans (True/False) are NOT valid quantities even though Python treats them as integers, and floats such as 5.0 are not valid either.\n        ^\nSyntaxError: invalid syntax\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_014_ledger_transfer",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 17, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_015_paged_fetch",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_016_cache_get_or_load",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 15, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\n  File \"<string>\", line 4, in publish\nRuntimeError: x\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 15, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_017_event_bus_publish",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_018_sensor_read",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\n  File \"<string>\", line 6, in process_next\nTypeError: <lambda>() takes 1 positional argument but 2 were given\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_019_job_queue_process",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 16, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 11, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def get_timeout_ms(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 11, in check\n  File \"<string>\", line 3, in get_timeout_ms\nKeyError: '/service/payments/timeout'\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def get_timeout_ms(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_020_config_timeout",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def get_timeout_ms(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 21, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 21, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 21, in check\n  File \"<string>\", line 14, in upload_all\nTypeError: string indices must be integers\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_021_batch_upload",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 19, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_022_auth_token",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 14, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_023_batch_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_024_sensor_label",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 4, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_025_flight_slot",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_026_vireo_password",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def is_valid_password(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_027_order_quantity",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792530423.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\n  File \"<string>\", line 15, in is_valid_coupon\nValueError: invalid literal for int() with base 10: '-'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 6, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 6, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 6, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 6, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def parse_duration(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def parse_duration(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def parse_duration(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def parse_duration(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 3, in next_business_day\nTypeError: 'int' object is not iterable\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 19, in _worker\n    exec(candidate_source, namespace)\n  File \"<string>\", line 8\n    # This function cannot be written to meet the full behavior.\n                                                                ^\nIndentationError: expected an indented block\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 2, in next_business_day\nAttributeError: 'int' object has no attribute 'lower'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def next_business_day(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def next_business_day(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def compact_log(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def compact_log(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def compact_log(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def compact_log(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def compact_log(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\n  File \"<string>\", line 11, in merge_settings\nRecursionError: maximum recursion depth exceeded while calling a Python object\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\n  File \"<string>\", line 10, in merge_settings\nKeyError: 'timeout'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 20, in wrap_words\nNameError: name 'result' is not defined\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def wrap_words(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Apple",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "none",
+    "error": "no_code: no code block and no 'def wrap_words(' found in answer",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_028_coupon_code",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 9, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_029_k9_address",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_030_reading_errors",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\n  File \"<string>\", line 22, in is_valid_schedule\nTypeError: cannot unpack non-iterable NoneType object\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_031_shift_schedule",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_032_round_price",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_033_split_bill",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": true,
+    "extraction": "fenced",
+    "error": null,
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_034_normalize_tags",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 8, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_035_parse_duration",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 14, in next_business_day\nAttributeError: 'int' object has no attribute 'weekday'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 14, in next_business_day\nAttributeError: 'int' object has no attribute 'weekday'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 14, in next_business_day\nAttributeError: 'int' object has no attribute 'weekday'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\n  File \"<string>\", line 14, in next_business_day\nAttributeError: 'int' object has no attribute 'weekday'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_036_next_business_day",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 4, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_037_compact_log",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 5, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 4, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_038_apply_discounts",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 3, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\n  File \"<string>\", line 10, in merge_settings\nKeyError: 'debug'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\n  File \"<string>\", line 10, in merge_settings\nKeyError: 'debug'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\n  File \"<string>\", line 10, in merge_settings\nKeyError: 'debug'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\n  File \"<string>\", line 10, in merge_settings\nKeyError: 'debug'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_039_merge_settings",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 7, in check\n  File \"<string>\", line 10, in merge_settings\nKeyError: 'debug'\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  },
+  {
+    "taskId": "task_040_wrap_words",
+    "system": "Qwen3-4B",
+    "ragCondition": "retrieved",
+    "passed": false,
+    "extraction": "fenced",
+    "error": "Traceback (most recent call last):\n  File \"/Users/carlosortegamarquez/Desktop/Tests-Investigacion-Apple/Prototypes/Prototype On-Device/evaluation/code_task_runner.py\", line 26, in _worker\n    test_namespace[\"check\"](candidate)\n  File \"<string>\", line 2, in check\nAssertionError\n",
+    "sourceFile": "prototype-on-device-transcript-1792537895.json"
+  }
+]

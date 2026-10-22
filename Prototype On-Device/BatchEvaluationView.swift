@@ -21,6 +21,10 @@ struct BatchEvaluationView: View {
     /// set yet" and is replaced with the task count on appear.
     @State private var firstTaskNumber = 1
     @State private var lastTaskNumber = 0
+    @State private var contextMode: BatchContextMode = .oracle
+    /// Computed when retrieved mode is chosen; the run stays disabled
+    /// unless it passes.
+    @State private var retrievalCheck: RetrievalCheck?
     @State private var exportURL: URL?
     @State private var isShowingExportSheet = false
 
@@ -61,12 +65,38 @@ struct BatchEvaluationView: View {
     /// Answers the run will generate across both backends — shown before
     /// starting so a session's length (and heat) can be judged up front.
     private var estimatedAnswerCount: Int {
-        (noRagTaskIDs.count * noRagSamplesPerTask + selectedTasks.count * samplesPerTask) * TutorSystem.allCases.count
+        let noRagAnswers = contextMode == .oracle ? noRagTaskIDs.count * noRagSamplesPerTask : 0
+        return (noRagAnswers + selectedTasks.count * samplesPerTask) * TutorSystem.allCases.count
     }
 
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    Picker("Contexto", selection: $contextMode) {
+                        ForEach(BatchContextMode.allCases) { mode in
+                            Text(mode.label).tag(mode)
+                        }
+                    }
+                    .disabled(runner.isRunning)
+                } footer: {
+                    if contextMode.usesRetrieval {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(contextMode == .retrievedParent
+                                 ? "Cada tarea recibe las 3 secciones completas a las que apunta la búsqueda híbrida en el dispositivo (4 manuales) en lugar de su documento. No corre el control sin RAG."
+                                 : "Cada tarea recibe los 5 pasajes recuperados en el dispositivo (búsqueda híbrida en los 4 manuales) en lugar de su documento. No corre el control sin RAG.")
+                            if let retrievalCheck {
+                                Text(retrievalCheck.summary)
+                                    .foregroundStyle(retrievalCheck.isReady ? Color.secondary : Color.red)
+                                if !retrievalCheck.isReady {
+                                    Text("Búsqueda híbrida incompleta (solo palabras clave): no se puede correr.")
+                                        .foregroundStyle(.red)
+                                }
+                            }
+                        }
+                    }
+                }
+
                 Section {
                     LabeledContent("Tareas cargadas", value: "\(runner.allTasks.count)")
                     if let error = runner.loadErrorMessage {
@@ -104,13 +134,13 @@ struct BatchEvaluationView: View {
                         value: $noRagSampleSize,
                         in: 0...max(selectedTasks.count, 1)
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval)
                     Stepper(
                         "Repeticiones del control sin RAG: \(noRagSamplesPerTask)",
                         value: $noRagSamplesPerTask,
                         in: 1...10
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval)
                     LabeledContent("Respuestas totales", value: "\(estimatedAnswerCount)")
                 }
 
@@ -130,11 +160,12 @@ struct BatchEvaluationView: View {
                                     taskIDs: Set(selectedTasks.map(\.id)),
                                     noRagTaskIDs: noRagTaskIDs,
                                     samplesPerTask: samplesPerTask,
-                                    noRagSamplesPerTask: noRagSamplesPerTask
+                                    noRagSamplesPerTask: noRagSamplesPerTask,
+                                    contextMode: contextMode
                                 )
                             }
                         }
-                        .disabled(selectedTasks.isEmpty)
+                        .disabled(selectedTasks.isEmpty || (contextMode.usesRetrieval && retrievalCheck?.isReady != true))
                     }
                 } footer: {
                     Text("Corre la muestra sin RAG (control) y despues las \(selectedTasks.count) tareas seleccionadas con RAG, para ambos backends. Restaura tu biblioteca de materiales al terminar. Exporta y cierra la app después de cada sesión, para que cada transcripción contenga solo esa sesión.")
@@ -158,6 +189,9 @@ struct BatchEvaluationView: View {
             }
             .onChange(of: firstTaskNumber) { noRagSampleSize = selectedTasks.count }
             .onChange(of: lastTaskNumber) { noRagSampleSize = selectedTasks.count }
+            .onChange(of: contextMode) {
+                retrievalCheck = contextMode.usesRetrieval ? runner.checkRetrieval() : nil
+            }
             .navigationTitle("Banco de Pruebas")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

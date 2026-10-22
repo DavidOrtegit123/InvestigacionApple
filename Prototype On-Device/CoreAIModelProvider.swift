@@ -70,7 +70,7 @@ final class CoreAIModelProvider {
     static let shared = CoreAIModelProvider()
 
     /// The model currently bundled as System B.
-    static let activeModel = CoreAIModelDescriptor.qwen3_1_7b
+    static let activeModel = CoreAIModelDescriptor.qwen3_4b
 
     private var cached: CoreAILanguageModel?
 

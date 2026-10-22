@@ -1,0 +1,139 @@
+import Foundation
+import Testing
+@testable import RetrievalHarness
+
+/// Checks that the app builds exactly the Stage 1 corpus and retrieves
+/// exactly the Stage 1 top-5, so Stage 2's on-device retrieval is the
+/// retriever Stage 1 measured.
+@Suite struct RetrievalCorpusTests {
+    private struct TaskRecord: Decodable {
+        let id: String
+        let category: String
+        let prompt: String
+        let referenceDocTitle: String
+        let referenceDocContent: String
+    }
+
+    private struct CorpusFile: Decodable {
+        struct Manual: Decodable { let id: String; let title: String; let content: String }
+        let manuals: [Manual]
+    }
+
+    private struct ResultsFile: Decodable {
+        struct Ranked: Decodable { let task_id: String; let variant: String; let ranking: [String] }
+        let pipeline_b: [Ranked]
+    }
+
+    /// evaluation/rag/ (this file is evaluation/rag/RetrievalHarness/Tests/RetrievalHarnessTests/…)
+    private static let ragDirectory = URL(fileURLWithPath: #filePath)
+        .deletingLastPathComponent().deletingLastPathComponent()
+        .deletingLastPathComponent().deletingLastPathComponent()
+    private static let batchTasksURL = ragDirectory
+        .deletingLastPathComponent().deletingLastPathComponent()
+        .appendingPathComponent("Prototype On-Device/BatchTasks.json")
+
+    private func loadTasks() throws -> [TaskRecord] {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode([TaskRecord].self, from: Data(contentsOf: Self.batchTasksURL))
+    }
+
+    private func specs(_ tasks: [TaskRecord]) -> [RetrievalCorpus.Spec] {
+        tasks.map { RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent) }
+    }
+
+    @Test func manualsMatchTheStageOneCorpus() throws {
+        let expected = try JSONDecoder().decode(CorpusFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("corpus.json")))
+        let manuals = RetrievalCorpus.manuals(from: specs(try loadTasks()))
+        #expect(manuals.map(\.id) == expected.manuals.map(\.id))
+        #expect(manuals.map(\.title) == expected.manuals.map(\.title))
+        for (built, reference) in zip(manuals, expected.manuals) {
+            #expect(built.content == reference.content, "manual \(built.id) differs from corpus.json")
+        }
+    }
+
+    @Test func topFiveMatchesStageOneForEveryTask() throws {
+        let tasks = try loadTasks()
+        let results = try JSONDecoder().decode(ResultsFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("retrieval_results.json")))
+        let expected = Dictionary(uniqueKeysWithValues: results.pipeline_b
+            .filter { $0.variant == "main" }
+            .map { ($0.task_id, Array($0.ranking.prefix(HybridRetriever.topK))) })
+        let retriever = HybridRetriever(documents: RetrievalCorpus.manuals(from: specs(tasks)))
+        #expect(tasks.count == 40)
+        for task in tasks {
+            #expect(retriever.retrieve(for: task.prompt).map(\.id) == expected[task.id], "top-5 differs for \(task.id)")
+        }
+    }
+
+    /// The bundled vectors (used on iOS, which lacks the embedding) must
+    /// rank every passage exactly as the live embedding does, for every task.
+    @Test func bundledVectorsRankExactlyLikeTheLiveEmbedding() throws {
+        let tasks = try loadTasks()
+        let vectorsURL = Self.batchTasksURL.deletingLastPathComponent().appendingPathComponent("RetrievalVectors.json")
+        let precomputed = try JSONDecoder().decode(PrecomputedEmbedding.self, from: Data(contentsOf: vectorsURL))
+        #expect(precomputed.revision == 1) // Stage 1's revision
+        #expect(precomputed.vectors.count == 180)
+        let manuals = RetrievalCorpus.manuals(from: specs(tasks))
+        let live = HybridRetriever(documents: manuals)
+        let bundled = HybridRetriever(documents: manuals, embedding: precomputed)
+        #expect(bundled.passagesWithoutVector == 0)
+        for task in tasks {
+            #expect(bundled.hasQueryVector(for: task.prompt), "no bundled vector for \(task.id)")
+            let liveRanking = live.rankAll(for: task.prompt)
+            let bundledRanking = bundled.rankAll(for: task.prompt)
+            #expect(bundledRanking.map(\.passage.id) == liveRanking.map(\.passage.id), "ranking differs for \(task.id)")
+            #expect(bundledRanking.map(\.fusedScore) == liveRanking.map(\.fusedScore), "scores differ for \(task.id)")
+        }
+    }
+
+    private struct PassagesFile: Decodable {
+        struct Record: Decodable { let id: String; let section_title: String }
+        let passages: [Record]
+    }
+
+    /// Stage 3: the top-3 sections are Stage 1's passage ranking mapped to
+    /// sections (first 3 distinct), for every task.
+    @Test func topThreeSectionsMatchStageOneRankingForEveryTask() throws {
+        let tasks = try loadTasks()
+        let results = try JSONDecoder().decode(ResultsFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("retrieval_results.json")))
+        let passages = try JSONDecoder().decode(PassagesFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("passages.json")))
+        let sectionByPassage = Dictionary(uniqueKeysWithValues: passages.passages.map { ($0.id, $0.section_title) })
+        var expected: [String: [String]] = [:]
+        for result in results.pipeline_b where result.variant == "main" {
+            var titles: [String] = []
+            for id in result.ranking {
+                guard let title = sectionByPassage[id] else { continue }
+                if !titles.contains(title) { titles.append(title) }
+                if titles.count == HybridRetriever.sectionTopK { break }
+            }
+            expected[result.task_id] = titles
+        }
+        let retriever = HybridRetriever(documents: RetrievalCorpus.manuals(from: specs(tasks)))
+        for task in tasks {
+            #expect(retriever.retrieveSectionTitles(for: task.prompt) == expected[task.id], "sections differ for \(task.id)")
+        }
+    }
+
+    /// Stage 3: every delivered section is exactly that spec's section of the corpus manuals.
+    @Test func formattedSectionsEqualTheCorpusSections() throws {
+        let tasks = try loadTasks()
+        let corpus = try JSONDecoder().decode(CorpusFile.self, from: Data(contentsOf: Self.ragDirectory.appendingPathComponent("corpus.json")))
+        var count = 0
+        for manual in corpus.manuals {
+            for section in PassageChunker.sections(in: manual.content, untitledSectionTitle: manual.title) {
+                #expect(RetrievalCorpus.formattedSections([section.title], from: specs(tasks)) == "## \(section.title)\n\(section.body)")
+                count += 1
+            }
+        }
+        #expect(count == 40)
+        #expect(RetrievalCorpus.formattedSections(["Missing - title"], from: specs(tasks)).isEmpty)
+    }
+
+    @Test func formatsPassagesInRankOrderWithHeadings() {
+        let passages = [
+            Passage(documentID: "m", sectionTitle: "Beta - two", sectionIndex: 1, passageIndex: 0, text: "Second spec."),
+            Passage(documentID: "m", sectionTitle: "Alpha - one", sectionIndex: 0, passageIndex: 2, text: "First spec."),
+        ]
+        #expect(RetrievalCorpus.formatted(passages) == "## Beta - two\nSecond spec.\n\n## Alpha - one\nFirst spec.")
+    }
+}

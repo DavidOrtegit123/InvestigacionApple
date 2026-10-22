@@ -14,6 +14,60 @@ struct BatchTask: Decodable, Identifiable {
     let referenceDocContent: String
 }
 
+/// What each with-document question gets as its reference material.
+enum BatchContextMode: String, CaseIterable, Identifiable {
+    /// The task's own spec, complete (H1/H1b protocol).
+    case oracle
+    /// Pipeline B's top-5 passages, retrieved live on the device from the
+    /// 4 category manuals (Stage 2, evaluation/rag_stage2_design.md).
+    case retrieved
+    /// The same ranking, but the top-3 sections it points to, delivered
+    /// whole (Stage 3, exploratory, evaluation/rag_stage3_design.md).
+    case retrievedParent
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .oracle: "Documento correcto (oracle)"
+        case .retrieved: "Recuperado (híbrido top-5)"
+        case .retrievedParent: "Recuperado (secciones completas top-3)"
+        }
+    }
+
+    /// Retrieved modes run the hybrid retriever and skip the no-RAG block.
+    var usesRetrieval: Bool { self != .oracle }
+}
+
+/// Whether the device can run pipeline B as pre-specified. Without
+/// sentence vectors (iOS 27.0 provides no English `NLEmbedding`, so they
+/// come from the bundled `RetrievalVectors.json`), `HybridRetriever`
+/// silently ranks by BM25 alone — a different retriever than the one
+/// Stage 2 is designed to test, first caught in the on-device smoke test
+/// (2026-10-20).
+struct RetrievalCheck {
+    /// The Stage 1 (Mac) embedding revision; a different one would rank differently.
+    static let expectedEmbeddingRevision = 1
+
+    let embeddingRevision: Int?
+    let passageCount: Int
+    let passagesWithoutVector: Int
+    let promptsWithoutVector: Int
+
+    var isReady: Bool {
+        embeddingRevision == Self.expectedEmbeddingRevision
+            && passagesWithoutVector == 0
+            && promptsWithoutVector == 0
+    }
+
+    var summary: String {
+        let revision = embeddingRevision.map(String.init) ?? "no disponible"
+        return "Vectores precalculados: revisión \(revision) (Mac: \(Self.expectedEmbeddingRevision)) · "
+            + "pasajes sin vector: \(passagesWithoutVector) de \(passageCount) · "
+            + "preguntas sin vector: \(promptsWithoutVector)"
+    }
+}
+
 /// Drives `TutorViewModel` through the full pass@1 evaluation set across
 /// both backends, so the tasks don't have to be typed into the chat by
 /// hand one at a time. Every message still goes through
@@ -47,6 +101,35 @@ final class BatchRunner: ObservableObject {
         } catch {
             loadErrorMessage = "Failed to decode BatchTasks.json: \(error.localizedDescription)"
         }
+    }
+
+    /// Pipeline B over all 40 specs (the corpus is always the full set, not
+    /// just a session's range), with the bundled macOS-computed vectors
+    /// rather than the live embedding iOS doesn't provide — always, so every
+    /// device ranks identically (RetrievalHarness tests show they rank
+    /// exactly like the live embedding).
+    func makeRetriever() -> HybridRetriever {
+        HybridRetriever(
+            documents: RetrievalCorpus.manuals(from: retrievalSpecs),
+            embedding: PrecomputedEmbedding.loadBundled()
+        )
+    }
+
+    /// Every task's spec — the retrieval corpus, whatever the session's range.
+    private var retrievalSpecs: [RetrievalCorpus.Spec] {
+        allTasks.map {
+            RetrievalCorpus.Spec(category: $0.category, title: $0.referenceDocTitle, content: $0.referenceDocContent)
+        }
+    }
+
+    func checkRetrieval(using retriever: HybridRetriever? = nil) -> RetrievalCheck {
+        let retriever = retriever ?? makeRetriever()
+        return RetrievalCheck(
+            embeddingRevision: retriever.embeddingRevision,
+            passageCount: retriever.passages.count,
+            passagesWithoutVector: retriever.passagesWithoutVector,
+            promptsWithoutVector: allTasks.filter { !retriever.hasQueryVector(for: $0.prompt) }.count
+        )
     }
 
     /// For each backend in turn, runs the no-RAG control (a chosen subset
@@ -91,14 +174,30 @@ final class BatchRunner: ObservableObject {
         taskIDs: Set<String>,
         noRagTaskIDs: Set<String>,
         samplesPerTask: Int,
-        noRagSamplesPerTask: Int
+        noRagSamplesPerTask: Int,
+        contextMode: BatchContextMode = .oracle
     ) async {
         guard !isRunning else { return }
+
+        // Built once per run; refuse to start rather than silently run a
+        // BM25-only retriever.
+        let retriever: HybridRetriever? = contextMode.usesRetrieval ? makeRetriever() : nil
+        let specs = retrievalSpecs
+        if let retriever {
+            let check = checkRetrieval(using: retriever)
+            guard check.isReady else {
+                statusText = "No se corrió: la recuperación híbrida no está completa en este dispositivo. \(check.summary)"
+                return
+            }
+        }
+
         isRunning = true
         completedCount = 0
 
         let allTasks = allTasks.filter { taskIDs.contains($0.id) }
-        let noRagTasks = allTasks.filter { noRagTaskIDs.contains($0.id) }
+        // Retrieved mode reuses H1b's no-RAG control (identical condition),
+        // so it runs no no-RAG questions.
+        let noRagTasks = contextMode == .oracle ? allTasks.filter { noRagTaskIDs.contains($0.id) } : []
         totalCount = (noRagTasks.count * noRagSamplesPerTask + allTasks.count * samplesPerTask) * TutorSystem.allCases.count
 
         let originalSystem = viewModel.selectedSystem
@@ -128,52 +227,90 @@ final class BatchRunner: ObservableObject {
 
             // No-RAG control for this backend.
             viewModel.selectedMaterialID = nil
-            await waitUntilCool(label: "Antes de Sin RAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
-            for task in noRagTasks {
-                for sample in 1...noRagSamplesPerTask {
-                    await waitIfHot(label: "Sin RAG · \(system.displayName)")
-                    statusText = "Sin RAG · \(system.displayName) · \(task.id) · \(sample)/\(noRagSamplesPerTask)"
-                    await viewModel.sendForBatch(prompt: task.prompt)
-                    completedCount += 1
-                    try? await Task.sleep(for: Self.pauseBetweenAnswers)
+            if !noRagTasks.isEmpty {
+                await waitUntilCool(label: "Antes de Sin RAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
+                for task in noRagTasks {
+                    for sample in 1...noRagSamplesPerTask {
+                        await waitIfHot(label: "Sin RAG · \(system.displayName)")
+                        statusText = "Sin RAG · \(system.displayName) · \(task.id) · \(sample)/\(noRagSamplesPerTask)"
+                        await viewModel.sendForBatch(prompt: task.prompt)
+                        completedCount += 1
+                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
+                    }
                 }
             }
 
-            // With-RAG comparison for this backend: add every task's
-            // document, pinning the correct one per question via
-            // `selectedMaterialID` — the explicit pick bypasses the
-            // semantic retriever entirely, so having all of them in the
-            // store at once is safe.
-            var addedTaskMaterialIDs: [String] = []
-            for task in allTasks {
-                let material = ImportedMaterial(
-                    id: task.id,
-                    title: task.referenceDocTitle,
-                    topic: "general",
-                    keywords: [],
-                    content: task.referenceDocContent,
-                    kind: .pdf,
-                    importedAt: .now
-                )
-                viewModel.materialsStore.add(material)
-                addedTaskMaterialIDs.append(material.id)
-            }
-            await waitUntilCool(label: "Antes de Con RAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
-            for task in allTasks {
-                viewModel.selectedMaterialID = task.id
-                for sample in 1...samplesPerTask {
-                    await waitIfHot(label: "Con RAG · \(system.displayName)")
-                    statusText = "Con RAG · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
-                    await viewModel.sendForBatch(prompt: task.prompt)
-                    completedCount += 1
-                    try? await Task.sleep(for: Self.pauseBetweenAnswers)
+            switch contextMode {
+            case .oracle:
+                // With-RAG comparison for this backend: add every task's
+                // document, pinning the correct one per question via
+                // `selectedMaterialID` — the explicit pick bypasses the
+                // semantic retriever entirely, so having all of them in the
+                // store at once is safe.
+                var addedTaskMaterialIDs: [String] = []
+                for task in allTasks {
+                    let material = ImportedMaterial(
+                        id: task.id,
+                        title: task.referenceDocTitle,
+                        topic: "general",
+                        keywords: [],
+                        content: task.referenceDocContent,
+                        kind: .pdf,
+                        importedAt: .now
+                    )
+                    viewModel.materialsStore.add(material)
+                    addedTaskMaterialIDs.append(material.id)
                 }
-            }
+                await waitUntilCool(label: "Antes de Con RAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
+                for task in allTasks {
+                    viewModel.selectedMaterialID = task.id
+                    for sample in 1...samplesPerTask {
+                        await waitIfHot(label: "Con RAG · \(system.displayName)")
+                        statusText = "Con RAG · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
+                        await viewModel.sendForBatch(prompt: task.prompt)
+                        completedCount += 1
+                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
+                    }
+                }
 
-            // Remove the task materials again so the next backend's
-            // no-RAG phase starts from an empty store too.
-            for id in addedTaskMaterialIDs {
-                viewModel.materialsStore.remove(id: id)
+                // Remove the task materials again so the next backend's
+                // no-RAG phase starts from an empty store too.
+                for id in addedTaskMaterialIDs {
+                    viewModel.materialsStore.remove(id: id)
+                }
+
+            case .retrieved, .retrievedParent:
+                // Retrieved comparison: right before each task, retrieve on
+                // the device — the top-5 passages (Stage 2) or the top-3
+                // whole sections they point to (Stage 3) — and pin the text
+                // as the only document, so the unchanged prompt path puts it
+                // under "Reference material" in place of the oracle spec.
+                guard let retriever else { break }
+                await waitUntilCool(label: "Antes de Recuperado · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
+                for task in allTasks {
+                    let isParent = contextMode == .retrievedParent
+                    let material = ImportedMaterial(
+                        id: "retrieved-\(task.id)",
+                        title: isParent ? RetrievalCorpus.parentSectionsDocumentTitle : RetrievalCorpus.retrievedDocumentTitle,
+                        topic: "general",
+                        keywords: [],
+                        content: isParent
+                            ? RetrievalCorpus.formattedSections(retriever.retrieveSectionTitles(for: task.prompt), from: specs)
+                            : RetrievalCorpus.formatted(retriever.retrieve(for: task.prompt)),
+                        kind: .pdf,
+                        importedAt: .now
+                    )
+                    viewModel.materialsStore.add(material)
+                    viewModel.selectedMaterialID = material.id
+                    for sample in 1...samplesPerTask {
+                        await waitIfHot(label: "Recuperado · \(system.displayName)")
+                        statusText = "Recuperado · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
+                        await viewModel.sendForBatch(prompt: task.prompt)
+                        completedCount += 1
+                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
+                    }
+                    viewModel.materialsStore.remove(id: material.id)
+                }
             }
         }
 
