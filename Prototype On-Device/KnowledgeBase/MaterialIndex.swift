@@ -25,6 +25,27 @@ final class MaterialIndex {
     /// `id` of the synthetic document that carries the retrieved context.
     static let contextDocumentID = "ondevice-rag-context"
 
+    /// Chat history in normal chat: recent questions help search, and the latest turns that fit
+    /// 400 tokens (at most 6) go into the prompt. 400 rather than the package's 600 so that
+    /// instructions + 2,000 tokens of sections + history + a 1,024-token answer stay under the
+    /// models' ~4,096-token context. Batch runs pass no history, so none of this applies to them.
+    static let historySettings: HistorySettings = {
+        var settings = HistorySettings()
+        settings.useForSearch = true
+        settings.includeInContext = true
+        settings.searchTurns = 2
+        settings.maximumTurns = 6
+        settings.tokenBudget = 400
+        return settings
+    }()
+
+    /// What `referenceDocument(for:library:history:)` found: the packed context as one document
+    /// (nil → the caller falls back) and the conversation turns that fit the history budget.
+    struct Retrieval {
+        var document: KnowledgeDocument?
+        var history: [ChatTurn] = []
+    }
+
     private let makeEngine: EngineFactory
     private var engine: RAGEngine?
     /// Each operation waits for the previous one, so a question asked right after Save sees the
@@ -45,7 +66,9 @@ final class MaterialIndex {
             }
             let embedder = try await BGESmallEmbedder(modelURL: modelURL)
             let storage = URL.applicationSupportDirectory.appending(path: "MaterialIndex", directoryHint: .isDirectory)
-            return try await RAGEngine(configuration: RAGConfiguration(embedder: embedder), storageDirectory: storage)
+            var configuration = RAGConfiguration(embedder: embedder)
+            configuration.history = historySettings
+            return try await RAGEngine(configuration: configuration, storageDirectory: storage)
         }
     }
 
@@ -76,19 +99,29 @@ final class MaterialIndex {
     }
 
     /// The best-matching sections from all materials as one document, or nil (empty library,
-    /// engine unavailable, nothing retrieved) — the caller then falls back.
-    func referenceDocument(for prompt: String, library: [ImportedMaterial]) async -> KnowledgeDocument? {
-        guard !library.isEmpty else { return nil }
+    /// engine unavailable, nothing retrieved) — the caller then falls back. `history` (earlier turns,
+    /// oldest first) helps the search and comes back trimmed to the engine's history budget.
+    func referenceDocument(for prompt: String, library: [ImportedMaterial],
+                           history: [ChatTurn] = []) async -> Retrieval {
+        guard !library.isEmpty else { return Retrieval() }
         return await serialized {
-            guard let engine = await self.readyEngine(library: library) else { return nil }
+            guard let engine = await self.readyEngine(library: library) else { return Retrieval() }
             do {
-                let context = try await engine.context(for: prompt)
-                return context.text.isEmpty ? nil : Self.document(from: context, library: library)
+                let context = try await engine.context(for: prompt, history: history)
+                let document = context.text.isEmpty ? nil : Self.document(from: context, library: library)
+                return Retrieval(document: document, history: context.history)
             } catch {
                 self.lastError = error.localizedDescription
-                return nil
+                return Retrieval()
             }
         }
+    }
+
+    /// The latest turns that fit the history budget, for answers that don't go through the package
+    /// (explicit pick, fallback) — no engine, so no embedding-model load.
+    static func recentHistory(_ turns: [ChatTurn], counter: any TokenCounter = AppleTokenCounter()) async -> [ChatTurn] {
+        guard !turns.isEmpty else { return [] }
+        return await ChatTurn.recent(turns, settings: historySettings, counter: counter).turns
     }
 
     /// Titles of the materials in rank order (each once, current library title), the top

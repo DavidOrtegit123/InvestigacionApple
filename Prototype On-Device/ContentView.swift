@@ -556,7 +556,7 @@ final class TutorViewModel: ObservableObject {
         }
         // Empty store (e.g. the batch no-RAG condition): no reference, and the package is never touched.
         guard !imported.isEmpty else { return nil }
-        if let retrieved = await materialIndex.referenceDocument(for: prompt, library: imported) {
+        if let retrieved = await materialIndex.referenceDocument(for: prompt, library: imported).document {
             return retrieved
         }
         return imported.max(by: { $0.importedAt < $1.importedAt })?.asKnowledgeDocument
