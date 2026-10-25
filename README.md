@@ -22,3 +22,9 @@ uv run coreai.llm.export qwen3-1.7b --platform iOS
 ```
 
 Put the exported folder (for example `qwen3_1_7b_6bit_static/`) inside `Prototype On-Device/`, then set `CoreAIModelProvider.activeModel` to match it.
+
+Normal chat also needs the embedding model of [OnDeviceRAG](https://github.com/DavidOrtegit123/OnDeviceRag) (bge-small, 64 MB, MIT). From a clone of that repository:
+
+```sh
+Tools/download_model.sh "<this repo>/Prototype On-Device" 0.1.0
+```

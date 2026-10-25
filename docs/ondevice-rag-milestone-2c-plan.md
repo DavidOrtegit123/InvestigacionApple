@@ -513,11 +513,15 @@ git diff --stat -- "Prototype On-Device/BatchTaskRunner.swift" "Prototype On-Dev
 git diff -U0 "Prototype On-Device/ContentView.swift"   # read: explicit-pick lines untouched
 ```
 
-- [ ] **Step 5: README** — in the setup section, add after the Core AI model step:
+- [ ] **Step 5: README** — at the end of "Models (not included)":
 
-```markdown
-- Embedding model for chat retrieval (64 MB, not committed): `~/Developer/OnDeviceRag/Tools/download_model.sh "Prototype On-Device" 0.1.0` (or `Tools/download_model.sh` from a clone of github.com/DavidOrtegit123/OnDeviceRag).
+````markdown
+Normal chat also needs the embedding model of [OnDeviceRAG](https://github.com/DavidOrtegit123/OnDeviceRag) (bge-small, 64 MB, MIT). From a clone of that repository:
+
+```sh
+Tools/download_model.sh "<this repo>/Prototype On-Device" 0.1.0
 ```
+````
 
 - [ ] **Step 6: Build** — `BuildProject`. Expected: success. Then confirm the model is in the built app: `ls "<built .app>" | grep bge_small` (path from the build log).
 
