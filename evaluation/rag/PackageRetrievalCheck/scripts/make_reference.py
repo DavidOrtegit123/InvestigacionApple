@@ -1,6 +1,6 @@
 import json
 from sentence_transformers import SentenceTransformer
-import pathlib; R=str(pathlib.Path(__file__).resolve().parents[3] / 'evaluation' / 'rag') + '/'
+import pathlib; R=str(pathlib.Path(__file__).resolve().parents[2]) + '/'
 P=json.load(open(R+'passages.json'))['passages']
 C=json.load(open(R+'corpus.json'))['sections']
 gold={s['task_id']:s['title'] for s in C}
