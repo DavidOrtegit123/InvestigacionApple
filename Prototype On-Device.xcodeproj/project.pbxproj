@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		73396CD63045527A005D847D /* CoreAILM in Frameworks */ = {isa = PBXBuildFile; productRef = 73396CD53045527A005D847D /* CoreAILM */; };
+		7368A243308E7EAF0021C993 /* OnDeviceRAG in Frameworks */ = {isa = PBXBuildFile; productRef = 7368A242308E7EAF0021C993 /* OnDeviceRAG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		737AF0D9302D237200D3B949 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				7368A243308E7EAF0021C993 /* OnDeviceRAG in Frameworks */,
 				73396CD63045527A005D847D /* CoreAILM in Frameworks */,
 			);
 		};
@@ -67,6 +69,7 @@
 			name = "Prototype On-Device";
 			packageProductDependencies = (
 				73396CD53045527A005D847D /* CoreAILM */,
+				7368A242308E7EAF0021C993 /* OnDeviceRAG */,
 			);
 			productName = "Prototype On-Device";
 			productReference = 737AF0DC302D237200D3B949 /* Prototype On-Device.app */;
@@ -98,6 +101,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				73396CD43045527A005D847D /* XCRemoteSwiftPackageReference "coreai-models" */,
+				7368A241308E7EAF0021C993 /* XCRemoteSwiftPackageReference "OnDeviceRag" */,
 			);
 			preferredProjectObjectVersion = 110;
 			productRefGroup = 737AF0DD302D237200D3B949 /* Products */;
@@ -349,6 +353,14 @@
 				kind = branch;
 			};
 		};
+		7368A241308E7EAF0021C993 /* XCRemoteSwiftPackageReference "OnDeviceRag" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DavidOrtegit123/OnDeviceRag";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -356,6 +368,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 73396CD43045527A005D847D /* XCRemoteSwiftPackageReference "coreai-models" */;
 			productName = CoreAILM;
+		};
+		7368A242308E7EAF0021C993 /* OnDeviceRAG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7368A241308E7EAF0021C993 /* XCRemoteSwiftPackageReference "OnDeviceRag" */;
+			productName = OnDeviceRAG;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

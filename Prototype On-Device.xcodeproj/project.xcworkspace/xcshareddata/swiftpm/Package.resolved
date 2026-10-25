@@ -1,5 +1,5 @@
 {
-  "originHash" : "cb114b6d32f4f8fb179d87790ab8db31bf2cc269034fb7ba075b802dfd9476d2",
+  "originHash" : "96b47a6a28ded6d6f1cd1a78c0e9d2a9c276aa71d089743811c7b6a985d7e9c5",
   "pins" : [
     {
       "identity" : "coreai-models",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "86b5096ac59ab46e66bd1f6377c604bc1dab0bc2",
         "version" : "1.5.1"
+      }
+    },
+    {
+      "identity" : "ondevicerag",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DavidOrtegit123/OnDeviceRag",
+      "state" : {
+        "revision" : "c03b7c10382f95750c7281c42a2e580feb6d2163",
+        "version" : "0.1.0"
       }
     },
     {
