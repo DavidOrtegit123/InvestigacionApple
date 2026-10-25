@@ -56,6 +56,10 @@ struct MaterialsLibraryView: View {
         .sheet(item: $editingMaterial) { material in
             MaterialEditSheet(material: material) { updated in
                 materialsStore.update(updated)
+                if updated.title != material.title {
+                    let library = materialsStore.materials
+                    Task { await materialIndex.rename(id: updated.id, to: updated.title, library: library) }
+                }
             } onDelete: {
                 delete(material)
             }

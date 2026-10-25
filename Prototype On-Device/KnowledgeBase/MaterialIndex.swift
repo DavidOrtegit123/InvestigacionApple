@@ -98,6 +98,22 @@ final class MaterialIndex {
         }
     }
 
+    /// A material got a new title: re-chunk its saved reading under that title, so the packed
+    /// section headers ("## … (title, p. 1)") match the library. `library` is the library after the
+    /// rename. A material not indexed yet is added by the first-use sync with its new title.
+    func rename(id: String, to title: String, library: [ImportedMaterial]) async {
+        await serialized {
+            guard let engine = await self.readyEngine(library: library) else { return }
+            do {
+                try await engine.renameDocument(id: id, to: title)
+            } catch RAGError.unknownDocument {
+                // Nothing indexed under this ID — nothing to rename.
+            } catch {
+                self.lastError = error.localizedDescription
+            }
+        }
+    }
+
     /// The best-matching sections from all materials as one document, or nil (empty library,
     /// engine unavailable, nothing retrieved) — the caller then falls back. `history` (earlier turns,
     /// oldest first) helps the search and comes back trimmed to the engine's history budget.

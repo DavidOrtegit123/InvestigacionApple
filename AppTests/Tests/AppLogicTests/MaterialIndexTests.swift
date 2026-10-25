@@ -141,4 +141,18 @@ struct MaterialIndexTests {
         #expect(MaterialIndex.historySettings.tokenBudget == 400)
         #expect(MaterialIndex.historySettings.useForSearch && MaterialIndex.historySettings.includeInContext)
     }
+
+    // MARK: - Rename
+
+    @Test func renameChangesTheTitleInThePackedText() async throws {
+        let index = MaterialIndex(makeEngine: makeEngine)
+        let old = material("v", "Old volcano notes", volcano)
+        _ = await index.referenceDocument(for: "warm up", library: [old])
+        var renamed = old
+        renamed.title = "Volcanoes 101"
+        await index.rename(id: "v", to: renamed.title, library: [renamed])
+        let document = try #require(await index.referenceDocument(for: "lava volcano crater", library: [renamed]).document)
+        #expect(document.content.contains("(Volcanoes 101, p. 1)"))
+        #expect(!document.content.contains("Old volcano notes"))
+    }
 }
