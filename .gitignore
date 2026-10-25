@@ -23,3 +23,7 @@ evaluation/figures/*.pptx
 
 # SwiftPM build output (Stage 1 retrieval harness)
 .build/
+
+# Mac test harness for app logic
+AppTests/.build/
+AppTests/Package.resolved

@@ -13,6 +13,7 @@ import UniformTypeIdentifiers
 /// avoids that.
 struct MaterialImportButton<ButtonLabel: View>: View {
     let materialsStore: ImportedMaterialsStore
+    let materialIndex: MaterialIndex
     @ViewBuilder let label: () -> ButtonLabel
 
     @State private var isShowingFileImporter = false
@@ -48,8 +49,10 @@ struct MaterialImportButton<ButtonLabel: View>: View {
             Task { await handlePhotoImport(newItem) }
         }
         .sheet(item: $pendingImport) { source in
-            MaterialReviewSheet(source: source) { material in
+            MaterialReviewSheet(source: source) { material, reading in
                 materialsStore.add(material)
+                let library = materialsStore.materials
+                Task { await materialIndex.add(material, ingested: reading, library: library) }
             }
         }
         .alert("Import Failed", isPresented: Binding(

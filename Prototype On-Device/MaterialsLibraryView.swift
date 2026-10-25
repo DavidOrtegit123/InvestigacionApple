@@ -5,6 +5,7 @@ import SwiftUI
 /// General) since materials don't have a difficulty level.
 struct MaterialsLibraryView: View {
     @ObservedObject var materialsStore: ImportedMaterialsStore
+    let materialIndex: MaterialIndex
     @State private var editingMaterial: ImportedMaterial?
 
     private var materialsByTopic: [(topic: String, materials: [ImportedMaterial])] {
@@ -35,7 +36,7 @@ struct MaterialsLibraryView: View {
                             }
                             .swipeActions {
                                 Button("Delete", role: .destructive) {
-                                    materialsStore.remove(id: material.id)
+                                    delete(material)
                                 }
                             }
                         }
@@ -46,7 +47,7 @@ struct MaterialsLibraryView: View {
         .navigationTitle("My Materials")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                MaterialImportButton(materialsStore: materialsStore) {
+                MaterialImportButton(materialsStore: materialsStore, materialIndex: materialIndex) {
                     Image(systemName: "plus")
                 }
                 .accessibilityLabel("Import study material")
@@ -56,8 +57,15 @@ struct MaterialsLibraryView: View {
             MaterialEditSheet(material: material) { updated in
                 materialsStore.update(updated)
             } onDelete: {
-                materialsStore.remove(id: material.id)
+                delete(material)
             }
         }
+    }
+
+    /// Removes from the library, then from the search index (the index never watches the store).
+    private func delete(_ material: ImportedMaterial) {
+        materialsStore.remove(id: material.id)
+        let library = materialsStore.materials
+        Task { await materialIndex.remove(id: material.id, library: library) }
     }
 }

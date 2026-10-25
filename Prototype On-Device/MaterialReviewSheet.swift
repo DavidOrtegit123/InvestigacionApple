@@ -1,3 +1,4 @@
+import OnDeviceRAG
 import SwiftUI
 
 /// A file or photo the user just picked, waiting to be OCR'd/parsed and
@@ -13,7 +14,9 @@ struct PendingImportSource: Identifiable {
 /// its title/topic/keywords, then hands back a finished `ImportedMaterial`.
 struct MaterialReviewSheet: View {
     let source: PendingImportSource
-    let onSave: (ImportedMaterial) -> Void
+    let onSave: (ImportedMaterial, IngestedDocument?) -> Void
+    /// Fixed up front so the package's reading of the PDF carries the material's ID.
+    private let materialID = UUID().uuidString
 
     @Environment(\.dismiss) private var dismiss
     @State private var title: String
@@ -22,8 +25,10 @@ struct MaterialReviewSheet: View {
     @State private var extractedContent: String = ""
     @State private var isExtracting = true
     @State private var extractionError: String?
+    @State private var ingestedPDF: IngestedDocument?
+    @State private var isSaving = false
 
-    init(source: PendingImportSource, onSave: @escaping (ImportedMaterial) -> Void) {
+    init(source: PendingImportSource, onSave: @escaping (ImportedMaterial, IngestedDocument?) -> Void) {
         self.source = source
         self.onSave = onSave
         _title = State(initialValue: source.suggestedTitle)
@@ -67,8 +72,8 @@ struct MaterialReviewSheet: View {
                     Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { save() }
-                        .disabled(isExtracting || extractedContent.isEmpty)
+                    Button("Save") { Task { await save() } }
+                        .disabled(isExtracting || isSaving || extractedContent.isEmpty)
                 }
             }
             .task {
@@ -81,17 +86,26 @@ struct MaterialReviewSheet: View {
         do {
             switch source.kind {
             case .pdf:
-                extractedContent = try DocumentTextExtractor.extractText(fromPDFAt: source.fileURL)
+                // Read by OnDeviceRAG (sections, fonts, OCR for scanned pages) — the same
+                // reading is indexed on Save, so the preview shows what search will see.
+                let document = try await DocumentIngestor.ingestPDF(at: source.fileURL, title: source.suggestedTitle, id: materialID)
+                let text = MaterialIndex.displayText(of: document)
+                guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                    throw DocumentTextExtractionError.noTextFound
+                }
+                ingestedPDF = document
+                extractedContent = text
             case .image:
                 extractedContent = try await DocumentTextExtractor.extractText(fromImageAt: source.fileURL)
             }
         } catch {
-            extractionError = error.localizedDescription
+            extractionError = (error is IngestError ? DocumentTextExtractionError.unreadablePDF : error).localizedDescription
         }
         isExtracting = false
     }
 
-    private func save() {
+    private func save() async {
+        isSaving = true
         let keywords = keywordsText
             .split(separator: ",")
             .map { $0.trimmingCharacters(in: .whitespaces).lowercased() }
@@ -101,7 +115,7 @@ struct MaterialReviewSheet: View {
         let trimmedTopic = topic.trimmingCharacters(in: .whitespacesAndNewlines)
 
         let material = ImportedMaterial(
-            id: UUID().uuidString,
+            id: materialID,
             title: trimmedTitle.isEmpty ? source.suggestedTitle : trimmedTitle,
             topic: trimmedTopic.isEmpty ? "general" : trimmedTopic.lowercased(),
             keywords: keywords,
@@ -109,7 +123,14 @@ struct MaterialReviewSheet: View {
             kind: source.kind,
             importedAt: Date()
         )
-        onSave(material)
+        // The reading carries the title it was made with (it heads the first section and the
+        // packed context), so re-read once if the student renamed it; if that fails, the index
+        // falls back to the stored text.
+        var reading = ingestedPDF
+        if let current = reading, current.info.title != material.title {
+            reading = try? await DocumentIngestor.ingestPDF(at: source.fileURL, title: material.title, id: materialID)
+        }
+        onSave(material, reading)
         dismiss()
     }
 

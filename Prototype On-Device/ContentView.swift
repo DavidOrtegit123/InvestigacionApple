@@ -339,6 +339,9 @@ final class TutorViewModel: ObservableObject {
     private let engine = FoundationModelsTutorEngine()
     private let memoryStore: StudentMemoryStore
     let materialsStore: ImportedMaterialsStore
+    /// The student's materials as an OnDeviceRAG index (normal chat only — batch runs always
+    /// pin a material or empty the store, so they never reach it).
+    let materialIndex = MaterialIndex.live()
 
     init(memoryStore: StudentMemoryStore, materialsStore: ImportedMaterialsStore) {
         self.memoryStore = memoryStore
@@ -539,10 +542,11 @@ final class TutorViewModel: ObservableObject {
 
     /// Only ever searches the student's imported materials — this is the
     /// single shared knowledge source (the imported PDF) both System A and
-    /// System B answer from. If nothing is semantically close (e.g.
-    /// "summarize this"), it falls back to the most recently imported
-    /// material rather than returning no reference at all.
-    private func referenceDocument(for prompt: String) -> KnowledgeDocument? {
+    /// System B answer from. Without an explicit pick, the OnDeviceRAG index
+    /// supplies the best-matching sections across all materials; if it has
+    /// nothing (e.g. the model couldn't load), it falls back to the most
+    /// recently imported material rather than returning no reference at all.
+    private func referenceDocument(for prompt: String) async -> KnowledgeDocument? {
         let imported = materialsStore.materials
         // An explicit pick from the document picker always wins — that's
         // the whole point of letting the student choose, rather than
@@ -550,9 +554,10 @@ final class TutorViewModel: ObservableObject {
         if let selectedMaterialID, let selected = imported.first(where: { $0.id == selectedMaterialID }) {
             return selected.asKnowledgeDocument
         }
-        let importedRetriever = KnowledgeRetriever(documents: imported.map(\.asKnowledgeDocument))
-        if let matched = importedRetriever.retrieve(for: prompt, topK: 1).first {
-            return matched
+        // Empty store (e.g. the batch no-RAG condition): no reference, and the package is never touched.
+        guard !imported.isEmpty else { return nil }
+        if let retrieved = await materialIndex.referenceDocument(for: prompt, library: imported) {
+            return retrieved
         }
         return imported.max(by: { $0.importedAt < $1.importedAt })?.asKnowledgeDocument
     }
@@ -590,7 +595,7 @@ final class TutorViewModel: ObservableObject {
         // actually produced this reply.
         let requestSystem = selectedSystem
 
-        let referenceDocument = referenceDocument(for: prompt)
+        let referenceDocument = await referenceDocument(for: prompt)
         let context = TutorContext(
             studentName: memoryStore.memory.name,
             studentLevel: memoryStore.memory.currentLevel,
@@ -967,7 +972,7 @@ struct ContentView: View {
             }
 
             HStack(spacing: 8) {
-                MaterialImportButton(materialsStore: materialsStore) {
+                MaterialImportButton(materialsStore: materialsStore, materialIndex: viewModel.materialIndex) {
                     Image(systemName: "paperclip")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundStyle(.white)
