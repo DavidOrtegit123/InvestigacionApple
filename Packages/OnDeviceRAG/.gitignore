@@ -1,9 +1,0 @@
-.DS_Store
-.build/
-.swiftpm/
-/Packages/
-Package.resolved
-*.aimodel
-*.aimodelc
-*.aimodel.zip
-__pycache__/

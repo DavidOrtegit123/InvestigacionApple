@@ -7,7 +7,7 @@ let package = Package(
     name: "PackageRetrievalCheck",
     platforms: [.macOS(.v27)],
     dependencies: [
-        .package(path: "../../../Packages/OnDeviceRAG"),
+        .package(url: "https://github.com/DavidOrtegit123/OnDeviceRag", from: "0.1.0"),
     ],
     targets: [
         .testTarget(name: "PackageRetrievalCheckTests", dependencies: [.product(name: "OnDeviceRAG", package: "OnDeviceRAG")]),
