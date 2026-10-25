@@ -972,7 +972,7 @@ struct ContentView: View {
             }
 
             HStack(spacing: 8) {
-                MaterialImportButton(materialsStore: materialsStore) {
+                MaterialImportButton(materialsStore: materialsStore, materialIndex: viewModel.materialIndex) {
                     Image(systemName: "paperclip")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundStyle(.white)

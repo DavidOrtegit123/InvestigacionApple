@@ -48,7 +48,7 @@ struct ProfileView: View {
 
                 Section {
                     NavigationLink {
-                        MaterialsLibraryView(materialsStore: viewModel.materialsStore)
+                        MaterialsLibraryView(materialsStore: viewModel.materialsStore, materialIndex: viewModel.materialIndex)
                     } label: {
                         Label("My Materials", systemImage: "books.vertical")
                     }
