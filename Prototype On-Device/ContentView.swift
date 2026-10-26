@@ -9,6 +9,7 @@ import SwiftUI
 import FoundationModels
 import Combine
 import Speech
+import OnDeviceRAG
 
 struct Message: Identifiable, Equatable {
     enum Role {
@@ -161,6 +162,8 @@ struct TutorContext {
     var pastTopics: [String]
     var strugglingTopics: [String]
     var referenceDocument: KnowledgeDocument?
+    /// Earlier turns of this chat (normal chat only; always empty in batch runs).
+    var conversation: [ChatTurn] = []
 }
 
 struct FoundationModelsTutorEngine {
@@ -305,6 +308,10 @@ struct FoundationModelsTutorEngine {
             studentLine += " Has struggled with: \(context.strugglingTopics.joined(separator: ", ")). Be extra patient and thorough on these."
         }
         lines.append(studentLine)
+
+        if let block = ConversationHistory.promptBlock(context.conversation) {
+            lines.append(block)
+        }
 
         if let doc = context.referenceDocument {
             lines.append("Reference material:\n\(doc.content)")
@@ -461,11 +468,12 @@ final class TutorViewModel: ObservableObject {
         messages.append(Message(role: .user, text: trimmed))
         input = ""
         isResponding = true
+        let history = conversationHistory(before: messages.count)
 
         let assistantMessage = Message(role: .assistant, text: "")
         messages.append(assistantMessage)
 
-        await generate(prompt: trimmed, assistantMessageID: assistantMessage.id)
+        await generate(prompt: trimmed, assistantMessageID: assistantMessage.id, history: history)
 
         isResponding = false
     }
@@ -482,7 +490,7 @@ final class TutorViewModel: ObservableObject {
         messages[index].text = ""
         messages[index].isIncomplete = false
 
-        await generate(prompt: prompt, assistantMessageID: messageID)
+        await generate(prompt: prompt, assistantMessageID: messageID, history: conversationHistory(before: index))
 
         isResponding = false
     }
@@ -508,9 +516,21 @@ final class TutorViewModel: ObservableObject {
         let assistantMessage = Message(role: .assistant, text: "")
         messages.append(assistantMessage)
 
-        await generate(prompt: prompt, assistantMessageID: assistantMessage.id)
+        // No conversation history: batch prompts must stay identical to the frozen protocol.
+        await generate(prompt: prompt, assistantMessageID: assistantMessage.id, history: [])
 
         isResponding = false
+    }
+
+    /// The chat's earlier turns before `index`, without the question being answered (the user
+    /// message just before it). Normal chat only — `sendForBatch` never calls this.
+    private func conversationHistory(before index: Int) -> [ChatTurn] {
+        var earlier = Array(messages.prefix(index))
+        if earlier.last?.role == .user { earlier.removeLast() }
+        return ConversationHistory.turns(from: earlier.map { message in
+            ConversationHistory.Entry(isUser: message.role == .user, text: message.text,
+                                      isGeneratedReply: message.sourceSystem != nil)
+        })
     }
 
     /// Builds an Apple Feedback Assistant attachment for a message's
@@ -546,20 +566,24 @@ final class TutorViewModel: ObservableObject {
     /// supplies the best-matching sections across all materials; if it has
     /// nothing (e.g. the model couldn't load), it falls back to the most
     /// recently imported material rather than returning no reference at all.
-    private func referenceDocument(for prompt: String) async -> KnowledgeDocument? {
+    /// `history` (normal chat only) helps the package's search, and comes back
+    /// trimmed to the history budget on every path.
+    private func referenceDocument(for prompt: String, history: [ChatTurn]) async -> MaterialIndex.Retrieval {
         let imported = materialsStore.materials
         // An explicit pick from the document picker always wins — that's
         // the whole point of letting the student choose, rather than
         // guessing by semantic match when they have several imports.
         if let selectedMaterialID, let selected = imported.first(where: { $0.id == selectedMaterialID }) {
-            return selected.asKnowledgeDocument
+            return MaterialIndex.Retrieval(document: selected.asKnowledgeDocument, history: await MaterialIndex.recentHistory(history))
         }
         // Empty store (e.g. the batch no-RAG condition): no reference, and the package is never touched.
-        guard !imported.isEmpty else { return nil }
-        if let retrieved = await materialIndex.referenceDocument(for: prompt, library: imported) {
-            return retrieved
+        guard !imported.isEmpty else { return MaterialIndex.Retrieval() }
+        let retrieval = await materialIndex.referenceDocument(for: prompt, library: imported, history: history)
+        if retrieval.document != nil {
+            return retrieval
         }
-        return imported.max(by: { $0.importedAt < $1.importedAt })?.asKnowledgeDocument
+        return MaterialIndex.Retrieval(document: imported.max(by: { $0.importedAt < $1.importedAt })?.asKnowledgeDocument,
+                                       history: await MaterialIndex.recentHistory(history))
     }
 
     /// Resolves the `LanguageModel` for the given backend. System A uses
@@ -584,7 +608,7 @@ final class TutorViewModel: ObservableObject {
         }
     }
 
-    private func generate(prompt: String, assistantMessageID: UUID) async {
+    private func generate(prompt: String, assistantMessageID: UUID, history: [ChatTurn]) async {
         let start = Date()
         let thermalStateBefore = ProcessInfo.processInfo.thermalState
         var firstTokenDate: Date?
@@ -595,13 +619,15 @@ final class TutorViewModel: ObservableObject {
         // actually produced this reply.
         let requestSystem = selectedSystem
 
-        let referenceDocument = await referenceDocument(for: prompt)
+        let retrieval = await referenceDocument(for: prompt, history: history)
+        let referenceDocument = retrieval.document
         let context = TutorContext(
             studentName: memoryStore.memory.name,
             studentLevel: memoryStore.memory.currentLevel,
             pastTopics: Array(memoryStore.memory.topicsAsked.prefix(3)),
             strugglingTopics: memoryStore.memory.strugglingTopics,
-            referenceDocument: referenceDocument
+            referenceDocument: referenceDocument,
+            conversation: retrieval.history
         )
 
         do {

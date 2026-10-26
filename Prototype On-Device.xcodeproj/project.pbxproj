@@ -358,7 +358,7 @@
 			repositoryURL = "https://github.com/DavidOrtegit123/OnDeviceRag";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

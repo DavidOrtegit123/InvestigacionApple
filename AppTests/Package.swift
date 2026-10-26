@@ -18,7 +18,7 @@ let package = Package(
     name: "AppTests",
     platforms: [.macOS(.v27)],
     dependencies: [
-        .package(url: "https://github.com/DavidOrtegit123/OnDeviceRag", from: "0.1.0"),
+        .package(url: "https://github.com/DavidOrtegit123/OnDeviceRag", from: "0.2.1"),
     ],
     targets: [
         .target(name: "AppLogic", dependencies: [.product(name: "OnDeviceRAG", package: "OnDeviceRAG")],

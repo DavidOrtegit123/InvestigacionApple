@@ -18,13 +18,14 @@ struct MaterialIndexTests {
     func makeEngine() async throws -> RAGEngine {
         var configuration = RAGConfiguration(embedder: WordHashEmbedder())
         configuration.tokenCounter = EstimatingTokenCounter()
+        configuration.history = MaterialIndex.historySettings
         return try await RAGEngine(configuration: configuration, storageDirectory: storage)
     }
 
     @Test func firstUseIndexesTheLibraryAndAnswersFromTheMatchingMaterial() async throws {
         let library = [material("v", "Volcanoes", topic: "science", volcano), material("p", "Piano", topic: "music", piano)]
         let index = MaterialIndex(makeEngine: makeEngine)
-        let document = try #require(await index.referenceDocument(for: "How does lava flow from a volcano crater?", library: library))
+        let document = try #require(await index.referenceDocument(for: "How does lava flow from a volcano crater?", library: library).document)
         #expect(document.id == MaterialIndex.contextDocumentID)
         #expect(document.content.contains("Magma rises"))
         #expect(document.title.hasPrefix("Volcanoes"))
@@ -34,7 +35,7 @@ struct MaterialIndexTests {
     @Test func emptyLibraryReturnsNilWithoutCreatingTheEngine() async {
         var created = 0
         let index = MaterialIndex { created += 1; return try await makeEngine() }
-        #expect(await index.referenceDocument(for: "anything", library: []) == nil)
+        #expect(await index.referenceDocument(for: "anything", library: []).document == nil)
         #expect(created == 0)
     }
 
@@ -51,7 +52,7 @@ struct MaterialIndexTests {
         let reading = DocumentIngestor.ingestText(chords, title: "Piano", id: "p")
         let index = MaterialIndex(makeEngine: makeEngine)
         await index.add(pianoMaterial, ingested: reading, library: [pianoMaterial])
-        let document = try #require(await index.referenceDocument(for: "three notes chord", library: [pianoMaterial]))
+        let document = try #require(await index.referenceDocument(for: "three notes chord", library: [pianoMaterial]).document)
         #expect(document.content.contains("stacks three notes"))
         #expect(!document.content.contains("eight keys"))
     }
@@ -62,7 +63,7 @@ struct MaterialIndexTests {
         let index = MaterialIndex(makeEngine: makeEngine)
         let saving = Task { await index.add(pianoMaterial, ingested: reading, library: [pianoMaterial]) }
         await Task.yield()  // the save has started (as after tapping Save), but not finished
-        let document = await index.referenceDocument(for: "three notes chord", library: [pianoMaterial])
+        let document = await index.referenceDocument(for: "three notes chord", library: [pianoMaterial]).document
         await saving.value
         #expect(document?.content.contains("stacks three notes") == true)
     }
@@ -73,7 +74,7 @@ struct MaterialIndexTests {
         let index = MaterialIndex(makeEngine: makeEngine)
         _ = await index.referenceDocument(for: "warm up", library: [volcanoMaterial, pianoMaterial])
         await index.remove(id: "v", library: [pianoMaterial])
-        let document = try #require(await index.referenceDocument(for: "lava volcano crater", library: [pianoMaterial]))
+        let document = try #require(await index.referenceDocument(for: "lava volcano crater", library: [pianoMaterial]).document)
         #expect(!document.content.contains("Magma"))
     }
 
@@ -86,9 +87,9 @@ struct MaterialIndexTests {
             return try await makeEngine()
         }
         let library = [material("v", "Volcanoes", volcano)]
-        #expect(await index.referenceDocument(for: "lava", library: library) == nil)
+        #expect(await index.referenceDocument(for: "lava", library: library).document == nil)
         #expect(index.lastError != nil)
-        #expect(await index.referenceDocument(for: "lava", library: library) != nil)
+        #expect(await index.referenceDocument(for: "lava", library: library).document != nil)
     }
 
     /// `RAGContext`/`ContextSection` have no public initializers, so this goes through the engine.
@@ -99,7 +100,7 @@ struct MaterialIndexTests {
         let reading = DocumentIngestor.ingestText(piano + "\n\n" + chords, title: "Piano", id: "p")
         let index = MaterialIndex(makeEngine: makeEngine)
         await index.add(pianoMaterial, ingested: reading, library: [volcanoMaterial, pianoMaterial])
-        let document = try #require(await index.referenceDocument(for: "notes", library: [volcanoMaterial, pianoMaterial]))
+        let document = try #require(await index.referenceDocument(for: "notes", library: [volcanoMaterial, pianoMaterial]).document)
         let titles = document.title.components(separatedBy: " + ")
         #expect(titles.count == 2)
         #expect(Set(titles) == ["Volcanoes", "Piano (renamed)"])
@@ -112,5 +113,46 @@ struct MaterialIndexTests {
         let reread = DocumentIngestor.ingestText(text, title: "Volcanoes", id: "v")
         #expect(reread.sections.map(\.title) == ["Eruptions", "Ash"])
         #expect(reread.sections.map(\.text) == reading.sections.map(\.text))
+    }
+
+    // MARK: - Conversation history
+
+    let conversation: [ChatTurn] = [.user("Tell me about volcanoes"), .assistant("They erupt lava from a crater.")]
+
+    @Test func historyComesBackWithTheDocument() async throws {
+        let index = MaterialIndex(makeEngine: makeEngine)
+        let library = [material("v", "Volcanoes", volcano), material("p", "Piano", piano)]
+        let retrieval = await index.referenceDocument(for: "and how does it flow?", library: library, history: conversation)
+        #expect(retrieval.history == conversation)
+        #expect(retrieval.document?.content.contains("Magma rises") == true)  // the question alone names no topic
+    }
+
+    @Test func noHistoryGivesNoTurns() async throws {
+        let index = MaterialIndex(makeEngine: makeEngine)
+        let retrieval = await index.referenceDocument(for: "lava crater", library: [material("v", "Volcanoes", volcano)])
+        #expect(retrieval.history.isEmpty)
+        #expect(await MaterialIndex.recentHistory([]).isEmpty)
+    }
+
+    @Test func recentHistoryKeepsTheLatestTurnsWithinTheAppSettings() async {
+        let turns = (1...8).map { ChatTurn.user("question \($0)") }
+        let kept = await MaterialIndex.recentHistory(turns, counter: EstimatingTokenCounter())
+        #expect(kept == Array(turns.suffix(MaterialIndex.historySettings.maximumTurns)))
+        #expect(MaterialIndex.historySettings.tokenBudget == 400)
+        #expect(MaterialIndex.historySettings.useForSearch && MaterialIndex.historySettings.includeInContext)
+    }
+
+    // MARK: - Rename
+
+    @Test func renameChangesTheTitleInThePackedText() async throws {
+        let index = MaterialIndex(makeEngine: makeEngine)
+        let old = material("v", "Old volcano notes", volcano)
+        _ = await index.referenceDocument(for: "warm up", library: [old])
+        var renamed = old
+        renamed.title = "Volcanoes 101"
+        await index.rename(id: "v", to: renamed.title, library: [renamed])
+        let document = try #require(await index.referenceDocument(for: "lava volcano crater", library: [renamed]).document)
+        #expect(document.content.contains("(Volcanoes 101, p. 1)"))
+        #expect(!document.content.contains("Old volcano notes"))
     }
 }
