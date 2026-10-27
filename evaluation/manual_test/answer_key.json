@@ -1,0 +1,58 @@
+[
+  {
+    "id": "Q1",
+    "question": "What is the timeout for the ventilation module's vent actuator?",
+    "expected_answer": "312 seconds",
+    "section": "5.3 Timeout settings",
+    "page": 24,
+    "tests": "picking the right one of five look-alike sections"
+  },
+  {
+    "id": "Q2",
+    "question": "Which error code means the CO2 valve is stuck open?",
+    "expected_answer": "E-C17",
+    "section": "8.6 Error codes",
+    "page": 50,
+    "tests": "look-alike sections and look-alike codes (E-I17, E-H17 mean other things); table"
+  },
+  {
+    "id": "Q3",
+    "question": "How often should the irrigation flow sensor be calibrated?",
+    "expected_answer": "Every 23 days",
+    "section": "4.5 Calibration",
+    "page": 18,
+    "tests": "look-alike sections (the heating probe interval is 45 days)"
+  },
+  {
+    "id": "Q4",
+    "question": "What does a blinking amber LED on the control panel mean?",
+    "expected_answer": "A firmware update has been downloaded and is waiting for confirmation",
+    "section": "3.3 Status LEDs",
+    "page": 10,
+    "tests": "a unique section (easy control question)"
+  },
+  {
+    "id": "Q5",
+    "question": "My plants get too much light late in the evening - which setting decides when the lamps turn off?",
+    "expected_answer": "The dusk cutoff setting (default 21:40)",
+    "section": "6.2 Schedules",
+    "page": 30,
+    "tests": "different wording from the manual"
+  },
+  {
+    "id": "Q6",
+    "question": "How many sensors can one controller support?",
+    "expected_answer": "64",
+    "section": "12.1 Technical specifications",
+    "page": 61,
+    "tests": "reading a table"
+  },
+  {
+    "id": "Q7",
+    "question": "What is the warranty period?",
+    "expected_answer": "Not stated in the manual",
+    "section": null,
+    "page": null,
+    "tests": "the model should say the manual does not cover it"
+  }
+]
