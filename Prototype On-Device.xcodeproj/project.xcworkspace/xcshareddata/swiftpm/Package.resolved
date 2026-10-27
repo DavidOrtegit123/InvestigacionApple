@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DavidOrtegit123/OnDeviceRag",
       "state" : {
-        "revision" : "edbb6bbf012576c0fab4860d0e80e75f89e3f0dd",
-        "version" : "0.2.1"
+        "revision" : "d332c946b007767cfcdcc5173e0ce6815515b110",
+        "version" : "0.2.2"
       }
     },
     {
