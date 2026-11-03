@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import OnDeviceRAG
 
 /// One code task loaded from the bundled BatchTasks.json — a trimmed copy
 /// of evaluation/tasks/*.json with only the fields needed to actually ask
@@ -24,6 +25,10 @@ enum BatchContextMode: String, CaseIterable, Identifiable {
     /// The same ranking, but the top-3 sections it points to, delivered
     /// whole (Stage 3, exploratory, evaluation/rag_stage3_design.md).
     case retrievedParent
+    /// OnDeviceRAG's packed context (whole sections within the default
+    /// 2,000-token budget) from an in-memory index of the 4 manuals built
+    /// on the device (Stage 4, exploratory, evaluation/rag_stage4_design.md).
+    case packageBudget
 
     var id: String { rawValue }
 
@@ -32,6 +37,7 @@ enum BatchContextMode: String, CaseIterable, Identifiable {
         case .oracle: "Documento correcto (oracle)"
         case .retrieved: "Recuperado (híbrido top-5)"
         case .retrievedParent: "Recuperado (secciones completas top-3)"
+        case .packageBudget: "Recuperado (OnDeviceRAG, 2.000 tokens)"
         }
     }
 
@@ -191,6 +197,25 @@ final class BatchRunner: ObservableObject {
             }
         }
 
+        // Stage 4: the package's index over the same 4 manuals, built once
+        // per run; refuse to start unless it matches the design (4 documents,
+        // 97 chunks, exact token counts).
+        var packageContext: PackageBatchContext?
+        if contextMode == .packageBudget {
+            do {
+                let built = try await PackageBatchContext.live(manuals: RetrievalCorpus.manuals(from: specs))
+                let check = try await built.check(probe: allTasks.first?.prompt ?? "probe")
+                guard check.isReady else {
+                    statusText = "No se corrió: el índice de OnDeviceRAG no coincide con el diseño. \(check.summary)"
+                    return
+                }
+                packageContext = built
+            } catch {
+                statusText = "No se corrió: no se pudo crear el índice de OnDeviceRAG (\(error.localizedDescription))."
+                return
+            }
+        }
+
         isRunning = true
         completedCount = 0
 
@@ -305,6 +330,37 @@ final class BatchRunner: ObservableObject {
                     for sample in 1...samplesPerTask {
                         await waitIfHot(label: "Recuperado · \(system.displayName)")
                         statusText = "Recuperado · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
+                        await viewModel.sendForBatch(prompt: task.prompt)
+                        completedCount += 1
+                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
+                    }
+                    viewModel.materialsStore.remove(id: material.id)
+                }
+
+            case .packageBudget:
+                // Stage 4: right before each task, ask the package for its
+                // packed context for the task's main prompt (no history) and
+                // pin it as the only document, exactly like Stages 2–3. A
+                // package error leaves the content empty, which the scorer
+                // sees as a missing Stage 4 answer rather than a silent pass.
+                guard let packageContext else { break }
+                await waitUntilCool(label: "Antes de OnDeviceRAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
+                for task in allTasks {
+                    let packed = (try? await packageContext.context(for: task.prompt))?.text ?? ""
+                    let material = ImportedMaterial(
+                        id: "package-\(task.id)",
+                        title: PackageBatchContext.documentTitle,
+                        topic: "general",
+                        keywords: [],
+                        content: packed,
+                        kind: .pdf,
+                        importedAt: .now
+                    )
+                    viewModel.materialsStore.add(material)
+                    viewModel.selectedMaterialID = material.id
+                    for sample in 1...samplesPerTask {
+                        await waitIfHot(label: "OnDeviceRAG · \(system.displayName)")
+                        statusText = "OnDeviceRAG · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
                         await viewModel.sendForBatch(prompt: task.prompt)
                         completedCount += 1
                         try? await Task.sleep(for: Self.pauseBetweenAnswers)
