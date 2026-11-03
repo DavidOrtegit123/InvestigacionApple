@@ -27,3 +27,6 @@ evaluation/figures/*.pptx
 # Mac test harness for app logic
 AppTests/.build/
 AppTests/Package.resolved
+
+# Claude Code personal settings
+.claude/settings.local.json
