@@ -226,5 +226,13 @@ class Stage3Tests(unittest.TestCase):
         self.assertEqual(sum(t["reference_doc_title"] in sections[t["id"]] for t in tasks), 31)
 
 
+import stage4_tests  # noqa: E402
+
+
+class Stage4FitTests(unittest.TestCase):
+    def test_fit_boundary(self):
+        self.assertTrue(stage4_tests.fits(4096 - 1024 - 50, 4096))
+        self.assertFalse(stage4_tests.fits(4096 - 1024 - 49, 4096))
+
 if __name__ == "__main__":
     unittest.main()
