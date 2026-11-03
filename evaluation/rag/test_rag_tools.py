@@ -234,5 +234,15 @@ class Stage4FitTests(unittest.TestCase):
         self.assertTrue(stage4_tests.fits(4096 - 1024 - 50, 4096))
         self.assertFalse(stage4_tests.fits(4096 - 1024 - 49, 4096))
 
+
+class Stage4ScorerTests(unittest.TestCase):
+    def test_scorer_labels_package_context(self):
+        entries = [
+            {"role": "user", "text": "q"},
+            {"role": "assistant", "system": "Apple", "text": "a", "retrievedContext": "x",
+             "retrievedDocumentTitle": "Retrieved (OnDeviceRAG budget)"},
+        ]
+        self.assertEqual([p["ragCondition"] for p in matched_answers(entries)], ["retrieved_package"])
+
 if __name__ == "__main__":
     unittest.main()
