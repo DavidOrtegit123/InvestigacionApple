@@ -82,9 +82,14 @@ struct BatchEvaluationView: View {
                 } footer: {
                     if contextMode.usesRetrieval {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(contextMode == .retrievedParent
-                                 ? "Cada tarea recibe las 3 secciones completas a las que apunta la búsqueda híbrida en el dispositivo (4 manuales) en lugar de su documento. No corre el control sin RAG."
-                                 : "Cada tarea recibe los 5 pasajes recuperados en el dispositivo (búsqueda híbrida en los 4 manuales) en lugar de su documento. No corre el control sin RAG.")
+                            switch contextMode {
+                            case .retrievedParent:
+                                Text("Cada tarea recibe las 3 secciones completas a las que apunta la búsqueda híbrida en el dispositivo (4 manuales) en lugar de su documento. No corre el control sin RAG.")
+                            case .packageBudget:
+                                Text("Cada tarea recibe el contexto empaquetado por OnDeviceRAG (secciones completas, hasta 2.000 tokens) desde un índice de los 4 manuales creado en el dispositivo. No corre el control sin RAG.")
+                            default:
+                                Text("Cada tarea recibe los 5 pasajes recuperados en el dispositivo (búsqueda híbrida en los 4 manuales) en lugar de su documento. No corre el control sin RAG.")
+                            }
                             if let retrievalCheck {
                                 Text(retrievalCheck.summary)
                                     .foregroundStyle(retrievalCheck.isReady ? Color.secondary : Color.red)

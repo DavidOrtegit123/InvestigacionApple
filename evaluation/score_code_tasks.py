@@ -35,18 +35,23 @@ IMPORT_LINE_RE = re.compile(r"^\s*(import|from)\s+\w")
 RETRIEVED_DOCUMENT_TITLE = "Retrieved (hybrid top-5)"
 # Stage 3's whole retrieved sections (RetrievalCorpus.parentSectionsDocumentTitle).
 PARENT_SECTIONS_DOCUMENT_TITLE = "Retrieved (parent sections top-3)"
+# Stage 4's OnDeviceRAG packed context (PackageBatchContext.documentTitle).
+PACKAGE_CONTEXT_DOCUMENT_TITLE = "Retrieved (OnDeviceRAG budget)"
 
 
 def rag_condition(entry):
     """no_rag (no document), with_rag (the oracle document — H1/H1b),
-    retrieved (Stage 2's retrieved passages), or retrieved_parent (Stage 3's
-    whole retrieved sections), read from the transcript."""
+    retrieved (Stage 2's retrieved passages), retrieved_parent (Stage 3's
+    whole retrieved sections), or retrieved_package (Stage 4's OnDeviceRAG
+    packed context), read from the transcript."""
     if not entry.get("retrievedContext"):
         return "no_rag"
     if entry.get("retrievedDocumentTitle") == RETRIEVED_DOCUMENT_TITLE:
         return "retrieved"
     if entry.get("retrievedDocumentTitle") == PARENT_SECTIONS_DOCUMENT_TITLE:
         return "retrieved_parent"
+    if entry.get("retrievedDocumentTitle") == PACKAGE_CONTEXT_DOCUMENT_TITLE:
+        return "retrieved_package"
     return "with_rag"
 
 

@@ -226,5 +226,61 @@ class Stage3Tests(unittest.TestCase):
         self.assertEqual(sum(t["reference_doc_title"] in sections[t["id"]] for t in tasks), 31)
 
 
+import stage4_tests  # noqa: E402
+
+
+class Stage4FitTests(unittest.TestCase):
+    def test_fit_boundary(self):
+        self.assertTrue(stage4_tests.fits(4096 - 1024 - 50, 4096))
+        self.assertFalse(stage4_tests.fits(4096 - 1024 - 49, 4096))
+
+
+class Stage4ScorerTests(unittest.TestCase):
+    def test_scorer_labels_package_context(self):
+        entries = [
+            {"role": "user", "text": "q"},
+            {"role": "assistant", "system": "Apple", "text": "a", "retrievedContext": "x",
+             "retrievedDocumentTitle": "Retrieved (OnDeviceRAG budget)"},
+        ]
+        self.assertEqual([p["ragCondition"] for p in matched_answers(entries)], ["retrieved_package"])
+
+
+class Stage4Tests(unittest.TestCase):
+    def test_analyze_signs_pairing_and_family(self):
+        oracle = [result("t1", "Apple", "with_rag", True), result("t1", "Qwen3-4B", "with_rag", True)]
+        parent = [result("t1", "Apple", "retrieved_parent", False), result("t1", "Qwen3-4B", "retrieved_parent", True)]
+        package = [result("t1", "Apple", "retrieved_package", True), result("t1", "Apple", "retrieved_package", False),
+                   result("t1", "Qwen3-4B", "retrieved_package", True), result("t1", "Qwen3-4B", "retrieved_package", True),
+                   result("t1", "Apple", "retrieved_parent", True)]  # ignored: wrong condition
+        report = stage4_tests.analyze(oracle, parent, package)
+        t = report["tests"]
+        self.assertEqual((t["S4a"]["meanBaseline"], t["S4a"]["meanPackage"]), (0.0, 0.5))
+        self.assertEqual((t["S4b"]["meanBaseline"], t["S4b"]["meanPackage"]), (1.0, 1.0))
+        self.assertEqual((t["S4c"]["meanBaseline"], t["S4c"]["meanPackage"]), (1.0, 0.5))
+        self.assertEqual((t["S4d"]["meanBaseline"], t["S4d"]["meanPackage"]), (1.0, 1.0))
+        self.assertEqual((t["S4e"]["meanApple"], t["S4e"]["meanQwen"]), (0.5, 1.0))
+        self.assertEqual(set(report["holm"]), {"S4a", "S4b", "S4c", "S4d", "S4e"})
+
+    def test_package_minus_baseline_sign(self):
+        # Package better than baseline on 6 tasks -> all differences positive.
+        parent = [result(f"t{i}", "Apple", "retrieved_parent", False) for i in range(6)]
+        package = [result(f"t{i}", "Apple", "retrieved_package", True) for i in range(6)]
+        report = stage4_tests.analyze([], parent, package)
+        self.assertEqual(report["tests"]["S4a"]["wilcoxon"]["w_minus"], 0)
+
+    def test_holm_thresholds_for_five(self):
+        h = holm({"a": 0.001, "b": 0.011, "c": 0.02, "d": 0.03, "e": 0.04})
+        self.assertEqual([round(h[k]["threshold"], 4) for k in "abcde"], [0.01, 0.0125, 0.0167, 0.025, 0.05])
+        self.assertEqual([h[k]["significant"] for k in "abcde"], [True, True, False, False, False])
+
+    def test_context_match(self):
+        reference = {"tasks": {"t1": {"text": "ctx"}}}
+        entries = [{"role": "user", "text": "p1"},
+                   {"role": "assistant", "retrievedDocumentTitle": "Retrieved (OnDeviceRAG budget)", "retrievedContext": "ctx"},
+                   {"role": "user", "text": "p1"},
+                   {"role": "assistant", "retrievedDocumentTitle": "Retrieved (OnDeviceRAG budget)", "retrievedContext": "other"}]
+        m = stage4_tests.context_match([entries], reference, {"p1": "t1"})
+        self.assertEqual((m["matched"], m["mismatchedAnswers"], m["mismatched"]), (1, 1, ["t1"]))
+
 if __name__ == "__main__":
     unittest.main()
