@@ -57,6 +57,9 @@ RUNS = [
     ("RAG Stage 3 — Qwen3-4B (2026-10-20/21)",
      ["prototype-on-device-transcript-1792544444.json", "prototype-on-device-transcript-1792554527.json",
       "prototype-on-device-transcript-1792560385.json"]),
+    ("RAG Stage 4 — Qwen3-4B, OnDeviceRAG 2,000 tokens (2026-11-04)",
+     ["prototype-on-device-transcript-1793762422.json", "prototype-on-device-transcript-1793771191.json",
+      "prototype-on-device-transcript-1793822669.json"]),
 ]
 
 
