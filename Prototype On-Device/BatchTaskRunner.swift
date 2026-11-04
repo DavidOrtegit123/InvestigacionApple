@@ -184,6 +184,9 @@ final class BatchRunner: ObservableObject {
         contextMode: BatchContextMode = .oracle
     ) async {
         guard !isRunning else { return }
+        // Claimed before any setup: building the Stage 4 index awaits, and a
+        // second tap during that window used to start a concurrent run.
+        isRunning = true
 
         // Built once per run; refuse to start rather than silently run a
         // BM25-only retriever.
@@ -193,6 +196,7 @@ final class BatchRunner: ObservableObject {
             let check = checkRetrieval(using: retriever)
             guard check.isReady else {
                 statusText = "No se corrió: la recuperación híbrida no está completa en este dispositivo. \(check.summary)"
+                isRunning = false
                 return
             }
         }
@@ -202,21 +206,23 @@ final class BatchRunner: ObservableObject {
         // 97 chunks, exact token counts).
         var packageContext: PackageBatchContext?
         if contextMode == .packageBudget {
+            statusText = "Preparando el índice de OnDeviceRAG…"
             do {
                 let built = try await PackageBatchContext.live(manuals: RetrievalCorpus.manuals(from: specs))
                 let check = try await built.check(probe: allTasks.first?.prompt ?? "probe")
                 guard check.isReady else {
                     statusText = "No se corrió: el índice de OnDeviceRAG no coincide con el diseño. \(check.summary)"
+                    isRunning = false
                     return
                 }
                 packageContext = built
             } catch {
                 statusText = "No se corrió: no se pudo crear el índice de OnDeviceRAG (\(error.localizedDescription))."
+                isRunning = false
                 return
             }
         }
 
-        isRunning = true
         completedCount = 0
 
         let allTasks = allTasks.filter { taskIDs.contains($0.id) }
