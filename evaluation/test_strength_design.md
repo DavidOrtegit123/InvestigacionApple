@@ -1,6 +1,6 @@
 # Test-strength check (step A) — design
 
-_Approved by the researcher on 2026-11-10. Not started. **Do not run anything that executes model answers or extended tests — including the reference self-checks and the script's unit tests — until the researcher explicitly approves the run** (a fine-tuning job was using the Mac when this was written). Writing the code is fine._
+_Approved by the researcher on 2026-11-10. **Code done 2026-11-11** (`feature/test-strength`; status and results in AGENTS.md, "Validity check against published benchmarks"). The researcher later allowed the self-checks on references, mutants and unit tests; **model answers are not run until the researcher has reviewed the 40 extended tests and explicitly approves the run.**_
 
 ## 1. Question
 
