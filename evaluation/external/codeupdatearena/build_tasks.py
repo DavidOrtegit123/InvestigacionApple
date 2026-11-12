@@ -129,8 +129,11 @@ def draw(picks, rng, total=TARGET):
 
 
 def select(records, rng, total=TARGET):
+    """Design §3.3–§3.4; the drawn problems are then shuffled with the same rng
+    so packages are spread across the phone sessions (amended 2026-11-12)."""
     picks = pick_one_per_update(records, rng)
     selection, allocation = draw(picks, rng, total)
+    rng.shuffle(selection)
     return picks, selection, allocation
 
 

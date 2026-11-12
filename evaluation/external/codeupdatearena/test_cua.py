@@ -212,8 +212,10 @@ class SelectionTests(unittest.TestCase):
         b = bt.select(list(reversed(self.pool())), random.Random(bt.SEED), total=10)
         self.assertEqual([r["prog_syn_id"] for r in a[1]], [r["prog_syn_id"] for r in b[1]])
         self.assertEqual(a[2], {"math": 5, "numpy": 3, "re": 1, "sympy": 1})
-        packages = [lib.package_of(r) for r in a[1]]
-        self.assertEqual(packages, sorted(packages))
+        self.assertNotEqual([lib.package_of(r) for r in a[1]], sorted(lib.package_of(r) for r in a[1]))
+        drawn, _ = bt.draw(bt.pick_one_per_update(self.pool(), random.Random(bt.SEED)), random.Random(bt.SEED), 10)
+        self.assertEqual([lib.package_of(r) for r in drawn], sorted(lib.package_of(r) for r in drawn))
+        self.assertEqual(sorted(r["prog_syn_id"] for r in a[1]), sorted({r["prog_syn_id"] for r in a[1]}))
         self.assertEqual(len({r["update_id"] for r in a[1]}), 10)
 
     def test_small_pool_uses_everything(self):
