@@ -1,0 +1,17 @@
+# Pinned execution environment for the CodeUpdateArena replication (design.md §3.1).
+# Create: uv venv --python 3.11 ~/Developer/cua-env/.venv && uv pip install --python ~/Developer/cua-env/.venv/bin/python -r requirements-cua.txt
+# (or point CUA_PYTHON at another interpreter with these packages). Full freeze of the environment used:
+filelock==4.2.10
+fsspec==2026.9.0
+jinja2==3.1.6
+markupsafe==3.0.4
+mpmath==1.4.1
+networkx==3.6.1
+numpy==1.26.4
+pandas==2.2.2
+python-dateutil==4.0.0
+pytz==2026.6
+sympy==1.12
+torch==2.2.2
+typing-extensions==4.16.0
+tzdata==2026.6
