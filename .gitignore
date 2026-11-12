@@ -33,3 +33,6 @@ AppTests/Package.resolved
 
 # Paper draft stays local (not published)
 paper/
+
+# CodeUpdateArena download (untrusted third-party data; the 60 selected records are committed in selected_problems.json)
+evaluation/external/codeupdatearena/data/
