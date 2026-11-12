@@ -30,3 +30,6 @@ AppTests/Package.resolved
 
 # Claude Code personal settings
 .claude/settings.local.json
+
+# Paper draft stays local (not published)
+paper/
