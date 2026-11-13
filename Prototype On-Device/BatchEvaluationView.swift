@@ -73,14 +73,25 @@ struct BatchEvaluationView: View {
         NavigationStack {
             List {
                 Section {
+                    Picker("Conjunto de tareas", selection: Binding(
+                        get: { runner.taskSet },
+                        set: { runner.selectTaskSet($0) }
+                    )) {
+                        ForEach(BatchTaskSet.allCases) { set in
+                            Text(set.label).tag(set)
+                        }
+                    }
+                    .disabled(runner.isRunning)
                     Picker("Contexto", selection: $contextMode) {
                         ForEach(BatchContextMode.allCases) { mode in
                             Text(mode.label).tag(mode)
                         }
                     }
-                    .disabled(runner.isRunning)
+                    .disabled(runner.isRunning || runner.taskSet != .study)
                 } footer: {
-                    if contextMode.usesRetrieval {
+                    if runner.taskSet != .study {
+                        Text("CodeUpdateArena: solo modo oracle.")
+                    } else if contextMode.usesRetrieval {
                         VStack(alignment: .leading, spacing: 4) {
                             switch contextMode {
                             case .retrievedParent:
@@ -194,6 +205,18 @@ struct BatchEvaluationView: View {
             }
             .onChange(of: firstTaskNumber) { noRagSampleSize = selectedTasks.count }
             .onChange(of: lastTaskNumber) { noRagSampleSize = selectedTasks.count }
+            .onChange(of: runner.taskSet) {
+                // A new task file: whole range, full no-RAG control, oracle
+                // mode for sets other than the study's, and that set's
+                // with-document repetitions.
+                if runner.taskSet != .study {
+                    contextMode = .oracle
+                }
+                samplesPerTask = runner.taskSet.defaultSamplesPerTask
+                firstTaskNumber = 1
+                lastTaskNumber = runner.allTasks.count
+                noRagSampleSize = selectedTasks.count
+            }
             .onChange(of: contextMode) {
                 retrievalCheck = contextMode.usesRetrieval ? runner.checkRetrieval() : nil
             }

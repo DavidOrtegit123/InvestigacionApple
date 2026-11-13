@@ -1,0 +1,3037 @@
+{
+ "problems": 670,
+ "executionEligible": 599,
+ "executionReasons": {
+  "eligible": 599,
+  "reference also passes without the update": 20,
+  "timeout": 2,
+  "reference fails with the update": 49
+ },
+ "fitEligible": 599,
+ "updatesWithEligibleProblems": 156,
+ "picksPerPackage": {
+  "itertools": 13,
+  "math": 37,
+  "numpy": 37,
+  "pandas": 20,
+  "re": 23,
+  "sympy": 4,
+  "torch": 22
+ },
+ "allocation": {
+  "itertools": 5,
+  "math": 14,
+  "numpy": 14,
+  "pandas": 8,
+  "re": 9,
+  "sympy": 2,
+  "torch": 8
+ },
+ "selected": 60,
+ "contextSizes": {
+  "apple": 4096,
+  "appleReportedOnMac": 8192,
+  "qwen": 4096
+ },
+ "largestPrompt": {
+  "apple": 834,
+  "qwen": 812
+ },
+ "fit": {
+  "[numpy.max]:[add-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 545,
+   "qwen": 541,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 566,
+   "qwen": 562,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 555,
+   "qwen": 552,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 609,
+   "qwen": 594,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 606,
+   "qwen": 595,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument]:[update-0]:[prog_syn-3]": {
+   "apple": 612,
+   "qwen": 606,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 626,
+   "qwen": 617,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 618,
+   "qwen": 605,
+   "fits": true
+  },
+  "[numpy.max]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 621,
+   "qwen": 609,
+   "fits": true
+  },
+  "[numpy.mean]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 611,
+   "qwen": 599,
+   "fits": true
+  },
+  "[numpy.mean]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 658,
+   "qwen": 646,
+   "fits": true
+  },
+  "[numpy.mean]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 643,
+   "qwen": 630,
+   "fits": true
+  },
+  "[numpy.mean]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 654,
+   "qwen": 646,
+   "fits": true
+  },
+  "[numpy.mean]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 597,
+   "qwen": 592,
+   "fits": true
+  },
+  "[numpy.mean]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 643,
+   "qwen": 633,
+   "fits": true
+  },
+  "[numpy.mean]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 645,
+   "qwen": 633,
+   "fits": true
+  },
+  "[numpy.mean]:[modify-argument-supported_value(s)]:[update-1]:[prog_syn-0]": {
+   "apple": 662,
+   "qwen": 642,
+   "fits": true
+  },
+  "[numpy.mean]:[modify-argument-supported_value(s)]:[update-1]:[prog_syn-1]": {
+   "apple": 605,
+   "qwen": 586,
+   "fits": true
+  },
+  "[numpy.mean]:[modify-argument-supported_value(s)]:[update-1]:[prog_syn-2]": {
+   "apple": 621,
+   "qwen": 609,
+   "fits": true
+  },
+  "[numpy.mean]:[modify-argument-supported_value(s)]:[update-1]:[prog_syn-3]": {
+   "apple": 626,
+   "qwen": 614,
+   "fits": true
+  },
+  "[numpy.mean]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 617,
+   "qwen": 604,
+   "fits": true
+  },
+  "[numpy.argsort]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 560,
+   "qwen": 552,
+   "fits": true
+  },
+  "[numpy.argsort]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 602,
+   "qwen": 594,
+   "fits": true
+  },
+  "[numpy.argsort]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 632,
+   "qwen": 620,
+   "fits": true
+  },
+  "[math.sin]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 561,
+   "qwen": 565,
+   "fits": true
+  },
+  "[math.sin]:[modify-output-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 629,
+   "qwen": 636,
+   "fits": true
+  },
+  "[math.sin]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 510,
+   "qwen": 518,
+   "fits": true
+  },
+  "[math.sin]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 522,
+   "qwen": 530,
+   "fits": true
+  },
+  "[math.sin]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 509,
+   "qwen": 510,
+   "fits": true
+  },
+  "[math.sin]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 519,
+   "qwen": 519,
+   "fits": true
+  },
+  "[math.sin]:[add-argument-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 550,
+   "qwen": 558,
+   "fits": true
+  },
+  "[math.sin]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 560,
+   "qwen": 547,
+   "fits": true
+  },
+  "[math.sin]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 551,
+   "qwen": 547,
+   "fits": true
+  },
+  "[sympy.factor]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 513,
+   "qwen": 527,
+   "fits": true
+  },
+  "[sympy.factor]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 556,
+   "qwen": 567,
+   "fits": true
+  },
+  "[sympy.factor]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 506,
+   "qwen": 521,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 555,
+   "qwen": 547,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 619,
+   "qwen": 606,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 658,
+   "qwen": 646,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 589,
+   "qwen": 578,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-output-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 600,
+   "qwen": 592,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-output-semantics]:[update-1]:[prog_syn-4]": {
+   "apple": 646,
+   "qwen": 637,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-output-semantics]:[update-1]:[prog_syn-5]": {
+   "apple": 580,
+   "qwen": 574,
+   "fits": true
+  },
+  "[re.fullmatch]:[modify-output-semantics]:[update-1]:[prog_syn-6]": {
+   "apple": 635,
+   "qwen": 627,
+   "fits": true
+  },
+  "[math.cos]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 667,
+   "qwen": 654,
+   "fits": true
+  },
+  "[math.cos]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 664,
+   "qwen": 654,
+   "fits": true
+  },
+  "[math.cos]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 624,
+   "qwen": 610,
+   "fits": true
+  },
+  "[math.cos]:[modify-function-name]:[update-1]:[prog_syn-1]": {
+   "apple": 587,
+   "qwen": 605,
+   "fits": true
+  },
+  "[math.cos]:[modify-function-name]:[update-1]:[prog_syn-2]": {
+   "apple": 475,
+   "qwen": 475,
+   "fits": true
+  },
+  "[math.cos]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 512,
+   "qwen": 513,
+   "fits": true
+  },
+  "[math.cos]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 489,
+   "qwen": 485,
+   "fits": true
+  },
+  "[math.cos]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 495,
+   "qwen": 498,
+   "fits": true
+  },
+  "[math.cos]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 534,
+   "qwen": 531,
+   "fits": true
+  },
+  "[numpy.cross]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 553,
+   "qwen": 548,
+   "fits": true
+  },
+  "[numpy.cross]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 599,
+   "qwen": 585,
+   "fits": true
+  },
+  "[numpy.cross]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 546,
+   "qwen": 541,
+   "fits": true
+  },
+  "[numpy.cross]:[add-argument]:[update-0]:[prog_syn-3]": {
+   "apple": 538,
+   "qwen": 528,
+   "fits": true
+  },
+  "[numpy.cross]:[add-argument]:[update-0]:[prog_syn-4]": {
+   "apple": 590,
+   "qwen": 580,
+   "fits": true
+  },
+  "[numpy.cross]:[add-argument]:[update-0]:[prog_syn-5]": {
+   "apple": 612,
+   "qwen": 601,
+   "fits": true
+  },
+  "[numpy.cross]:[modify-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 683,
+   "qwen": 652,
+   "fits": true
+  },
+  "[numpy.cross]:[modify-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 680,
+   "qwen": 650,
+   "fits": true
+  },
+  "[numpy.cross]:[modify-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 665,
+   "qwen": 643,
+   "fits": true
+  },
+  "[numpy.cross]:[modify-argument-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 728,
+   "qwen": 692,
+   "fits": true
+  },
+  "[itertools.tee]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 602,
+   "qwen": 588,
+   "fits": true
+  },
+  "[itertools.tee]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 552,
+   "qwen": 539,
+   "fits": true
+  },
+  "[itertools.tee]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 574,
+   "qwen": 561,
+   "fits": true
+  },
+  "[sympy.diff]:[add-argument]:[update-1]:[prog_syn-0]": {
+   "apple": 584,
+   "qwen": 583,
+   "fits": true
+  },
+  "[sympy.diff]:[add-argument]:[update-1]:[prog_syn-1]": {
+   "apple": 648,
+   "qwen": 640,
+   "fits": true
+  },
+  "[sympy.diff]:[add-argument]:[update-1]:[prog_syn-2]": {
+   "apple": 566,
+   "qwen": 558,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 576,
+   "qwen": 564,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 561,
+   "qwen": 550,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 588,
+   "qwen": 577,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 581,
+   "qwen": 570,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-1]:[prog_syn-4]": {
+   "apple": 588,
+   "qwen": 578,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-1]:[prog_syn-5]": {
+   "apple": 649,
+   "qwen": 630,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-1]:[prog_syn-7]": {
+   "apple": 607,
+   "qwen": 596,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 619,
+   "qwen": 601,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 631,
+   "qwen": 618,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 606,
+   "qwen": 596,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 642,
+   "qwen": 626,
+   "fits": true
+  },
+  "[torch.bmm]:[modify-output-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 742,
+   "qwen": 720,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 630,
+   "qwen": 624,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 576,
+   "qwen": 571,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 615,
+   "qwen": 613,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-0]": {
+   "apple": 600,
+   "qwen": 589,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-1]": {
+   "apple": 563,
+   "qwen": 548,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-2]": {
+   "apple": 559,
+   "qwen": 549,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-3]": {
+   "apple": 604,
+   "qwen": 596,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-4]": {
+   "apple": 568,
+   "qwen": 556,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-5]": {
+   "apple": 601,
+   "qwen": 589,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-6]": {
+   "apple": 605,
+   "qwen": 593,
+   "fits": true
+  },
+  "[torch.bmm]:[add-argument-data_type]:[update-1]:[prog_syn-7]": {
+   "apple": 703,
+   "qwen": 688,
+   "fits": true
+  },
+  "[torch.stack]:[modify-function-name]:[update-1]:[prog_syn-0]": {
+   "apple": 546,
+   "qwen": 534,
+   "fits": true
+  },
+  "[torch.stack]:[modify-function-name]:[update-1]:[prog_syn-1]": {
+   "apple": 616,
+   "qwen": 604,
+   "fits": true
+  },
+  "[torch.stack]:[modify-function-name]:[update-1]:[prog_syn-2]": {
+   "apple": 550,
+   "qwen": 536,
+   "fits": true
+  },
+  "[torch.stack]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 524,
+   "qwen": 516,
+   "fits": true
+  },
+  "[torch.stack]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 547,
+   "qwen": 536,
+   "fits": true
+  },
+  "[torch.stack]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 546,
+   "qwen": 538,
+   "fits": true
+  },
+  "[torch.stack]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 579,
+   "qwen": 577,
+   "fits": true
+  },
+  "[torch.stack]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 593,
+   "qwen": 588,
+   "fits": true
+  },
+  "[torch.stack]:[add-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 671,
+   "qwen": 663,
+   "fits": true
+  },
+  "[torch.stack]:[add-argument-data_type]:[update-0]:[prog_syn-5]": {
+   "apple": 618,
+   "qwen": 614,
+   "fits": true
+  },
+  "[torch.stack]:[add-argument-data_type]:[update-0]:[prog_syn-6]": {
+   "apple": 628,
+   "qwen": 623,
+   "fits": true
+  },
+  "[torch.stack]:[add-argument-data_type]:[update-0]:[prog_syn-7]": {
+   "apple": 602,
+   "qwen": 599,
+   "fits": true
+  },
+  "[torch.stack]:[add-argument-data_type]:[update-0]:[prog_syn-8]": {
+   "apple": 597,
+   "qwen": 589,
+   "fits": true
+  },
+  "[torch.stack]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 550,
+   "qwen": 543,
+   "fits": true
+  },
+  "[torch.stack]:[add-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 563,
+   "qwen": 551,
+   "fits": true
+  },
+  "[torch.stack]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 599,
+   "qwen": 589,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 580,
+   "qwen": 562,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 665,
+   "qwen": 647,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 574,
+   "qwen": 557,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 670,
+   "qwen": 653,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-1]:[prog_syn-0]": {
+   "apple": 612,
+   "qwen": 595,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-1]:[prog_syn-1]": {
+   "apple": 597,
+   "qwen": 577,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-1]:[prog_syn-2]": {
+   "apple": 646,
+   "qwen": 630,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-1]:[prog_syn-3]": {
+   "apple": 610,
+   "qwen": 592,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-0]:[prog_syn-0]": {
+   "apple": 656,
+   "qwen": 653,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-0]:[prog_syn-1]": {
+   "apple": 624,
+   "qwen": 619,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-0]:[prog_syn-2]": {
+   "apple": 651,
+   "qwen": 649,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-0]:[prog_syn-3]": {
+   "apple": 653,
+   "qwen": 647,
+   "fits": true
+  },
+  "[pandas.concat]:[modify-argument-name]:[update-0]:[prog_syn-4]": {
+   "apple": 685,
+   "qwen": 681,
+   "fits": true
+  },
+  "[pandas.concat]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 684,
+   "qwen": 660,
+   "fits": true
+  },
+  "[pandas.concat]:[add-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 711,
+   "qwen": 686,
+   "fits": true
+  },
+  "[pandas.concat]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 725,
+   "qwen": 693,
+   "fits": true
+  },
+  "[pandas.concat]:[add-output-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 720,
+   "qwen": 697,
+   "fits": true
+  },
+  "[pandas.concat]:[add-output-data_type]:[update-0]:[prog_syn-4]": {
+   "apple": 732,
+   "qwen": 706,
+   "fits": true
+  },
+  "[pandas.concat]:[add-output-data_type]:[update-0]:[prog_syn-5]": {
+   "apple": 713,
+   "qwen": 687,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 567,
+   "qwen": 563,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 569,
+   "qwen": 558,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 549,
+   "qwen": 541,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 556,
+   "qwen": 555,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 559,
+   "qwen": 558,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 575,
+   "qwen": 575,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 680,
+   "qwen": 677,
+   "fits": true
+  },
+  "[math.sqrt]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 623,
+   "qwen": 619,
+   "fits": true
+  },
+  "[math.sqrt]:[add-argument-default_value(s)]:[update-1]:[prog_syn-0]": {
+   "apple": 627,
+   "qwen": 621,
+   "fits": true
+  },
+  "[math.sqrt]:[add-argument-default_value(s)]:[update-1]:[prog_syn-1]": {
+   "apple": 701,
+   "qwen": 695,
+   "fits": true
+  },
+  "[math.sqrt]:[add-argument-default_value(s)]:[update-1]:[prog_syn-2]": {
+   "apple": 637,
+   "qwen": 633,
+   "fits": true
+  },
+  "[math.sqrt]:[add-argument-default_value(s)]:[update-2]:[prog_syn-0]": {
+   "apple": 544,
+   "qwen": 536,
+   "fits": true
+  },
+  "[math.sqrt]:[add-argument-default_value(s)]:[update-2]:[prog_syn-1]": {
+   "apple": 611,
+   "qwen": 600,
+   "fits": true
+  },
+  "[math.sqrt]:[add-argument-default_value(s)]:[update-2]:[prog_syn-2]": {
+   "apple": 485,
+   "qwen": 482,
+   "fits": true
+  },
+  "[math.sqrt]:[add-argument-default_value(s)]:[update-2]:[prog_syn-3]": {
+   "apple": 526,
+   "qwen": 520,
+   "fits": true
+  },
+  "[math.degrees]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 594,
+   "qwen": 618,
+   "fits": true
+  },
+  "[math.degrees]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 557,
+   "qwen": 572,
+   "fits": true
+  },
+  "[math.degrees]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 622,
+   "qwen": 639,
+   "fits": true
+  },
+  "[math.degrees]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 498,
+   "qwen": 490,
+   "fits": true
+  },
+  "[math.degrees]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 502,
+   "qwen": 496,
+   "fits": true
+  },
+  "[math.degrees]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 539,
+   "qwen": 536,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 796,
+   "qwen": 786,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 825,
+   "qwen": 812,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 801,
+   "qwen": 793,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 485,
+   "qwen": 489,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 595,
+   "qwen": 594,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 546,
+   "qwen": 547,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 548,
+   "qwen": 551,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 579,
+   "qwen": 580,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-5]": {
+   "apple": 545,
+   "qwen": 542,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-6]": {
+   "apple": 543,
+   "qwen": 546,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-7]": {
+   "apple": 554,
+   "qwen": 555,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-8]": {
+   "apple": 522,
+   "qwen": 525,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-9]": {
+   "apple": 555,
+   "qwen": 558,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-0]:[prog_syn-10]": {
+   "apple": 566,
+   "qwen": 564,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-2]:[prog_syn-0]": {
+   "apple": 564,
+   "qwen": 561,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-2]:[prog_syn-1]": {
+   "apple": 579,
+   "qwen": 573,
+   "fits": true
+  },
+  "[math.degrees]:[add-argument-semantics]:[update-2]:[prog_syn-3]": {
+   "apple": 616,
+   "qwen": 610,
+   "fits": true
+  },
+  "[numpy.dot]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 630,
+   "qwen": 623,
+   "fits": true
+  },
+  "[numpy.dot]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 666,
+   "qwen": 658,
+   "fits": true
+  },
+  "[torch.linspace]:[modify-argument-default_value(s)]:[update-1]:[prog_syn-0]": {
+   "apple": 608,
+   "qwen": 597,
+   "fits": true
+  },
+  "[torch.linspace]:[modify-argument-default_value(s)]:[update-1]:[prog_syn-1]": {
+   "apple": 606,
+   "qwen": 599,
+   "fits": true
+  },
+  "[torch.linspace]:[modify-argument-default_value(s)]:[update-1]:[prog_syn-2]": {
+   "apple": 640,
+   "qwen": 626,
+   "fits": true
+  },
+  "[torch.linspace]:[modify-argument-default_value(s)]:[update-1]:[prog_syn-3]": {
+   "apple": 581,
+   "qwen": 572,
+   "fits": true
+  },
+  "[torch.linspace]:[modify-argument-default_value(s)]:[update-1]:[prog_syn-4]": {
+   "apple": 658,
+   "qwen": 643,
+   "fits": true
+  },
+  "[torch.linspace]:[modify-argument-default_value(s)]:[update-1]:[prog_syn-5]": {
+   "apple": 588,
+   "qwen": 575,
+   "fits": true
+  },
+  "[torch.linspace]:[modify-argument-default_value(s)]:[update-1]:[prog_syn-6]": {
+   "apple": 656,
+   "qwen": 644,
+   "fits": true
+  },
+  "[torch.linspace]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 553,
+   "qwen": 542,
+   "fits": true
+  },
+  "[torch.linspace]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 565,
+   "qwen": 551,
+   "fits": true
+  },
+  "[torch.linspace]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 596,
+   "qwen": 587,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 653,
+   "qwen": 646,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 585,
+   "qwen": 576,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 579,
+   "qwen": 568,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 594,
+   "qwen": 584,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[modify-output-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 628,
+   "qwen": 616,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 616,
+   "qwen": 614,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 653,
+   "qwen": 646,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 603,
+   "qwen": 598,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[add-argument]:[update-0]:[prog_syn-3]": {
+   "apple": 650,
+   "qwen": 648,
+   "fits": true
+  },
+  "[torch.Tensor.view]:[add-argument]:[update-0]:[prog_syn-4]": {
+   "apple": 661,
+   "qwen": 655,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 516,
+   "qwen": 517,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 571,
+   "qwen": 572,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-default_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 531,
+   "qwen": 527,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-default_value(s)]:[update-0]:[prog_syn-4]": {
+   "apple": 573,
+   "qwen": 572,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-default_value(s)]:[update-0]:[prog_syn-5]": {
+   "apple": 606,
+   "qwen": 602,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-0]": {
+   "apple": 654,
+   "qwen": 648,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-1]": {
+   "apple": 675,
+   "qwen": 673,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-2]": {
+   "apple": 652,
+   "qwen": 641,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-3]": {
+   "apple": 770,
+   "qwen": 762,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-4]": {
+   "apple": 650,
+   "qwen": 645,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-5]": {
+   "apple": 752,
+   "qwen": 743,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-6]": {
+   "apple": 659,
+   "qwen": 650,
+   "fits": true
+  },
+  "[math.comb]:[add-function]:[update-0]:[prog_syn-7]": {
+   "apple": 756,
+   "qwen": 738,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 616,
+   "qwen": 618,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 652,
+   "qwen": 654,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 566,
+   "qwen": 564,
+   "fits": true
+  },
+  "[math.comb]:[add-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 615,
+   "qwen": 614,
+   "fits": true
+  },
+  "[torch.squeeze]:[modify-argument-name]:[update-0]:[prog_syn-0]": {
+   "apple": 641,
+   "qwen": 630,
+   "fits": true
+  },
+  "[torch.squeeze]:[modify-argument-name]:[update-0]:[prog_syn-1]": {
+   "apple": 704,
+   "qwen": 692,
+   "fits": true
+  },
+  "[torch.squeeze]:[modify-argument-name]:[update-0]:[prog_syn-2]": {
+   "apple": 649,
+   "qwen": 640,
+   "fits": true
+  },
+  "[torch.squeeze]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 634,
+   "qwen": 622,
+   "fits": true
+  },
+  "[torch.squeeze]:[add-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 723,
+   "qwen": 702,
+   "fits": true
+  },
+  "[torch.squeeze]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 669,
+   "qwen": 654,
+   "fits": true
+  },
+  "[torch.squeeze]:[add-output-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 699,
+   "qwen": 682,
+   "fits": true
+  },
+  "[numpy.argmax]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 606,
+   "qwen": 596,
+   "fits": true
+  },
+  "[numpy.argmax]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 656,
+   "qwen": 648,
+   "fits": true
+  },
+  "[numpy.argmax]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 594,
+   "qwen": 587,
+   "fits": true
+  },
+  "[numpy.argmax]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 608,
+   "qwen": 602,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 631,
+   "qwen": 620,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 621,
+   "qwen": 608,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 684,
+   "qwen": 674,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 642,
+   "qwen": 633,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 618,
+   "qwen": 605,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 599,
+   "qwen": 591,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 577,
+   "qwen": 565,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 608,
+   "qwen": 596,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-output-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 647,
+   "qwen": 631,
+   "fits": true
+  },
+  "[numpy.argmax]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 508,
+   "qwen": 498,
+   "fits": true
+  },
+  "[numpy.argmax]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 516,
+   "qwen": 511,
+   "fits": true
+  },
+  "[numpy.argmax]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 525,
+   "qwen": 512,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 624,
+   "qwen": 615,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 594,
+   "qwen": 591,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 537,
+   "qwen": 531,
+   "fits": true
+  },
+  "[numpy.argmax]:[add-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 637,
+   "qwen": 624,
+   "fits": true
+  },
+  "[numpy.diag]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 674,
+   "qwen": 649,
+   "fits": true
+  },
+  "[numpy.diag]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 528,
+   "qwen": 513,
+   "fits": true
+  },
+  "[numpy.diag]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 613,
+   "qwen": 597,
+   "fits": true
+  },
+  "[numpy.diag]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 548,
+   "qwen": 534,
+   "fits": true
+  },
+  "[numpy.diag]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 547,
+   "qwen": 535,
+   "fits": true
+  },
+  "[numpy.diag]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 577,
+   "qwen": 567,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-function-name]:[update-1]:[prog_syn-0]": {
+   "apple": 571,
+   "qwen": 561,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-function-name]:[update-1]:[prog_syn-2]": {
+   "apple": 565,
+   "qwen": 545,
+   "fits": true
+  },
+  "[numpy.zeros]:[add-argument-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 584,
+   "qwen": 565,
+   "fits": true
+  },
+  "[numpy.zeros]:[add-argument-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 551,
+   "qwen": 536,
+   "fits": true
+  },
+  "[numpy.zeros]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 576,
+   "qwen": 567,
+   "fits": true
+  },
+  "[numpy.zeros]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 572,
+   "qwen": 565,
+   "fits": true
+  },
+  "[numpy.zeros]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 570,
+   "qwen": 565,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 576,
+   "qwen": 570,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 639,
+   "qwen": 632,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 632,
+   "qwen": 628,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-output-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 706,
+   "qwen": 692,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-output-data_type]:[update-0]:[prog_syn-4]": {
+   "apple": 582,
+   "qwen": 575,
+   "fits": true
+  },
+  "[numpy.zeros]:[modify-output-data_type]:[update-0]:[prog_syn-5]": {
+   "apple": 696,
+   "qwen": 688,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 602,
+   "qwen": 594,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 576,
+   "qwen": 569,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 624,
+   "qwen": 621,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 578,
+   "qwen": 571,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-4]": {
+   "apple": 569,
+   "qwen": 565,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-5]": {
+   "apple": 588,
+   "qwen": 583,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-6]": {
+   "apple": 591,
+   "qwen": 588,
+   "fits": true
+  },
+  "[math.pow]:[add-argument-default_value(s)]:[update-0]:[prog_syn-7]": {
+   "apple": 607,
+   "qwen": 602,
+   "fits": true
+  },
+  "[math.pow]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 589,
+   "qwen": 586,
+   "fits": true
+  },
+  "[math.pow]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 628,
+   "qwen": 624,
+   "fits": true
+  },
+  "[math.pow]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 618,
+   "qwen": 614,
+   "fits": true
+  },
+  "[math.pow]:[add-argument]:[update-0]:[prog_syn-3]": {
+   "apple": 616,
+   "qwen": 611,
+   "fits": true
+  },
+  "[math.pow]:[modify-output-data_type]:[update-1]:[prog_syn-0]": {
+   "apple": 643,
+   "qwen": 634,
+   "fits": true
+  },
+  "[math.pow]:[modify-output-data_type]:[update-1]:[prog_syn-1]": {
+   "apple": 737,
+   "qwen": 727,
+   "fits": true
+  },
+  "[math.pow]:[modify-output-data_type]:[update-1]:[prog_syn-2]": {
+   "apple": 681,
+   "qwen": 669,
+   "fits": true
+  },
+  "[math.pow]:[modify-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 591,
+   "qwen": 583,
+   "fits": true
+  },
+  "[math.pow]:[modify-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 604,
+   "qwen": 594,
+   "fits": true
+  },
+  "[itertools.permutations]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 645,
+   "qwen": 642,
+   "fits": true
+  },
+  "[itertools.permutations]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 609,
+   "qwen": 606,
+   "fits": true
+  },
+  "[itertools.permutations]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 624,
+   "qwen": 621,
+   "fits": true
+  },
+  "[re.compile]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 689,
+   "qwen": 667,
+   "fits": true
+  },
+  "[re.compile]:[add-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 679,
+   "qwen": 658,
+   "fits": true
+  },
+  "[re.compile]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 665,
+   "qwen": 646,
+   "fits": true
+  },
+  "[re.compile]:[add-output-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 742,
+   "qwen": 718,
+   "fits": true
+  },
+  "[numpy.arange]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 710,
+   "qwen": 704,
+   "fits": true
+  },
+  "[numpy.arange]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 635,
+   "qwen": 628,
+   "fits": true
+  },
+  "[numpy.arange]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 666,
+   "qwen": 658,
+   "fits": true
+  },
+  "[numpy.arange]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 736,
+   "qwen": 725,
+   "fits": true
+  },
+  "[numpy.arange]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 750,
+   "qwen": 741,
+   "fits": true
+  },
+  "[numpy.arange]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 775,
+   "qwen": 754,
+   "fits": true
+  },
+  "[numpy.arange]:[add-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 786,
+   "qwen": 770,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-argument-name]:[update-1]:[prog_syn-1]": {
+   "apple": 595,
+   "qwen": 586,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-argument-name]:[update-1]:[prog_syn-2]": {
+   "apple": 538,
+   "qwen": 532,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-argument-name]:[update-0]:[prog_syn-0]": {
+   "apple": 595,
+   "qwen": 581,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-argument-name]:[update-0]:[prog_syn-1]": {
+   "apple": 644,
+   "qwen": 625,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-argument-name]:[update-0]:[prog_syn-2]": {
+   "apple": 618,
+   "qwen": 599,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 554,
+   "qwen": 549,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 591,
+   "qwen": 588,
+   "fits": true
+  },
+  "[numpy.arange]:[modify-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 644,
+   "qwen": 643,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-0]": {
+   "apple": 600,
+   "qwen": 594,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-1]": {
+   "apple": 563,
+   "qwen": 553,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-2]": {
+   "apple": 567,
+   "qwen": 560,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-3]": {
+   "apple": 578,
+   "qwen": 575,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-4]": {
+   "apple": 598,
+   "qwen": 589,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-5]": {
+   "apple": 611,
+   "qwen": 609,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 554,
+   "qwen": 545,
+   "fits": true
+  },
+  "[math.radians]:[add-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 538,
+   "qwen": 535,
+   "fits": true
+  },
+  "[math.radians]:[add-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 560,
+   "qwen": 555,
+   "fits": true
+  },
+  "[math.radians]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 641,
+   "qwen": 635,
+   "fits": true
+  },
+  "[math.radians]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 639,
+   "qwen": 630,
+   "fits": true
+  },
+  "[math.radians]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 707,
+   "qwen": 697,
+   "fits": true
+  },
+  "[math.radians]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 743,
+   "qwen": 739,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 541,
+   "qwen": 537,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 562,
+   "qwen": 556,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 494,
+   "qwen": 490,
+   "fits": true
+  },
+  "[math.radians]:[add-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 508,
+   "qwen": 503,
+   "fits": true
+  },
+  "[math.hypot]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 540,
+   "qwen": 543,
+   "fits": true
+  },
+  "[math.hypot]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 561,
+   "qwen": 568,
+   "fits": true
+  },
+  "[re.subn]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 547,
+   "qwen": 543,
+   "fits": true
+  },
+  "[re.subn]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 634,
+   "qwen": 626,
+   "fits": true
+  },
+  "[re.subn]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 589,
+   "qwen": 578,
+   "fits": true
+  },
+  "[re.subn]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 618,
+   "qwen": 610,
+   "fits": true
+  },
+  "[re.subn]:[modify-argument-supported_value(s)]:[update-0]:[prog_syn-4]": {
+   "apple": 538,
+   "qwen": 532,
+   "fits": true
+  },
+  "[re.subn]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 673,
+   "qwen": 665,
+   "fits": true
+  },
+  "[re.subn]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 695,
+   "qwen": 686,
+   "fits": true
+  },
+  "[re.subn]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 664,
+   "qwen": 665,
+   "fits": true
+  },
+  "[re.subn]:[add-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 654,
+   "qwen": 645,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-0]": {
+   "apple": 618,
+   "qwen": 602,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-1]": {
+   "apple": 626,
+   "qwen": 616,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-2]": {
+   "apple": 678,
+   "qwen": 660,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-3]": {
+   "apple": 611,
+   "qwen": 594,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-4]": {
+   "apple": 609,
+   "qwen": 595,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-1]:[prog_syn-5]": {
+   "apple": 632,
+   "qwen": 613,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 681,
+   "qwen": 667,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 666,
+   "qwen": 658,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 769,
+   "qwen": 755,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 654,
+   "qwen": 644,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 611,
+   "qwen": 602,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 609,
+   "qwen": 599,
+   "fits": true
+  },
+  "[numpy.sum]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 559,
+   "qwen": 544,
+   "fits": true
+  },
+  "[numpy.sum]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 582,
+   "qwen": 568,
+   "fits": true
+  },
+  "[numpy.sum]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 685,
+   "qwen": 664,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 712,
+   "qwen": 697,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 716,
+   "qwen": 705,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 699,
+   "qwen": 685,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 795,
+   "qwen": 781,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 652,
+   "qwen": 650,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 645,
+   "qwen": 649,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 657,
+   "qwen": 663,
+   "fits": true
+  },
+  "[numpy.sum]:[add-argument-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 644,
+   "qwen": 647,
+   "fits": true
+  },
+  "[math.nextafter]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 596,
+   "qwen": 585,
+   "fits": true
+  },
+  "[math.nextafter]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 600,
+   "qwen": 597,
+   "fits": true
+  },
+  "[math.nextafter]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 567,
+   "qwen": 561,
+   "fits": true
+  },
+  "[math.nextafter]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 625,
+   "qwen": 613,
+   "fits": true
+  },
+  "[math.nextafter]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 657,
+   "qwen": 648,
+   "fits": true
+  },
+  "[math.nextafter]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 655,
+   "qwen": 641,
+   "fits": true
+  },
+  "[math.nextafter]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 714,
+   "qwen": 693,
+   "fits": true
+  },
+  "[math.nextafter]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 665,
+   "qwen": 654,
+   "fits": true
+  },
+  "[math.nextafter]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 629,
+   "qwen": 621,
+   "fits": true
+  },
+  "[math.nextafter]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 687,
+   "qwen": 676,
+   "fits": true
+  },
+  "[math.nextafter]:[add-argument]:[update-0]:[prog_syn-3]": {
+   "apple": 632,
+   "qwen": 619,
+   "fits": true
+  },
+  "[math.nextafter]:[add-argument]:[update-0]:[prog_syn-4]": {
+   "apple": 662,
+   "qwen": 653,
+   "fits": true
+  },
+  "[sympy.symbols]:[modify-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 592,
+   "qwen": 603,
+   "fits": true
+  },
+  "[sympy.symbols]:[modify-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 595,
+   "qwen": 605,
+   "fits": true
+  },
+  "[sympy.symbols]:[modify-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 633,
+   "qwen": 638,
+   "fits": true
+  },
+  "[re.finditer]:[add-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 540,
+   "qwen": 530,
+   "fits": true
+  },
+  "[re.finditer]:[add-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 625,
+   "qwen": 613,
+   "fits": true
+  },
+  "[re.finditer]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 578,
+   "qwen": 570,
+   "fits": true
+  },
+  "[sympy.expand]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 709,
+   "qwen": 682,
+   "fits": true
+  },
+  "[sympy.expand]:[add-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 723,
+   "qwen": 697,
+   "fits": true
+  },
+  "[sympy.expand]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 732,
+   "qwen": 710,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 669,
+   "qwen": 664,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 647,
+   "qwen": 645,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 688,
+   "qwen": 680,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-4]": {
+   "apple": 667,
+   "qwen": 658,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-supported_value(s)]:[update-0]:[prog_syn-5]": {
+   "apple": 702,
+   "qwen": 695,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 498,
+   "qwen": 495,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 599,
+   "qwen": 595,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 553,
+   "qwen": 545,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-1]:[prog_syn-0]": {
+   "apple": 704,
+   "qwen": 686,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-1]:[prog_syn-1]": {
+   "apple": 605,
+   "qwen": 591,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-1]:[prog_syn-2]": {
+   "apple": 734,
+   "qwen": 719,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-1]:[prog_syn-3]": {
+   "apple": 665,
+   "qwen": 644,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-1]:[prog_syn-4]": {
+   "apple": 615,
+   "qwen": 601,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 593,
+   "qwen": 590,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 586,
+   "qwen": 580,
+   "fits": true
+  },
+  "[itertools.compress]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 601,
+   "qwen": 599,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 728,
+   "qwen": 709,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 737,
+   "qwen": 726,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 606,
+   "qwen": 596,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 692,
+   "qwen": 670,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 657,
+   "qwen": 637,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 667,
+   "qwen": 652,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 657,
+   "qwen": 632,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 657,
+   "qwen": 636,
+   "fits": true
+  },
+  "[numpy.full]:[modify-argument-semantics]:[update-0]:[prog_syn-5]": {
+   "apple": 635,
+   "qwen": 613,
+   "fits": true
+  },
+  "[itertools.islice]:[modify-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 596,
+   "qwen": 593,
+   "fits": true
+  },
+  "[itertools.islice]:[modify-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 618,
+   "qwen": 619,
+   "fits": true
+  },
+  "[itertools.islice]:[modify-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 582,
+   "qwen": 582,
+   "fits": true
+  },
+  "[torch.unsqueeze]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 626,
+   "qwen": 614,
+   "fits": true
+  },
+  "[torch.unsqueeze]:[add-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 629,
+   "qwen": 626,
+   "fits": true
+  },
+  "[torch.unsqueeze]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 671,
+   "qwen": 661,
+   "fits": true
+  },
+  "[itertools.groupby]:[add-argument]:[update-1]:[prog_syn-0]": {
+   "apple": 633,
+   "qwen": 627,
+   "fits": true
+  },
+  "[itertools.groupby]:[add-argument]:[update-1]:[prog_syn-1]": {
+   "apple": 614,
+   "qwen": 606,
+   "fits": true
+  },
+  "[itertools.groupby]:[add-argument]:[update-1]:[prog_syn-2]": {
+   "apple": 556,
+   "qwen": 551,
+   "fits": true
+  },
+  "[math.log]:[modify-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 619,
+   "qwen": 622,
+   "fits": true
+  },
+  "[math.log]:[modify-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 583,
+   "qwen": 591,
+   "fits": true
+  },
+  "[math.log]:[modify-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 633,
+   "qwen": 637,
+   "fits": true
+  },
+  "[math.log]:[modify-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 559,
+   "qwen": 558,
+   "fits": true
+  },
+  "[math.log]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 543,
+   "qwen": 538,
+   "fits": true
+  },
+  "[math.log]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 581,
+   "qwen": 577,
+   "fits": true
+  },
+  "[math.log]:[add-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 612,
+   "qwen": 613,
+   "fits": true
+  },
+  "[math.log]:[add-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 577,
+   "qwen": 578,
+   "fits": true
+  },
+  "[math.log]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 561,
+   "qwen": 572,
+   "fits": true
+  },
+  "[math.log]:[add-argument-default_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 572,
+   "qwen": 576,
+   "fits": true
+  },
+  "[math.log]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 613,
+   "qwen": 600,
+   "fits": true
+  },
+  "[math.log]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 606,
+   "qwen": 593,
+   "fits": true
+  },
+  "[math.log]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 649,
+   "qwen": 637,
+   "fits": true
+  },
+  "[math.log]:[add-argument-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 665,
+   "qwen": 654,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 665,
+   "qwen": 658,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 814,
+   "qwen": 803,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 780,
+   "qwen": 771,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-output-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 724,
+   "qwen": 707,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-output-semantics]:[update-1]:[prog_syn-4]": {
+   "apple": 720,
+   "qwen": 710,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 567,
+   "qwen": 557,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 512,
+   "qwen": 509,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 521,
+   "qwen": 515,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[modify-argument-default_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 565,
+   "qwen": 557,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 547,
+   "qwen": 540,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 574,
+   "qwen": 567,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 582,
+   "qwen": 574,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 668,
+   "qwen": 659,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-output-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 657,
+   "qwen": 649,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-output-semantics]:[update-0]:[prog_syn-5]": {
+   "apple": 605,
+   "qwen": 595,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-1]:[prog_syn-0]": {
+   "apple": 703,
+   "qwen": 690,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-1]:[prog_syn-1]": {
+   "apple": 651,
+   "qwen": 634,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-1]:[prog_syn-2]": {
+   "apple": 657,
+   "qwen": 638,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-1]:[prog_syn-3]": {
+   "apple": 704,
+   "qwen": 690,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-1]:[prog_syn-4]": {
+   "apple": 685,
+   "qwen": 670,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-1]:[prog_syn-5]": {
+   "apple": 700,
+   "qwen": 687,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-0]:[prog_syn-0]": {
+   "apple": 615,
+   "qwen": 596,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-0]:[prog_syn-1]": {
+   "apple": 641,
+   "qwen": 624,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-0]:[prog_syn-2]": {
+   "apple": 626,
+   "qwen": 605,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-0]:[prog_syn-3]": {
+   "apple": 619,
+   "qwen": 602,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-0]:[prog_syn-4]": {
+   "apple": 643,
+   "qwen": 626,
+   "fits": true
+  },
+  "[pandas.DataFrame.head]:[add-argument]:[update-0]:[prog_syn-5]": {
+   "apple": 601,
+   "qwen": 587,
+   "fits": true
+  },
+  "[numpy.split]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 688,
+   "qwen": 676,
+   "fits": true
+  },
+  "[numpy.split]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 687,
+   "qwen": 671,
+   "fits": true
+  },
+  "[numpy.split]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 752,
+   "qwen": 728,
+   "fits": true
+  },
+  "[numpy.split]:[add-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 726,
+   "qwen": 707,
+   "fits": true
+  },
+  "[numpy.split]:[add-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 762,
+   "qwen": 733,
+   "fits": true
+  },
+  "[numpy.split]:[add-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 691,
+   "qwen": 667,
+   "fits": true
+  },
+  "[numpy.split]:[add-output-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 742,
+   "qwen": 713,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 707,
+   "qwen": 698,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 671,
+   "qwen": 666,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 662,
+   "qwen": 658,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 681,
+   "qwen": 675,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-1]:[prog_syn-4]": {
+   "apple": 657,
+   "qwen": 653,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-1]:[prog_syn-5]": {
+   "apple": 696,
+   "qwen": 694,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-1]:[prog_syn-6]": {
+   "apple": 694,
+   "qwen": 690,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 625,
+   "qwen": 625,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 584,
+   "qwen": 580,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 649,
+   "qwen": 649,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 601,
+   "qwen": 597,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-2]:[prog_syn-0]": {
+   "apple": 679,
+   "qwen": 677,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-2]:[prog_syn-1]": {
+   "apple": 689,
+   "qwen": 680,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-2]:[prog_syn-2]": {
+   "apple": 742,
+   "qwen": 734,
+   "fits": true
+  },
+  "[re.sub]:[modify-output-semantics]:[update-2]:[prog_syn-3]": {
+   "apple": 718,
+   "qwen": 715,
+   "fits": true
+  },
+  "[re.sub]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 562,
+   "qwen": 560,
+   "fits": true
+  },
+  "[re.sub]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 537,
+   "qwen": 532,
+   "fits": true
+  },
+  "[re.sub]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 596,
+   "qwen": 594,
+   "fits": true
+  },
+  "[re.sub]:[modify-function-name]:[update-0]:[prog_syn-3]": {
+   "apple": 632,
+   "qwen": 623,
+   "fits": true
+  },
+  "[re.sub]:[modify-function-name]:[update-0]:[prog_syn-4]": {
+   "apple": 664,
+   "qwen": 654,
+   "fits": true
+  },
+  "[re.sub]:[modify-function-name]:[update-0]:[prog_syn-5]": {
+   "apple": 567,
+   "qwen": 561,
+   "fits": true
+  },
+  "[re.sub]:[modify-function-name]:[update-0]:[prog_syn-6]": {
+   "apple": 581,
+   "qwen": 575,
+   "fits": true
+  },
+  "[re.sub]:[add-function]:[update-0]:[prog_syn-0]": {
+   "apple": 834,
+   "qwen": 806,
+   "fits": true
+  },
+  "[re.sub]:[add-function]:[update-0]:[prog_syn-1]": {
+   "apple": 783,
+   "qwen": 768,
+   "fits": true
+  },
+  "[re.sub]:[add-function]:[update-0]:[prog_syn-2]": {
+   "apple": 766,
+   "qwen": 756,
+   "fits": true
+  },
+  "[re.split]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 518,
+   "qwen": 517,
+   "fits": true
+  },
+  "[re.split]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 559,
+   "qwen": 555,
+   "fits": true
+  },
+  "[re.split]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 574,
+   "qwen": 571,
+   "fits": true
+  },
+  "[re.split]:[modify-argument-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 624,
+   "qwen": 613,
+   "fits": true
+  },
+  "[re.split]:[modify-argument-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 609,
+   "qwen": 605,
+   "fits": true
+  },
+  "[re.split]:[modify-argument-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 602,
+   "qwen": 593,
+   "fits": true
+  },
+  "[re.split]:[modify-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 638,
+   "qwen": 638,
+   "fits": true
+  },
+  "[re.split]:[modify-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 579,
+   "qwen": 580,
+   "fits": true
+  },
+  "[re.split]:[modify-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 591,
+   "qwen": 594,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 628,
+   "qwen": 618,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 640,
+   "qwen": 630,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 674,
+   "qwen": 668,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 632,
+   "qwen": 624,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 669,
+   "qwen": 663,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 645,
+   "qwen": 634,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 616,
+   "qwen": 598,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 639,
+   "qwen": 627,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 663,
+   "qwen": 637,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[add-argument-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 595,
+   "qwen": 581,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[add-argument-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 622,
+   "qwen": 603,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-1]:[prog_syn-0]": {
+   "apple": 546,
+   "qwen": 539,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-1]:[prog_syn-1]": {
+   "apple": 580,
+   "qwen": 568,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-1]:[prog_syn-2]": {
+   "apple": 526,
+   "qwen": 521,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-1]:[prog_syn-3]": {
+   "apple": 578,
+   "qwen": 569,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-0]:[prog_syn-0]": {
+   "apple": 577,
+   "qwen": 560,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-0]:[prog_syn-1]": {
+   "apple": 556,
+   "qwen": 546,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-0]:[prog_syn-2]": {
+   "apple": 620,
+   "qwen": 608,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-0]:[prog_syn-3]": {
+   "apple": 574,
+   "qwen": 570,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-0]:[prog_syn-4]": {
+   "apple": 565,
+   "qwen": 551,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-name]:[update-0]:[prog_syn-5]": {
+   "apple": 512,
+   "qwen": 499,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 641,
+   "qwen": 632,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 653,
+   "qwen": 647,
+   "fits": true
+  },
+  "[pandas.DataFrame.eq]:[modify-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 597,
+   "qwen": 583,
+   "fits": true
+  },
+  "[itertools.product]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 600,
+   "qwen": 594,
+   "fits": true
+  },
+  "[itertools.product]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 637,
+   "qwen": 631,
+   "fits": true
+  },
+  "[itertools.product]:[add-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 680,
+   "qwen": 670,
+   "fits": true
+  },
+  "[itertools.product]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 477,
+   "qwen": 470,
+   "fits": true
+  },
+  "[itertools.product]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 472,
+   "qwen": 460,
+   "fits": true
+  },
+  "[itertools.product]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 518,
+   "qwen": 506,
+   "fits": true
+  },
+  "[itertools.product]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 644,
+   "qwen": 643,
+   "fits": true
+  },
+  "[itertools.product]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 626,
+   "qwen": 624,
+   "fits": true
+  },
+  "[itertools.product]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 567,
+   "qwen": 564,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 589,
+   "qwen": 573,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 594,
+   "qwen": 584,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 582,
+   "qwen": 571,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 581,
+   "qwen": 570,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-1]:[prog_syn-4]": {
+   "apple": 631,
+   "qwen": 613,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 625,
+   "qwen": 616,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 672,
+   "qwen": 671,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 618,
+   "qwen": 619,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 618,
+   "qwen": 617,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 640,
+   "qwen": 639,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-0]:[prog_syn-5]": {
+   "apple": 623,
+   "qwen": 621,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-semantics]:[update-0]:[prog_syn-6]": {
+   "apple": 621,
+   "qwen": 617,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-1]:[prog_syn-0]": {
+   "apple": 634,
+   "qwen": 633,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-1]:[prog_syn-1]": {
+   "apple": 674,
+   "qwen": 670,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-1]:[prog_syn-2]": {
+   "apple": 718,
+   "qwen": 712,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-1]:[prog_syn-3]": {
+   "apple": 614,
+   "qwen": 614,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-1]:[prog_syn-4]": {
+   "apple": 622,
+   "qwen": 621,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 567,
+   "qwen": 564,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 643,
+   "qwen": 637,
+   "fits": true
+  },
+  "[torch.cat]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 587,
+   "qwen": 585,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 665,
+   "qwen": 658,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 637,
+   "qwen": 633,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 602,
+   "qwen": 599,
+   "fits": true
+  },
+  "[torch.cat]:[modify-output-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 666,
+   "qwen": 660,
+   "fits": true
+  },
+  "[re.match]:[modify-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 588,
+   "qwen": 581,
+   "fits": true
+  },
+  "[re.match]:[modify-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 616,
+   "qwen": 604,
+   "fits": true
+  },
+  "[re.match]:[modify-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 602,
+   "qwen": 592,
+   "fits": true
+  },
+  "[re.match]:[modify-function-name]:[update-1]:[prog_syn-0]": {
+   "apple": 641,
+   "qwen": 628,
+   "fits": true
+  },
+  "[re.match]:[modify-function-name]:[update-1]:[prog_syn-1]": {
+   "apple": 675,
+   "qwen": 666,
+   "fits": true
+  },
+  "[re.match]:[modify-function-name]:[update-1]:[prog_syn-2]": {
+   "apple": 678,
+   "qwen": 668,
+   "fits": true
+  },
+  "[re.match]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 544,
+   "qwen": 531,
+   "fits": true
+  },
+  "[re.match]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 506,
+   "qwen": 495,
+   "fits": true
+  },
+  "[re.match]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 546,
+   "qwen": 536,
+   "fits": true
+  },
+  "[re.match]:[modify-function-name]:[update-0]:[prog_syn-3]": {
+   "apple": 560,
+   "qwen": 547,
+   "fits": true
+  },
+  "[re.match]:[add-argument-data_type]:[update-1]:[prog_syn-0]": {
+   "apple": 549,
+   "qwen": 544,
+   "fits": true
+  },
+  "[re.match]:[add-argument-data_type]:[update-1]:[prog_syn-1]": {
+   "apple": 593,
+   "qwen": 582,
+   "fits": true
+  },
+  "[re.match]:[add-argument-data_type]:[update-1]:[prog_syn-2]": {
+   "apple": 558,
+   "qwen": 550,
+   "fits": true
+  },
+  "[torch.matmul]:[modify-argument-name]:[update-0]:[prog_syn-0]": {
+   "apple": 537,
+   "qwen": 533,
+   "fits": true
+  },
+  "[torch.matmul]:[modify-argument-name]:[update-0]:[prog_syn-3]": {
+   "apple": 548,
+   "qwen": 547,
+   "fits": true
+  },
+  "[torch.matmul]:[modify-argument-name]:[update-0]:[prog_syn-4]": {
+   "apple": 583,
+   "qwen": 579,
+   "fits": true
+  },
+  "[torch.matmul]:[modify-output-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 597,
+   "qwen": 584,
+   "fits": true
+  },
+  "[torch.matmul]:[modify-output-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 558,
+   "qwen": 546,
+   "fits": true
+  },
+  "[torch.matmul]:[modify-output-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 603,
+   "qwen": 590,
+   "fits": true
+  },
+  "[itertools.chain]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 618,
+   "qwen": 615,
+   "fits": true
+  },
+  "[itertools.chain]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 633,
+   "qwen": 625,
+   "fits": true
+  },
+  "[itertools.chain]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 614,
+   "qwen": 609,
+   "fits": true
+  },
+  "[itertools.chain]:[add-argument-data_type]:[update-0]:[prog_syn-0]": {
+   "apple": 577,
+   "qwen": 577,
+   "fits": true
+  },
+  "[itertools.chain]:[add-argument-data_type]:[update-0]:[prog_syn-1]": {
+   "apple": 601,
+   "qwen": 602,
+   "fits": true
+  },
+  "[itertools.chain]:[add-argument-data_type]:[update-0]:[prog_syn-2]": {
+   "apple": 580,
+   "qwen": 580,
+   "fits": true
+  },
+  "[itertools.chain]:[add-argument-data_type]:[update-0]:[prog_syn-3]": {
+   "apple": 579,
+   "qwen": 580,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-1]:[prog_syn-0]": {
+   "apple": 706,
+   "qwen": 694,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-1]:[prog_syn-1]": {
+   "apple": 729,
+   "qwen": 716,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-1]:[prog_syn-2]": {
+   "apple": 736,
+   "qwen": 723,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-1]:[prog_syn-3]": {
+   "apple": 740,
+   "qwen": 725,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 704,
+   "qwen": 687,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 692,
+   "qwen": 684,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 652,
+   "qwen": 643,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 681,
+   "qwen": 668,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-2]:[prog_syn-0]": {
+   "apple": 710,
+   "qwen": 699,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-2]:[prog_syn-1]": {
+   "apple": 689,
+   "qwen": 679,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-2]:[prog_syn-2]": {
+   "apple": 687,
+   "qwen": 681,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-output-semantics]:[update-2]:[prog_syn-3]": {
+   "apple": 701,
+   "qwen": 693,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[add-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 628,
+   "qwen": 621,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[add-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 599,
+   "qwen": 593,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[add-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 607,
+   "qwen": 597,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[add-output-semantics]:[update-0]:[prog_syn-4]": {
+   "apple": 663,
+   "qwen": 656,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[add-output-semantics]:[update-0]:[prog_syn-6]": {
+   "apple": 609,
+   "qwen": 598,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-function-name]:[update-0]:[prog_syn-0]": {
+   "apple": 613,
+   "qwen": 601,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-function-name]:[update-0]:[prog_syn-1]": {
+   "apple": 575,
+   "qwen": 567,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-function-name]:[update-0]:[prog_syn-2]": {
+   "apple": 639,
+   "qwen": 624,
+   "fits": true
+  },
+  "[pandas.DataFrame.select_dtypes]:[modify-function-name]:[update-0]:[prog_syn-3]": {
+   "apple": 591,
+   "qwen": 583,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 569,
+   "qwen": 563,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 581,
+   "qwen": 580,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 539,
+   "qwen": 538,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-default_value(s)]:[update-0]:[prog_syn-3]": {
+   "apple": 536,
+   "qwen": 533,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-default_value(s)]:[update-0]:[prog_syn-4]": {
+   "apple": 569,
+   "qwen": 563,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 528,
+   "qwen": 519,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 562,
+   "qwen": 554,
+   "fits": true
+  },
+  "[re.findall]:[add-argument-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 555,
+   "qwen": 544,
+   "fits": true
+  },
+  "[re.search]:[modify-output-semantics]:[update-0]:[prog_syn-0]": {
+   "apple": 579,
+   "qwen": 563,
+   "fits": true
+  },
+  "[re.search]:[modify-output-semantics]:[update-0]:[prog_syn-1]": {
+   "apple": 587,
+   "qwen": 573,
+   "fits": true
+  },
+  "[re.search]:[modify-output-semantics]:[update-0]:[prog_syn-2]": {
+   "apple": 552,
+   "qwen": 537,
+   "fits": true
+  },
+  "[re.search]:[modify-output-semantics]:[update-0]:[prog_syn-3]": {
+   "apple": 587,
+   "qwen": 571,
+   "fits": true
+  },
+  "[re.search]:[add-argument-default_value(s)]:[update-1]:[prog_syn-0]": {
+   "apple": 582,
+   "qwen": 580,
+   "fits": true
+  },
+  "[re.search]:[add-argument-default_value(s)]:[update-1]:[prog_syn-1]": {
+   "apple": 593,
+   "qwen": 589,
+   "fits": true
+  },
+  "[re.search]:[add-argument-default_value(s)]:[update-1]:[prog_syn-2]": {
+   "apple": 610,
+   "qwen": 608,
+   "fits": true
+  },
+  "[re.search]:[add-argument-default_value(s)]:[update-0]:[prog_syn-0]": {
+   "apple": 586,
+   "qwen": 587,
+   "fits": true
+  },
+  "[re.search]:[add-argument-default_value(s)]:[update-0]:[prog_syn-1]": {
+   "apple": 591,
+   "qwen": 587,
+   "fits": true
+  },
+  "[re.search]:[add-argument-default_value(s)]:[update-0]:[prog_syn-2]": {
+   "apple": 599,
+   "qwen": 594,
+   "fits": true
+  }
+ }
+}
