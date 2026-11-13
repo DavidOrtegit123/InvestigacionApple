@@ -15,6 +15,40 @@ struct BatchTask: Decodable, Identifiable {
     let referenceDocContent: String
 }
 
+/// Which bundled task file the batch runs: the study's own 40 tasks, or
+/// the 60 CodeUpdateArena problems of the external replication
+/// (evaluation/external/codeupdatearena/design.md — oracle mode only).
+enum BatchTaskSet: String, CaseIterable, Identifiable {
+    case study
+    case codeUpdateArena
+
+    var id: String { rawValue }
+
+    /// Bundled JSON file (without extension).
+    var resourceName: String {
+        switch self {
+        case .study: "BatchTasks"
+        case .codeUpdateArena: "BatchTasksCUA"
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .study: "Tareas del estudio (40)"
+        case .codeUpdateArena: "CodeUpdateArena (60)"
+        }
+    }
+
+    /// With-document repetitions fixed by each set's protocol
+    /// (H1b: 5; CodeUpdateArena design §4: 3).
+    var defaultSamplesPerTask: Int {
+        switch self {
+        case .study: 5
+        case .codeUpdateArena: 3
+        }
+    }
+}
+
 /// What each with-document question gets as its reference material.
 enum BatchContextMode: String, CaseIterable, Identifiable {
     /// The task's own spec, complete (H1/H1b protocol).
@@ -86,6 +120,7 @@ final class BatchRunner: ObservableObject {
     @Published private(set) var completedCount = 0
     @Published private(set) var totalCount = 0
     @Published private(set) var statusText = ""
+    @Published private(set) var taskSet: BatchTaskSet = .study
 
     private(set) var allTasks: [BatchTask] = []
     private(set) var loadErrorMessage: String?
@@ -94,9 +129,19 @@ final class BatchRunner: ObservableObject {
         loadTasks()
     }
 
+    /// Switches the bundled task file; ignored while a run is going.
+    func selectTaskSet(_ newSet: BatchTaskSet) {
+        guard !isRunning, newSet != taskSet else { return }
+        taskSet = newSet
+        loadTasks()
+    }
+
     private func loadTasks() {
-        guard let url = Bundle.main.url(forResource: "BatchTasks", withExtension: "json") else {
-            loadErrorMessage = "BatchTasks.json not found in the app bundle."
+        allTasks = []
+        loadErrorMessage = nil
+        let fileName = "\(taskSet.resourceName).json"
+        guard let url = Bundle.main.url(forResource: taskSet.resourceName, withExtension: "json") else {
+            loadErrorMessage = "\(fileName) not found in the app bundle."
             return
         }
         do {
@@ -105,7 +150,7 @@ final class BatchRunner: ObservableObject {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             allTasks = try decoder.decode([BatchTask].self, from: data)
         } catch {
-            loadErrorMessage = "Failed to decode BatchTasks.json: \(error.localizedDescription)"
+            loadErrorMessage = "Failed to decode \(fileName): \(error.localizedDescription)"
         }
     }
 
@@ -184,6 +229,12 @@ final class BatchRunner: ObservableObject {
         contextMode: BatchContextMode = .oracle
     ) async {
         guard !isRunning else { return }
+        // The retrieval corpora are built from `allTasks`, so only the
+        // study's own tasks may run in a retrieved mode.
+        guard taskSet == .study || contextMode == .oracle else {
+            statusText = "No se corrió: \(taskSet.label) solo corre en modo oracle."
+            return
+        }
         // Claimed before any setup: building the Stage 4 index awaits, and a
         // second tap during that window used to start a concurrent run.
         isRunning = true
