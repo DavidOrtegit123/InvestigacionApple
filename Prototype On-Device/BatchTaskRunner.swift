@@ -15,12 +15,16 @@ struct BatchTask: Decodable, Identifiable {
     let referenceDocContent: String
 }
 
-/// Which bundled task file the batch runs: the study's own 40 tasks, or
-/// the 60 CodeUpdateArena problems of the external replication
-/// (evaluation/external/codeupdatearena/design.md — oracle mode only).
+/// Which bundled task file the batch runs: the study's own 40 tasks, the
+/// 60 CodeUpdateArena problems of the external replication
+/// (evaluation/external/codeupdatearena/design.md), or the 90 HumanEval+ /
+/// EvoEval_subtle pairs of the memorization check
+/// (evaluation/external/humaneval_evoeval/design.md). The external sets run
+/// in oracle mode only.
 enum BatchTaskSet: String, CaseIterable, Identifiable {
     case study
     case codeUpdateArena
+    case humanEvalSubtle
 
     var id: String { rawValue }
 
@@ -29,6 +33,7 @@ enum BatchTaskSet: String, CaseIterable, Identifiable {
         switch self {
         case .study: "BatchTasks"
         case .codeUpdateArena: "BatchTasksCUA"
+        case .humanEvalSubtle: "BatchTasksHE"
         }
     }
 
@@ -36,15 +41,26 @@ enum BatchTaskSet: String, CaseIterable, Identifiable {
         switch self {
         case .study: "Tareas del estudio (40)"
         case .codeUpdateArena: "CodeUpdateArena (60)"
+        case .humanEvalSubtle: "HumanEval+ / EvoEval (180)"
         }
     }
 
     /// With-document repetitions fixed by each set's protocol
-    /// (H1b: 5; CodeUpdateArena design §4: 3).
+    /// (H1b: 5; CodeUpdateArena design §4: 3; HumanEval+ / EvoEval design §4: 1).
     var defaultSamplesPerTask: Int {
         switch self {
         case .study: 5
         case .codeUpdateArena: 3
+        case .humanEvalSubtle: 1
+        }
+    }
+
+    /// Whether the protocol has a no-document control. HumanEval+ / EvoEval
+    /// has none: a problem without its docstring has no task (design §4).
+    var includesNoDocumentControl: Bool {
+        switch self {
+        case .study, .codeUpdateArena: true
+        case .humanEvalSubtle: false
         }
     }
 }
@@ -279,7 +295,10 @@ final class BatchRunner: ObservableObject {
         let allTasks = allTasks.filter { taskIDs.contains($0.id) }
         // Retrieved mode reuses H1b's no-RAG control (identical condition),
         // so it runs no no-RAG questions.
-        let noRagTasks = contextMode == .oracle ? allTasks.filter { noRagTaskIDs.contains($0.id) } : []
+        // Sets without a no-document control never run one, whatever the
+        // screen passed in.
+        let noRagTasks = contextMode == .oracle && taskSet.includesNoDocumentControl
+            ? allTasks.filter { noRagTaskIDs.contains($0.id) } : []
         totalCount = (noRagTasks.count * noRagSamplesPerTask + allTasks.count * samplesPerTask) * TutorSystem.allCases.count
 
         let originalSystem = viewModel.selectedSystem

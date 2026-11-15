@@ -62,10 +62,17 @@ struct BatchEvaluationView: View {
         return Set(picked.map(\.id))
     }
 
+    /// The full no-RAG control for the selected range, or none for sets
+    /// whose protocol has no no-document control.
+    private var defaultNoRagSampleSize: Int {
+        runner.taskSet.includesNoDocumentControl ? selectedTasks.count : 0
+    }
+
     /// Answers the run will generate across both backends — shown before
     /// starting so a session's length (and heat) can be judged up front.
     private var estimatedAnswerCount: Int {
-        let noRagAnswers = contextMode == .oracle ? noRagTaskIDs.count * noRagSamplesPerTask : 0
+        let noRagAnswers = contextMode == .oracle && runner.taskSet.includesNoDocumentControl
+            ? noRagTaskIDs.count * noRagSamplesPerTask : 0
         return (noRagAnswers + selectedTasks.count * samplesPerTask) * TutorSystem.allCases.count
     }
 
@@ -89,7 +96,9 @@ struct BatchEvaluationView: View {
                     }
                     .disabled(runner.isRunning || runner.taskSet != .study)
                 } footer: {
-                    if runner.taskSet != .study {
+                    if runner.taskSet == .humanEvalSubtle {
+                        Text("HumanEval+ / EvoEval: solo modo oracle, 1 repetición, sin control sin RAG.")
+                    } else if runner.taskSet != .study {
                         Text("CodeUpdateArena: solo modo oracle.")
                     } else if contextMode.usesRetrieval {
                         VStack(alignment: .leading, spacing: 4) {
@@ -150,13 +159,15 @@ struct BatchEvaluationView: View {
                         value: $noRagSampleSize,
                         in: 0...max(selectedTasks.count, 1)
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval
+                              || !runner.taskSet.includesNoDocumentControl)
                     Stepper(
                         "Repeticiones del control sin RAG: \(noRagSamplesPerTask)",
                         value: $noRagSamplesPerTask,
                         in: 1...10
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval
+                              || !runner.taskSet.includesNoDocumentControl)
                     LabeledContent("Respuestas totales", value: "\(estimatedAnswerCount)")
                 }
 
@@ -200,11 +211,11 @@ struct BatchEvaluationView: View {
             .onAppear {
                 if lastTaskNumber == 0 {
                     lastTaskNumber = runner.allTasks.count
-                    noRagSampleSize = selectedTasks.count
+                    noRagSampleSize = defaultNoRagSampleSize
                 }
             }
-            .onChange(of: firstTaskNumber) { noRagSampleSize = selectedTasks.count }
-            .onChange(of: lastTaskNumber) { noRagSampleSize = selectedTasks.count }
+            .onChange(of: firstTaskNumber) { noRagSampleSize = defaultNoRagSampleSize }
+            .onChange(of: lastTaskNumber) { noRagSampleSize = defaultNoRagSampleSize }
             .onChange(of: runner.taskSet) {
                 // A new task file: whole range, full no-RAG control, oracle
                 // mode for sets other than the study's, and that set's
@@ -215,7 +226,7 @@ struct BatchEvaluationView: View {
                 samplesPerTask = runner.taskSet.defaultSamplesPerTask
                 firstTaskNumber = 1
                 lastTaskNumber = runner.allTasks.count
-                noRagSampleSize = selectedTasks.count
+                noRagSampleSize = defaultNoRagSampleSize
             }
             .onChange(of: contextMode) {
                 retrievalCheck = contextMode.usesRetrieval ? runner.checkRetrieval() : nil
