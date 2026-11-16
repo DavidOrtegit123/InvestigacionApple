@@ -2,8 +2,8 @@ import Foundation
 import Combine
 
 /// Persists student-imported materials (from PDFs or OCR'd photos) as JSON
-/// in the app's Documents directory, mirroring `StudentMemoryStore`. These
-/// are merged with the bundled knowledge base at retrieval time.
+/// in the app's Documents directory. These are the only source chat answers
+/// from.
 @MainActor
 final class ImportedMaterialsStore: ObservableObject {
     @Published private(set) var materials: [ImportedMaterial]

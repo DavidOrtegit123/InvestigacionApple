@@ -14,7 +14,9 @@ private enum Stage4Model {
     static var isAvailable: Bool { FileManager.default.fileExists(atPath: url.path) }
 }
 
-/// Copied verbatim from ContentView.swift (frozen); `frozenStringsMatchContentView` fails if they drift.
+/// Copied verbatim from ContentView.swift at tag `study-protocol-final` — the prompt Stage 4 ran with.
+/// The app has since dropped the student line and the "Greet them by name…" sentence; the
+/// still-frozen parts are guarded by `frozenStringsMatchContentView`.
 private enum FrozenPrompt {
     static let instructions = "You are a friendly programming tutor for a young student. Greet them by name occasionally and match your vocabulary to their knowledge level. Use simple words and short, complete sentences. Do not ask for private information."
     static let promptInstruction = "Answer using ONLY the facts, rules, and behavior described in the reference material below, which the student personally uploaded — do not invent facts that aren't in the material. If the question asks you to write code, write it: implement exactly what the material documents, in a single fenced code block using the language named in the question (e.g. ```python ... ```). The reference material is a plain-language specification, not source code in any language — never claim it is written in Swift, Python, or any other language. The programming language to use is the one named in the question; the reference material does not need to mention it, so never refuse or ask for another language because the material doesn't name one. If the material does not fully specify the requested behavior (the programming language does not count as behavior), say so honestly instead of guessing. Question:"
@@ -36,8 +38,8 @@ struct Stage4ReferenceTests {
         let source = try String(contentsOf: BatchTasksFile.url.deletingLastPathComponent().appending(path: "ContentView.swift"),
                                 encoding: .utf8)
         #expect(source.contains(FrozenPrompt.promptInstruction))
-        for piece in ["You are a friendly programming tutor for a young student.", "Greet them by name occasionally and match your vocabulary to their",
-                      "knowledge level. Use simple words and short, complete sentences.", "Do not ask for private information."] {
+        for piece in ["You are a friendly programming tutor for a young student.", "Use simple words and short, complete sentences.",
+                      "Do not ask for private information."] {
             #expect(source.contains(piece))
         }
     }
