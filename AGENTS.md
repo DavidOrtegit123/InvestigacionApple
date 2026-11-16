@@ -58,7 +58,7 @@ _Condensed from `docs/research-log.md`. Add to this only when explicitly asked, 
 ## Open Issues & Next Steps
 
 All study data is final (H1c dropped). In order:
-1. **Write-up/paper** (local only, `Tests-Investigacion-Apple/paper/main.tex`): H1c-not-run and `study-protocol-final` wording added (2026-11-16). Still missing there: the step A test-strength section (817/905 passes survive; E1b and S4d lose significance).
+1. **Write-up/paper** (local only, `Tests-Investigacion-Apple/paper/main.tex`): H1c-not-run and `study-protocol-final` wording and the step A test-strength section (Scoring item 5, Results "Test-strength check" + table, Threats, Limitations) added (2026-11-16) — nothing left from this item.
 2. Phone run 3 of the 7 GH-4 manual questions on OnDeviceRAG 0.2.3 (+ the 63-page Save time).
 3. **OnDeviceRAG milestone 3:** harder real-PDF benchmark (follow-up subset, table lookups like GH-4 Q6) → reranker default by the pre-set rule (≥ 5 points Recall@3 at ≤ 3 s p95 on iPhone); confirm or retune the 2:1 history weight; decide the default token budget (rule e.g. smallest of 750/1,000/1,500/2,000 keeping the gold section ≥ 95% as often as 2,000; researcher leans 1,000–1,500); bilingual embedder test, bge-small first (multilingual-e5-small / EmbeddingGemma 2 only if it falls short).
 4. **OnDeviceRAG milestone 4:** iPhone verification — load times, OCR first-run delay, token pre-count, memory; consider logging `MaterialIndex.lastError` and timings.
