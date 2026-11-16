@@ -1,0 +1,8 @@
+# Raw phone exports and scored results: collapsed in pull-request diffs and
+# left out of GitHub's language statistics. They are still the study's data —
+# see evaluation/README.md.
+**/prototype-on-device-transcript-*.json linguist-generated=true
+**/results_*.json linguist-generated=true
+evaluation/**/*_report.json linguist-generated=true
+evaluation/**/selection_report.json linguist-generated=true
+Prototype?On-Device/RetrievalVectors.json linguist-generated=true

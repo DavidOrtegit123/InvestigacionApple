@@ -41,3 +41,7 @@ evaluation/external/codeupdatearena/fit_prompts.json
 # HumanEval+ / EvoEval_subtle downloads (untrusted third-party data; the Subtle file is 167 MB)
 evaluation/external/humaneval_evoeval/data/
 evaluation/external/humaneval_evoeval/fit_prompts.json
+
+# SwiftPM resolution for the research retrieval check (consumers pin their own versions)
+evaluation/rag/PackageRetrievalCheck/Package.resolved
+evaluation/rag/PackageRetrievalCheck/.build/
