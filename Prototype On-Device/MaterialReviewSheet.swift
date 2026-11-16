@@ -53,7 +53,7 @@ struct MaterialReviewSheet: View {
                     Section("Details") {
                         TextField("Title", text: $title)
                         TextField("Topic", text: $topic)
-                        topicSuggestionChips
+                        TopicSuggestionChips(topic: $topic)
                         TextField("Keywords (comma separated)", text: $keywordsText)
                     }
 
@@ -106,11 +106,7 @@ struct MaterialReviewSheet: View {
 
     private func save() async {
         isSaving = true
-        let keywords = keywordsText
-            .split(separator: ",")
-            .map { $0.trimmingCharacters(in: .whitespaces).lowercased() }
-            .filter { !$0.isEmpty }
-
+        let keywords = ImportedMaterial.keywords(from: keywordsText)
         let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTopic = topic.trimmingCharacters(in: .whitespacesAndNewlines)
 
@@ -132,22 +128,5 @@ struct MaterialReviewSheet: View {
         }
         onSave(material, reading)
         dismiss()
-    }
-
-    private var topicSuggestionChips: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 6) {
-                ForEach(ImportedMaterial.suggestedTopics, id: \.self) { suggestion in
-                    Button(suggestion.capitalized) {
-                        topic = suggestion
-                    }
-                    .font(.caption)
-                    .buttonStyle(.bordered)
-                }
-            }
-        }
-        .listRowInsets(EdgeInsets())
-        .padding(.horizontal)
-        .padding(.vertical, 2)
     }
 }

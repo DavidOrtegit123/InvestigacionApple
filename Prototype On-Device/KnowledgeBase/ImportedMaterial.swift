@@ -5,14 +5,8 @@ enum ImportedMaterialKind: String, Codable {
     case image
 }
 
-/// A student-imported document (from a PDF or a photo run through OCR),
-/// persisted separately from the bundled `KnowledgeDocument`s so it can
-/// carry import-specific metadata (kind, import date) without polluting
-/// that shared model.
-///
-/// There's no difficulty level here — unlike the bundled Swift/algorithms
-/// docs, an arbitrary uploaded PDF or photo has no well-defined difficulty,
-/// so materials are organized by topic instead.
+/// A student-imported document (a PDF, or a photo run through OCR), with its
+/// import metadata. Organized by topic; an arbitrary upload has no difficulty.
 struct ImportedMaterial: Identifiable, Codable, Equatable {
     /// A few common categories offered as quick-pick suggestions; the topic
     /// field itself stays free text so students aren't limited to these.
@@ -25,6 +19,13 @@ struct ImportedMaterial: Identifiable, Codable, Equatable {
     var content: String
     var kind: ImportedMaterialKind
     var importedAt: Date
+
+    /// Comma-separated keywords as typed in the import/edit sheets, trimmed and lowercased.
+    static func keywords(from text: String) -> [String] {
+        text.split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespaces).lowercased() }
+            .filter { !$0.isEmpty }
+    }
 
     var asKnowledgeDocument: KnowledgeDocument {
         KnowledgeDocument(id: id, title: title, topic: topic, difficulty: .beginner, keywords: keywords, content: content)

@@ -57,6 +57,8 @@ _Condensed from `docs/research-log.md`. Add to this only when explicitly asked, 
 
 ## Open Issues & Next Steps
 
+- **Branch `fix/code-cleanup` → PR #13 (open, not merged):** comment/dead-code cleanup, duplicate-code refactors, share sheets moved to `.sheet(item:)`; phone-verified 2026-11-16 (the first share sheet after launch taking ~1–2 s is iOS setup, not a bug — research log, "Code cleanup and export share sheet delay"). Next: merge.
+
 All study data is final (H1c dropped). In order:
 1. **Write-up/paper** (local only, `Tests-Investigacion-Apple/paper/main.tex`): state that H1c was pre-specified but not run, and that the app version used is tagged `study-protocol-final`.
 2. Phone run 3 of the 7 GH-4 manual questions on OnDeviceRAG 0.2.3 (+ the 63-page Save time).
@@ -125,6 +127,7 @@ Before writing, modifying, or deleting ANY code in this Xcode project, you must 
 
 _Last updated: 2026-11-16 (AGENTS.md condensed; detail moved to `docs/research-log.md`). Detailed snapshot of the previous version: research log, Appendix B._
 
+- **Branch `fix/code-cleanup` (PR #13)** builds, passes AppTests/RetrievalHarness and was phone-verified (no debugger) on 2026-11-16; **not merged** — `main` is unchanged.
 - **App:** single RAG mode, dual backend. A segmented picker ("Apple" / model name) chooses System A (Apple FM) or System B (Core AI, `CoreAIModelProvider.activeModel` = **Qwen3-4B** on `main`). Per-message `ResponseMetrics` and a per-system metrics sheet with JSON export (question, answer, system, metrics, `retrievedContext`/`retrievedDocumentTitle`).
 - **Student profile / structured memory: removed (2026-11-16, PR #12, on-device verified).** Prompts carry only the reference material, the instruction and (in normal chat) the conversation history. All study data used the old prompt — tag `study-protocol-final`.
 - **Normal chat retrieval = OnDeviceRAG** (`MaterialIndex`, on-device verified): without an explicit pick, chat answers from whole matching sections across all materials within 2,000 tokens; explicit pick = whole document; fallback = most recent import. Chat history (≤ 6 turns / 400 tokens) in search and prompt; renames update the index. Batch runs never reach it.

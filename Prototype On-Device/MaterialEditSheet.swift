@@ -29,7 +29,7 @@ struct MaterialEditSheet: View {
                 Section("Details") {
                     TextField("Title", text: $title)
                     TextField("Topic", text: $topic)
-                    topicSuggestionChips
+                    TopicSuggestionChips(topic: $topic)
                     TextField("Keywords (comma separated)", text: $keywordsText)
                 }
 
@@ -74,20 +74,20 @@ struct MaterialEditSheet: View {
     }
 
     private func save() {
-        let keywords = keywordsText
-            .split(separator: ",")
-            .map { $0.trimmingCharacters(in: .whitespaces).lowercased() }
-            .filter { !$0.isEmpty }
-
         var updated = material
         updated.title = title.trimmingCharacters(in: .whitespacesAndNewlines)
         updated.topic = topic.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        updated.keywords = keywords
+        updated.keywords = ImportedMaterial.keywords(from: keywordsText)
         onSave(updated)
         dismiss()
     }
+}
 
-    private var topicSuggestionChips: some View {
+/// Quick-pick topic buttons, shared by the import and edit sheets.
+struct TopicSuggestionChips: View {
+    @Binding var topic: String
+
+    var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
                 ForEach(ImportedMaterial.suggestedTopics, id: \.self) { suggestion in

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// A bright, playful color palette for a kid-friendly look.
+/// The app's bright color palette.
 enum TutorPalette {
     static let purple = Color(red: 0.45, green: 0.32, blue: 0.98)
     static let pink = Color(red: 1.0, green: 0.35, blue: 0.62)
@@ -12,8 +12,7 @@ enum TutorPalette {
 
     static let chipColors: [Color] = [purple, pink, orange, teal, green, blue]
 
-    /// The single accent tint used throughout the RAG harness UI, now that
-    /// there's only one mode (previously each `LearningMode` had its own).
+    /// The accent tint used throughout the UI.
     static let accent = green
 
     /// A soft background gradient that adapts to light/dark mode.

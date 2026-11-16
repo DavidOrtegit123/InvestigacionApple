@@ -8,7 +8,6 @@
 import SwiftUI
 import FoundationModels
 import Combine
-import Speech
 import OnDeviceRAG
 
 struct Message: Identifiable, Equatable {
@@ -30,10 +29,8 @@ struct Message: Identifiable, Equatable {
     /// shared, overwritten value) so historical answers stay comparable.
     var metrics: ResponseMetrics?
     var session: LanguageModelSession?
-    /// The full content of whichever imported material was injected into the
-    /// prompt for this reply (see `buildPrompt`), so offline faithfulness/
-    /// context-relevance scoring can check the answer against exactly what
-    /// the model actually saw, not just the raw PDF.
+    /// The reference material put into this reply's prompt (see `buildPrompt`),
+    /// exported so the offline scorers see exactly what the model was given.
     var retrievedContext: String?
     var retrievedDocumentTitle: String?
 
@@ -42,9 +39,8 @@ struct Message: Identifiable, Equatable {
     }
 }
 
-/// Fixed prompting constants for the single RAG mode: answer strictly from
-/// the one PDF the student imports, so System A and System B are compared
-/// on identical framing.
+/// Prompt and UI text shared by both backends, so System A and System B get
+/// identical framing. `promptInstruction` is frozen (Architecture Rule #9).
 enum RAGPrompting {
     static let iconName = "doc.text.magnifyingglass"
     static let placeholder = "Ask about the PDF you imported"
@@ -165,19 +161,12 @@ struct TutorContext {
 struct FoundationModelsTutorEngine {
     private let instructions: String
 
-    /// Sampling temperature shared by both backends. Left unset, the two
-    /// backends sampled differently: Apple's model used its own random
-    /// default, while `CoreAILanguageModel` falls back to greedy (fully
-    /// deterministic) — an unfair comparison, and repeated pass@1 samples
-    /// from a greedy model would all be identical. 0.2 follows Chen et al.
-    /// (2021), who found it the best temperature for pass@1.
+    /// Sampling temperature shared by both backends (unset, Apple samples
+    /// randomly but Core AI is greedy, so repeated pass@1 samples would be
+    /// identical). 0.2 is Chen et al. (2021)'s best pass@1 temperature.
     static let samplingTemperature = 0.2
-    /// Output cap shared by both backends. Qwen3-0.6B occasionally falls
-    /// into a repetition loop that runs to its 2048-token default (then
-    /// loops again in the continuation follow-up) — ~3.5 min and a lot of
-    /// heat per looped answer, which fails regardless. Every real answer
-    /// observed from either backend was under 400 tokens, so 1024 cuts
-    /// loops short without truncating a genuine answer.
+    /// Output cap shared by both backends: cuts repetition loops short.
+    /// Every genuine answer observed was under 400 tokens.
     static let maximumResponseTokens = 1024
     private let generationOptions = GenerationOptions(
         temperature: samplingTemperature,
@@ -198,14 +187,9 @@ struct FoundationModelsTutorEngine {
         model: any LanguageModel,
         system: TutorSystem
     ) -> (stream: AsyncThrowingStream<String, Error>, sessionBox: GenerationSessionBox) {
-        // Qwen3 (System B) runs in "thinking mode" by default: it emits hidden
-        // <think> reasoning before answering, and coreai-models never disables
-        // it. On code tasks the 0.6B model spent its entire 2048-token budget
-        // reasoning and never produced an answer (surfacing as "Failed to
-        // parse generated content"). `/no_think` is Qwen3's official switch to
-        // turn that off. Apple's model and Qwen2.5 have no such mode, so it's
-        // only appended when the bundled Core AI model needs it — otherwise it
-        // would just be read as literal text.
+        // Qwen3 thinks by default and can spend the whole token budget on hidden
+        // reasoning; `/no_think` turns that off. Only for Core AI models that need
+        // it — Apple's model would read it as literal text (Architecture Rule #10).
         let needsThinkingSwitch = system == .coreAI && CoreAIModelProvider.activeModel.needsNoThinkSwitch
         let thinkingSwitch = needsThinkingSwitch ? " /no_think" : ""
         let fullPrompt = Self.buildPrompt(prompt: prompt, context: context) + thinkingSwitch
@@ -222,12 +206,6 @@ struct FoundationModelsTutorEngine {
                     let session = LanguageModelSession(model: model, instructions: instructions)
                     sessionBox.session = session
 
-                    // Greedy sampling (tried previously) always picks the single
-                    // most likely next token, which is a documented cause of
-                    // early/degenerate stopping in language models — it can walk
-                    // into a dead end where an end-of-response token becomes the
-                    // locally "safest" pick. Leaving sampling unset lets the
-                    // framework use its own tuned default instead.
                     let stream = session.streamResponse(to: fullPrompt, options: generationOptions)
                     var previousSnapshot = ""
 
@@ -240,15 +218,10 @@ struct FoundationModelsTutorEngine {
                         }
                     }
 
-                    // The model sometimes stops before finishing a thought,
-                    // with no error thrown. The session's transcript already
-                    // contains the incomplete reply, so asking it to continue
-                    // lets it pick up naturally from where it left off. Smaller
-                    // models (e.g. Core AI's Qwen3-0.6B) don't always comply
-                    // with "don't repeat" and instead re-emit the same
-                    // paragraph, so only accept the follow-up if it's actually
-                    // new content — otherwise leave the reply as-is and let
-                    // `isIncomplete` surface the existing retry affordance.
+                    // The model sometimes stops mid-thought without an error:
+                    // ask the same session to continue. Small models may just
+                    // repeat themselves, so keep the follow-up only if it's new
+                    // content; otherwise `isIncomplete` offers a retry.
                     if !Self.endsWithSentenceTerminator(previousSnapshot) {
                         let followUp = try await session.respond(
                             to: "Continue directly from where you left off and finish the sentence. Do not repeat what you already said." + thinkingSwitch,
@@ -425,11 +398,7 @@ final class TutorViewModel: ObservableObject {
 
     func send() async {
         let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty, !isResponding else { return }
-        guard selectedSystem != .appleFoundation || availability == .available else {
-            messages.append(Message(role: .assistant, text: "Apple Foundation Models are unavailable on this device. Turn on Apple Intelligence or try a supported device."))
-            return
-        }
+        guard !trimmed.isEmpty, !isResponding, selectedBackendIsAvailable() else { return }
         guard !materialsStore.materials.isEmpty else {
             messages.append(Message(role: .user, text: trimmed))
             input = ""
@@ -467,20 +436,11 @@ final class TutorViewModel: ObservableObject {
         isResponding = false
     }
 
-    /// Batch-evaluation entry point (see `BatchRunner`): identical to
-    /// `send()` except it skips the "you haven't imported anything yet"
-    /// guard, so the no-RAG control condition (a deliberately empty
-    /// materials store) can actually reach `generate()` and get a genuine
-    /// nil `referenceDocument`, which `send()` otherwise refuses to
-    /// attempt. Every other guard and the generation pipeline itself are
-    /// unchanged, so a batch run exercises the same code path a
-    /// manually-typed message does.
+    /// Batch entry point (see `BatchRunner`): like `send()`, but without the
+    /// "nothing imported" guard, so the no-RAG control (an empty store) reaches
+    /// `generate()` with no reference document. Same generation pipeline.
     func sendForBatch(prompt: String) async {
-        guard !isResponding else { return }
-        guard selectedSystem != .appleFoundation || availability == .available else {
-            messages.append(Message(role: .assistant, text: "Apple Foundation Models are unavailable on this device. Turn on Apple Intelligence or try a supported device."))
-            return
-        }
+        guard !isResponding, selectedBackendIsAvailable() else { return }
 
         messages.append(Message(role: .user, text: prompt))
         isResponding = true
@@ -492,6 +452,16 @@ final class TutorViewModel: ObservableObject {
         await generate(prompt: prompt, assistantMessageID: assistantMessage.id, history: [])
 
         isResponding = false
+    }
+
+    /// False, after posting a notice in the chat, when Apple's model is selected
+    /// but unavailable on this device.
+    private func selectedBackendIsAvailable() -> Bool {
+        guard selectedSystem != .appleFoundation || availability == .available else {
+            messages.append(Message(role: .assistant, text: "Apple Foundation Models are unavailable on this device. Turn on Apple Intelligence or try a supported device."))
+            return false
+        }
+        return true
     }
 
     /// The chat's earlier turns before `index`, without the question being answered (the user
@@ -532,19 +502,12 @@ final class TutorViewModel: ObservableObject {
         }
     }
 
-    /// Only ever searches the student's imported materials — this is the
-    /// single shared knowledge source (the imported PDF) both System A and
-    /// System B answer from. Without an explicit pick, the OnDeviceRAG index
-    /// supplies the best-matching sections across all materials; if it has
-    /// nothing (e.g. the model couldn't load), it falls back to the most
-    /// recently imported material rather than returning no reference at all.
-    /// `history` (normal chat only) helps the package's search, and comes back
-    /// trimmed to the history budget on every path.
+    /// The reference for a question, from the imported materials only (Architecture
+    /// Rule #4): an explicit pick wins; otherwise the OnDeviceRAG index's best
+    /// sections, falling back to the most recent import if it finds nothing.
+    /// `history` comes back trimmed to the history budget on every path.
     private func referenceDocument(for prompt: String, history: [ChatTurn]) async -> MaterialIndex.Retrieval {
         let imported = materialsStore.materials
-        // An explicit pick from the document picker always wins — that's
-        // the whole point of letting the student choose, rather than
-        // guessing by semantic match when they have several imports.
         if let selectedMaterialID, let selected = imported.first(where: { $0.id == selectedMaterialID }) {
             return MaterialIndex.Retrieval(document: selected.asKnowledgeDocument, history: await MaterialIndex.recentHistory(history))
         }
@@ -558,19 +521,16 @@ final class TutorViewModel: ObservableObject {
                                        history: await MaterialIndex.recentHistory(history))
     }
 
-    /// Resolves the `LanguageModel` for the given backend. System A uses
-    /// Apple's system model directly; System B lazily loads/caches the
-    /// bundled Core AI model via `CoreAIModelProvider`.
-    /// Forces the selected backend's model fully into memory before any
-    /// question is asked. `CoreAILanguageModel` loads its engine lazily on
-    /// the first request, so without this the one-time load/specialization
-    /// cost (up to ~9 min observed) lands inside the first answer's latency
-    /// metrics. Apple's model is system-managed and needs no preload.
+    /// Loads the Core AI model before any question, so its one-time load (up to
+    /// ~9 min observed) doesn't land in the first answer's latency. Apple's
+    /// model is system-managed and needs no preload.
     func preloadModel(for system: TutorSystem) async throws {
         guard system == .coreAI else { return }
         try await CoreAIModelProvider.shared.preload()
     }
 
+    /// System A uses Apple's system model directly; System B lazily loads and
+    /// caches the bundled Core AI model via `CoreAIModelProvider`.
     private func resolveModel(for system: TutorSystem) async throws -> any LanguageModel {
         switch system {
         case .appleFoundation:
@@ -598,6 +558,32 @@ final class TutorViewModel: ObservableObject {
             conversation: retrieval.history
         )
 
+        // Measured when the reply ends (finished or failed).
+        func finalMetrics() -> ResponseMetrics {
+            ResponseMetrics(
+                timeToFirstToken: firstTokenDate?.timeIntervalSince(start),
+                totalTime: Date().timeIntervalSince(start),
+                inputTokens: sessionBox?.usage?.input.totalTokenCount,
+                outputTokens: sessionBox?.usage?.output.totalTokenCount,
+                thermalStateBefore: thermalStateBefore,
+                thermalStateAfter: ProcessInfo.processInfo.thermalState
+            )
+        }
+
+        func finish(text: String, isIncomplete: Bool, metrics: ResponseMetrics) {
+            updateAssistantMessage(
+                id: assistantMessageID,
+                text: text,
+                isIncomplete: isIncomplete,
+                sourcePrompt: prompt,
+                sourceSystem: requestSystem,
+                metrics: metrics,
+                session: sessionBox?.session,
+                retrievedContext: referenceDocument?.content,
+                retrievedDocumentTitle: referenceDocument?.title
+            )
+        }
+
         do {
             let model = try await resolveModel(for: requestSystem)
             let (stream, box) = engine.streamResponse(for: prompt, context: context, model: model, system: requestSystem)
@@ -611,64 +597,17 @@ final class TutorViewModel: ObservableObject {
                 updateAssistantMessage(id: assistantMessageID, text: output)
             }
 
-            let responseMetrics = ResponseMetrics(
-                timeToFirstToken: firstTokenDate?.timeIntervalSince(start),
-                totalTime: Date().timeIntervalSince(start),
-                inputTokens: sessionBox?.usage?.input.totalTokenCount,
-                outputTokens: sessionBox?.usage?.output.totalTokenCount,
-                thermalStateBefore: thermalStateBefore,
-                thermalStateAfter: ProcessInfo.processInfo.thermalState
-            )
-
+            let metrics = finalMetrics()
             if output.isEmpty {
                 updateAssistantMessage(id: assistantMessageID, text: "No response was generated.")
             } else {
-                updateAssistantMessage(
-                    id: assistantMessageID,
-                    text: output,
-                    isIncomplete: !FoundationModelsTutorEngine.endsWithSentenceTerminator(output),
-                    sourcePrompt: prompt,
-                    sourceSystem: requestSystem,
-                    metrics: responseMetrics,
-                    session: sessionBox?.session,
-                    retrievedContext: referenceDocument?.content,
-                    retrievedDocumentTitle: referenceDocument?.title
-                )
+                finish(text: output, isIncomplete: !FoundationModelsTutorEngine.endsWithSentenceTerminator(output), metrics: metrics)
             }
         } catch {
-            let responseMetrics = ResponseMetrics(
-                timeToFirstToken: firstTokenDate?.timeIntervalSince(start),
-                totalTime: Date().timeIntervalSince(start),
-                inputTokens: sessionBox?.usage?.input.totalTokenCount,
-                outputTokens: sessionBox?.usage?.output.totalTokenCount,
-                thermalStateBefore: thermalStateBefore,
-                thermalStateAfter: ProcessInfo.processInfo.thermalState
-            )
-            if output.isEmpty {
-                updateAssistantMessage(
-                    id: assistantMessageID,
-                    text: "Error: \(error.localizedDescription)",
-                    isIncomplete: true,
-                    sourcePrompt: prompt,
-                    sourceSystem: requestSystem,
-                    metrics: responseMetrics,
-                    session: sessionBox?.session,
-                    retrievedContext: referenceDocument?.content,
-                    retrievedDocumentTitle: referenceDocument?.title
-                )
-            } else {
-                updateAssistantMessage(
-                    id: assistantMessageID,
-                    text: "\(output)\n\n[Response interrupted: \(error.localizedDescription)]",
-                    isIncomplete: true,
-                    sourcePrompt: prompt,
-                    sourceSystem: requestSystem,
-                    metrics: responseMetrics,
-                    session: sessionBox?.session,
-                    retrievedContext: referenceDocument?.content,
-                    retrievedDocumentTitle: referenceDocument?.title
-                )
-            }
+            let text = output.isEmpty
+                ? "Error: \(error.localizedDescription)"
+                : "\(output)\n\n[Response interrupted: \(error.localizedDescription)]"
+            finish(text: text, isIncomplete: true, metrics: finalMetrics())
         }
     }
 
@@ -716,8 +655,7 @@ struct ContentView: View {
     @StateObject private var materialsStore: ImportedMaterialsStore
     @StateObject private var speechRecognizer = SpeechRecognizer()
     @Environment(\.colorScheme) private var colorScheme
-    @State private var feedbackShareURL: URL?
-    @State private var isShowingFeedbackSheet = false
+    @State private var feedbackFile: ShareableFile?
     @State private var isShowingProfile = false
     @State private var isShowingMetricsSummary = false
     /// `.scrollDismissesKeyboard` only fires for drags that start inside the
@@ -791,10 +729,8 @@ struct ContentView: View {
                     Text(errorText)
                 }
             }
-            .sheet(isPresented: $isShowingFeedbackSheet) {
-                if let feedbackShareURL {
-                    ActivityView(activityItems: [feedbackShareURL])
-                }
+            .sheet(item: $feedbackFile) { file in
+                ActivityView(activityItems: [file.url])
             }
         }
     }
@@ -862,8 +798,7 @@ struct ContentView: View {
                             MessageBubble(
                                 message: message,
                                 viewModel: viewModel,
-                                feedbackShareURL: $feedbackShareURL,
-                                isShowingFeedbackSheet: $isShowingFeedbackSheet
+                                feedbackFile: $feedbackFile
                             )
                             .id(message.id)
                         }
@@ -1034,8 +969,7 @@ struct ContentView: View {
 struct MessageBubble: View {
     let message: Message
     @ObservedObject var viewModel: TutorViewModel
-    @Binding var feedbackShareURL: URL?
-    @Binding var isShowingFeedbackSheet: Bool
+    @Binding var feedbackFile: ShareableFile?
     @State private var isShowingMetrics = false
 
     var body: some View {
@@ -1096,9 +1030,7 @@ struct MessageBubble: View {
                     .disabled(viewModel.isResponding)
 
                     Button("Report") {
-                        guard let url = viewModel.reportIssue(for: message.id) else { return }
-                        feedbackShareURL = url
-                        isShowingFeedbackSheet = true
+                        feedbackFile = viewModel.reportIssue(for: message.id).map(ShareableFile.init)
                     }
                     .font(.caption)
                 }
@@ -1113,8 +1045,7 @@ struct MessageBubble: View {
 struct MetricsSummaryView: View {
     @ObservedObject var viewModel: TutorViewModel
     @Environment(\.dismiss) private var dismiss
-    @State private var exportURL: URL?
-    @State private var isShowingExportSheet = false
+    @State private var exportFile: ShareableFile?
 
     var body: some View {
         NavigationStack {
@@ -1141,8 +1072,7 @@ struct MetricsSummaryView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        exportURL = viewModel.exportTranscript()
-                        isShowingExportSheet = exportURL != nil
+                        exportFile = viewModel.exportTranscript().map(ShareableFile.init)
                     } label: {
                         Label("Export", systemImage: "square.and.arrow.up")
                     }
@@ -1151,10 +1081,8 @@ struct MetricsSummaryView: View {
                     Button("Done") { dismiss() }
                 }
             }
-            .sheet(isPresented: $isShowingExportSheet) {
-                if let exportURL {
-                    ActivityView(activityItems: [exportURL])
-                }
+            .sheet(item: $exportFile) { file in
+                ActivityView(activityItems: [file.url])
             }
         }
     }
