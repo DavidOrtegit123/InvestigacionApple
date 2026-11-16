@@ -28,8 +28,7 @@ struct BatchEvaluationView: View {
     /// Computed when retrieved mode is chosen; the run stays disabled
     /// unless it passes.
     @State private var retrievalCheck: RetrievalCheck?
-    @State private var exportURL: URL?
-    @State private var isShowingExportSheet = false
+    @State private var exportFile: ShareableFile?
 
     enum RangeField: Hashable {
         case first
@@ -229,8 +228,7 @@ struct BatchEvaluationView: View {
 
                 Section {
                     Button {
-                        exportURL = viewModel.exportTranscript()
-                        isShowingExportSheet = exportURL != nil
+                        exportFile = viewModel.exportTranscript().map(ShareableFile.init)
                     } label: {
                         Label("Exportar transcripción", systemImage: "square.and.arrow.up")
                     }
@@ -299,10 +297,8 @@ struct BatchEvaluationView: View {
                     Button("Listo") { focusedRangeField = nil }
                 }
             }
-            .sheet(isPresented: $isShowingExportSheet) {
-                if let exportURL {
-                    ActivityView(activityItems: [exportURL])
-                }
+            .sheet(item: $exportFile) { file in
+                ActivityView(activityItems: [file.url])
             }
         }
     }

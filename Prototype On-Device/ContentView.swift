@@ -655,8 +655,7 @@ struct ContentView: View {
     @StateObject private var materialsStore: ImportedMaterialsStore
     @StateObject private var speechRecognizer = SpeechRecognizer()
     @Environment(\.colorScheme) private var colorScheme
-    @State private var feedbackShareURL: URL?
-    @State private var isShowingFeedbackSheet = false
+    @State private var feedbackFile: ShareableFile?
     @State private var isShowingProfile = false
     @State private var isShowingMetricsSummary = false
     /// `.scrollDismissesKeyboard` only fires for drags that start inside the
@@ -730,10 +729,8 @@ struct ContentView: View {
                     Text(errorText)
                 }
             }
-            .sheet(isPresented: $isShowingFeedbackSheet) {
-                if let feedbackShareURL {
-                    ActivityView(activityItems: [feedbackShareURL])
-                }
+            .sheet(item: $feedbackFile) { file in
+                ActivityView(activityItems: [file.url])
             }
         }
     }
@@ -801,8 +798,7 @@ struct ContentView: View {
                             MessageBubble(
                                 message: message,
                                 viewModel: viewModel,
-                                feedbackShareURL: $feedbackShareURL,
-                                isShowingFeedbackSheet: $isShowingFeedbackSheet
+                                feedbackFile: $feedbackFile
                             )
                             .id(message.id)
                         }
@@ -973,8 +969,7 @@ struct ContentView: View {
 struct MessageBubble: View {
     let message: Message
     @ObservedObject var viewModel: TutorViewModel
-    @Binding var feedbackShareURL: URL?
-    @Binding var isShowingFeedbackSheet: Bool
+    @Binding var feedbackFile: ShareableFile?
     @State private var isShowingMetrics = false
 
     var body: some View {
@@ -1035,9 +1030,7 @@ struct MessageBubble: View {
                     .disabled(viewModel.isResponding)
 
                     Button("Report") {
-                        guard let url = viewModel.reportIssue(for: message.id) else { return }
-                        feedbackShareURL = url
-                        isShowingFeedbackSheet = true
+                        feedbackFile = viewModel.reportIssue(for: message.id).map(ShareableFile.init)
                     }
                     .font(.caption)
                 }
@@ -1052,8 +1045,7 @@ struct MessageBubble: View {
 struct MetricsSummaryView: View {
     @ObservedObject var viewModel: TutorViewModel
     @Environment(\.dismiss) private var dismiss
-    @State private var exportURL: URL?
-    @State private var isShowingExportSheet = false
+    @State private var exportFile: ShareableFile?
 
     var body: some View {
         NavigationStack {
@@ -1080,8 +1072,7 @@ struct MetricsSummaryView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        exportURL = viewModel.exportTranscript()
-                        isShowingExportSheet = exportURL != nil
+                        exportFile = viewModel.exportTranscript().map(ShareableFile.init)
                     } label: {
                         Label("Export", systemImage: "square.and.arrow.up")
                     }
@@ -1090,10 +1081,8 @@ struct MetricsSummaryView: View {
                     Button("Done") { dismiss() }
                 }
             }
-            .sheet(isPresented: $isShowingExportSheet) {
-                if let exportURL {
-                    ActivityView(activityItems: [exportURL])
-                }
+            .sheet(item: $exportFile) { file in
+                ActivityView(activityItems: [file.url])
             }
         }
     }
