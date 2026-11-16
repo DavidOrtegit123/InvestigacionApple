@@ -95,12 +95,9 @@ enum BatchContextMode: String, CaseIterable, Identifiable {
     var usesRetrieval: Bool { self != .oracle }
 }
 
-/// Whether the device can run pipeline B as pre-specified. Without
-/// sentence vectors (iOS 27.0 provides no English `NLEmbedding`, so they
-/// come from the bundled `RetrievalVectors.json`), `HybridRetriever`
-/// silently ranks by BM25 alone — a different retriever than the one
-/// Stage 2 is designed to test, first caught in the on-device smoke test
-/// (2026-10-20).
+/// Whether the device can run pipeline B as pre-specified. Without sentence
+/// vectors (from the bundled `RetrievalVectors.json`, since iOS 27.0 has no
+/// English `NLEmbedding`), `HybridRetriever` silently ranks by BM25 alone.
 struct RetrievalCheck {
     /// The Stage 1 (Mac) embedding revision; a different one would rank differently.
     static let expectedEmbeddingRevision = 1
@@ -199,43 +196,15 @@ final class BatchRunner: ObservableObject {
         )
     }
 
-    /// For each backend in turn, runs the no-RAG control (a chosen subset
-    /// of tasks) followed by the full with-RAG comparison (every task),
-    /// then restores the materials library to exactly what it was before
-    /// the run started.
-    ///
-    /// One backend at a time, both RAG conditions before switching to the
-    /// next — not "every backend's no-RAG, then every backend's with-RAG"
-    /// as an earlier version of this runner did. `TutorViewModel
-    /// .selectedSystem`'s didSet unloads the Core AI model whenever the
-    /// backend switches *away* from it, so alternating backends per phase
-    /// paid that reload cost twice in one run (confirmed on-device: the
-    /// first with-RAG External message came back with a ~19s time-to-
-    /// first-token — a partial reload — well above the ~5-11s steady
-    /// state its own earlier no-RAG block had already settled into).
-    /// Finishing one backend's work before switching means Core AI loads
-    /// exactly once per run.
-    ///
-    /// Each task is asked `samplesPerTask` times in a row (with sampling at
-    /// `FoundationModelsTutorEngine.samplingTemperature`, repeated answers
-    /// differ), so pass@1 can be estimated as a per-task pass rate, as in
-    /// Chen et al. (2021), instead of one noisy pass/fail.
-    ///
-    /// Thermal pacing: a short pause between answers, and before the Core
-    /// AI backend starts, its model is loaded up front followed by a
-    /// cool-down, so the heat of the one-time load doesn't carry into its
-    /// first answers. On top of that, each of the four blocks waits for the
-    /// device to cool to "Fair" or below before starting, and any answer
-    /// that would start at "Serious" or worse waits for it to cool first.
-    /// Pauses happen outside `generate`, so they never affect the recorded
-    /// latency metrics.
-    ///
-    /// `taskIDs` limits the run to a subset of the task set, so the full set
-    /// can be split across several shorter sessions (less sustained heat per
-    /// session); `score_code_tasks.py` accepts several transcripts and
-    /// combines them. The no-RAG control gets its own, usually smaller,
-    /// sample count (`noRagSamplesPerTask`), since its job is only to show
-    /// the tasks need the document.
+    /// Runs the tasks through both backends, one backend at a time (switching
+    /// away from Core AI unloads it, so this loads it once per run): first the
+    /// no-RAG control on `noRagTaskIDs`, then the with-document block in
+    /// `contextMode`. Each task is asked `samplesPerTask` times, so pass@1 is a
+    /// per-task pass rate (Chen et al. 2021). Thermal pacing (pauses, a cool-down
+    /// after the model load, waits before each block and at Serious) happens
+    /// outside `generate`, so it never affects the recorded latency. `taskIDs`
+    /// lets the set be split across sessions. The student's own materials are
+    /// set aside for the run and restored afterwards.
     func run(
         viewModel: TutorViewModel,
         taskIDs: Set<String>,
@@ -293,10 +262,8 @@ final class BatchRunner: ObservableObject {
         completedCount = 0
 
         let allTasks = allTasks.filter { taskIDs.contains($0.id) }
-        // Retrieved mode reuses H1b's no-RAG control (identical condition),
-        // so it runs no no-RAG questions.
-        // Sets without a no-document control never run one, whatever the
-        // screen passed in.
+        // No no-RAG block in retrieved modes (they reuse H1b's control) or for
+        // sets whose protocol has no no-document control.
         let noRagTasks = contextMode == .oracle && taskSet.includesNoDocumentControl
             ? allTasks.filter { noRagTaskIDs.contains($0.id) } : []
         totalCount = (noRagTasks.count * noRagSamplesPerTask + allTasks.count * samplesPerTask) * TutorSystem.allCases.count
@@ -305,11 +272,8 @@ final class BatchRunner: ObservableObject {
         let originalMaterialID = viewModel.selectedMaterialID
         let originalMaterials = viewModel.materialsStore.materials
 
-        // Set aside the student's own materials for the whole run —
-        // `referenceDocument(for:)` only returns nil when the materials
-        // store is completely empty (verified against ContentView.swift),
-        // so every no-RAG phase below needs them out of the way, not just
-        // the batch's own task materials.
+        // Set aside the student's own materials for the whole run: the no-RAG
+        // control only gets no reference when the store is completely empty.
         for material in originalMaterials {
             viewModel.materialsStore.remove(id: material.id)
         }

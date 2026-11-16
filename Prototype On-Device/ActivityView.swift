@@ -1,8 +1,8 @@
 import SwiftUI
 import UIKit
 
-/// Wraps `UIActivityViewController` so feedback JSON files can be shared
-/// (e.g. saved to Files or attached to a Feedback Assistant report).
+/// Wraps `UIActivityViewController` to share exported files (transcripts,
+/// Feedback Assistant attachments) to Files, AirDrop, etc.
 struct ActivityView: UIViewControllerRepresentable {
     let activityItems: [Any]
 

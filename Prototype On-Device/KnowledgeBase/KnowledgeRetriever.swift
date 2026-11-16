@@ -1,18 +1,9 @@
 import Foundation
 import NaturalLanguage
 
-/// Semantic retriever: finds the document(s) closest in *meaning* to a
-/// question, using Apple's on-device sentence embeddings (the
-/// NaturalLanguage framework's `NLEmbedding`) instead of literal keyword
-/// matching. Two pieces of text can end up with a small distance even if
-/// they don't share a single word — e.g. "what happens if it's empty" and
-/// "handling a nil optional" — which plain word-overlap can never catch.
-///
-/// A document's full text is split into paragraph-sized chunks before
-/// embedding: averaging an entire multi-page PDF into one vector would
-/// blur together everything it talks about, so instead each chunk is
-/// embedded separately and a document is ranked by its single
-/// closest-matching chunk.
+/// Semantic-only retriever (Stage 1 pipeline A): ranks documents by their
+/// closest paragraph-sized chunk under `NLEmbedding`. Unused by the app since
+/// chat moved to OnDeviceRAG; kept for `RetrievalHarness`, which still runs it.
 struct KnowledgeRetriever {
     let documents: [KnowledgeDocument]
 

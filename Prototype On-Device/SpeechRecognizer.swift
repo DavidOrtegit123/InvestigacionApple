@@ -3,7 +3,7 @@ import AVFoundation
 import Combine
 
 @MainActor
-public class SpeechRecognizer: ObservableObject {
+final class SpeechRecognizer: ObservableObject {
     enum RecognizerError: Error {
         case nilRecognizer
         case notAuthorizedToRecognize
@@ -22,23 +22,18 @@ public class SpeechRecognizer: ObservableObject {
     
     @Published var transcript: String = ""
     @Published var isRecording: Bool = false
-    @Published var errorText: String? = nil
+    @Published var errorText: String?
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private let recognizer: SFSpeechRecognizer?
     
-    public init() {
+    init() {
         self.recognizer = SFSpeechRecognizer()
     }
-    
-    deinit {
-        // Deinit can be called on any thread, so we perform reset synchronously or safely.
-        // We cancel the task and end requests.
-    }
-    
-    public func startTranscribing() {
+
+    func startTranscribing() {
         Task {
             do {
                 guard let recognizer = recognizer else {
@@ -118,7 +113,7 @@ public class SpeechRecognizer: ObservableObject {
         isRecording = true
     }
     
-    public func stopTranscribing() {
+    func stopTranscribing() {
         stopAndReset()
     }
     
