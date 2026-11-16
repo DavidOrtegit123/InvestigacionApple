@@ -21,12 +21,37 @@ struct BatchEvaluationView: View {
     /// set yet" and is replaced with the task count on appear.
     @State private var firstTaskNumber = 1
     @State private var lastTaskNumber = 0
+    /// Which range number box has the keyboard, so "Listo" can close it
+    /// (the number pad has no return key).
+    @FocusState private var focusedRangeField: RangeField?
     @State private var contextMode: BatchContextMode = .oracle
     /// Computed when retrieved mode is chosen; the run stays disabled
     /// unless it passes.
     @State private var retrievalCheck: RetrievalCheck?
     @State private var exportURL: URL?
     @State private var isShowingExportSheet = false
+
+    enum RangeField: Hashable {
+        case first
+        case last
+    }
+
+    /// A range row's label: the title plus a number box that can be typed
+    /// into, so a far-away task (e.g. 121 of 180) doesn't take 120 taps.
+    /// The value is committed when the keyboard closes; out-of-range
+    /// numbers are corrected by the range's onChange handlers.
+    private func taskNumberLabel(_ title: String, value: Binding<Int>, field: RangeField) -> some View {
+        HStack {
+            Text(title)
+            Spacer()
+            TextField(title, value: value, format: .number)
+                .keyboardType(.numberPad)
+                .multilineTextAlignment(.trailing)
+                .textFieldStyle(.roundedBorder)
+                .frame(width: 64)
+                .focused($focusedRangeField, equals: field)
+        }
+    }
 
     /// The tasks inside the chosen range, in file order.
     private var selectedTasks: [BatchTask] {
@@ -62,10 +87,17 @@ struct BatchEvaluationView: View {
         return Set(picked.map(\.id))
     }
 
+    /// The full no-RAG control for the selected range, or none for sets
+    /// whose protocol has no no-document control.
+    private var defaultNoRagSampleSize: Int {
+        runner.taskSet.includesNoDocumentControl ? selectedTasks.count : 0
+    }
+
     /// Answers the run will generate across both backends — shown before
     /// starting so a session's length (and heat) can be judged up front.
     private var estimatedAnswerCount: Int {
-        let noRagAnswers = contextMode == .oracle ? noRagTaskIDs.count * noRagSamplesPerTask : 0
+        let noRagAnswers = contextMode == .oracle && runner.taskSet.includesNoDocumentControl
+            ? noRagTaskIDs.count * noRagSamplesPerTask : 0
         return (noRagAnswers + selectedTasks.count * samplesPerTask) * TutorSystem.allCases.count
     }
 
@@ -89,7 +121,9 @@ struct BatchEvaluationView: View {
                     }
                     .disabled(runner.isRunning || runner.taskSet != .study)
                 } footer: {
-                    if runner.taskSet != .study {
+                    if runner.taskSet == .humanEvalSubtle {
+                        Text("HumanEval+ / EvoEval: solo modo oracle, 1 repetición, sin control sin RAG.")
+                    } else if runner.taskSet != .study {
                         Text("CodeUpdateArena: solo modo oracle.")
                     } else if contextMode.usesRetrieval {
                         VStack(alignment: .leading, spacing: 4) {
@@ -119,17 +153,16 @@ struct BatchEvaluationView: View {
                         Text(error)
                             .foregroundStyle(.red)
                     }
-                    Stepper(
-                        "Desde tarea: \(firstTaskNumber)",
-                        value: $firstTaskNumber,
-                        in: 1...max(lastTaskNumber, 1)
-                    )
+                    Stepper(value: $firstTaskNumber, in: 1...max(lastTaskNumber, 1)) {
+                        taskNumberLabel("Desde tarea", value: $firstTaskNumber, field: .first)
+                    }
                     .disabled(runner.isRunning || runner.allTasks.isEmpty)
                     Stepper(
-                        "Hasta tarea: \(lastTaskNumber)",
                         value: $lastTaskNumber,
                         in: firstTaskNumber...max(runner.allTasks.count, firstTaskNumber)
-                    )
+                    ) {
+                        taskNumberLabel("Hasta tarea", value: $lastTaskNumber, field: .last)
+                    }
                     .disabled(runner.isRunning || runner.allTasks.isEmpty)
                     if let first = selectedTasks.first, let last = selectedTasks.last {
                         Text("\(selectedTasks.count) tareas: \(first.id) … \(last.id)")
@@ -150,13 +183,15 @@ struct BatchEvaluationView: View {
                         value: $noRagSampleSize,
                         in: 0...max(selectedTasks.count, 1)
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval
+                              || !runner.taskSet.includesNoDocumentControl)
                     Stepper(
                         "Repeticiones del control sin RAG: \(noRagSamplesPerTask)",
                         value: $noRagSamplesPerTask,
                         in: 1...10
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval)
+                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval
+                              || !runner.taskSet.includesNoDocumentControl)
                     LabeledContent("Respuestas totales", value: "\(estimatedAnswerCount)")
                 }
 
@@ -200,11 +235,39 @@ struct BatchEvaluationView: View {
             .onAppear {
                 if lastTaskNumber == 0 {
                     lastTaskNumber = runner.allTasks.count
-                    noRagSampleSize = selectedTasks.count
+                    noRagSampleSize = defaultNoRagSampleSize
                 }
             }
-            .onChange(of: firstTaskNumber) { noRagSampleSize = selectedTasks.count }
-            .onChange(of: lastTaskNumber) { noRagSampleSize = selectedTasks.count }
+            .onChange(of: firstTaskNumber) {
+                // A typed number can be out of range: keep it inside the
+                // task list, and move "Hasta" up if "Desde" passed it.
+                let count = runner.allTasks.count
+                guard count > 0 else { return }
+                let clamped = min(max(firstTaskNumber, 1), count)
+                if clamped != firstTaskNumber {
+                    firstTaskNumber = clamped
+                    return
+                }
+                if lastTaskNumber < firstTaskNumber {
+                    lastTaskNumber = firstTaskNumber
+                }
+                noRagSampleSize = defaultNoRagSampleSize
+            }
+            .onChange(of: lastTaskNumber) {
+                // Same for "Hasta": inside the list, and "Desde" moves down
+                // if "Hasta" went below it.
+                let count = runner.allTasks.count
+                guard count > 0 else { return }
+                let clamped = min(max(lastTaskNumber, 1), count)
+                if clamped != lastTaskNumber {
+                    lastTaskNumber = clamped
+                    return
+                }
+                if firstTaskNumber > lastTaskNumber {
+                    firstTaskNumber = lastTaskNumber
+                }
+                noRagSampleSize = defaultNoRagSampleSize
+            }
             .onChange(of: runner.taskSet) {
                 // A new task file: whole range, full no-RAG control, oracle
                 // mode for sets other than the study's, and that set's
@@ -215,7 +278,7 @@ struct BatchEvaluationView: View {
                 samplesPerTask = runner.taskSet.defaultSamplesPerTask
                 firstTaskNumber = 1
                 lastTaskNumber = runner.allTasks.count
-                noRagSampleSize = selectedTasks.count
+                noRagSampleSize = defaultNoRagSampleSize
             }
             .onChange(of: contextMode) {
                 retrievalCheck = contextMode.usesRetrieval ? runner.checkRetrieval() : nil
@@ -225,6 +288,10 @@ struct BatchEvaluationView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
+                }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Listo") { focusedRangeField = nil }
                 }
             }
             .sheet(isPresented: $isShowingExportSheet) {

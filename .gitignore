@@ -37,3 +37,7 @@ paper/
 # CodeUpdateArena download (untrusted third-party data; the 60 selected records are committed in selected_problems.json)
 evaluation/external/codeupdatearena/data/
 evaluation/external/codeupdatearena/fit_prompts.json
+
+# HumanEval+ / EvoEval_subtle downloads (untrusted third-party data; the Subtle file is 167 MB)
+evaluation/external/humaneval_evoeval/data/
+evaluation/external/humaneval_evoeval/fit_prompts.json

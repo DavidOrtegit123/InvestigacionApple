@@ -1,0 +1,3000 @@
+{
+ "datasets": {
+  "original": {
+   "name": "HumanEval+",
+   "huggingFace": "evalplus/humanevalplus",
+   "revision": "d32357cf319e50e9c8d8dab5ea876c72b0fd321b",
+   "sha256": "908377f1daf28dcb36846db73a5662b2e05a9907407c2696c89ad9d3b0b04492",
+   "file": "humanevalplus.jsonl",
+   "idPrefix": "HumanEval/"
+  },
+  "subtle": {
+   "name": "EvoEval_subtle",
+   "huggingFace": "evoeval/EvoEval_subtle",
+   "revision": "b1d6d9da3220957e7d299b0fc90189babb45ce88",
+   "sha256": "7049d125c6ca5525df2973c70c5fcb0a4c175bd5cbac6cbe8598a3eaa4d4386d",
+   "file": "evoeval_subtle.jsonl",
+   "idPrefix": "EvoEval/"
+  }
+ },
+ "license": "Apache-2.0 — see LICENSE-HumanEvalPlus-EvoEval.txt",
+ "environment": {
+  "python": "3.11",
+  "numpy": "1.26.4"
+ },
+ "seed": 20261115,
+ "eligibilityTimeoutSeconds": 10,
+ "answerTimeoutSeconds": 30,
+ "pairs": [
+  {
+   "position": 1,
+   "n": 52,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_001_below_threshold",
+    "subtle": "evs_001_below_threshold"
+   },
+   "entryPoints": {
+    "original": "below_threshold",
+    "subtle": "below_threshold"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/52",
+    "subtle": "EvoEval/52"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "b8e47fee4b6fffb27f872307ef74803b1e427e22802413851b9f0c61bb05306e",
+     "canonical_solution": "bfb1178831b557b89f45fb2ea4ca7d45037652b218a8aed383bec25d07f2b0b4",
+     "test": "35606b52754cf92e22364ca49644df84887a8148158673f89ef884088dfca9f2"
+    },
+    "subtle": {
+     "prompt": "1ece27b217a4e57889b2d33850818ebb54371b8d21534e9746ec0ea48a619c7b",
+     "canonical_solution": "bcd2199e0fba4f0607a4afb82a0ef2fa593fc8c810cf720d2bbbb1af926e1962",
+     "test": "7134fa4efcb4271e25596646c6d423072c8d9397dee32e1f0e14ffeae9396906"
+    }
+   }
+  },
+  {
+   "position": 2,
+   "n": 1,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_002_separate_paren_groups",
+    "original": "hep_002_separate_paren_groups"
+   },
+   "entryPoints": {
+    "original": "separate_paren_groups",
+    "subtle": "separate_paren_groups"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/1",
+    "subtle": "EvoEval/1"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "ba4d0641a184fb3cdd632060a25d6408a7e91fe9d79b5c341407e74b80536327",
+     "canonical_solution": "c9918e8e469efeb538e42e9706f7225164e2cc0a635cd134f3296361f878cd9c",
+     "test": "d934c2dc996c1e7545f6051434409da94ca49cef091ce311d912876421050250"
+    },
+    "subtle": {
+     "prompt": "19091d4d538f40e5491e9b548da6e99d8a38387acd36dc2fcecf6ef370985c9e",
+     "canonical_solution": "d1f2ac3338bdd0a7da199ae6ddae079f7f1218a2b5060d41ae9d2080138a9920",
+     "test": "ee7638caa7dd50c3cf4ea267578b959bcc7f9fbfe301c8f0ef09522052f94549"
+    }
+   }
+  },
+  {
+   "position": 3,
+   "n": 34,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_003_unique",
+    "subtle": "evs_003_unique"
+   },
+   "entryPoints": {
+    "original": "unique",
+    "subtle": "unique"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/34",
+    "subtle": "EvoEval/34"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "c48cad1505632ee1c7534d4b5dc430767155942186f1f0eb2c3e46074c1111a6",
+     "canonical_solution": "bf79de756ab263561bdb073869c186252f818e67e54992b64d9c66cb01b61451",
+     "test": "56904c0e345275aa3c46e2a585fa572580d9017e8c2b765203265db169f04ad4"
+    },
+    "subtle": {
+     "prompt": "148e5c5bd55fdabf67aa31e4379e8ae26ab0e38fd3882ec094e1eeaba35b2118",
+     "canonical_solution": "8f208deac8a2578490173393f4af2bd629ea6402409e0f55e90e297d055296c8",
+     "test": "7c0b42ae7feaf3ace601d40a85920d6c1b6fed1c28bb5635f1b22ee00bd25091"
+    }
+   }
+  },
+  {
+   "position": 4,
+   "n": 77,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_004_iscube",
+    "subtle": "evs_004_iscube"
+   },
+   "entryPoints": {
+    "original": "iscube",
+    "subtle": "iscube"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/77",
+    "subtle": "EvoEval/77"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "7396a97deb6df81d38aac289d2d195791695d2a8e14ab21f2e58366b8842b0de",
+     "canonical_solution": "9f9dda16d04a98c59861c172e248971eae0a4428d612109e64f7ece81a6f5c9e",
+     "test": "e1e8e955e4ab18737ff56fec6808351f7b97e55f38763643c146281b04993a0a"
+    },
+    "subtle": {
+     "prompt": "2cf3d62a89280b1a804e3b0fe23b490810311048f2730a965c8c940e746e7d8c",
+     "canonical_solution": "26547e15dc3bceb2fc88ec81988ddbad3f72f281c095e6e4688ae10df6a069aa",
+     "test": "5df49c8912d89bf0752e40877a8989872b6859b5cf91c7dc23a3449e337848cf"
+    }
+   }
+  },
+  {
+   "position": 5,
+   "n": 86,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_005_anti_shuffle",
+    "subtle": "evs_005_anti_shuffle"
+   },
+   "entryPoints": {
+    "original": "anti_shuffle",
+    "subtle": "anti_shuffle"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/86",
+    "subtle": "EvoEval/86"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "f8a02b3472de03cd4fa7b7d9d47abd5a5d64cb8eea267c81dc575e2a281aa972",
+     "canonical_solution": "a7524925d8aa0697d7b79776b3b0b8c850c16c057819dff1d41dc8a6dbd82be3",
+     "test": "4696d70ea89f80aa51d66df9e296c408c1ed7f6a15b8e0a2b84af18fadec8484"
+    },
+    "subtle": {
+     "prompt": "28d8dec49ef2fd3757e1ace6b1c77621962d02429d1dc77e4c0ae1b8aa6bfb63",
+     "canonical_solution": "38c57484091ba060eeb8e1364d77d8a322a2255e4a91cf96aae59d06b62c3613",
+     "test": "e898d5f39c716a34b12d79b4014b4ee4f51a36750a1f55e39f96f9e5c7ca2b9e"
+    }
+   }
+  },
+  {
+   "position": 6,
+   "n": 35,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_006_max_element",
+    "subtle": "evs_006_min_element"
+   },
+   "entryPoints": {
+    "original": "max_element",
+    "subtle": "min_element"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/35",
+    "subtle": "EvoEval/35"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "75ceb54ce0c4ea472f0613ef75a8b6bc8d5b530e6749df89eff0779faa70a96b",
+     "canonical_solution": "e3d257e2dd352a498e74757865d911121f9df01abc239c05d73960ec7d768dbf",
+     "test": "d69c2fe61e17b0062d66561d60cd023190c7d61f4fbf5236d769773639a756e1"
+    },
+    "subtle": {
+     "prompt": "d4c734146c8506096d9eacbb07073aeaf18299110b9fde5ac1b6e999932d3338",
+     "canonical_solution": "f9ca20de7691cd73eaf98f11d3b5e6536756a169135368033ca1a9d4eaec0587",
+     "test": "75666f674beb153b75a381c2b36ecf42faea5704fdb8e1d1a369fb55a8de4105"
+    }
+   }
+  },
+  {
+   "position": 7,
+   "n": 23,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_007_strlen",
+    "subtle": "evs_007_strlen"
+   },
+   "entryPoints": {
+    "original": "strlen",
+    "subtle": "strlen"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/23",
+    "subtle": "EvoEval/23"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "18b94c4f616dccb558eb6824a5b9a070cb075a0f411448abc24eefc0083865a9",
+     "canonical_solution": "60b71af0db621c4feb959b796187b45f254ce75931f56f8a1b91ddff67c877ee",
+     "test": "78e5884112a229402a9e3b5b938bcaca4eed6dbe90fade46dafe10d7363ec675"
+    },
+    "subtle": {
+     "prompt": "e15701642b7df577c1187c6001d5838bdaa57e17f3af579ef131839aca372bb2",
+     "canonical_solution": "5b047ede284d7453aca2e0517418613692cfcf8721b16036af2dc5033a6c5b5a",
+     "test": "57d423038f9b3c1fc20551408c54bc2bd66a7eb64223777e8f3748f3af0feacc"
+    }
+   }
+  },
+  {
+   "position": 8,
+   "n": 88,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_008_sort_array",
+    "subtle": "evs_008_sort_array"
+   },
+   "entryPoints": {
+    "original": "sort_array",
+    "subtle": "sort_array"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/88",
+    "subtle": "EvoEval/88"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "a5d671eb2ad240d7b0a2b9b6f889f990b1374fa0a9ee025dd04730328ab328c1",
+     "canonical_solution": "16844439019e1a559b7847639599ddb435dc25d0f41b9cf78e5db39c5660c965",
+     "test": "8f15edf5e85c371b8b2668d742ad07f6d54f17f72c365c1d49dbb976702dcb21"
+    },
+    "subtle": {
+     "prompt": "d5bb898890aa5bf14ca4d936b3d09e6389811e7c87d7eb105fb2ad0bb23531b7",
+     "canonical_solution": "9c69bfa285f35f592b5dbeafbfa37b3b8194408d47ef6fad733dbba7a54bd728",
+     "test": "c90644849125aebbb20d525573e8fdc8bc5f4063e36951f42393e915134d0add"
+    }
+   }
+  },
+  {
+   "position": 9,
+   "n": 16,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_009_count_distinct_characters",
+    "original": "hep_009_count_distinct_characters"
+   },
+   "entryPoints": {
+    "original": "count_distinct_characters",
+    "subtle": "count_distinct_characters"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/16",
+    "subtle": "EvoEval/16"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "33374da5d17599a9d2b60a77489c71576ed0c7230529febb273810fe327d80f9",
+     "canonical_solution": "f1c41492d9d78660d1607e55450af77a5da7d270f30cbb535b27f3ca5b116f69",
+     "test": "cc2022eabe80cd1838fe69d6e45e3d3332d4d92c3dc3e2134c105a569525b257"
+    },
+    "subtle": {
+     "prompt": "05077e264249f5d99aa152a49f5541c3d4ebb64037516c856d6be97c06c3ed76",
+     "canonical_solution": "98a684e9152cff2f3b61442f16ad779a31ca8aa12eab93f1baa6a76950309514",
+     "test": "d3c9df2daaff89c428e574500652bcaf37c6e2242d724ec10ee9e28939a3878d"
+    }
+   }
+  },
+  {
+   "position": 10,
+   "n": 46,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_010_fib4",
+    "original": "hep_010_fib4"
+   },
+   "entryPoints": {
+    "original": "fib4",
+    "subtle": "fib4"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/46",
+    "subtle": "EvoEval/46"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "96e26625e9d731f1fea4d5f87089c184ef579180d536f358509ce635fff242b7",
+     "canonical_solution": "5beb7dd9c87bf35057a9177e32be8616cf0c10394083a0cbe02acea562ec21a4",
+     "test": "693558d3c40745e32edf08426e6afd2094fb316b29ca16167689cf83ceeeb45f"
+    },
+    "subtle": {
+     "prompt": "cf3a144d38b8b79cf163c7362a5ab7ef73d2f13e06164bbd145e527617c167a2",
+     "canonical_solution": "97ee63277114c3955e22238fac99a9e912bb01475547434474cf8ae874ba494b",
+     "test": "80e95c138d4c77eee0fd502d8a1c40ae5748cf9d265929fa4f1d87cc8e0b27da"
+    }
+   }
+  },
+  {
+   "position": 11,
+   "n": 93,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_011_encode",
+    "original": "hep_011_encode"
+   },
+   "entryPoints": {
+    "original": "encode",
+    "subtle": "encode"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/93",
+    "subtle": "EvoEval/93"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "856a164439599802d5210e2969c1c5673c84b83b4bdca5db34384d7b10d3d741",
+     "canonical_solution": "4eb435a65d85d7a9ca7b5bf1247124c032a63082b482f1c5fb7117c8279bd7b4",
+     "test": "22794e48f40e663f769c1a88fa4b9503795bdc117c51a564c4b726a14e35bbd8"
+    },
+    "subtle": {
+     "prompt": "f56cf793b2ff56d759131bf2875303b064f86673c258ad0dac2a6e2414b1456b",
+     "canonical_solution": "6e45f322a08dc5e19e491cb48ad0f7e5cc4181545ca6a712dfce951e83800d92",
+     "test": "3495a6d2b471ae20e1b25d0f67eb3daefa1bf89b4dadd5a6dd72ea236376eb84"
+    }
+   }
+  },
+  {
+   "position": 12,
+   "n": 59,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_012_largest_prime_factor",
+    "subtle": "evs_012_smallest_prime_factor"
+   },
+   "entryPoints": {
+    "original": "largest_prime_factor",
+    "subtle": "smallest_prime_factor"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/59",
+    "subtle": "EvoEval/59"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "cf78f9000b4d867d85088bb0c95336fae0da8a00dee82e40074ad153f0f470bd",
+     "canonical_solution": "21c6bc9c19f8fb43f5116fcb962fcc02f220cd8184596dbf7553612d359e4d1d",
+     "test": "52078c2a85294627cf9b06b8db7723fc34531f3028af3cd6e12e6c7ada9f74a0"
+    },
+    "subtle": {
+     "prompt": "53bcbf386dd65c51133fb9d5f45350c082f24ec49ae396f4a3e7395341b94e28",
+     "canonical_solution": "218e52ff5944dff399a1c7a14adbf3bac77a155100c1242e70f0c455c093475b",
+     "test": "2976088201b43ccd818c151275007bbacd54ede761d8781bbd2490a6ede49147"
+    }
+   }
+  },
+  {
+   "position": 13,
+   "n": 81,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_013_numerical_letter_grade",
+    "subtle": "evs_013_numerical_letter_grade"
+   },
+   "entryPoints": {
+    "original": "numerical_letter_grade",
+    "subtle": "numerical_letter_grade"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/81",
+    "subtle": "EvoEval/81"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "489ff1f658e105a21a1e28c105082983a77af3a6b0576d9cdfb43745de1b507c",
+     "canonical_solution": "344ae2a914719fd4c90f150ccc803811ec3e867cc6713e12c228c8e206f9c6bd",
+     "test": "e627da322d855f7956f70f3f6b609d86fd09357cb9209b83431fd42faf92319c"
+    },
+    "subtle": {
+     "prompt": "3de2f13db242608cdb1759531bf9c8ed5f3146eb694c15da4fddd2aac33112e8",
+     "canonical_solution": "083b058a6955a4c4b886f58ff51c84bd10c41fc88491c7595401b893bcd0c97c",
+     "test": "c7cece495637855371c74ca2d69c19bab8a0f2da0a6aa989e89113265043e794"
+    }
+   }
+  },
+  {
+   "position": 14,
+   "n": 69,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_014_search",
+    "original": "hep_014_search"
+   },
+   "entryPoints": {
+    "original": "search",
+    "subtle": "search"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/69",
+    "subtle": "EvoEval/69"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "62a5a2d0332d73a27da26ab1a46a7302d27bff719d9d354887d0a27a7cdc776a",
+     "canonical_solution": "c41cbf0054a2e86eb52a004b9376799c4f7fd86e1a382da49981246949017a7d",
+     "test": "1a7926f1128611c43c7e96621c8be80fead5bf194e459c84813e43a2f90a9859"
+    },
+    "subtle": {
+     "prompt": "70b32093ec8373a10f64128a4ffc7ba8288585ae8aaf08afa099c2e6994d783a",
+     "canonical_solution": "09df51c04231131e1ad8bed0645dbfbd8e1e37202afbae6a07587bc1ee1313e3",
+     "test": "f9a3b6600a407f9fa0c46f2f4737199dc4b5647e896740ed2dea094725c57dfb"
+    }
+   }
+  },
+  {
+   "position": 15,
+   "n": 85,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_015_add",
+    "original": "hep_015_add"
+   },
+   "entryPoints": {
+    "original": "add",
+    "subtle": "add"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/85",
+    "subtle": "EvoEval/85"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "1b531c91af204375f7c6a3e26b64368b1cbbf1bde6d61e83f47f1451c2c7a222",
+     "canonical_solution": "a1394202e65f69e047e5c84ba23c338e2faf382feecbb722ada2e3f4dce19210",
+     "test": "60b75ded4e90d706486867b61d31f6984fa7973c3b41c7979d8e2f946006573a"
+    },
+    "subtle": {
+     "prompt": "6e73d91cbbe09d007ea431923d532ee5e83b1429f0c6de32d08e85fb9cbf0cac",
+     "canonical_solution": "ab896e923bf4c8c6a0f4b866c80fea2bbb2ec0443cd625aeadee3ddf1efd72ae",
+     "test": "9a025427d6180fb57cd19442caeeebafdac4526d73dfb57fe805aaedbcf87a0b"
+    }
+   }
+  },
+  {
+   "position": 16,
+   "n": 18,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_016_how_many_times",
+    "original": "hep_016_how_many_times"
+   },
+   "entryPoints": {
+    "original": "how_many_times",
+    "subtle": "how_many_times"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/18",
+    "subtle": "EvoEval/18"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "6fc9c00aa6b110ecf79f34e36f14b6b4c9a27128463ef6733b948e32a35c2bfc",
+     "canonical_solution": "c3d44873cd59bd8ccd3f2cf9cfed16acc89d987cdee72bac19b141f126807250",
+     "test": "b450b12b17520a35bc085ab4fcd29ad1e3caba1ba2498ca2a13f67d262126185"
+    },
+    "subtle": {
+     "prompt": "8a68e4631b7d41692192f945c81ee03c7df7116836c7e2945348a6f0198322b7",
+     "canonical_solution": "2f75800533ee994607bbe00a36f99698f266fe57c0adce12884b4ee2c6fbd70d",
+     "test": "8090ec3a65638d7f519ce7da277ad48b88d31f90f709078db07070347fbfe361"
+    }
+   }
+  },
+  {
+   "position": 17,
+   "n": 62,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_017_derivative",
+    "original": "hep_017_derivative"
+   },
+   "entryPoints": {
+    "original": "derivative",
+    "subtle": "derivative"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/62",
+    "subtle": "EvoEval/62"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "2ed91ee79d7a7ff2cac9f9699c62f64df5f2e38d86c9bcac80d028bb32933331",
+     "canonical_solution": "a23c336a77f51266f5409b53c837df975726112a15a452f1b36946ea89b29391",
+     "test": "8de1ca6893edfc73b9fa9f973fea3eb13292bcb00acd17388b67fa69f6c47283"
+    },
+    "subtle": {
+     "prompt": "609b6a7d5a1bb08cbc91213a6cac3e21b8615a583b1e4624b48e35f2b69ad823",
+     "canonical_solution": "a5bc7a81f6cb2510949ac739786ea4874dfb3d3e80eab12537af7dc4a92ca394",
+     "test": "4e5005ca3e9a73ff4ed0f8c85353dd566524a26371b82e2648ad65e57c282c54"
+    }
+   }
+  },
+  {
+   "position": 18,
+   "n": 20,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_018_find_closest_elements",
+    "original": "hep_018_find_closest_elements"
+   },
+   "entryPoints": {
+    "original": "find_closest_elements",
+    "subtle": "find_closest_elements"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/20",
+    "subtle": "EvoEval/20"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "881d52f394307cce02e432bc6342c93bfe0f6652b203f0bf1a0fc365ed87c594",
+     "canonical_solution": "d3bc5b5370ef969baa61bad2ca51cba83dd88c0a1789dee15ea1d673af724591",
+     "test": "7c84a8f050aced4e3ef42041505afc23a0a42a39e842c6e7bd09ee658166ccc9"
+    },
+    "subtle": {
+     "prompt": "e1e8de9e261ac5382a2e594b66a4e4a959be983f3111afe330bbafbae9de4652",
+     "canonical_solution": "baea4bb04f45c905fb3f98ccc1fe96e6160366a2eb75f249e418a93cb99ce250",
+     "test": "b5cd3481d2da5afc74d2d08faa77702b1a750698a93308e7669d93fcc6e223b0"
+    }
+   }
+  },
+  {
+   "position": 19,
+   "n": 31,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_019_is_prime",
+    "subtle": "evs_019_is_prime"
+   },
+   "entryPoints": {
+    "original": "is_prime",
+    "subtle": "is_prime"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/31",
+    "subtle": "EvoEval/31"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "453ca5e2c63fdbba8afa4208d797faeb371744b7de1e5c401d89664050bcc613",
+     "canonical_solution": "ab4f5e1299a7085d6435440248a5a5be79e941b1ae0733671db7507fcfad5b20",
+     "test": "7818992ccc9393d91f8ba1572479abd3c7c0b2a9f2300b8a3d8e8a0731cfa53f"
+    },
+    "subtle": {
+     "prompt": "1861d56673c5b19c00b0678dc487db9ecc7f9160cd87a4291b9da18392a13fdc",
+     "canonical_solution": "f06c0a95d25b9e40f487fce894355fbeae2345414e5d0c5ee60eb93bf38dc2a9",
+     "test": "03cdd53e2712d0454315990c16b84dc460684432e6e5ca8f4a0f025149abc4da"
+    }
+   }
+  },
+  {
+   "position": 20,
+   "n": 5,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_020_intersperse",
+    "subtle": "evs_020_intersperse"
+   },
+   "entryPoints": {
+    "original": "intersperse",
+    "subtle": "intersperse"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/5",
+    "subtle": "EvoEval/5"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "388474ac71e5b893802f5971102df2e4ea82ddf2f916a4a55361c19370f54012",
+     "canonical_solution": "6b97b35c9b0d5dafa90ee562bc6b0416872698ae83e52a9fc8d510b604db1afc",
+     "test": "31a679127d1f14492b11102559e61bf40e2baf026cc0f68ac0f3e460471ba0b7"
+    },
+    "subtle": {
+     "prompt": "823154f86483200f85df67b8e901ea98f1b9345223a3c1c851f227e97c4fc136",
+     "canonical_solution": "8410a89c1f32f64e62433ab337dab5e8c4e4021338216fc0572fc6539095370c",
+     "test": "cbb8a2b31b3ef2f4567694cb54573c00ad5f9119fd1bb9a33fe9b6b0e3cd904d"
+    }
+   }
+  },
+  {
+   "position": 21,
+   "n": 61,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_021_correct_bracketing",
+    "original": "hep_021_correct_bracketing"
+   },
+   "entryPoints": {
+    "original": "correct_bracketing",
+    "subtle": "correct_bracketing"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/61",
+    "subtle": "EvoEval/61"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "f900fc0b3f9f9e3d6380108cad345c8211f454cac5496d16402442819340e1bb",
+     "canonical_solution": "10cc4a10b5befa083a3e08948c4750315bcc9425d7d108bacac9a26eae81fdd9",
+     "test": "53aff6052bc66cc76b28459c53ea1fdf73b8fc301279b52f1ba5df0fd3b064ca"
+    },
+    "subtle": {
+     "prompt": "34cd8102989e16c1adc148566573198c77fac2180c85bee352a4282878e4c095",
+     "canonical_solution": "634de3cb9b95cb5ce31c59f57a96d59ad59d65a4a0659f2980815f40e9d86d06",
+     "test": "9929a85b273b2a2a38621d55e64bda55acbf6760c4b9930099b18eb7e3e44754"
+    }
+   }
+  },
+  {
+   "position": 22,
+   "n": 58,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_022_common",
+    "subtle": "evs_022_common"
+   },
+   "entryPoints": {
+    "original": "common",
+    "subtle": "common"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/58",
+    "subtle": "EvoEval/58"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "1ea0b2ba5f5fa366f20d0edd79ce1af5dc42629807502c5868700fcb9117b8b0",
+     "canonical_solution": "423fafb5c908f8c11cfd3a62c9d1525c466f3c98e133032a3c2e6d16970b606e",
+     "test": "c8acf42eece7e4b1ca5a9a93e6abc31f86fc7477baae9450b7e3001dda0f2aa0"
+    },
+    "subtle": {
+     "prompt": "ed95836d779a6ba1703fb2347d5a28ede4e61c7c0d7d6d2cdbee2a31dfdcaf73",
+     "canonical_solution": "c3ea8cfc953d9d8f39085b14bc86d6cd5821662966ee9542b3901c02f043f0bc",
+     "test": "206a7e984c8a5ca49a47fcff3b2a87fb330f5e6c88cd7cbc044355d0f3a3b66d"
+    }
+   }
+  },
+  {
+   "position": 23,
+   "n": 60,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_023_sum_to_n",
+    "original": "hep_023_sum_to_n"
+   },
+   "entryPoints": {
+    "original": "sum_to_n",
+    "subtle": "sum_to_n"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/60",
+    "subtle": "EvoEval/60"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "864d47767142cb4e635dfefba79f1d7ce448f7cb99dac09c2695a5c96619994e",
+     "canonical_solution": "c45d0b3fbcdbc8b1876f741cd5dc184ef782e3aeb43cfc01ac081d0b7ab08cd9",
+     "test": "2b2ada7ec2ea5e2ced9f3bd8241b6982704aa45144fc8148dd6d02d0b5d32b38"
+    },
+    "subtle": {
+     "prompt": "2e7f065759e2f2669f3812f9e8df08c26a536f77132b9d57dff2db017ba06209",
+     "canonical_solution": "90f95a90d4bad5b8228eba0febb8e1a17589daef37092ae1ba1bad16f8f905c7",
+     "test": "0a5615e1367566ae035ae28d735c75439005fb081af77746a2a54a4655e0adb6"
+    }
+   }
+  },
+  {
+   "position": 24,
+   "n": 48,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_024_is_palindrome",
+    "original": "hep_024_is_palindrome"
+   },
+   "entryPoints": {
+    "original": "is_palindrome",
+    "subtle": "is_palindrome"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/48",
+    "subtle": "EvoEval/48"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "6d590205867a7577346310fe8cba6e45655e25a7ef57acb964a6d34b02363081",
+     "canonical_solution": "0e0bedf762f63ae3c9d9c87a2c003cc0175e81ed1ab972478a69f8929db355cb",
+     "test": "c8005b39208749f873b9cdd9a70a00cc228c1d213448c837e277b6e43b0e8648"
+    },
+    "subtle": {
+     "prompt": "dfda0e06f47b7f2aaa70baa82f9149f500aa6d7bd4bd007419f1c08b0030f09d",
+     "canonical_solution": "c344eaf444325f7281f162a18e85b2fec88546955c4ee93124e35a04260c61c7",
+     "test": "40f33a5ab91d92c5d7bcf791fa56ef59023a56d2b5354bac36ca6dfce5296043"
+    }
+   }
+  },
+  {
+   "position": 25,
+   "n": 79,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_025_decimal_to_binary",
+    "original": "hep_025_decimal_to_binary"
+   },
+   "entryPoints": {
+    "original": "decimal_to_binary",
+    "subtle": "decimal_to_binary"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/79",
+    "subtle": "EvoEval/79"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "642ae5cf366d95e0595e3e2941597956baa6029b29ead988dd25754fbafa26c3",
+     "canonical_solution": "1784c7e9a23cbb9c0f4dafd71f86bb80cf5596e568cae357e9abb65c681126c2",
+     "test": "c5c3a0de1ed91aabb1a6a9b10549e8365eced3fff44a8d20f1d3058b67b98262"
+    },
+    "subtle": {
+     "prompt": "a18f3f924c49d0c9c2a4e23b6c40c5b2511930c4e7caeb5104e9761dc3849af6",
+     "canonical_solution": "5a4ad2c7d0715a521d4c980578b3515e5a9fc3cbb21e516ffb11e789723e28a5",
+     "test": "91407cbd7e38f530fb404ceff7a9cefa59d6a0935be72a97b37441f2cede3bb0"
+    }
+   }
+  },
+  {
+   "position": 26,
+   "n": 40,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_026_triples_sum_to_zero",
+    "subtle": "evs_026_triples_sum_to_ten"
+   },
+   "entryPoints": {
+    "original": "triples_sum_to_zero",
+    "subtle": "triples_sum_to_ten"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/40",
+    "subtle": "EvoEval/40"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "9d88f259a8dff048e25628589b4c2a1b4fb22419540df1e34d2d731216ae41dc",
+     "canonical_solution": "21afb63e35bc709619e3a4905a15c48b74ebd14d3cc2c78f5cfd9d3dfb4e58be",
+     "test": "0a24e4c703531ed32a934facabcdeaacef3c73117e18ac4c9b7a535409752444"
+    },
+    "subtle": {
+     "prompt": "244111cce010a2a81570e595b33328a992205e08a6a2db30a0a8dd642b7abe9d",
+     "canonical_solution": "78857c23d44258a13af9b22df69af4497acb10818826df16db6be552e17d7ae5",
+     "test": "55bd1fe76a6440a1b8cc548b6a1c7cc0235959ee6c8b3b882a29f055bec99176"
+    }
+   }
+  },
+  {
+   "position": 27,
+   "n": 27,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_027_flip_case",
+    "original": "hep_027_flip_case"
+   },
+   "entryPoints": {
+    "original": "flip_case",
+    "subtle": "flip_case"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/27",
+    "subtle": "EvoEval/27"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "497a1ae9517dff889ad676a36f0e0bdcbe5afec3d283ad12045fd34df3e1dba4",
+     "canonical_solution": "eb3c405897ee162d83ddabd6fbc08c34d6c6486757cc69d171408c410660e2a6",
+     "test": "e01c704043781e603476ca8bcc8f220549de33d726dcea329ad83c8d9bec1921"
+    },
+    "subtle": {
+     "prompt": "5e82bb8bc20b2725dacdd397e664e68751d1be3b1da38d149507dd7fc42374b8",
+     "canonical_solution": "9a57c91e363c81af7b279f7fbea81cc1aa877502797f5520e690f84217168eed",
+     "test": "4bac31ec655e17b6713f404df26890c685006d0ae2eed6a85c39026fcc027e81"
+    }
+   }
+  },
+  {
+   "position": 28,
+   "n": 9,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_028_rolling_min",
+    "original": "hep_028_rolling_max"
+   },
+   "entryPoints": {
+    "original": "rolling_max",
+    "subtle": "rolling_min"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/9",
+    "subtle": "EvoEval/9"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "583b281fbe1bf261fbade6e1a03119de96084ac87b508387f0d23c3b0cfdbbdb",
+     "canonical_solution": "ad24da29e4e0f284a9c1771742ef983a8b7178f93c9f4a1a91fbdbae44b009ba",
+     "test": "7401db37eec0f734b527d13ef05b1fc3cde127802dd5f78d7e9cd669c5d539f7"
+    },
+    "subtle": {
+     "prompt": "571e1c27deb081947f6400d5182ff918c7ad8532c759dbb11cafc4a8c48eddd0",
+     "canonical_solution": "4e7967e7009988ad01c2b31cf6148993206dea1c17b1d596992245abd5b6f0d6",
+     "test": "a8c6996ef464373d11d844c2ed6055ada5f4921a1e58c0769a82d61e8a341817"
+    }
+   }
+  },
+  {
+   "position": 29,
+   "n": 57,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_029_monotonic",
+    "original": "hep_029_monotonic"
+   },
+   "entryPoints": {
+    "original": "monotonic",
+    "subtle": "monotonic"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/57",
+    "subtle": "EvoEval/57"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "5656ff21e3b01209978415c290235784e32350405706cebc0045defa6271dd99",
+     "canonical_solution": "2c5fc2383626e39e3aa20d213e36c37ab99d8e18dfa801beea23319bf5c2a00d",
+     "test": "c9916308d74e7ef3c74142508cd3f6f1b19bcf1e82253ccf8f3430e2e8294bd4"
+    },
+    "subtle": {
+     "prompt": "9de678a5523f4468e15d1dd94f604e8ccbf1d05678caef5ff618066f0c4cff7c",
+     "canonical_solution": "e3cf1fb2c2c32ef2bdbef82869e7ef51d5c140e411e84d7a1827e2a400b3d7c8",
+     "test": "129dcdd99952ff38459c3ffb9fc6868377bd54307d9d51e58782cf5c3e1ad60f"
+    }
+   }
+  },
+  {
+   "position": 30,
+   "n": 11,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_030_string_xor",
+    "original": "hep_030_string_xor"
+   },
+   "entryPoints": {
+    "original": "string_xor",
+    "subtle": "string_xor"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/11",
+    "subtle": "EvoEval/11"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "ab1ec5c88f83f3fd16def18381c88b33bd5109b84f05147a54f50f95eca66c89",
+     "canonical_solution": "b0258503b3678fbb7b340b04940fdfb3b2254e92c7c39fed680752d1ee7e0bbb",
+     "test": "a29dd3db38cffab6e971228fd6de2783d5afed101d66fdfff37e4a0f2e9612e8"
+    },
+    "subtle": {
+     "prompt": "c5ae79d8c4d4969014351418797a7b9b4de3254ffa4f94489306e04e6f4cfe60",
+     "canonical_solution": "c0b817b43488471ef7463c4807a4c2bba3ce3bec17233f40893c35567541ea18",
+     "test": "22bd539c08d56f7a48f0299210857dc6af124ee557285eb6e74f54172cdd6e77"
+    }
+   }
+  },
+  {
+   "position": 31,
+   "n": 98,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_031_count_upper",
+    "original": "hep_031_count_upper"
+   },
+   "entryPoints": {
+    "original": "count_upper",
+    "subtle": "count_upper"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/98",
+    "subtle": "EvoEval/98"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "c59b8aa1ac5937e60adc6e6d0d4e1dd3b24ae04f158915d618d3eb210b02028d",
+     "canonical_solution": "a967630f09e6e504eeb254afec68874627c3e1f060c79d20df7c6a83c4b605d5",
+     "test": "7d138ca6f2c172d22174cc455b33260aac81067be69795809ce83e51570f752a"
+    },
+    "subtle": {
+     "prompt": "c0b91c17f35caf69160f65d569982e0ecfe6f1a3537383c8a9fe1b5a7ff73b8f",
+     "canonical_solution": "429a598f615cdbd712fafef1730d22056c5d572889031d3b0d10da586898d9d9",
+     "test": "a98ab0ccb00147a2b81e4929804931981ed5f4cd987669a679086ce4c18497d1"
+    }
+   }
+  },
+  {
+   "position": 32,
+   "n": 36,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_032_fizz_buzz",
+    "subtle": "evs_032_fizz_buzz"
+   },
+   "entryPoints": {
+    "original": "fizz_buzz",
+    "subtle": "fizz_buzz"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/36",
+    "subtle": "EvoEval/36"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "9ca3d814d8f4c88fc35c6286cf046f39b0903222b094a800926eead370bcf4bb",
+     "canonical_solution": "b0169ea79a7068e5a0c4d3df01b93f3bfea96bd486a6ae5d90ba734a37a04c30",
+     "test": "b43ac5f242c1894783e4cf9a73c65ffc5f1a0469bc3e4034fae4d4b7b072c9b1"
+    },
+    "subtle": {
+     "prompt": "a9eef0ada281b2ffd5fe504b436a75f672a229dd1e20b8a28f1c42db3f65b9fb",
+     "canonical_solution": "ae8ea10ac0897b28795a4a01d550b6ebd7e5a41b589d3fc6df28174fceb2d407",
+     "test": "a08aeaba434082f220e4c0abae226654816c2c29bdae6fc3635ef7075457c5a6"
+    }
+   }
+  },
+  {
+   "position": 33,
+   "n": 17,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_033_parse_music",
+    "original": "hep_033_parse_music"
+   },
+   "entryPoints": {
+    "original": "parse_music",
+    "subtle": "parse_music"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/17",
+    "subtle": "EvoEval/17"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "713553ae9220b08678d575238a702f883cc1d37b1986a6bfa010f8d641601d36",
+     "canonical_solution": "eb7ceb035388c71ddc044ba8bf3cff9615e881b8e59778bd8045b6f0a252d5bb",
+     "test": "2dd456726804f7c702726e3a50cb53ed51175cf66bec0c29eea9737c6e65b23f"
+    },
+    "subtle": {
+     "prompt": "92ca78fc43070028d963ebaa975f109f4b95ada1b419e8cb1e2ad2ecb5e3115e",
+     "canonical_solution": "2dc5c4e79ff660917ba398633230e6cbc4728516779091c3c03dd332c3d3f13f",
+     "test": "19619cc60d31c3b81c534613a44bdf3afb0124a1c59ddf3b7874c64acfa29933"
+    }
+   }
+  },
+  {
+   "position": 34,
+   "n": 8,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_034_sum_product",
+    "subtle": "evs_034_sum_product"
+   },
+   "entryPoints": {
+    "original": "sum_product",
+    "subtle": "sum_product"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/8",
+    "subtle": "EvoEval/8"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "84dc98e731928675a91c68cbff1f89d0677596f849fa0e6b34fa9b40335fce03",
+     "canonical_solution": "48a8242248ae636ac0d4afc994d406532d97ed5fa3c1241ccf7f4c2105bef374",
+     "test": "8e491ca9113f8ba182e29b8c88f4610c34ca3203418590ed7674b6e62c75ff0b"
+    },
+    "subtle": {
+     "prompt": "8f7ee67c61ca05a0324a04a8543700e995254cf93c1ecf7be9a96b2a2ef133ad",
+     "canonical_solution": "52e3bd739ef1dc8a3129a94f75f28c50dee89d21efcd9c6edd387e31525c41ff",
+     "test": "9ee9065d4598fef28650c4034dd43cbf9236b1134f3c35076e1bba19b9ec825b"
+    }
+   }
+  },
+  {
+   "position": 35,
+   "n": 65,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_035_circular_shift",
+    "original": "hep_035_circular_shift"
+   },
+   "entryPoints": {
+    "original": "circular_shift",
+    "subtle": "circular_shift"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/65",
+    "subtle": "EvoEval/65"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "2751ca433b3ea9f4f348dd18f65c357482e140739e26ec98b1e056e55b491dc0",
+     "canonical_solution": "02a9e72cb42495fe6ce1ca8d12b240ad7c71f51ecd8548870ab8a997e772a7b2",
+     "test": "2f7aceb7a0b72b6dec5b02718aa2d98f5c1436cc988ca7f9c596e93067b58c19"
+    },
+    "subtle": {
+     "prompt": "3706389441f272210ec9980887e1cf23ce1ae7bf2c07a23b4ea2b8447d90ee19",
+     "canonical_solution": "ff215704ddf18eb13de5d69e18a4b3210c6e3be0eb5e225e282b3f59369468fb",
+     "test": "343ce0e0991f5cbed1913471388b0265b6a12e9782465ebc686baa4ca340229e"
+    }
+   }
+  },
+  {
+   "position": 36,
+   "n": 72,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_036_will_it_fly",
+    "original": "hep_036_will_it_fly"
+   },
+   "entryPoints": {
+    "original": "will_it_fly",
+    "subtle": "will_it_fly"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/72",
+    "subtle": "EvoEval/72"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "e205ce97af61161bdf9ddb7edca74e7b009f29a138aced873937f6d8a5d23ea6",
+     "canonical_solution": "d0e90752d526c655af6c3abdcbd98e24771c23e568b5944f045fb8c4ec46e992",
+     "test": "040393f48317ecec9f0eeb51e1d18e4a2003a37076900cec53591d8c10815e72"
+    },
+    "subtle": {
+     "prompt": "289ada551758d79f1a36042d913f0ef3b4107cf55b001b7f6f6ee9acd24da797",
+     "canonical_solution": "c8fd03d307295d248d462ec38c40ffd2ecc2a4ef050dc1db0b3c66e34e5596bc",
+     "test": "4983867cdbfa22bb54a41b07798eb58ba636a34b03363a9c5998d8cead6805c5"
+    }
+   }
+  },
+  {
+   "position": 37,
+   "n": 41,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_037_car_race_collision",
+    "original": "hep_037_car_race_collision"
+   },
+   "entryPoints": {
+    "original": "car_race_collision",
+    "subtle": "car_race_collision"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/41",
+    "subtle": "EvoEval/41"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "d4a9a6f17e6f65f8fa63bffa89d863ca691859fab85fff3f60f378d9340cc489",
+     "canonical_solution": "a753f20dc503fd6b9ffe3c7644e1bc3ea9e704482be13dbed7578787581b536c",
+     "test": "a017f8fc2ee1680cd65c49163661c8523dedbcc982261ba329637fd47aab5b7a"
+    },
+    "subtle": {
+     "prompt": "f6196682e084ac05a5d74c3e55c430c90204d5867ff9a7ef2b42a19782ffe47f",
+     "canonical_solution": "a99d9d8177d2612f1c9c341163e1eb7f1581b232cfc8da6f572daa54abf74a08",
+     "test": "e7c9d8a13cd31d88007cfee50aa1f8542bf25fcb51ad5215896978d61a1416cc"
+    }
+   }
+  },
+  {
+   "position": 38,
+   "n": 30,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_038_get_positive",
+    "subtle": "evs_038_get_positive"
+   },
+   "entryPoints": {
+    "original": "get_positive",
+    "subtle": "get_positive"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/30",
+    "subtle": "EvoEval/30"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "278875ddc3e598e47227263e6384f3c169b8526e9ab6475e52e939d6a151f00b",
+     "canonical_solution": "60f70a4161a18d3d0a0637900f8189dad1f316c0edc9bddab4cac45ba84f59ff",
+     "test": "e872256615871776ce93dc587c2d636d6c6e45c19849958e433e3eb1a44bb720"
+    },
+    "subtle": {
+     "prompt": "e1d6cca4de81f4a4d970a6dd00226726d6b05679bf7cc3376380f3d0ad3625a1",
+     "canonical_solution": "4fd68ba0ca68b91305c43ed3e0b728dd97e8bb656073caddf63ef070ffa0df64",
+     "test": "c96099d4ffd1f6750c927cc507e7767e8f7611faf0ae81d9979024f7f92410e9"
+    }
+   }
+  },
+  {
+   "position": 39,
+   "n": 45,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_039_triangle_area",
+    "subtle": "evs_039_triangle_perimeter"
+   },
+   "entryPoints": {
+    "original": "triangle_area",
+    "subtle": "triangle_perimeter"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/45",
+    "subtle": "EvoEval/45"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "2ffd4f475e7fbe32b636a57d40751aedd393c3a1096cd6a1edaef3981d7c8564",
+     "canonical_solution": "ad7f76820703334412563eebd84c74aa97b38d47fdf2a7d1b50452e2bef7fcc4",
+     "test": "a61186db113faea0418acbd08feda1bef25333077f5dc5fba51a1ca631613e9a"
+    },
+    "subtle": {
+     "prompt": "4ec1aef3d8d5abfa268f32e7aa3ebc1d962101fd4959dd623059f2beae3d540f",
+     "canonical_solution": "1e89e0e28021257489a772647c323f8b7581b6624d974a9c9a903b8494187b88",
+     "test": "f069836ca8a3c37d43f651ed2ef03084aa240562f7cfbee8586684167cdee3c9"
+    }
+   }
+  },
+  {
+   "position": 40,
+   "n": 28,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_040_concatenate",
+    "original": "hep_040_concatenate"
+   },
+   "entryPoints": {
+    "original": "concatenate",
+    "subtle": "concatenate"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/28",
+    "subtle": "EvoEval/28"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "9481906207fb44fe66ec3a6b2bc82cf92b42739848b577fa9561de14375f807b",
+     "canonical_solution": "23e3ab513a4b224e7d583ebdb4ab9bd595df329d9904c07dc005ec11ce518016",
+     "test": "3f466adaa68a7aa23c0fc2d4b94ae4eccf06f242aeb88fbce664870f43d6da31"
+    },
+    "subtle": {
+     "prompt": "49b671fdbaf767a68d70618ad4c2eccafcd4d016c972109e2b6001e49e8a8840",
+     "canonical_solution": "cc39a8c1b710fe9f7f47f94c31b7cf24e3654c5328d3db58f249d4d431b0093d",
+     "test": "68d5d2ae3123df9f0d2af1506012f3f844b71f9a2f28c20a5fb8e05f707bfeaf"
+    }
+   }
+  },
+  {
+   "position": 41,
+   "n": 91,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_041_is_bored",
+    "original": "hep_041_is_bored"
+   },
+   "entryPoints": {
+    "original": "is_bored",
+    "subtle": "is_bored"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/91",
+    "subtle": "EvoEval/91"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "9445e82177f062459a801e24909bc856435701d82f1d67a9dad1f9d6fd0f6362",
+     "canonical_solution": "28c6f959da50b5fe93c6fd1c5f320e120273e14d3f9896ff05dae0cdbf7a9ff8",
+     "test": "9425db03a3ec09964905e71a12ae55a7271a7d86155b4d8bbf5524744aacf262"
+    },
+    "subtle": {
+     "prompt": "35c0e7d137f0b75c98511e38b879c629c5ea3cec26cb178aec0ae7e32b86ec45",
+     "canonical_solution": "5515bd2ff5a9e20533455a2d4072e48537114279ee813b12ab297bd1802e5fb8",
+     "test": "0ae687150701008071b39d33198a497567d6c7c62fbfb61e54da0ec6d8c1c78c"
+    }
+   }
+  },
+  {
+   "position": 42,
+   "n": 7,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_042_filter_by_substring",
+    "original": "hep_042_filter_by_substring"
+   },
+   "entryPoints": {
+    "original": "filter_by_substring",
+    "subtle": "filter_by_substring"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/7",
+    "subtle": "EvoEval/7"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "5eecb2c6bb2b4fcd70989d66291a7c4c02d3afbf31591ad684e926a1e60ee969",
+     "canonical_solution": "7a02859cca30b46d2847877c7efe906cdc849a48a79218903639531e99549a25",
+     "test": "582c07a8a6b0e6d1c8fdbc8d48b44fbda5af2dc9dcea954f673df05f1d4ee98c"
+    },
+    "subtle": {
+     "prompt": "88847bc71b5dc5667ec21c73e00ffad671556c9b13db11dd88e1ec5cbde4b80f",
+     "canonical_solution": "8b33fefce7c8935b76307f591292e5adc9ffec7d5cec908d2a16c41ca71fbcb1",
+     "test": "7d497fc71e73ba5a83090a555053c9c9b9e8fac739d746cac1724a2af78c9465"
+    }
+   }
+  },
+  {
+   "position": 43,
+   "n": 15,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_043_string_sequence",
+    "subtle": "evs_043_string_sequence"
+   },
+   "entryPoints": {
+    "original": "string_sequence",
+    "subtle": "string_sequence"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/15",
+    "subtle": "EvoEval/15"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "1eb46648867a6e499ee7e4fa6500b594937f325209204606d7391c8cad9df9c4",
+     "canonical_solution": "e67bb359a518625fd9a596979facd5e7e1bb6f00143d66f03c0c99999bc3abfb",
+     "test": "9325570bf868139438d1175e7e925fa6d3bfa46487759526a0756b4b909c8ea2"
+    },
+    "subtle": {
+     "prompt": "c8a70ba4418a0f8a6204b0cba5d4752f9a63d3e71fa74468dadfcc59fec4d558",
+     "canonical_solution": "086b38f5913f72b5e554bf9bb7669ff148c92f090b6431d1ce525451ea9c1b91",
+     "test": "223a48c0bfe9e5a2d67b28d0321990768d73a8fef13cbe3edc6bbb443a877aaa"
+    }
+   }
+  },
+  {
+   "position": 44,
+   "n": 95,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_044_check_dict_case",
+    "original": "hep_044_check_dict_case"
+   },
+   "entryPoints": {
+    "original": "check_dict_case",
+    "subtle": "check_dict_case"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/95",
+    "subtle": "EvoEval/95"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "e8a971e0e8838d69639de6628a8eff45638ce938c172670b7274c41d63207631",
+     "canonical_solution": "fa5df56dbe395bbaf33fb8ccc01e78e82ff0378013959a706143371433d30dcf",
+     "test": "5d6fda7e105cfa2f69122ff4876828e5aa302bf855d867ed930b4d89d66dbe4b"
+    },
+    "subtle": {
+     "prompt": "13073719dd46869c26d3c173ece719c9bf65191d644e3b8f6ebe054f8297e04b",
+     "canonical_solution": "646cc806e808cbcdcd952bbbf496ed4255ca128aa31f52036b7237f26a70392a",
+     "test": "ed275567ac11f812a0c41ad94dbe7f0e3585af1ba0a44b15312b012bedeba707"
+    }
+   }
+  },
+  {
+   "position": 45,
+   "n": 55,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_045_fib",
+    "original": "hep_045_fib"
+   },
+   "entryPoints": {
+    "original": "fib",
+    "subtle": "fib"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/55",
+    "subtle": "EvoEval/55"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "b99ee738edd1466c976259cf4271917d52d9a0df5220d566646b476a4400a336",
+     "canonical_solution": "6fd3ffcb783a07ca1924a52b95971b515291e9dd69d17c082dc443cc5cea2b11",
+     "test": "365a0c4d99d2f2f305ccc51fa269b14bc9369508af12a776e59bfd510085ac02"
+    },
+    "subtle": {
+     "prompt": "842cd8848a3b50f95d6e2e7b5c02792bb4c764e185505be418843df12a50c1d2",
+     "canonical_solution": "c9cb2796ebf542b8fff8c64c378ae864869e9908cc91925bad58c0c057f346de",
+     "test": "002db112ebca7b36d9c829b6291c323693b117accde4a68caa1cffababc47e70"
+    }
+   }
+  },
+  {
+   "position": 46,
+   "n": 89,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_046_encrypt",
+    "subtle": "evs_046_encrypt"
+   },
+   "entryPoints": {
+    "original": "encrypt",
+    "subtle": "encrypt"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/89",
+    "subtle": "EvoEval/89"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "efefc17723390b1692f2f4fdbb26dac3ecc055be739dbaaa2a020f5b18d4999a",
+     "canonical_solution": "783eb6ff9d448b827aad80cb28790e84ce14b62b4c3e7e6ba89c730badd34949",
+     "test": "f28a11105665ca748f1d25d2a3843ef1764c43c4e914a80b87c54cc793d4bff2"
+    },
+    "subtle": {
+     "prompt": "49be40efb6b765745caf0332e70a89f08e80171e0773d008179d722161747bfb",
+     "canonical_solution": "cf4d60a81df332a0c1002204ae269921c4621fd4c855be262c17bc661f3155c2",
+     "test": "c87095cbbaff620ebb4827ed09c540f99ac3ce4565d050f1fad6ffe8f9408de7"
+    }
+   }
+  },
+  {
+   "position": 47,
+   "n": 92,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_047_any_int",
+    "subtle": "evs_047_any_int"
+   },
+   "entryPoints": {
+    "original": "any_int",
+    "subtle": "any_int"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/92",
+    "subtle": "EvoEval/92"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "1d19b808783c5f57c39df1de99cec4193d4b59538aa48ed22d6ca85c727a51e2",
+     "canonical_solution": "150804dc26fe2094aab13b7fb05830aec55d8b605833e5566ce2d0f16d9c5076",
+     "test": "70ada1f868daf8f670aa314356327e719005fc91f913fc2db6fc962527c29b30"
+    },
+    "subtle": {
+     "prompt": "9916461d98b2376906e9d1fccea51719fa797464ea08ba22edc109878ec04842",
+     "canonical_solution": "e09ebd4c9e50d8f14f9bd74e07b7b5fa05c23b4b67a7f55290d693339096a87f",
+     "test": "d830198077c28458f1be913d77fd8002523ac9ba7189c6f67a27251e3903218a"
+    }
+   }
+  },
+  {
+   "position": 48,
+   "n": 99,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_048_closest_integer",
+    "original": "hep_048_closest_integer"
+   },
+   "entryPoints": {
+    "original": "closest_integer",
+    "subtle": "closest_integer"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/99",
+    "subtle": "EvoEval/99"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "53ad185333496f1faa011070d323b24af3e23506e32f52ced0b3c0f9867d2719",
+     "canonical_solution": "4e9bd175e1262d54062a9179d7b51ad5de448b2f447f7a725c62b718c53ceb60",
+     "test": "9fa228bea124139dda40e5db276c8ae57f71c7f6c953b81dc3974406699c9cee"
+    },
+    "subtle": {
+     "prompt": "0829048d8f04fcca41cdaeabea93ccef5263e922ebb8279f32d2249f9a03ba1c",
+     "canonical_solution": "ac44973059b22575e2a4d761871cc4ca2ef2176762d41a9a8ed1708e8204d89f",
+     "test": "ac3725fd568edf0f9cef64fcfa04f8615147a7aed82ddc9abe7c25605ceb3e1e"
+    }
+   }
+  },
+  {
+   "position": 49,
+   "n": 80,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_049_is_happy",
+    "original": "hep_049_is_happy"
+   },
+   "entryPoints": {
+    "original": "is_happy",
+    "subtle": "is_happy"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/80",
+    "subtle": "EvoEval/80"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "f6df53687ee0d5e99ab8d7b0e23ccaa81bf7bb578c1789277336f0016d402ac0",
+     "canonical_solution": "ee07422d4bbe63dbca1bfa0917f4c89a5d54d51a1c11a2f48ea75e2a01a399a9",
+     "test": "cc803ff4e7d33d819ecbadcd18233c14f51886edcf61115d13168cbf1aa83e3d"
+    },
+    "subtle": {
+     "prompt": "1b74c495e53110a4d718c404c160e6a71e359557d08b5866a63ac486a1bb82d0",
+     "canonical_solution": "d748e4f66ffbed241cf9b232a8b8d09d0df8539f9611377b47de47dc3642b508",
+     "test": "49b4deea4b2d707c980bd9d5f8cca9111bd954da2e2e7b29f0c5bffbafc81c4e"
+    }
+   }
+  },
+  {
+   "position": 50,
+   "n": 53,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_050_add",
+    "original": "hep_050_add"
+   },
+   "entryPoints": {
+    "original": "add",
+    "subtle": "add"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/53",
+    "subtle": "EvoEval/53"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "37ae93665c1512f10b22de3b438a4310a63dabf773891ef3120880a8f2dc7217",
+     "canonical_solution": "a022d6959d941827e154d4e69e9f93873244b32d0e337b898cac18d3eaca192e",
+     "test": "13974572c34e1646d34a52c72c6214aa239affe0bbf0578f5799d14e6f7aecec"
+    },
+    "subtle": {
+     "prompt": "229d6a0baedbca62144e3f0eb31e0ef57328e0ba5a79b009dde3dead3902a924",
+     "canonical_solution": "6a2d6861b3c986cd4df927dc959231fcca0c4fadfc8dedfc15f5484d91b518fb",
+     "test": "6a64d4e9b752277a761fd3c18ff3e25de7950cbbc9df75d76502bd85b3b4becf"
+    }
+   }
+  },
+  {
+   "position": 51,
+   "n": 54,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_051_same_chars",
+    "original": "hep_051_same_chars"
+   },
+   "entryPoints": {
+    "original": "same_chars",
+    "subtle": "same_chars"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/54",
+    "subtle": "EvoEval/54"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "a2ce51239856ceea4cc73764367af0452d8811af16b6bb1a9e2cb540ef726862",
+     "canonical_solution": "af0d6c41f0095553cfebcc9bdb5dd1a74d4b40d792375ed764ccf3771281e3bd",
+     "test": "b1d2ed00741822304877d11bbff15bb99e9bf05a241f150429adff014b5eac51"
+    },
+    "subtle": {
+     "prompt": "05f75f0eaa89e285eb879b228c9227be06d2d28fb56767b096df438493de7a54",
+     "canonical_solution": "321b6fdf82f5d6f0a206d461bf22c69ca73b790c2ceb78338d29f7cec9a78655",
+     "test": "ccca84303cd429b9865886573ae0419907b4dbe158f96210b2122156316113f9"
+    }
+   }
+  },
+  {
+   "position": 52,
+   "n": 82,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_052_prime_length",
+    "original": "hep_052_prime_length"
+   },
+   "entryPoints": {
+    "original": "prime_length",
+    "subtle": "prime_length"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/82",
+    "subtle": "EvoEval/82"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "ed81b55d1d505600cf191ac150a087e2e81199bfd968e4fd6d9b3cad12bb28fa",
+     "canonical_solution": "f9b32e5fe1b1a3e79463cf55f5bdae105a2458766e96978f0d7088551f4f357a",
+     "test": "5b56597cc9020de72412f666bf65b801e30bf5c87920006a87e3dbfbcb588f61"
+    },
+    "subtle": {
+     "prompt": "209d251cae8f1e64832fa61cdc3d7314e74d5fb86e28229a28a2f3097ca95b95",
+     "canonical_solution": "e404e8ee6babac0e31027e7cadeb2785fdd757cbc3010cffe212a5c4dd464559",
+     "test": "b2fb50dfee71d6ee6cc778f66be0129235bfc7ab927e1e8cff565e5d9c685c80"
+    }
+   }
+  },
+  {
+   "position": 53,
+   "n": 39,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_053_prime_fib",
+    "original": "hep_053_prime_fib"
+   },
+   "entryPoints": {
+    "original": "prime_fib",
+    "subtle": "prime_fib"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/39",
+    "subtle": "EvoEval/39"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "6dde5c311a83caad26ca80e7e914c596b9cb6e8467630530600e21c98d547c5a",
+     "canonical_solution": "30387233dcedc554a2c889f856ecd29a276b5576fc75149d86a8ae258bfba455",
+     "test": "2acf4cc0dc3e4fa361eb8c316f7ccd00b3e3c99e0aa37404b0d9abd0bc3aecf5"
+    },
+    "subtle": {
+     "prompt": "2723d458fafd2c326e67b2aa10600d0c6b3be482f941801c7ce25bbc2f5ddf57",
+     "canonical_solution": "9fc787e06cb33769872901e6b27bba895eb8e2a076bfada4d46deaccf2286f9d",
+     "test": "cde7bbd044a9284eca6439bcea8f3356491df8ffa493f6f01090b19d9d4837dc"
+    }
+   }
+  },
+  {
+   "position": 54,
+   "n": 70,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_054_strange_sort_list",
+    "original": "hep_054_strange_sort_list"
+   },
+   "entryPoints": {
+    "original": "strange_sort_list",
+    "subtle": "strange_sort_list"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/70",
+    "subtle": "EvoEval/70"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "431d1a56bd425ed0718c9996fd486badefa4547c69e80bc5e81526cec2abae70",
+     "canonical_solution": "b9f5b34773d532e9ea0d4d4a97c50e8c98321d994eba6ba91b5834058619e096",
+     "test": "3c7f6bde111d7fe6048d26ebde296711d802773b7ebf02b1b52dfe4c922f893d"
+    },
+    "subtle": {
+     "prompt": "ed21bc56069a9f08341c3a09d91920b09f8df0a7759b25b7246836f4316150cb",
+     "canonical_solution": "b426c0ba26322ccdd6df6c3efdc87a88b1ae37e1f05d7ceb10dd548b7b36ef4f",
+     "test": "10cd1eda700b891e3f809249dd3955ad874556ed6e61f63f5c9dc627bae5a3e0"
+    }
+   }
+  },
+  {
+   "position": 55,
+   "n": 0,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_055_has_close_elements",
+    "original": "hep_055_has_close_elements"
+   },
+   "entryPoints": {
+    "original": "has_close_elements",
+    "subtle": "has_close_elements"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/0",
+    "subtle": "EvoEval/0"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "00b2e074e127a6a9d1376278bef732933760ab706057ec755a8c2642217b557a",
+     "canonical_solution": "ecdad7aa9b7c4f8ee14f522004312bdd17ab6fb5e224f294cee4f67aec95d5b9",
+     "test": "a484256d8b248383299bbb1255cbab86c6c145d6d51235e3db61c0132e2f2ea4"
+    },
+    "subtle": {
+     "prompt": "e1c909b7102114179a28401635125be3b691d6095d23c96878011f3f89dc7119",
+     "canonical_solution": "021914cf7b72e34684e6b846654ce7a5c4a6c1eb3222bacefa1c0f7f6de2e42a",
+     "test": "829d99b00682feacb66b2eacb690cac7d7e80683d49dd825788ace2f8272d381"
+    }
+   }
+  },
+  {
+   "position": 56,
+   "n": 29,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_056_filter_by_suffix",
+    "original": "hep_056_filter_by_prefix"
+   },
+   "entryPoints": {
+    "original": "filter_by_prefix",
+    "subtle": "filter_by_suffix"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/29",
+    "subtle": "EvoEval/29"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "a173ce6b1e3767cabcf0ff73457d20e4eac07e0968b173b76afa0b35c0799646",
+     "canonical_solution": "00da474fb35b04df9bfc9657a5499ab9947e64062ce3ff9b16d83d3e1beb77c2",
+     "test": "7f4fd616d8da3c4390914f6dae9b1b4857238a5eeeb2cb7c28dd73460b3c2f97"
+    },
+    "subtle": {
+     "prompt": "ebef925f7a8062ef4ea00e96372736c9bcb1b047f0a2c1b204c1fb9edf721a12",
+     "canonical_solution": "ba5c45373455fcc826fecc68dac060645077b6a6800ba913052dedee521757a6",
+     "test": "d3866cf4fb94dad279558a630edd1d2c56959003894d5bf046ec2420d0592065"
+    }
+   }
+  },
+  {
+   "position": 57,
+   "n": 43,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_057_pairs_sum_to_zero",
+    "subtle": "evs_057_pairs_sum_to_one"
+   },
+   "entryPoints": {
+    "original": "pairs_sum_to_zero",
+    "subtle": "pairs_sum_to_one"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/43",
+    "subtle": "EvoEval/43"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "f20511ba41a7533e3f9593f29edff94e9190de6b789e91155c06a6b40eb83917",
+     "canonical_solution": "3ca465833bf0a307a1a9a830ede39d312bb55510a682bd5d6e203a7bc7ea0abf",
+     "test": "db81cc2c232870d9bb4defcbe94052df7e6912a7d23cdc00ab8e1e0079b79ac6"
+    },
+    "subtle": {
+     "prompt": "c64c168b07d03b03924a93cf169738b50e017df0ecbb089804460449a659c4d4",
+     "canonical_solution": "fc1b324a773cd140b9ee4463a34395030fd48becb9fd732408987475f0e74fc6",
+     "test": "fdd9b3da48e0d3e1630c7e2d934871e1a6fda906045a269fa1dba904240a5363"
+    }
+   }
+  },
+  {
+   "position": 58,
+   "n": 2,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_058_truncate_number",
+    "original": "hep_058_truncate_number"
+   },
+   "entryPoints": {
+    "original": "truncate_number",
+    "subtle": "truncate_number"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/2",
+    "subtle": "EvoEval/2"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "fecb9ddd4f103f1c3e9d9c7d6c3b948a4b1285b50c3498437c85a9d604d957eb",
+     "canonical_solution": "aa6d046f183d80398ae1befa46ee32de7fdd0368a1015b03c4db121125a8fb99",
+     "test": "2532378d70c8d68f2f6fc58ae6ea04fb4c152d176eb353d1866b2c4d302e7174"
+    },
+    "subtle": {
+     "prompt": "2e9fd5bf8ef755d2f453f70b57efe8910ed440b438a50807aa805327c860ecb9",
+     "canonical_solution": "db284b7610a944314cc1076f5695f4408abec9e9830d62bec14cdd50deb1290e",
+     "test": "bfb61f2d9742d4cf9f17c153fe8a52dabe29e55be3a94bda0f619235ca6663c5"
+    }
+   }
+  },
+  {
+   "position": 59,
+   "n": 37,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_059_sort_even",
+    "original": "hep_059_sort_even"
+   },
+   "entryPoints": {
+    "original": "sort_even",
+    "subtle": "sort_even"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/37",
+    "subtle": "EvoEval/37"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "82b621b23095040636b376f49469c4fc1d951c6563fed5aae1f5460f60ba7696",
+     "canonical_solution": "8e386f2385e8b84fb6a8c9bfa49fa7b8fc106a3f551847f28ed27fe646b5f38c",
+     "test": "c0917cf62c0fea6fe6ba738ef9d35e9a5bf3e92e590152295ca497d92d6fa709"
+    },
+    "subtle": {
+     "prompt": "d0e6183155fc2303aac1b7ba58eb0a01503a565291038c6f2327453c5e72660c",
+     "canonical_solution": "e8c6b3bc07223d92e018bfd558c14706896ed73c61683e3caa3f0313b06a6114",
+     "test": "22cc789fda4901ef5592b37b7bad8e50a3ad9aa8cd4ce4edc062c4b983b71326"
+    }
+   }
+  },
+  {
+   "position": 60,
+   "n": 13,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_060_greatest_common_divisor",
+    "subtle": "evs_060_least_common_multiple"
+   },
+   "entryPoints": {
+    "original": "greatest_common_divisor",
+    "subtle": "least_common_multiple"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/13",
+    "subtle": "EvoEval/13"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "a7946546bc3a483bb5f2249ced878d510d6765d3c987a3e56dd878fe5bb60c19",
+     "canonical_solution": "4ed16eb12abe6304149d49af143d175106ef8ebd7672031d70b2212213e0e3bd",
+     "test": "426a86529b7bd18f3f39322d52f32523b04767d6e0710d6e5239377587d350d0"
+    },
+    "subtle": {
+     "prompt": "fa48dd3d059976009510acd3425c47a3b8d0b3f6fe6c60e72eea19e2620d897f",
+     "canonical_solution": "b9c82d34a062a2809bc371a20bb46d42c384a90f47ada50092243e7fc1b2a21c",
+     "test": "e694c46169fbe9591f4e65e744b3e75ff1c731d7c5f552fa92027496a24f3398"
+    }
+   }
+  },
+  {
+   "position": 61,
+   "n": 44,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_061_change_base",
+    "original": "hep_061_change_base"
+   },
+   "entryPoints": {
+    "original": "change_base",
+    "subtle": "change_base"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/44",
+    "subtle": "EvoEval/44"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "6c3987abb35a3e0bf61eb7bd7e709b0abecef72c47dcb61a6ba84b0d46d760a0",
+     "canonical_solution": "892dc2324a7e54c119b8d5a6b4f344bec1dc2205955d150b61a454ebb7fe71ac",
+     "test": "d0a819905d62ec580bb61f697d29dd3aa45d0e7cf2475682197dbcd89b526b21"
+    },
+    "subtle": {
+     "prompt": "c906ed552f075409bdd3fb2bdd858bb08f1ff880ec41f7017c935c75049de1c0",
+     "canonical_solution": "53a30b81b375232e2df7bc79262ae36285c7a50083001af364122e28469cd2ac",
+     "test": "9b8f1213d67bc397ce192677697d0cba37dc743050723cd3b1cbd06ec7f9669f"
+    }
+   }
+  },
+  {
+   "position": 62,
+   "n": 97,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_062_multiply",
+    "subtle": "evs_062_multiply"
+   },
+   "entryPoints": {
+    "original": "multiply",
+    "subtle": "multiply"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/97",
+    "subtle": "EvoEval/97"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "cadfab7a20c335c251fcd403e9c144183ae36eee01a205783c534184aa1d3004",
+     "canonical_solution": "bfe2882975c920af08c48f91aa0aa9097b7b4b00a0be6bba3ed4ef5584900b08",
+     "test": "6cbb20be90758743ce905c147872aae261a9ea66cf7b8c5d33eb3e0bb31f6ff1"
+    },
+    "subtle": {
+     "prompt": "6fdc4cc1dfd8e48f181c61ca7c20deef521cddef31008c85999a61bf925ca24b",
+     "canonical_solution": "c3cfd547aac22c04e61867397c3595ceb6d50e2fcfc50e170bf73e2ced3ceb55",
+     "test": "b46100287a95785ffc9fdc993c60ab1366d854d0c7e2dd7a980c15a0bdd7052d"
+    }
+   }
+  },
+  {
+   "position": 63,
+   "n": 84,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_063_solve",
+    "original": "hep_063_solve"
+   },
+   "entryPoints": {
+    "original": "solve",
+    "subtle": "solve"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/84",
+    "subtle": "EvoEval/84"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "5b69b9b354c92bcb61d5e63ec962c1df7cc559708ce12f54b705344d47dc5b28",
+     "canonical_solution": "8b7edaf1f07b2ec953a9f4718728b12e108cb13b1675e4083fe65d5452393e69",
+     "test": "69cecd1bbd1273677f3d93bd0855fdbabf665dba4a0d3c06f4ad902bca2e01bf"
+    },
+    "subtle": {
+     "prompt": "ad7d564306c760414954f74ec1f3de24f74cf0a81d5a9d4c3e4e299c41bac052",
+     "canonical_solution": "17235ebc43f4f8af5ce8f934841ed9179cc2c418f409eaabb3c33a55ccd9ee27",
+     "test": "9e54541992ef966aebe6f733e0df4e6302c3d7952df4752a81b5ca1ad995a0e5"
+    }
+   }
+  },
+  {
+   "position": 64,
+   "n": 66,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_064_digitSum",
+    "original": "hep_064_digitSum"
+   },
+   "entryPoints": {
+    "original": "digitSum",
+    "subtle": "digitSum"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/66",
+    "subtle": "EvoEval/66"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "26e089859958a11b71b028884c146d360f5e2c079a59aeb4275b43b1f5f3e9ae",
+     "canonical_solution": "3b0eea37848cf738b6e40a386a59c0475d73c25f66a1214058ae4aee160b663e",
+     "test": "28bdcc0f37ff52a75f43e0f43b02d15257a8d139aa81be1ca4ee6ba660deea8e"
+    },
+    "subtle": {
+     "prompt": "ee0d59de0612006dbbfd2556bb91b62aae4fae8e89700490edddbfd20f299221",
+     "canonical_solution": "e7798ed1bfa10ab8673b5094709b6ec5fc623396aae6a397f21fa866cbbb11d9",
+     "test": "c1d9f229f6b98cf9081fea802a9e9f65c8f00a8cb2ee5cb591560fca0d28ea25"
+    }
+   }
+  },
+  {
+   "position": 65,
+   "n": 51,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_065_remove_consonants",
+    "original": "hep_065_remove_vowels"
+   },
+   "entryPoints": {
+    "original": "remove_vowels",
+    "subtle": "remove_consonants"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/51",
+    "subtle": "EvoEval/51"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "94f4ed2b675b10bfe15e0adb2ea620b19790cfb4df26b9362df57d6daa6c9b8b",
+     "canonical_solution": "be78f9236fef51837e6d0d82fb8bfbb03bbbdd7eb249ae1675906162606d1a8a",
+     "test": "a346dd2d5fbc9a0f3dbdfcf77a9d117ea776c1931e072a72780a4012b3d67065"
+    },
+    "subtle": {
+     "prompt": "1f55c166c8c9917c004d94e5cfeeb8ca9431550fa706056614ae016aec06f734",
+     "canonical_solution": "934af54781f0e751ed9af320e83d560206d5e88a9049f9b83488d9c2a53b1619",
+     "test": "5faa5bc1ad30d4e5bdaeff6cbcc4462c147da58dd29942ff1498544f8d5d60fd"
+    }
+   }
+  },
+  {
+   "position": 66,
+   "n": 19,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_066_sort_numbers",
+    "original": "hep_066_sort_numbers"
+   },
+   "entryPoints": {
+    "original": "sort_numbers",
+    "subtle": "sort_numbers"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/19",
+    "subtle": "EvoEval/19"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "61b0d963a0d3797bc5ef83253bf35a531d7e31eedbd18181ff117b0e07e5c940",
+     "canonical_solution": "6a43c66924cfc6f3b8705a1e95e60d177d9e8ba5e700c829ba1f5701a6e8fb24",
+     "test": "1c92cf376c7937f11ee35dcc795c8c0d9c230192617e89f76e49585ff080f627"
+    },
+    "subtle": {
+     "prompt": "cf4ce4db5db9b90cab20df16e8d38249f22fa98856e7f01bcf4a3f6b237b1580",
+     "canonical_solution": "c32cb1eb19f7ddb42743fba4b701da2fa73acb79d97322c3992b2ddbc9cca12b",
+     "test": "6375401271cc6fa3768cac025e6763ebb0813a6e81509a8c6268149a2bc56b19"
+    }
+   }
+  },
+  {
+   "position": 67,
+   "n": 76,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_067_is_simple_power",
+    "subtle": "evs_067_is_simple_power"
+   },
+   "entryPoints": {
+    "original": "is_simple_power",
+    "subtle": "is_simple_power"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/76",
+    "subtle": "EvoEval/76"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "4d99f80a460939bc03631f3a652d9af5d5a09da2fd8fab20205c9682f766a361",
+     "canonical_solution": "cf7c3ef6da3d97c0d792ff4d19f34e8f3c7d6752d4b649b408328027af0f3e8e",
+     "test": "fde9f4bca4c0f3a204a812ed48b763a7deb5463334e1413da1c5dbfe30e6f345"
+    },
+    "subtle": {
+     "prompt": "abe6479d0d9e74a9625c721532ab1fb52da9a593b2de72c9ced6e32636231bfc",
+     "canonical_solution": "41f2d3b1c9eb245d659861d44dd5b08c4b6a854568d510eb02efe37226648628",
+     "test": "1f75555e3904e1b177667bbc59c61b77fc65efe8daacedb9e5999b6d5cac0fed"
+    }
+   }
+  },
+  {
+   "position": 68,
+   "n": 47,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_068_median",
+    "subtle": "evs_068_median"
+   },
+   "entryPoints": {
+    "original": "median",
+    "subtle": "median"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/47",
+    "subtle": "EvoEval/47"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "12794c9b475e4c41b878cf4d466feb8fa24d9d3dd6311f9845760f64b4748fd4",
+     "canonical_solution": "7b99227061641d5c5313878fb41d46d6fa3615a498c5164f8f8aba426bd8630e",
+     "test": "0b3a14e80580ad165d8f4e35632d979ffff5e306d5576b12a7501eba25199aff"
+    },
+    "subtle": {
+     "prompt": "93c4b44fbd006cd21c4cd9e7242a0509e8f6f948b0b5be137e20fc320f8b80e5",
+     "canonical_solution": "03af710cb0b6df194cada2acd70f302e0f110e091fbef7f2363bd33c14f14c8c",
+     "test": "a4d28beabd22f575e55a93835129f39b4bf829e47cc1ad635a7c250f3d635105"
+    }
+   }
+  },
+  {
+   "position": 69,
+   "n": 74,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_069_total_match",
+    "original": "hep_069_total_match"
+   },
+   "entryPoints": {
+    "original": "total_match",
+    "subtle": "total_match"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/74",
+    "subtle": "EvoEval/74"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "9662ed6743a83d0c34963151a98c5cdc9d33053cf3b26212adb7ff8abf9e3617",
+     "canonical_solution": "42246e920e1aa195714aaabbfa8decc4a2641f94d1135458914b6bbd6b179a3a",
+     "test": "9410d26167c1c4fc9ef2f1d0acc1fc1a65924ae8825c154609b778e795fc7f15"
+    },
+    "subtle": {
+     "prompt": "c3dd5ac88e1831add22d4a35c21979c787c99fd818093e88b0cd50faa657a0a2",
+     "canonical_solution": "fad034e57ab34e27f4bbf6019087f63ca01782cf3f4cd1905565d99d22ef503d",
+     "test": "7347e8b601dca481bcdf744bc9fbaf10fc0b553d3436485a30e5906d0622b942"
+    }
+   }
+  },
+  {
+   "position": 70,
+   "n": 96,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_070_count_up_to",
+    "original": "hep_070_count_up_to"
+   },
+   "entryPoints": {
+    "original": "count_up_to",
+    "subtle": "count_up_to"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/96",
+    "subtle": "EvoEval/96"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "87a89ca2716858e3f17b04c2b3a30af694d0daa68da3e197f801a408d3b6bfb5",
+     "canonical_solution": "26af66508939bebe06122f71b626395b8613e3447a434d897c00faa62e9c5d7b",
+     "test": "a7fbf3567bbaa6f5776248bc442037702092a24664c245e60a8109bfbc3860ed"
+    },
+    "subtle": {
+     "prompt": "faba54d933a041515178d4f47416e73ec06725e8d2c077f324dadda50c3e8724",
+     "canonical_solution": "08c197768c38d09a0d23324b68980dd47f584485b8ec0cb69b6d6be1e46f4120",
+     "test": "2878a5bcb48287f8d8fb45066852c56110249fc944c0f8545125f1e70c421b34"
+    }
+   }
+  },
+  {
+   "position": 71,
+   "n": 71,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_071_triangle_area",
+    "subtle": "evs_071_triangle_area"
+   },
+   "entryPoints": {
+    "original": "triangle_area",
+    "subtle": "triangle_area"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/71",
+    "subtle": "EvoEval/71"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "08897376ea63666a837e51f16608bd0abb6d1633e025ccacde662a7844e19626",
+     "canonical_solution": "645bf2c379fe54e36d67fc024ff9391ed52489de282817bf616e66b3516fef12",
+     "test": "08b0e0b9573fd6730358621d7e68510f84d5cd052a6464c109cc6ed6dba748c0"
+    },
+    "subtle": {
+     "prompt": "0370879b9175ed82de0132d951f0b7ea343727d78330f28ca34d280a6dbf0360",
+     "canonical_solution": "3fcc701646d376e19d6d5d1a335108e5f955c4561e2f90fd3b36d537d0a64a08",
+     "test": "ca7896a810dafd115272383c9c24aee69d87f891da57fe1f79020c1236b99c13"
+    }
+   }
+  },
+  {
+   "position": 72,
+   "n": 78,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_072_hex_key",
+    "subtle": "evs_072_hex_key"
+   },
+   "entryPoints": {
+    "original": "hex_key",
+    "subtle": "hex_key"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/78",
+    "subtle": "EvoEval/78"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "0f302c2314267fba8ddb3d9fa69d4dbb49dee3249d64a84f1048661f1ad2ae6e",
+     "canonical_solution": "9bcb6ba0517b30c074dbbe2e145d29c56dc16722f6fd37c3d5b7eee76ff96121",
+     "test": "10f942bdbef0b7f806dbccb2523a83d8d3876c0c47fd950833c6751dc082ef65"
+    },
+    "subtle": {
+     "prompt": "4f78db16c4a4923f891610bd773e06224eb8cb2c15c1229696d48a27d5c49770",
+     "canonical_solution": "b66b924de7d9821988e522601845fcdb95a5b736faafd5e75afd29c5fb1777fc",
+     "test": "15c432dbfc6c2c36503cd600a4f7546e7d19d8bdc62dcd563a801f7cbaa67b05"
+    }
+   }
+  },
+  {
+   "position": 73,
+   "n": 12,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_073_shortest",
+    "original": "hep_073_longest"
+   },
+   "entryPoints": {
+    "original": "longest",
+    "subtle": "shortest"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/12",
+    "subtle": "EvoEval/12"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "aa62f2bdcae005c83ed5eede68f25a798ece3609af2bf7db30ef714aa7a33927",
+     "canonical_solution": "cc6c05d5df5c7b220ebaf9ce92e48aa4328e429aeb46bf8dfdae658eb3fb146d",
+     "test": "f3c10b3c9f5a0ccb500e414659e0829b27979b2c16789ecf91ca6871633d7ea6"
+    },
+    "subtle": {
+     "prompt": "8e3ea5fb846644448303884f67e6a8f080e2272b3425271cba99b888ac2f5c23",
+     "canonical_solution": "ada59b4d28f1d63a06925601762c9b978db448e263fc5c9d5b5ef02a65dd88d3",
+     "test": "d2fade208901cb7287a4e532976c162f1c5c56edae174e239d02e85ded6a47b3"
+    }
+   }
+  },
+  {
+   "position": 74,
+   "n": 21,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_074_rescale_to_unit",
+    "subtle": "evs_074_rescale_to_unit"
+   },
+   "entryPoints": {
+    "original": "rescale_to_unit",
+    "subtle": "rescale_to_unit"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/21",
+    "subtle": "EvoEval/21"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "f5d1f07614da8dffb7e6ede02cdedd73f58405f47aeb516b82318416a4acf0c7",
+     "canonical_solution": "c8c0336ab9e16f75e79ad947ec1cc0b6ed030dd6ce47b34ba96e82777562df8e",
+     "test": "39b8c0eafc9a8ae9336f7a4237fa62f1ad997cb5d4999ef6a38599d6d3e59ec5"
+    },
+    "subtle": {
+     "prompt": "ee48a634df9daa0f45929c58da9116bf1cc26ada9842217d1b467e99c37c0026",
+     "canonical_solution": "43c1c687416e267af89a83edd0144973a0b3607398ef9b3b2eac25d682fda4a7",
+     "test": "d97b227700ebce141a4f6be81eb2fa6d9fb600a2be950917a8d73746349c1d11"
+    }
+   }
+  },
+  {
+   "position": 75,
+   "n": 25,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_075_factorize",
+    "subtle": "evs_075_factorize"
+   },
+   "entryPoints": {
+    "original": "factorize",
+    "subtle": "factorize"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/25",
+    "subtle": "EvoEval/25"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "b619821eb84b3f0f1296d3f955acfcd54e9f78bc70d2f06929cdfc08fd6b3788",
+     "canonical_solution": "69510a8872a7a3223f86462c1cdf8b343fae45705550ff416d7c78d0d22fac27",
+     "test": "83e59d9011160028b2ab6d64bdcc3868b0ab76e484f2aea554cd9ca38f25f578"
+    },
+    "subtle": {
+     "prompt": "ff8f949f148196d751097911c9858841c248bb441149d7767604e83aab619b1d",
+     "canonical_solution": "3d01402d2a7868bc065a7e2a23f17a31a589c2b7fbac5386a0fdc89129129ccc",
+     "test": "53b43d26f668198965ecdf8ce7f913f0a11b40050c57f8746befe749d9f59384"
+    }
+   }
+  },
+  {
+   "position": 76,
+   "n": 75,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_076_is_multiply_prime",
+    "subtle": "evs_076_is_multiply_prime"
+   },
+   "entryPoints": {
+    "original": "is_multiply_prime",
+    "subtle": "is_multiply_prime"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/75",
+    "subtle": "EvoEval/75"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "f471343f29b4ca3b2e1da0d10fd5459e0f13b7a9cef2897ed4ce88e88bde5db9",
+     "canonical_solution": "ee3624edcde5256fd2d8dcdd129a4cac16badeb794a9dbd00b6445e0b9bd0cb9",
+     "test": "83fb79dbb6f09584a6c999a55075ffc30533b6e9a6f1b342e6fe2828ad6cd38f"
+    },
+    "subtle": {
+     "prompt": "38217e3b139f1b6386b2c638de08df52c05ce675b18a36c89587a01d858a7e19",
+     "canonical_solution": "ccf43c011692f1cdecc174930a4897d8ef199a230e6f936934328d3b117de822",
+     "test": "87074922b90998842f6490973f92bbdacc582a651e63e83fffd329a4404d9fc2"
+    }
+   }
+  },
+  {
+   "position": 77,
+   "n": 33,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_077_sort_third",
+    "original": "hep_077_sort_third"
+   },
+   "entryPoints": {
+    "original": "sort_third",
+    "subtle": "sort_third"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/33",
+    "subtle": "EvoEval/33"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "41c45573886f68a38b5dc46f74ab70ef4cb79656e72bc97a04b861810158fa8c",
+     "canonical_solution": "65f1783c0b007565251d6a3a25ec117f709ced203bd17fafb2fb6f9a06b6603d",
+     "test": "6836335b4d92f480f99b84aed81867e56743cd14a2db65c1a948a5a10eaf243e"
+    },
+    "subtle": {
+     "prompt": "8f32ea516341496c8da690133d07946f1a2c3e04290fe47c12771c3bc7254e5e",
+     "canonical_solution": "83e7a9cd1cac4983f8e0d72fbfd31495856e9a2559e99c121e99cf7d17ccc8d5",
+     "test": "7f0956aa2e4c18e1f5e04bb4a8a7bcc1ba0786b4bb01762691db09191212270b"
+    }
+   }
+  },
+  {
+   "position": 78,
+   "n": 6,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_078_parse_nested_parens",
+    "subtle": "evs_078_parse_nested_parens"
+   },
+   "entryPoints": {
+    "original": "parse_nested_parens",
+    "subtle": "parse_nested_parens"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/6",
+    "subtle": "EvoEval/6"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "39b4ae7cbb22820ff04ffe8a3cbe4bd4332d16046130335d78f36d75a5c3cf4c",
+     "canonical_solution": "0bf63ea407f935f7703bea8abec4b2675d81e8d440abf79c19e0f9091f5a4cd6",
+     "test": "5d4668dbdb4c6a21715ac0bfb5c8ee6fb0961dae5f5f0884cd5534e78050c847"
+    },
+    "subtle": {
+     "prompt": "75700dec10d4e6c497f1b246092c44bf5c1e62309f311318d49f7eeff127794e",
+     "canonical_solution": "822bbb310a0a7a28f768e11b55ceb94de3f62c96f2981f679b478cbdb9c6889d",
+     "test": "294ba629b9453c37131c60eb6eee0bbb324594f2239b98fab53beecd07a0118d"
+    }
+   }
+  },
+  {
+   "position": 79,
+   "n": 14,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_079_all_prefixes",
+    "original": "hep_079_all_prefixes"
+   },
+   "entryPoints": {
+    "original": "all_prefixes",
+    "subtle": "all_prefixes"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/14",
+    "subtle": "EvoEval/14"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "f4eca2c1c9ceb5ca5b0b0885dfd75fb4f768967fd2e53640176e413a499cc165",
+     "canonical_solution": "569fd53842909ca96942675162588f2afe4450279a6e6cc8eb07334dc5414acd",
+     "test": "f022bf1b473e923b1018ba2be0de78969ae7294172e6058e4d11e94ae798533a"
+    },
+    "subtle": {
+     "prompt": "e5f2b2613e3e34a437b706a1f560f0f73b8d41971e2e950a909624c808980f90",
+     "canonical_solution": "84a3357f8f019fdb99a08286c573d1d1f07b0ff7a892636fe3733ae945f160a3",
+     "test": "b6f8a26d6eaea82486b041f42f483cb235c591bc2a064de8a8ca1f259ca90e06"
+    }
+   }
+  },
+  {
+   "position": 80,
+   "n": 26,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_080_remove_duplicates",
+    "subtle": "evs_080_remove_duplicates"
+   },
+   "entryPoints": {
+    "original": "remove_duplicates",
+    "subtle": "remove_duplicates"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/26",
+    "subtle": "EvoEval/26"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "7823eea9be9599563c786fa16e792f3da2482016607d75ee06ca40b2d33c7dca",
+     "canonical_solution": "8361ffce14cb0123d346c7680eacb2f648ef6d54d9bc1565850ad1277cdfeca5",
+     "test": "6adba3483e8e61938cc3a54861ca11cdc3ad6341f27e6fe351776abc67b26b9c"
+    },
+    "subtle": {
+     "prompt": "ecd823ea2477d780440c906c9611b96dacfa62029a46bfec44763a2bba579149",
+     "canonical_solution": "d51a4aeec1831d04f1adbf33ed6a3f293999e1c2206a49592e6ae51b1756e3f0",
+     "test": "3713fb297c027a8317350145c05646c340a5c31b30396f592eb18a7d2ec76911"
+    }
+   }
+  },
+  {
+   "position": 81,
+   "n": 90,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_081_next_largest",
+    "original": "hep_081_next_smallest"
+   },
+   "entryPoints": {
+    "original": "next_smallest",
+    "subtle": "next_largest"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/90",
+    "subtle": "EvoEval/90"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "c411484e97c83ae8e5869ae414e5687f429deda4f5fb49e367e60c85635fed1e",
+     "canonical_solution": "fa7beac967f03d40e526c5e2351f1c5d2cc3b680d7c71ffba4a42d9492b325d8",
+     "test": "38920c8f4de6ecbff0a4e8b3d45b054917431508b5c021ca3e6afe1f069464dc"
+    },
+    "subtle": {
+     "prompt": "8b02bda751e8bcf269a3a83790aa7bb09fec963a8bad9fae705302126d2bac76",
+     "canonical_solution": "deec6e3ab3ece63fc4e8fa8c39ccbd7213140467b9304fcec057e63eacd7677f",
+     "test": "e1efb677bc56624757aea432098b34d9665e973d7435e6fa65891aa3bb262eae"
+    }
+   }
+  },
+  {
+   "position": 82,
+   "n": 63,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_082_fibfib",
+    "subtle": "evs_082_fibfib"
+   },
+   "entryPoints": {
+    "original": "fibfib",
+    "subtle": "fibfib"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/63",
+    "subtle": "EvoEval/63"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "3f6b45cdf3c576835537ba1cce2414a28f96b7a82157533ba221807ea2aa6147",
+     "canonical_solution": "85586fc28499ba76cb69675e5a39e7c074d362b0cbe74b83cb3ab116d17fb2e0",
+     "test": "91f5212d14304e5988fb851f038e5b1da3ef3154d611b92e43143d834415a9dd"
+    },
+    "subtle": {
+     "prompt": "33aa2589bfba2e4c22e7afe27b4e843db735f357800f2b31911723b5afbdde74",
+     "canonical_solution": "c2c6e09f5d51d80d07980405789ba378cc8e5b7dab870e03d268accbcb69912b",
+     "test": "ce8e1e537b6b78f4aa5de9a979d5fdd4b86e0a7aaf75a6ae8eafe8f131b1efbf"
+    }
+   }
+  },
+  {
+   "position": 83,
+   "n": 24,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_083_smallest_divisor",
+    "original": "hep_083_largest_divisor"
+   },
+   "entryPoints": {
+    "original": "largest_divisor",
+    "subtle": "smallest_divisor"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/24",
+    "subtle": "EvoEval/24"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "3bc8bf3f66a3b5e171a358bbd5f33fba1a5d16ea65459198757dcb662dbaaac2",
+     "canonical_solution": "fae22796e142dde95bf260df49adac3af89961107b7ee7fb15d31c4706df3888",
+     "test": "a176768f465d329dd7e3a87326144625bafb29f614dab806d7f3c9eb92a0925a"
+    },
+    "subtle": {
+     "prompt": "2600941f8376b62d6cbfdb53f9cc7a30c3bb5f198f36ae1a2150992c219107d3",
+     "canonical_solution": "89c93f7c06ee700aee61c990a5fd3c5fd50b1da2203900c0635e12cf492a4688",
+     "test": "6de9ef3c598b8fd16839ee694a9b84e004a2b624d1978adc0581db5da6b4c40a"
+    }
+   }
+  },
+  {
+   "position": 84,
+   "n": 49,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_084_modp",
+    "original": "hep_084_modp"
+   },
+   "entryPoints": {
+    "original": "modp",
+    "subtle": "modp"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/49",
+    "subtle": "EvoEval/49"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "e66b53fb6c885a4c550b997add2be1d3229f04eabfca6e66e7a2d1e2845b164f",
+     "canonical_solution": "417a13ca48bc80037eba6600869df750553a8266198307912fddd2d9503ebe96",
+     "test": "a506d7ce6b4a0e420a5e1a0e53765971a365a7a97fa724096a50a38176421ea8"
+    },
+    "subtle": {
+     "prompt": "fb84493fef2e395e6fe57a81ce3a92b6b111b8fc016a7c75c4581e3b33382d1e",
+     "canonical_solution": "bcd0f6f1e8c5d40bbc2762dc423c89cb32c18b8a2192bd75ff0bcb43cf5b9f1c",
+     "test": "bd9d4ab0db2f01b927d15cdfcd952af8d4f2c9304a36b4331c2075413893f443"
+    }
+   }
+  },
+  {
+   "position": 85,
+   "n": 22,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_085_filter_even_integers",
+    "original": "hep_085_filter_integers"
+   },
+   "entryPoints": {
+    "original": "filter_integers",
+    "subtle": "filter_even_integers"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/22",
+    "subtle": "EvoEval/22"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "b7bde40423debe285816bdcee858624a7ded823a414e8cf0e71d1185fc6cdb32",
+     "canonical_solution": "faa55722f8aab20d7677ebdfc5995f82a61c4397347f5b1dc0bee1d8913b6bb8",
+     "test": "fc1f059f5126b2f6a57ffddde00b88c302315368711cd4848a4f221969328ee7"
+    },
+    "subtle": {
+     "prompt": "2fbc8a11ee97461000579503b55c796d8886b9f140ece15afc40105a8c3182c3",
+     "canonical_solution": "d8ff53ef07e05731ef318dbee102d13231a3774ec423dfe015a18d20aa1d617b",
+     "test": "d8090c8446a71f9ae44a481d2be9795d71a1d8f6217937bf76f7a74ee605e1c6"
+    }
+   }
+  },
+  {
+   "position": 86,
+   "n": 87,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_086_get_row",
+    "original": "hep_086_get_row"
+   },
+   "entryPoints": {
+    "original": "get_row",
+    "subtle": "get_row"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/87",
+    "subtle": "EvoEval/87"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "8de3ecf44a0ece8d4e372c37aa51439548bd77398c179f009834d5b5d1ea34fb",
+     "canonical_solution": "9882a31fe02f111fc4932b429b84a85fbba44ef50e64162ba216990578dc4c0b",
+     "test": "5a13267bc71243cf8058cefc7080794c8278c1b48e4d720cd340fa1a8742dc86"
+    },
+    "subtle": {
+     "prompt": "269fd37bcb688fb316d089087895d8a1a8ea0c7c832fb0a4d4647f618010ea56",
+     "canonical_solution": "76d850eaf0c6daa6b85a600a9d8ab05128a82290b9ab1bc990e5c341f05e2a6e",
+     "test": "eb0488d9d0580fe75bcd577d2f4881224fdc58cc6c501a150b8de0604d97f12a"
+    }
+   }
+  },
+  {
+   "position": 87,
+   "n": 94,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_087_skjkasdkd",
+    "original": "hep_087_skjkasdkd"
+   },
+   "entryPoints": {
+    "original": "skjkasdkd",
+    "subtle": "skjkasdkd"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/94",
+    "subtle": "EvoEval/94"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "1c6ca165f1b5548225ce755ffb9fe188813105f3eac8cfb3f515326db7f25812",
+     "canonical_solution": "bb7d09d8d49947351e8275f92aa087de84505e50f80526423d9f2754d829bd9c",
+     "test": "4eb411b36c4c5d002a05a530e732b02182c86748ee113f92127e037d06196515"
+    },
+    "subtle": {
+     "prompt": "204fcf7d7dc1da38838a48870451d0dc27d63db56717704ef8423eb78dff7572",
+     "canonical_solution": "d926aa7c2ceac0bbd8cfab1dd93e80b9ffec85bed5c9ea5e7632f676d35ebc1b",
+     "test": "8f534d8d0d480d7e7b339497b2a9a0c51a4ac404136af8e237d9e9deee1f6672"
+    }
+   }
+  },
+  {
+   "position": 88,
+   "n": 68,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_088_pluck",
+    "original": "hep_088_pluck"
+   },
+   "entryPoints": {
+    "original": "pluck",
+    "subtle": "pluck"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/68",
+    "subtle": "EvoEval/68"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "cd3be7d4325387ffeafdc0c15742e1e5f66dfe1e94b683910809f5c17a9c3a74",
+     "canonical_solution": "5efa11a08855ad336ef3ddb45e68ec787e55b900c1b49532b3f5900076ba7680",
+     "test": "d13581e2c6e6413239c84df76ffa4f76c3489ac118d8a2193ce3a00e0ea3cea9"
+    },
+    "subtle": {
+     "prompt": "e081baca25598f1702c2490826fe0ad35ac75c7eba21d7530d2a24e2b8e2a14b",
+     "canonical_solution": "0375086a7cd8720129c674df656ffac5847c3ebe9320cb91ff2bbc8b04378400",
+     "test": "a90ac945e85ceb21f731db6ac16f6e82a457970d6787c60813078901b6997ea5"
+    }
+   }
+  },
+  {
+   "position": 89,
+   "n": 4,
+   "askOrder": [
+    "subtle",
+    "original"
+   ],
+   "taskIds": {
+    "subtle": "evs_089_median_absolute_deviation",
+    "original": "hep_089_mean_absolute_deviation"
+   },
+   "entryPoints": {
+    "original": "mean_absolute_deviation",
+    "subtle": "median_absolute_deviation"
+   },
+   "renamed": true,
+   "sourceIds": {
+    "original": "HumanEval/4",
+    "subtle": "EvoEval/4"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "2717edd5d203ea22a6eebf62263effd9b792e1a2ef93e017868cedaac7b5ef10",
+     "canonical_solution": "31214e3ea9c5c1425079ed6b043f103aebada302486f9cc211aa23edd58afdd3",
+     "test": "a5daea3c38c2a3f69f52548c23702af14659537a084edd44d000a6c0da6416a6"
+    },
+    "subtle": {
+     "prompt": "0023cb340707f792bab75bb73cb06b55f8ec581ce5de8fb71caad39b54b2cc6e",
+     "canonical_solution": "96e5a7224650a9cb6583ee368a1f1d1e96a9c034e6ff52a9f25fdfe992095c86",
+     "test": "7fea253abcc61903256df85bbd0a3b923265b40eda2756f7211403b8e1ca2828"
+    }
+   }
+  },
+  {
+   "position": 90,
+   "n": 42,
+   "askOrder": [
+    "original",
+    "subtle"
+   ],
+   "taskIds": {
+    "original": "hep_090_incr_list",
+    "subtle": "evs_090_incr_list"
+   },
+   "entryPoints": {
+    "original": "incr_list",
+    "subtle": "incr_list"
+   },
+   "renamed": false,
+   "sourceIds": {
+    "original": "HumanEval/42",
+    "subtle": "EvoEval/42"
+   },
+   "sha256": {
+    "original": {
+     "prompt": "8b6d8ac13f22a485fb80312ee1b077ba1cc2653fbff4c36fb7e3d36ca1b8d609",
+     "canonical_solution": "5d3f81b59dbb5d42464e36186da77c849c65ee85aa5375bf545ecc8556e97dba",
+     "test": "a4bfadaa685435ee657ca6a60d59c166b86526b646b4561e7fe425fa7433ffe4"
+    },
+    "subtle": {
+     "prompt": "181fc7360672d365ba4da4be365adcea4f6b5318e2b0ebe6a35b657413486996",
+     "canonical_solution": "2973d40e07e3879c854cc825c795c46cc86199000dbc6d716ffda9de4fac5d0f",
+     "test": "3e098a40cade680ddcfe4b4aca3553d15b3749301fb3f6636e7f4a172dce08e5"
+    }
+   }
+  }
+ ]
+}

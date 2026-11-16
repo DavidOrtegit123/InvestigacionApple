@@ -1,0 +1,1106 @@
+{
+ "candidatePairs": 100,
+ "executionEligible": 90,
+ "executionReasons": {
+  "eligible": 90,
+  "original reference also passes the subtle test": 2,
+  "helper code in the prompt header": 5,
+  "subtle version is HumanEval/61": 1,
+  "subtle reference failed": 1,
+  "subtle reference timeout": 1
+ },
+ "selected": 90,
+ "renamedSelected": 14,
+ "subtleFirst": 56,
+ "contextSizes": {
+  "apple": 4096,
+  "appleReportedOnMac": 8192,
+  "qwen": 4096
+ },
+ "largestPrompt": {
+  "apple": 596,
+  "qwen": 589
+ },
+ "fit": {
+  "0": {
+   "original": {
+    "apple": 397,
+    "qwen": 389,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 413,
+    "qwen": 402,
+    "fits": true
+   }
+  },
+  "1": {
+   "original": {
+    "apple": 387,
+    "qwen": 382,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 397,
+    "qwen": 392,
+    "fits": true
+   }
+  },
+  "2": {
+   "original": {
+    "apple": 345,
+    "qwen": 346,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 352,
+    "qwen": 352,
+    "fits": true
+   }
+  },
+  "4": {
+   "original": {
+    "apple": 380,
+    "qwen": 379,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 380,
+    "qwen": 379,
+    "fits": true
+   }
+  },
+  "5": {
+   "original": {
+    "apple": 367,
+    "qwen": 359,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 384,
+    "qwen": 377,
+    "fits": true
+   }
+  },
+  "6": {
+   "original": {
+    "apple": 388,
+    "qwen": 380,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 397,
+    "qwen": 389,
+    "fits": true
+   }
+  },
+  "7": {
+   "original": {
+    "apple": 370,
+    "qwen": 363,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 366,
+    "qwen": 359,
+    "fits": true
+   }
+  },
+  "8": {
+   "original": {
+    "apple": 382,
+    "qwen": 373,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 385,
+    "qwen": 375,
+    "fits": true
+   }
+  },
+  "9": {
+   "original": {
+    "apple": 366,
+    "qwen": 361,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 366,
+    "qwen": 361,
+    "fits": true
+   }
+  },
+  "11": {
+   "original": {
+    "apple": 347,
+    "qwen": 346,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 349,
+    "qwen": 348,
+    "fits": true
+   }
+  },
+  "12": {
+   "original": {
+    "apple": 361,
+    "qwen": 357,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 361,
+    "qwen": 356,
+    "fits": true
+   }
+  },
+  "13": {
+   "original": {
+    "apple": 342,
+    "qwen": 342,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 344,
+    "qwen": 339,
+    "fits": true
+   }
+  },
+  "14": {
+   "original": {
+    "apple": 322,
+    "qwen": 324,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 322,
+    "qwen": 324,
+    "fits": true
+   }
+  },
+  "15": {
+   "original": {
+    "apple": 336,
+    "qwen": 332,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 334,
+    "qwen": 330,
+    "fits": true
+   }
+  },
+  "16": {
+   "original": {
+    "apple": 335,
+    "qwen": 336,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 336,
+    "qwen": 334,
+    "fits": true
+   }
+  },
+  "17": {
+   "original": {
+    "apple": 436,
+    "qwen": 429,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 421,
+    "qwen": 414,
+    "fits": true
+   }
+  },
+  "18": {
+   "original": {
+    "apple": 362,
+    "qwen": 353,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 363,
+    "qwen": 354,
+    "fits": true
+   }
+  },
+  "19": {
+   "original": {
+    "apple": 366,
+    "qwen": 364,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 365,
+    "qwen": 364,
+    "fits": true
+   }
+  },
+  "20": {
+   "original": {
+    "apple": 438,
+    "qwen": 431,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 441,
+    "qwen": 434,
+    "fits": true
+   }
+  },
+  "21": {
+   "original": {
+    "apple": 401,
+    "qwen": 392,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 409,
+    "qwen": 399,
+    "fits": true
+   }
+  },
+  "22": {
+   "original": {
+    "apple": 361,
+    "qwen": 354,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 369,
+    "qwen": 357,
+    "fits": true
+   }
+  },
+  "23": {
+   "original": {
+    "apple": 298,
+    "qwen": 303,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 301,
+    "qwen": 306,
+    "fits": true
+   }
+  },
+  "24": {
+   "original": {
+    "apple": 314,
+    "qwen": 320,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 315,
+    "qwen": 321,
+    "fits": true
+   }
+  },
+  "25": {
+   "original": {
+    "apple": 388,
+    "qwen": 385,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 388,
+    "qwen": 385,
+    "fits": true
+   }
+  },
+  "26": {
+   "original": {
+    "apple": 353,
+    "qwen": 347,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 352,
+    "qwen": 346,
+    "fits": true
+   }
+  },
+  "27": {
+   "original": {
+    "apple": 314,
+    "qwen": 313,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 385,
+    "qwen": 378,
+    "fits": true
+   }
+  },
+  "28": {
+   "original": {
+    "apple": 314,
+    "qwen": 315,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 324,
+    "qwen": 321,
+    "fits": true
+   }
+  },
+  "29": {
+   "original": {
+    "apple": 368,
+    "qwen": 355,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 365,
+    "qwen": 352,
+    "fits": true
+   }
+  },
+  "30": {
+   "original": {
+    "apple": 384,
+    "qwen": 380,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 387,
+    "qwen": 383,
+    "fits": true
+   }
+  },
+  "31": {
+   "original": {
+    "apple": 368,
+    "qwen": 356,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 385,
+    "qwen": 372,
+    "fits": true
+   }
+  },
+  "33": {
+   "original": {
+    "apple": 414,
+    "qwen": 410,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 417,
+    "qwen": 413,
+    "fits": true
+   }
+  },
+  "34": {
+   "original": {
+    "apple": 335,
+    "qwen": 339,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 338,
+    "qwen": 342,
+    "fits": true
+   }
+  },
+  "35": {
+   "original": {
+    "apple": 349,
+    "qwen": 347,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 349,
+    "qwen": 347,
+    "fits": true
+   }
+  },
+  "36": {
+   "original": {
+    "apple": 341,
+    "qwen": 343,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 341,
+    "qwen": 343,
+    "fits": true
+   }
+  },
+  "37": {
+   "original": {
+    "apple": 387,
+    "qwen": 383,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 390,
+    "qwen": 386,
+    "fits": true
+   }
+  },
+  "39": {
+   "original": {
+    "apple": 353,
+    "qwen": 351,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 362,
+    "qwen": 360,
+    "fits": true
+   }
+  },
+  "40": {
+   "original": {
+    "apple": 445,
+    "qwen": 417,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 445,
+    "qwen": 417,
+    "fits": true
+   }
+  },
+  "41": {
+   "original": {
+    "apple": 420,
+    "qwen": 411,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 423,
+    "qwen": 413,
+    "fits": true
+   }
+  },
+  "42": {
+   "original": {
+    "apple": 380,
+    "qwen": 375,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 380,
+    "qwen": 375,
+    "fits": true
+   }
+  },
+  "43": {
+   "original": {
+    "apple": 440,
+    "qwen": 412,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 440,
+    "qwen": 412,
+    "fits": true
+   }
+  },
+  "44": {
+   "original": {
+    "apple": 368,
+    "qwen": 359,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 362,
+    "qwen": 356,
+    "fits": true
+   }
+  },
+  "45": {
+   "original": {
+    "apple": 309,
+    "qwen": 309,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 313,
+    "qwen": 317,
+    "fits": true
+   }
+  },
+  "46": {
+   "original": {
+    "apple": 430,
+    "qwen": 423,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 439,
+    "qwen": 429,
+    "fits": true
+   }
+  },
+  "47": {
+   "original": {
+    "apple": 336,
+    "qwen": 339,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 354,
+    "qwen": 356,
+    "fits": true
+   }
+  },
+  "48": {
+   "original": {
+    "apple": 328,
+    "qwen": 330,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 373,
+    "qwen": 372,
+    "fits": true
+   }
+  },
+  "49": {
+   "original": {
+    "apple": 372,
+    "qwen": 371,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 399,
+    "qwen": 399,
+    "fits": true
+   }
+  },
+  "51": {
+   "original": {
+    "apple": 395,
+    "qwen": 389,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 401,
+    "qwen": 386,
+    "fits": true
+   }
+  },
+  "52": {
+   "original": {
+    "apple": 352,
+    "qwen": 350,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 356,
+    "qwen": 354,
+    "fits": true
+   }
+  },
+  "53": {
+   "original": {
+    "apple": 312,
+    "qwen": 316,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 324,
+    "qwen": 329,
+    "fits": true
+   }
+  },
+  "54": {
+   "original": {
+    "apple": 412,
+    "qwen": 399,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 377,
+    "qwen": 370,
+    "fits": true
+   }
+  },
+  "55": {
+   "original": {
+    "apple": 309,
+    "qwen": 310,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 312,
+    "qwen": 314,
+    "fits": true
+   }
+  },
+  "57": {
+   "original": {
+    "apple": 341,
+    "qwen": 351,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 356,
+    "qwen": 366,
+    "fits": true
+   }
+  },
+  "58": {
+   "original": {
+    "apple": 388,
+    "qwen": 389,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 391,
+    "qwen": 392,
+    "fits": true
+   }
+  },
+  "59": {
+   "original": {
+    "apple": 338,
+    "qwen": 331,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 337,
+    "qwen": 330,
+    "fits": true
+   }
+  },
+  "60": {
+   "original": {
+    "apple": 375,
+    "qwen": 357,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 405,
+    "qwen": 387,
+    "fits": true
+   }
+  },
+  "61": {
+   "original": {
+    "apple": 342,
+    "qwen": 352,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 344,
+    "qwen": 353,
+    "fits": true
+   }
+  },
+  "62": {
+   "original": {
+    "apple": 368,
+    "qwen": 368,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 378,
+    "qwen": 378,
+    "fits": true
+   }
+  },
+  "63": {
+   "original": {
+    "apple": 407,
+    "qwen": 402,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 407,
+    "qwen": 402,
+    "fits": true
+   }
+  },
+  "65": {
+   "original": {
+    "apple": 351,
+    "qwen": 346,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 351,
+    "qwen": 346,
+    "fits": true
+   }
+  },
+  "66": {
+   "original": {
+    "apple": 377,
+    "qwen": 381,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 379,
+    "qwen": 383,
+    "fits": true
+   }
+  },
+  "68": {
+   "original": {
+    "apple": 581,
+    "qwen": 567,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 581,
+    "qwen": 567,
+    "fits": true
+   }
+  },
+  "69": {
+   "original": {
+    "apple": 422,
+    "qwen": 422,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 422,
+    "qwen": 422,
+    "fits": true
+   }
+  },
+  "70": {
+   "original": {
+    "apple": 395,
+    "qwen": 386,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 395,
+    "qwen": 386,
+    "fits": true
+   }
+  },
+  "71": {
+   "original": {
+    "apple": 386,
+    "qwen": 383,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 387,
+    "qwen": 384,
+    "fits": true
+   }
+  },
+  "72": {
+   "original": {
+    "apple": 502,
+    "qwen": 488,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 514,
+    "qwen": 500,
+    "fits": true
+   }
+  },
+  "74": {
+   "original": {
+    "apple": 462,
+    "qwen": 452,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 475,
+    "qwen": 465,
+    "fits": true
+   }
+  },
+  "75": {
+   "original": {
+    "apple": 348,
+    "qwen": 343,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 351,
+    "qwen": 346,
+    "fits": true
+   }
+  },
+  "76": {
+   "original": {
+    "apple": 416,
+    "qwen": 401,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 458,
+    "qwen": 437,
+    "fits": true
+   }
+  },
+  "77": {
+   "original": {
+    "apple": 365,
+    "qwen": 367,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 365,
+    "qwen": 367,
+    "fits": true
+   }
+  },
+  "78": {
+   "original": {
+    "apple": 582,
+    "qwen": 564,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 596,
+    "qwen": 578,
+    "fits": true
+   }
+  },
+  "79": {
+   "original": {
+    "apple": 416,
+    "qwen": 406,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 419,
+    "qwen": 409,
+    "fits": true
+   }
+  },
+  "80": {
+   "original": {
+    "apple": 378,
+    "qwen": 378,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 379,
+    "qwen": 379,
+    "fits": true
+   }
+  },
+  "81": {
+   "original": {
+    "apple": 544,
+    "qwen": 531,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 549,
+    "qwen": 536,
+    "fits": true
+   }
+  },
+  "82": {
+   "original": {
+    "apple": 340,
+    "qwen": 339,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 357,
+    "qwen": 356,
+    "fits": true
+   }
+  },
+  "84": {
+   "original": {
+    "apple": 405,
+    "qwen": 404,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 403,
+    "qwen": 402,
+    "fits": true
+   }
+  },
+  "85": {
+   "original": {
+    "apple": 312,
+    "qwen": 316,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 312,
+    "qwen": 315,
+    "fits": true
+   }
+  },
+  "86": {
+   "original": {
+    "apple": 391,
+    "qwen": 385,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 394,
+    "qwen": 386,
+    "fits": true
+   }
+  },
+  "87": {
+   "original": {
+    "apple": 525,
+    "qwen": 511,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 525,
+    "qwen": 511,
+    "fits": true
+   }
+  },
+  "88": {
+   "original": {
+    "apple": 469,
+    "qwen": 457,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 532,
+    "qwen": 517,
+    "fits": true
+   }
+  },
+  "89": {
+   "original": {
+    "apple": 367,
+    "qwen": 364,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 367,
+    "qwen": 364,
+    "fits": true
+   }
+  },
+  "90": {
+   "original": {
+    "apple": 378,
+    "qwen": 382,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 378,
+    "qwen": 382,
+    "fits": true
+   }
+  },
+  "91": {
+   "original": {
+    "apple": 368,
+    "qwen": 362,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 378,
+    "qwen": 372,
+    "fits": true
+   }
+  },
+  "92": {
+   "original": {
+    "apple": 396,
+    "qwen": 392,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 399,
+    "qwen": 395,
+    "fits": true
+   }
+  },
+  "93": {
+   "original": {
+    "apple": 365,
+    "qwen": 361,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 364,
+    "qwen": 362,
+    "fits": true
+   }
+  },
+  "94": {
+   "original": {
+    "apple": 583,
+    "qwen": 589,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 579,
+    "qwen": 585,
+    "fits": true
+   }
+  },
+  "95": {
+   "original": {
+    "apple": 449,
+    "qwen": 430,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 474,
+    "qwen": 456,
+    "fits": true
+   }
+  },
+  "96": {
+   "original": {
+    "apple": 435,
+    "qwen": 414,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 450,
+    "qwen": 429,
+    "fits": true
+   }
+  },
+  "97": {
+   "original": {
+    "apple": 372,
+    "qwen": 371,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 371,
+    "qwen": 370,
+    "fits": true
+   }
+  },
+  "98": {
+   "original": {
+    "apple": 331,
+    "qwen": 330,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 331,
+    "qwen": 330,
+    "fits": true
+   }
+  },
+  "99": {
+   "original": {
+    "apple": 415,
+    "qwen": 413,
+    "fits": true
+   },
+   "subtle": {
+    "apple": 411,
+    "qwen": 410,
+    "fits": true
+   }
+  }
+ }
+}

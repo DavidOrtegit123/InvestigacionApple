@@ -1,0 +1,1262 @@
+[
+  {
+    "id": "hep_001_below_threshold",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of below_threshold, write a Python function below_threshold(l: list, t: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of below_threshold",
+    "reference_doc_content": "Signature: below_threshold(l: list, t: int)\n\nReturn True if all numbers in the list l are below threshold t.\n>>> below_threshold([1, 2, 4, 10], 100)\nTrue\n>>> below_threshold([1, 20, 4, 10], 5)\nFalse"
+  },
+  {
+    "id": "evs_001_below_threshold",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of below_threshold, write a Python function below_threshold(l: list, t: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of below_threshold",
+    "reference_doc_content": "Signature: below_threshold(l: list, t: int)\n\nReturn True if all numbers in the list l are below or equal to threshold t.\n>>> below_threshold([1, 2, 4, 10], 100)\nTrue\n>>> below_threshold([1, 20, 4, 10], 20)\nTrue"
+  },
+  {
+    "id": "evs_002_separate_paren_groups",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of separate_paren_groups, write a Python function separate_paren_groups(paren_string: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of separate_paren_groups",
+    "reference_doc_content": "Signature: separate_paren_groups(paren_string: str) -> List[str]\n\nInput to this function is a string containing multiple groups of nested parentheses. Your goal is to\nseparate those group into separate strings and return the list of those.\nSeparate groups are balanced (each open brace is properly closed) and not nested within each other\nIgnore any spaces in the input string. \nReturn the list in ascending alphabetical order \n>>> separate_paren_groups('( ) (( )) (( )( ))')\n['(()())', '(())', '()']"
+  },
+  {
+    "id": "hep_002_separate_paren_groups",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of separate_paren_groups, write a Python function separate_paren_groups(paren_string: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of separate_paren_groups",
+    "reference_doc_content": "Signature: separate_paren_groups(paren_string: str) -> List[str]\n\nInput to this function is a string containing multiple groups of nested parentheses. Your goal is to\nseparate those group into separate strings and return the list of those.\nSeparate groups are balanced (each open brace is properly closed) and not nested within each other\nIgnore any spaces in the input string.\n>>> separate_paren_groups('( ) (( )) (( )( ))')\n['()', '(())', '(()())']"
+  },
+  {
+    "id": "hep_003_unique",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of unique, write a Python function unique(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of unique",
+    "reference_doc_content": "Signature: unique(l: list)\n\nReturn sorted unique elements in a list\n>>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])\n[0, 2, 3, 5, 9, 123]"
+  },
+  {
+    "id": "evs_003_unique",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of unique, write a Python function unique(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of unique",
+    "reference_doc_content": "Signature: unique(l: list)\n\nReturn sorted unique elements in a list in descending order\n>>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])\n[123, 9, 5, 3, 2, 0]"
+  },
+  {
+    "id": "hep_004_iscube",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of iscube, write a Python function iscube(a) that does what the specification describes.",
+    "reference_doc_title": "Specification of iscube",
+    "reference_doc_content": "Signature: iscube(a)\n\nWrite a function that takes an integer a and returns True \nif this ingeger is a cube of some integer number.\nNote: you may assume the input is always valid.\nExamples:\niscube(1) ==> True\niscube(2) ==> False\niscube(-1) ==> True\niscube(64) ==> True\niscube(0) ==> True\niscube(180) ==> False"
+  },
+  {
+    "id": "evs_004_iscube",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of iscube, write a Python function iscube(a) that does what the specification describes.",
+    "reference_doc_title": "Specification of iscube",
+    "reference_doc_content": "Signature: iscube(a)\n\nWrite a function that takes an integer a and returns True \nif this integer is a cube of some positive integer number.\nNote: you may assume the input is always valid.\nExamples:\niscube(1) ==> True\niscube(2) ==> False\niscube(-1) ==> False\niscube(64) ==> True\niscube(0) ==> True\niscube(180) ==> False"
+  },
+  {
+    "id": "hep_005_anti_shuffle",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of anti_shuffle, write a Python function anti_shuffle(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of anti_shuffle",
+    "reference_doc_content": "Signature: anti_shuffle(s)\n\nWrite a function that takes a string and returns an ordered version of it.\nOrdered version of string, is a string where all words (separated by space)\nare replaced by a new word where all the characters arranged in\nascending order based on ascii value.\nNote: You should keep the order of words and blank spaces in the sentence.\n\nFor example:\nanti_shuffle('Hi') returns 'Hi'\nanti_shuffle('hello') returns 'ehllo'\nanti_shuffle('Hello World!!!') returns 'Hello !!!Wdlor'"
+  },
+  {
+    "id": "evs_005_anti_shuffle",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of anti_shuffle, write a Python function anti_shuffle(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of anti_shuffle",
+    "reference_doc_content": "Signature: anti_shuffle(s)\n\nWrite a function that takes a string and returns an ordered version of it.\nOrdered version of string, is a string where all words (separated by space)\nare replaced by a new word where all the characters arranged in\ndescending order based on ascii value.\nNote: You should keep the order of words and blank spaces in the sentence.\n\nFor example:\nanti_shuffle('Hi') returns 'iH'\nanti_shuffle('hello') returns 'ollhe'\nanti_shuffle('Hello World!!!') returns 'olleH roldW!!!'"
+  },
+  {
+    "id": "hep_006_max_element",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of max_element, write a Python function max_element(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of max_element",
+    "reference_doc_content": "Signature: max_element(l: list)\n\nReturn maximum element in the list.\n>>> max_element([1, 2, 3])\n3\n>>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n123"
+  },
+  {
+    "id": "evs_006_min_element",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of min_element, write a Python function min_element(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of min_element",
+    "reference_doc_content": "Signature: min_element(l: list)\n\nReturn minimum element in the list.\n>>> min_element([1, 2, 3])\n1\n>>> min_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n-10"
+  },
+  {
+    "id": "hep_007_strlen",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of strlen, write a Python function strlen(string: str) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of strlen",
+    "reference_doc_content": "Signature: strlen(string: str) -> int\n\nReturn length of given string\n>>> strlen('')\n0\n>>> strlen('abc')\n3"
+  },
+  {
+    "id": "evs_007_strlen",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of strlen, write a Python function strlen(string: str) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of strlen",
+    "reference_doc_content": "Signature: strlen(string: str) -> int\n\nReturn length of given string plus 1\n>>> strlen('')\n1\n>>> strlen('abc')\n4"
+  },
+  {
+    "id": "hep_008_sort_array",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of sort_array, write a Python function sort_array(array) that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_array",
+    "reference_doc_content": "Signature: sort_array(array)\n\nGiven an array of non-negative integers, return a copy of the given array after sorting,\nyou will sort the given array in ascending order if the sum( first index value, last index value) is odd,\nor sort it in descending order if the sum( first index value, last index value) is even.\n\nNote:\n* don't change the given array.\n\nExamples:\n* sort_array([]) => []\n* sort_array([5]) => [5]\n* sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]\n* sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]"
+  },
+  {
+    "id": "evs_008_sort_array",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of sort_array, write a Python function sort_array(array) that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_array",
+    "reference_doc_content": "Signature: sort_array(array)\n\nGiven an array of non-negative integers, return a copy of the given array after sorting,\nyou will sort the given array in ascending order if the sum( first index value, last index value) is odd,\nor sort it in descending order if the sum( first index value, last index value) is even.\n\nIn addition, remove any duplicate values from the array.\n\nNote:\n* don't change the given array.\n\nExamples:\n* sort_array([]) => []\n* sort_array([5]) => [5]\n* sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]\n* sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]\n* sort_array([2, 2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]"
+  },
+  {
+    "id": "evs_009_count_distinct_characters",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of count_distinct_characters, write a Python function count_distinct_characters(string: str) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of count_distinct_characters",
+    "reference_doc_content": "Signature: count_distinct_characters(string: str) -> int\n\nGiven a string, find out how many distinct characters (case-sensitive) does it consist of.\n>>> count_distinct_characters('xyzXYZ')\n6\n>>> count_distinct_characters('Jerry')\n4"
+  },
+  {
+    "id": "hep_009_count_distinct_characters",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of count_distinct_characters, write a Python function count_distinct_characters(string: str) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of count_distinct_characters",
+    "reference_doc_content": "Signature: count_distinct_characters(string: str) -> int\n\nGiven a string, find out how many distinct characters (regardless of case) does it consist of\n>>> count_distinct_characters('xyzXYZ')\n3\n>>> count_distinct_characters('Jerry')\n4"
+  },
+  {
+    "id": "evs_010_fib4",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of fib4, write a Python function fib4(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fib4",
+    "reference_doc_content": "Signature: fib4(n: int)\n\nThe Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:\nfib4(0) -> 0\nfib4(1) -> 0\nfib4(2) -> 2\nfib4(3) -> 0\nfib4(n) -> fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4).\nPlease write a function to efficiently compute the n-th element of the fib4 number sequence. Do not use recursion. Return string representation.\n>>> fib4(5)\n'4'\n>>> fib4(6)\n'8'\n>>> fib4(7)\n'14'"
+  },
+  {
+    "id": "hep_010_fib4",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of fib4, write a Python function fib4(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fib4",
+    "reference_doc_content": "Signature: fib4(n: int)\n\nThe Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:\nfib4(0) -> 0\nfib4(1) -> 0\nfib4(2) -> 2\nfib4(3) -> 0\nfib4(n) -> fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4).\nPlease write a function to efficiently compute the n-th element of the fib4 number sequence.  Do not use recursion.\n>>> fib4(5)\n4\n>>> fib4(6)\n8\n>>> fib4(7)\n14"
+  },
+  {
+    "id": "evs_011_encode",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of encode, write a Python function encode(message) that does what the specification describes.",
+    "reference_doc_title": "Specification of encode",
+    "reference_doc_content": "Signature: encode(message)\n\nWrite a function that takes a message, and encodes in such a \nway that it swaps case of all letters, replaces all vowels in \nthe message with the letter that appears 3 places ahead of that \nvowel in the english alphabet. \nAssume only letters. \n\nExamples:\n>>> encode('test')\n'THST'\n>>> encode('This is a message')\n'tHLS LS D MHSSDGH'"
+  },
+  {
+    "id": "hep_011_encode",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of encode, write a Python function encode(message) that does what the specification describes.",
+    "reference_doc_title": "Specification of encode",
+    "reference_doc_content": "Signature: encode(message)\n\nWrite a function that takes a message, and encodes in such a \nway that it swaps case of all letters, replaces all vowels in \nthe message with the letter that appears 2 places ahead of that \nvowel in the english alphabet. \nAssume only letters. \n\nExamples:\n>>> encode('test')\n'TGST'\n>>> encode('This is a message')\n'tHKS KS C MGSSCGG'"
+  },
+  {
+    "id": "hep_012_largest_prime_factor",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of largest_prime_factor, write a Python function largest_prime_factor(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of largest_prime_factor",
+    "reference_doc_content": "Signature: largest_prime_factor(n: int)\n\nReturn the largest prime factor of n. Assume n > 1 and is not a prime.\n>>> largest_prime_factor(13195)\n29\n>>> largest_prime_factor(2048)\n2"
+  },
+  {
+    "id": "evs_012_smallest_prime_factor",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of smallest_prime_factor, write a Python function smallest_prime_factor(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of smallest_prime_factor",
+    "reference_doc_content": "Signature: smallest_prime_factor(n: int)\n\nReturn the smallest prime factor of n. Assume n > 1 and is not a prime.\n>>> smallest_prime_factor(13195)\n5\n>>> smallest_prime_factor(2048)\n2"
+  },
+  {
+    "id": "hep_013_numerical_letter_grade",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of numerical_letter_grade, write a Python function numerical_letter_grade(grades) that does what the specification describes.",
+    "reference_doc_title": "Specification of numerical_letter_grade",
+    "reference_doc_content": "Signature: numerical_letter_grade(grades)\n\nIt is the last week of the semester and the teacher has to give the grades\nto students. The teacher has been making her own algorithm for grading.\nThe only problem is, she has lost the code she used for grading.\nShe has given you a list of GPAs for some students and you have to write \na function that can output a list of letter grades using the following table:\n         GPA       |    Letter grade\n          4.0                A+\n        > 3.7                A \n        > 3.3                A- \n        > 3.0                B+\n        > 2.7                B \n        > 2.3                B-\n        > 2.0                C+\n        > 1.7                C\n        > 1.3                C-\n        > 1.0                D+ \n        > 0.7                D \n        > 0.0                D-\n          0.0                E\n\n\nExample:\ngrade_equation([4.0, 3, 1.7, 2, 3.5]) ==> ['A+', 'B', 'C-', 'C', 'A-']"
+  },
+  {
+    "id": "evs_013_numerical_letter_grade",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of numerical_letter_grade, write a Python function numerical_letter_grade(grades) that does what the specification describes.",
+    "reference_doc_title": "Specification of numerical_letter_grade",
+    "reference_doc_content": "Signature: numerical_letter_grade(grades)\n\nIt is the last week of the semester and the teacher has to give the grades\nto students. The teacher has been making her own algorithm for grading.\nThe only problem is, she has lost the code she used for grading.\nShe has given you a list of GPAs for some students and you have to write \na function that can output a list of letter grades in ascending order of GPA using the following table:\n         GPA       |    Letter grade\n          4.0                A+\n        > 3.7                A \n        > 3.3                A- \n        > 3.0                B+\n        > 2.7                B \n        > 2.3                B-\n        > 2.0                C+\n        > 1.7                C\n        > 1.3                C-\n        > 1.0                D+ \n        > 0.7                D \n        > 0.0                D-\n          0.0                E\n\n\nExample:\ngrade_equation([4.0, 3, 1.7, 2, 3.5]) ==> ['C-', 'C', 'B', 'A-', 'A+']"
+  },
+  {
+    "id": "evs_014_search",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of search, write a Python function search(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of search",
+    "reference_doc_content": "Signature: search(lst)\n\nYou are given a non-empty list of positive integers. Return the smallest integer that is greater than \nzero, and has a frequency greater than or equal to the value of the integer itself. \nThe frequency of an integer is the number of times it appears in the list.\nIf no such a value exist, return -1.\nExamples:\n    search([4, 1, 2, 2, 3, 1]) == 1\n    search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 1\n    search([5, 5, 4, 4, 4]) == -1"
+  },
+  {
+    "id": "hep_014_search",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of search, write a Python function search(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of search",
+    "reference_doc_content": "Signature: search(lst)\n\nYou are given a non-empty list of positive integers. Return the greatest integer that is greater than \nzero, and has a frequency greater than or equal to the value of the integer itself. \nThe frequency of an integer is the number of times it appears in the list.\nIf no such a value exist, return -1.\nExamples:\n    search([4, 1, 2, 2, 3, 1]) == 2\n    search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3\n    search([5, 5, 4, 4, 4]) == -1"
+  },
+  {
+    "id": "evs_015_add",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of add, write a Python function add(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of add",
+    "reference_doc_content": "Signature: add(lst)\n\nGiven a non-empty list of integers lst, add the odd elements that are at even indices.\n\n\nExamples:\n    add([4, 2, 5, 7]) ==> 5"
+  },
+  {
+    "id": "hep_015_add",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of add, write a Python function add(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of add",
+    "reference_doc_content": "Signature: add(lst)\n\nGiven a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\nExamples:\n    add([4, 2, 6, 7]) ==> 2"
+  },
+  {
+    "id": "evs_016_how_many_times",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of how_many_times, write a Python function how_many_times(string: str, substring: str) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of how_many_times",
+    "reference_doc_content": "Signature: how_many_times(string: str, substring: str) -> int\n\nFind how many times a given substring can be found in the original string. Do not count overlapping cases.\n>>> how_many_times('', 'a')\n0\n>>> how_many_times('aaa', 'a')\n3\n>>> how_many_times('aaaa', 'aa')\n2"
+  },
+  {
+    "id": "hep_016_how_many_times",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of how_many_times, write a Python function how_many_times(string: str, substring: str) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of how_many_times",
+    "reference_doc_content": "Signature: how_many_times(string: str, substring: str) -> int\n\nFind how many times a given substring can be found in the original string. Count overlaping cases.\n>>> how_many_times('', 'a')\n0\n>>> how_many_times('aaa', 'a')\n3\n>>> how_many_times('aaaa', 'aa')\n3"
+  },
+  {
+    "id": "evs_017_derivative",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of derivative, write a Python function derivative(xs: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of derivative",
+    "reference_doc_content": "Signature: derivative(xs: list)\n\nxs represent coefficients of a polynomial.\nxs[0] + xs[1] * x + xs[2] * x^2 + ....\n Return derivative of this polynomial in the same form, but in descending order of the power of x.\n>>> derivative([3, 1, 2, 4, 5])\n[20, 12, 4, 1]\n>>> derivative([1, 2, 3])\n[6, 2]"
+  },
+  {
+    "id": "hep_017_derivative",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of derivative, write a Python function derivative(xs: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of derivative",
+    "reference_doc_content": "Signature: derivative(xs: list)\n\nxs represent coefficients of a polynomial.\nxs[0] + xs[1] * x + xs[2] * x^2 + ....\n Return derivative of this polynomial in the same form.\n>>> derivative([3, 1, 2, 4, 5])\n[1, 4, 12, 20]\n>>> derivative([1, 2, 3])\n[2, 6]"
+  },
+  {
+    "id": "evs_018_find_closest_elements",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of find_closest_elements, write a Python function find_closest_elements(numbers: List[float]) -> Tuple[float, float] that does what the specification describes.",
+    "reference_doc_title": "Specification of find_closest_elements",
+    "reference_doc_content": "Signature: find_closest_elements(numbers: List[float]) -> Tuple[float, float]\n\nFrom a supplied list of numbers (of length at least two) select and return two adjacent numbers that are the closest to each\nother and return them in reverse order (larger number, smaller number).\n>>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.2])\n(2.0, 1.0)\n>>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 4.5])\n(5.0, 4.5)"
+  },
+  {
+    "id": "hep_018_find_closest_elements",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of find_closest_elements, write a Python function find_closest_elements(numbers: List[float]) -> Tuple[float, float] that does what the specification describes.",
+    "reference_doc_title": "Specification of find_closest_elements",
+    "reference_doc_content": "Signature: find_closest_elements(numbers: List[float]) -> Tuple[float, float]\n\nFrom a supplied list of numbers (of length at least two) select and return two that are the closest to each\nother and return them in order (smaller number, larger number).\n>>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.2])\n(2.0, 2.2)\n>>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.0])\n(2.0, 2.0)"
+  },
+  {
+    "id": "hep_019_is_prime",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of is_prime, write a Python function is_prime(n) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_prime",
+    "reference_doc_content": "Signature: is_prime(n)\n\nReturn true if a given number is prime, and false otherwise.\n>>> is_prime(6)\nFalse\n>>> is_prime(101)\nTrue\n>>> is_prime(11)\nTrue\n>>> is_prime(13441)\nTrue\n>>> is_prime(61)\nTrue\n>>> is_prime(4)\nFalse\n>>> is_prime(1)\nFalse"
+  },
+  {
+    "id": "evs_019_is_prime",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of is_prime, write a Python function is_prime(n) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_prime",
+    "reference_doc_content": "Signature: is_prime(n)\n\nReturn true if a given number is prime, and false otherwise. If the number is less than 2, return 'Invalid Input'.\n>>> is_prime(6)\nFalse\n>>> is_prime(101)\nTrue\n>>> is_prime(11)\nTrue\n>>> is_prime(13441)\nTrue\n>>> is_prime(61)\nTrue\n>>> is_prime(4)\nFalse\n>>> is_prime(1)\n'Invalid Input'"
+  },
+  {
+    "id": "hep_020_intersperse",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of intersperse, write a Python function intersperse(numbers: List[int], delimeter: int) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of intersperse",
+    "reference_doc_content": "Signature: intersperse(numbers: List[int], delimeter: int) -> List[int]\n\nInsert a number 'delimeter' between every two consecutive elements of input list `numbers'\n>>> intersperse([], 4)\n[]\n>>> intersperse([1, 2, 3], 4)\n[1, 4, 2, 4, 3]"
+  },
+  {
+    "id": "evs_020_intersperse",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of intersperse, write a Python function intersperse(numbers: List[int], delimeter: int) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of intersperse",
+    "reference_doc_content": "Signature: intersperse(numbers: List[int], delimeter: int) -> List[int]\n\nInsert a number 'delimeter' between every two consecutive elements of input list `numbers' and add 'delimeter' at the end of the list\n>>> intersperse([], 4)\n[4]\n>>> intersperse([1, 2, 3], 4)\n[1, 4, 2, 4, 3, 4]"
+  },
+  {
+    "id": "evs_021_correct_bracketing",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of correct_bracketing, write a Python function correct_bracketing(brackets: str) that does what the specification describes.",
+    "reference_doc_title": "Specification of correct_bracketing",
+    "reference_doc_content": "Signature: correct_bracketing(brackets: str)\n\nbrackets is a string of \"[\" and \"]\".\nreturn True if every opening bracket has a corresponding closing bracket.\n\n>>> correct_bracketing(\"[\")\nFalse\n>>> correct_bracketing(\"[]\")\nTrue\n>>> correct_bracketing(\"[[][]]\")\nTrue\n>>> correct_bracketing(\"][][\")\nFalse"
+  },
+  {
+    "id": "hep_021_correct_bracketing",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of correct_bracketing, write a Python function correct_bracketing(brackets: str) that does what the specification describes.",
+    "reference_doc_title": "Specification of correct_bracketing",
+    "reference_doc_content": "Signature: correct_bracketing(brackets: str)\n\nbrackets is a string of \"(\" and \")\".\nreturn True if every opening bracket has a corresponding closing bracket.\n\n>>> correct_bracketing(\"(\")\nFalse\n>>> correct_bracketing(\"()\")\nTrue\n>>> correct_bracketing(\"(()())\")\nTrue\n>>> correct_bracketing(\")(()\")\nFalse"
+  },
+  {
+    "id": "hep_022_common",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of common, write a Python function common(l1: list, l2: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of common",
+    "reference_doc_content": "Signature: common(l1: list, l2: list)\n\nReturn sorted unique common elements for two lists.\n>>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])\n[1, 5, 653]\n>>> common([5, 3, 2, 8], [3, 2])\n[2, 3]"
+  },
+  {
+    "id": "evs_022_common",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of common, write a Python function common(l1: list, l2: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of common",
+    "reference_doc_content": "Signature: common(l1: list, l2: list)\n\nReturn sorted unique common elements for two lists in descending order.\n>>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])\n[653, 5, 1]\n>>> common([5, 3, 2, 8], [3, 2])\n[3, 2]"
+  },
+  {
+    "id": "evs_023_sum_to_n",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of sum_to_n, write a Python function sum_to_n(n: int, m: int = 1) that does what the specification describes.",
+    "reference_doc_title": "Specification of sum_to_n",
+    "reference_doc_content": "Signature: sum_to_n(n: int, m: int = 1)\n\nsum_to_n is a function that sums numbers from m to n.\n>>> sum_to_n(30, 10)\n420\n>>> sum_to_n(100, 50)\n3825\n>>> sum_to_n(5, 2)\n14\n>>> sum_to_n(10, 5)\n45\n>>> sum_to_n(1, 1)\n1"
+  },
+  {
+    "id": "hep_023_sum_to_n",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of sum_to_n, write a Python function sum_to_n(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of sum_to_n",
+    "reference_doc_content": "Signature: sum_to_n(n: int)\n\nsum_to_n is a function that sums numbers from 1 to n.\n>>> sum_to_n(30)\n465\n>>> sum_to_n(100)\n5050\n>>> sum_to_n(5)\n15\n>>> sum_to_n(10)\n55\n>>> sum_to_n(1)\n1"
+  },
+  {
+    "id": "evs_024_is_palindrome",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of is_palindrome, write a Python function is_palindrome(text: str, case_sensitive: bool = True) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_palindrome",
+    "reference_doc_content": "Signature: is_palindrome(text: str, case_sensitive: bool = True)\n\nChecks if given string is a palindrome considering case sensitivity according to the provided parameter\n>>> is_palindrome('', True)\nTrue\n>>> is_palindrome('aba', True)\nTrue\n>>> is_palindrome('Aba', False)\nTrue\n>>> is_palindrome('aaaaa', True)\nTrue\n>>> is_palindrome('zbcd', True)\nFalse"
+  },
+  {
+    "id": "hep_024_is_palindrome",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of is_palindrome, write a Python function is_palindrome(text: str) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_palindrome",
+    "reference_doc_content": "Signature: is_palindrome(text: str)\n\nChecks if given string is a palindrome\n>>> is_palindrome('')\nTrue\n>>> is_palindrome('aba')\nTrue\n>>> is_palindrome('aaaaa')\nTrue\n>>> is_palindrome('zbcd')\nFalse"
+  },
+  {
+    "id": "evs_025_decimal_to_binary",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of decimal_to_binary, write a Python function decimal_to_binary(decimal) that does what the specification describes.",
+    "reference_doc_title": "Specification of decimal_to_binary",
+    "reference_doc_content": "Signature: decimal_to_binary(decimal)\n\nYou will be given a number in decimal form and your task is to convert it to\nbinary format. The function should return a string, with each character representing a binary\nnumber. Each character in the string will be '0' or '1'.\n\nThere will be an extra couple of characters 'db' at the beginning and 'bd' at the end of the string.\nThe extra characters are there to help with the format.\n\nExamples:\ndecimal_to_binary(15)   # returns \"db1111bd\"\ndecimal_to_binary(32)   # returns \"db100000bd\""
+  },
+  {
+    "id": "hep_025_decimal_to_binary",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of decimal_to_binary, write a Python function decimal_to_binary(decimal) that does what the specification describes.",
+    "reference_doc_title": "Specification of decimal_to_binary",
+    "reference_doc_content": "Signature: decimal_to_binary(decimal)\n\nYou will be given a number in decimal form and your task is to convert it to\nbinary format. The function should return a string, with each character representing a binary\nnumber. Each character in the string will be '0' or '1'.\n\nThere will be an extra couple of characters 'db' at the beginning and at the end of the string.\nThe extra characters are there to help with the format.\n\nExamples:\ndecimal_to_binary(15)   # returns \"db1111db\"\ndecimal_to_binary(32)   # returns \"db100000db\""
+  },
+  {
+    "id": "hep_026_triples_sum_to_zero",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of triples_sum_to_zero, write a Python function triples_sum_to_zero(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of triples_sum_to_zero",
+    "reference_doc_content": "Signature: triples_sum_to_zero(l: list)\n\ntriples_sum_to_zero takes a list of integers as an input.\nit returns True if there are three distinct elements in the list that\nsum to zero, and False otherwise.\n\n>>> triples_sum_to_zero([1, 3, 5, 0])\nFalse\n>>> triples_sum_to_zero([1, 3, -2, 1])\nTrue\n>>> triples_sum_to_zero([1, 2, 3, 7])\nFalse\n>>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])\nTrue\n>>> triples_sum_to_zero([1])\nFalse"
+  },
+  {
+    "id": "evs_026_triples_sum_to_ten",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of triples_sum_to_ten, write a Python function triples_sum_to_ten(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of triples_sum_to_ten",
+    "reference_doc_content": "Signature: triples_sum_to_ten(l: list)\n\ntriples_sum_to_ten takes a list of integers as an input.\nit returns True if there are three distinct elements in the list that\nsum to ten, and False otherwise.\n\n>>> triples_sum_to_ten([1, 3, 5, 0])\nFalse\n>>> triples_sum_to_ten([1, 3, -2, 1])\nFalse\n>>> triples_sum_to_ten([1, 2, 3, 7])\nTrue\n>>> triples_sum_to_ten([2, 4, -5, 3, 9, 7])\nFalse\n>>> triples_sum_to_ten([1])\nFalse"
+  },
+  {
+    "id": "evs_027_flip_case",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of flip_case, write a Python function flip_case(string: str, exclusive_case: str = 'lower') -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of flip_case",
+    "reference_doc_content": "Signature: flip_case(string: str, exclusive_case: str = 'lower') -> str\n\nFor a given string, flip lowercase characters to uppercase and uppercase to lowercase, unless they are in exclusive_case which can be either 'lower' or 'upper'.\nIf exclusive_case is 'lower', lowercase letters will remain as they are.\nIf exclusive_case is 'upper', uppercase letters will remain as they are.\n>>> flip_case('Hello', 'lower')\n'hello'"
+  },
+  {
+    "id": "hep_027_flip_case",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of flip_case, write a Python function flip_case(string: str) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of flip_case",
+    "reference_doc_content": "Signature: flip_case(string: str) -> str\n\nFor a given string, flip lowercase characters to uppercase and uppercase to lowercase.\n>>> flip_case('Hello')\n'hELLO'"
+  },
+  {
+    "id": "evs_028_rolling_min",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of rolling_min, write a Python function rolling_min(numbers: List[int]) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of rolling_min",
+    "reference_doc_content": "Signature: rolling_min(numbers: List[int]) -> List[int]\n\nFrom a given list of integers, generate a list of rolling minimum element found until given moment\nin the sequence.\n>>> rolling_min([1, 2, 3, 2, 3, 4, 2])\n[1, 1, 1, 1, 1, 1, 1]"
+  },
+  {
+    "id": "hep_028_rolling_max",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of rolling_max, write a Python function rolling_max(numbers: List[int]) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of rolling_max",
+    "reference_doc_content": "Signature: rolling_max(numbers: List[int]) -> List[int]\n\nFrom a given list of integers, generate a list of rolling maximum element found until given moment\nin the sequence.\n>>> rolling_max([1, 2, 3, 2, 3, 4, 2])\n[1, 2, 3, 3, 3, 4, 4]"
+  },
+  {
+    "id": "evs_029_monotonic",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of monotonic, write a Python function monotonic(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of monotonic",
+    "reference_doc_content": "Signature: monotonic(l: list)\n\nReturn True if list elements are monotonically increasing or decreasing. If the list is empty, return False.\n>>> monotonic([1, 2, 4, 20])\nTrue\n>>> monotonic([1, 20, 4, 10])\nFalse\n>>> monotonic([4, 1, 0, -10])\nTrue\n>>> monotonic([])\nFalse"
+  },
+  {
+    "id": "hep_029_monotonic",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of monotonic, write a Python function monotonic(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of monotonic",
+    "reference_doc_content": "Signature: monotonic(l: list)\n\nReturn True is list elements are monotonically increasing or decreasing.\n>>> monotonic([1, 2, 4, 20])\nTrue\n>>> monotonic([1, 20, 4, 10])\nFalse\n>>> monotonic([4, 1, 0, -10])\nTrue"
+  },
+  {
+    "id": "evs_030_string_xor",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of string_xor, write a Python function string_xor(a: str, b: str) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of string_xor",
+    "reference_doc_content": "Signature: string_xor(a: str, b: str) -> str\n\nInput are two strings a and b consisting only of 1s and 0s.\nPerform binary XOR on these inputs and return result also as a string but reversed.\n>>> string_xor('010', '110')\n'001'"
+  },
+  {
+    "id": "hep_030_string_xor",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of string_xor, write a Python function string_xor(a: str, b: str) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of string_xor",
+    "reference_doc_content": "Signature: string_xor(a: str, b: str) -> str\n\nInput are two strings a and b consisting only of 1s and 0s.\nPerform binary XOR on these inputs and return result also as a string.\n>>> string_xor('010', '110')\n'100'"
+  },
+  {
+    "id": "evs_031_count_upper",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of count_upper, write a Python function count_upper(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of count_upper",
+    "reference_doc_content": "Signature: count_upper(s)\n\nGiven a string s, count the number of uppercase vowels in odd indices.\n\nFor example:\ncount_upper('aBCdEf') returns 0\ncount_upper('abcdefg') returns 0\ncount_upper('dBBE') returns 1"
+  },
+  {
+    "id": "hep_031_count_upper",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of count_upper, write a Python function count_upper(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of count_upper",
+    "reference_doc_content": "Signature: count_upper(s)\n\nGiven a string s, count the number of uppercase vowels in even indices.\n\nFor example:\ncount_upper('aBCdEf') returns 1\ncount_upper('abcdefg') returns 0\ncount_upper('dBBE') returns 0"
+  },
+  {
+    "id": "hep_032_fizz_buzz",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of fizz_buzz, write a Python function fizz_buzz(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fizz_buzz",
+    "reference_doc_content": "Signature: fizz_buzz(n: int)\n\nReturn the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.\n>>> fizz_buzz(50)\n0\n>>> fizz_buzz(78)\n2\n>>> fizz_buzz(79)\n3"
+  },
+  {
+    "id": "evs_032_fizz_buzz",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of fizz_buzz, write a Python function fizz_buzz(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fizz_buzz",
+    "reference_doc_content": "Signature: fizz_buzz(n: int)\n\nReturn the number of times the digit 8 appears in integers less than n which are divisible by 11 or 13.\n>>> fizz_buzz(50)\n0\n>>> fizz_buzz(78)\n0\n>>> fizz_buzz(79)\n1"
+  },
+  {
+    "id": "evs_033_parse_music",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of parse_music, write a Python function parse_music(music_string: str) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of parse_music",
+    "reference_doc_content": "Signature: parse_music(music_string: str) -> List[int]\n\nInput to this function is a string representing musical notes in a special ASCII format.\nYour task is to parse this string and return a list of unique integers corresponding to how many beats does each\nnote last. Return the list in descending order.\n\nHere is a legend:\n'o' - whole note, lasts four beats\n'o|' - half note, lasts two beats\n'.|' - quater note, lasts one beat\n\n>>> parse_music('o o| .| o| o| .| .| .| .| o o')\n[4, 2, 1]"
+  },
+  {
+    "id": "hep_033_parse_music",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of parse_music, write a Python function parse_music(music_string: str) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of parse_music",
+    "reference_doc_content": "Signature: parse_music(music_string: str) -> List[int]\n\nInput to this function is a string representing musical notes in a special ASCII format.\nYour task is to parse this string and return list of integers corresponding to how many beats does each\nnot last.\n\nHere is a legend:\n'o' - whole note, lasts four beats\n'o|' - half note, lasts two beats\n'.|' - quater note, lasts one beat\n\n>>> parse_music('o o| .| o| o| .| .| .| .| o o')\n[4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]"
+  },
+  {
+    "id": "hep_034_sum_product",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of sum_product, write a Python function sum_product(numbers: List[int]) -> Tuple[int, int] that does what the specification describes.",
+    "reference_doc_title": "Specification of sum_product",
+    "reference_doc_content": "Signature: sum_product(numbers: List[int]) -> Tuple[int, int]\n\nFor a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.\nEmpty sum should be equal to 0 and empty product should be equal to 1.\n>>> sum_product([])\n(0, 1)\n>>> sum_product([1, 2, 3, 4])\n(10, 24)"
+  },
+  {
+    "id": "evs_034_sum_product",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of sum_product, write a Python function sum_product(numbers: List[int]) -> Tuple[int, int] that does what the specification describes.",
+    "reference_doc_title": "Specification of sum_product",
+    "reference_doc_content": "Signature: sum_product(numbers: List[int]) -> Tuple[int, int]\n\nFor a given list of integers, return a tuple consisting of a sum and a product of all the non-negative integers in a list.\nEmpty sum should be equal to 0 and empty product should be equal to 1.\n>>> sum_product([])\n(0, 1)\n>>> sum_product([1, 2, 3, 4])\n(10, 24)"
+  },
+  {
+    "id": "evs_035_circular_shift",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of circular_shift, write a Python function circular_shift(x, shift) that does what the specification describes.",
+    "reference_doc_title": "Specification of circular_shift",
+    "reference_doc_content": "Signature: circular_shift(x, shift)\n\nCircular shift the digits of the integer x, shift the digits left by shift\nand return the result as a string.\nIf shift > number of digits, return digits reversed.\n>>> circular_shift(21, 1)\n\"12\"\n>>> circular_shift(21, 2)\n\"21\""
+  },
+  {
+    "id": "hep_035_circular_shift",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of circular_shift, write a Python function circular_shift(x, shift) that does what the specification describes.",
+    "reference_doc_title": "Specification of circular_shift",
+    "reference_doc_content": "Signature: circular_shift(x, shift)\n\nCircular shift the digits of the integer x, shift the digits right by shift\nand return the result as a string.\nIf shift > number of digits, return digits reversed.\n>>> circular_shift(12, 1)\n\"21\"\n>>> circular_shift(12, 2)\n\"12\""
+  },
+  {
+    "id": "evs_036_will_it_fly",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of will_it_fly, write a Python function will_it_fly(q,w) that does what the specification describes.",
+    "reference_doc_title": "Specification of will_it_fly",
+    "reference_doc_content": "Signature: will_it_fly(q,w)\n\nWrite a function that returns True if the object q will fly, and False otherwise.\nThe object q will fly if it's balanced (it is a palindromic list), the sum of its elements is an even number and is less than or equal the maximum possible weight w.\n\nExample:\nwill_it_fly([1, 2], 5) ➞ False \n# 1+2 is less than the maximum possible weight, but it's unbalanced.\n\nwill_it_fly([3, 2, 3], 1) ➞ False\n# it's balanced, but 3+2+3 is more than the maximum possible weight.\n\nwill_it_fly([3, 2, 3], 9) ➞ True\n# 3+2+3 is less than the maximum possible weight, and it's balanced.\n\nwill_it_fly([3], 5) ➞ False\n# 3 is less than the maximum possible weight, and it's balanced, but the sum 3 is odd."
+  },
+  {
+    "id": "hep_036_will_it_fly",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of will_it_fly, write a Python function will_it_fly(q,w) that does what the specification describes.",
+    "reference_doc_title": "Specification of will_it_fly",
+    "reference_doc_content": "Signature: will_it_fly(q,w)\n\nWrite a function that returns True if the object q will fly, and False otherwise.\nThe object q will fly if it's balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.\n\nExample:\nwill_it_fly([1, 2], 5) ➞ False \n# 1+2 is less than the maximum possible weight, but it's unbalanced.\n\nwill_it_fly([3, 2, 3], 1) ➞ False\n# it's balanced, but 3+2+3 is more than the maximum possible weight.\n\nwill_it_fly([3, 2, 3], 9) ➞ True\n# 3+2+3 is less than the maximum possible weight, and it's balanced.\n\nwill_it_fly([3], 5) ➞ True\n# 3 is less than the maximum possible weight, and it's balanced."
+  },
+  {
+    "id": "evs_037_car_race_collision",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of car_race_collision, write a Python function car_race_collision(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of car_race_collision",
+    "reference_doc_content": "Signature: car_race_collision(n: int)\n\nImagine a road that's a perfectly straight infinitely long line.\nn cars are driving left to right;  simultaneously, a different set of 2*n cars\nare driving right to left.   The two sets of cars start out being very far from\neach other.  All cars move in the same speed.  Two cars are said to collide\nwhen a car that's moving left to right hits a car that's moving right to left.\nHowever, the cars are infinitely sturdy and strong; as a result, they continue moving\nin their trajectory as if they did not collide.\n\nThis function outputs the number of such collisions."
+  },
+  {
+    "id": "hep_037_car_race_collision",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of car_race_collision, write a Python function car_race_collision(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of car_race_collision",
+    "reference_doc_content": "Signature: car_race_collision(n: int)\n\nImagine a road that's a perfectly straight infinitely long line.\nn cars are driving left to right;  simultaneously, a different set of n cars\nare driving right to left.   The two sets of cars start out being very far from\neach other.  All cars move in the same speed.  Two cars are said to collide\nwhen a car that's moving left to right hits a car that's moving right to left.\nHowever, the cars are infinitely sturdy and strong; as a result, they continue moving\nin their trajectory as if they did not collide.\n\nThis function outputs the number of such collisions."
+  },
+  {
+    "id": "hep_038_get_positive",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of get_positive, write a Python function get_positive(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of get_positive",
+    "reference_doc_content": "Signature: get_positive(l: list)\n\nReturn only positive numbers in the list.\n>>> get_positive([-1, 2, -4, 5, 6])\n[2, 5, 6]\n>>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n[5, 3, 2, 3, 9, 123, 1]"
+  },
+  {
+    "id": "evs_038_get_positive",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of get_positive, write a Python function get_positive(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of get_positive",
+    "reference_doc_content": "Signature: get_positive(l: list)\n\nReturn only positive numbers in the list in ascending order.\n>>> get_positive([-1, 2, -4, 5, 6])\n[2, 5, 6]\n>>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n[1, 2, 3, 3, 5, 9, 123]"
+  },
+  {
+    "id": "hep_039_triangle_area",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of triangle_area, write a Python function triangle_area(a, h) that does what the specification describes.",
+    "reference_doc_title": "Specification of triangle_area",
+    "reference_doc_content": "Signature: triangle_area(a, h)\n\nGiven length of a side and high return area for a triangle.\n>>> triangle_area(5, 3)\n7.5"
+  },
+  {
+    "id": "evs_039_triangle_perimeter",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of triangle_perimeter, write a Python function triangle_perimeter(a, b, c) that does what the specification describes.",
+    "reference_doc_title": "Specification of triangle_perimeter",
+    "reference_doc_content": "Signature: triangle_perimeter(a, b, c)\n\nGiven length of three sides return perimeter for a triangle.\n>>> triangle_perimeter(5, 3, 3)\n11"
+  },
+  {
+    "id": "evs_040_concatenate",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of concatenate, write a Python function concatenate(strings: List[str]) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of concatenate",
+    "reference_doc_content": "Signature: concatenate(strings: List[str]) -> str\n\nConcatenate list of strings into a single string, separated by a comma.\n>>> concatenate([])\n''\n>>> concatenate(['a', 'b', 'c'])\n'a,b,c'"
+  },
+  {
+    "id": "hep_040_concatenate",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of concatenate, write a Python function concatenate(strings: List[str]) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of concatenate",
+    "reference_doc_content": "Signature: concatenate(strings: List[str]) -> str\n\nConcatenate list of strings into a single string\n>>> concatenate([])\n''\n>>> concatenate(['a', 'b', 'c'])\n'abc'"
+  },
+  {
+    "id": "evs_041_is_bored",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of is_bored, write a Python function is_bored(S) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_bored",
+    "reference_doc_content": "Signature: is_bored(S)\n\nYou'll be given a string of words, and your task is to count the number\nof boredoms. A boredom is a sentence that starts with the word \"I\" and ends with the word \"boredom\".\nSentences are delimited by '.', '?' or '!'.\n\nFor example:\n>>> is_bored(\"Hello world\")\n0\n>>> is_bored(\"The sky is blue. The sun is shining. I am experiencing boredom\")\n1"
+  },
+  {
+    "id": "hep_041_is_bored",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of is_bored, write a Python function is_bored(S) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_bored",
+    "reference_doc_content": "Signature: is_bored(S)\n\nYou'll be given a string of words, and your task is to count the number\nof boredoms. A boredom is a sentence that starts with the word \"I\".\nSentences are delimited by '.', '?' or '!'.\n\nFor example:\n>>> is_bored(\"Hello world\")\n0\n>>> is_bored(\"The sky is blue. The sun is shining. I love this weather\")\n1"
+  },
+  {
+    "id": "evs_042_filter_by_substring",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of filter_by_substring, write a Python function filter_by_substring(strings: List[str], substring: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of filter_by_substring",
+    "reference_doc_content": "Signature: filter_by_substring(strings: List[str], substring: str) -> List[str]\n\nFilter an input list of strings only for ones that do not contain given substring\n>>> filter_by_substring([], 'a')\n[]\n>>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')\n['cde']"
+  },
+  {
+    "id": "hep_042_filter_by_substring",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of filter_by_substring, write a Python function filter_by_substring(strings: List[str], substring: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of filter_by_substring",
+    "reference_doc_content": "Signature: filter_by_substring(strings: List[str], substring: str) -> List[str]\n\nFilter an input list of strings only for ones that contain given substring\n>>> filter_by_substring([], 'a')\n[]\n>>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')\n['abc', 'bacd', 'array']"
+  },
+  {
+    "id": "hep_043_string_sequence",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of string_sequence, write a Python function string_sequence(n: int) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of string_sequence",
+    "reference_doc_content": "Signature: string_sequence(n: int) -> str\n\nReturn a string containing space-delimited numbers starting from 0 upto n inclusive.\n>>> string_sequence(0)\n'0'\n>>> string_sequence(5)\n'0 1 2 3 4 5'"
+  },
+  {
+    "id": "evs_043_string_sequence",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of string_sequence, write a Python function string_sequence(n: int) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of string_sequence",
+    "reference_doc_content": "Signature: string_sequence(n: int) -> str\n\nReturn a string containing space-delimited numbers starting from 1 upto n inclusive.\n>>> string_sequence(1)\n'1'\n>>> string_sequence(5)\n'1 2 3 4 5'"
+  },
+  {
+    "id": "evs_044_check_dict_case",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of check_dict_case, write a Python function check_dict_case(dict) that does what the specification describes.",
+    "reference_doc_title": "Specification of check_dict_case",
+    "reference_doc_content": "Signature: check_dict_case(dict)\n\nGiven a dictionary, return True if all keys are strings in lower \ncase or all keys are strings in upper case, else return False.\nThe function should return False is the given dictionary is empty or the number of keys is less than 3.\nExamples:\ncheck_dict_case({\"a\":\"apple\", \"b\":\"banana\"}) should return False because it has less than 3 keys.\ncheck_dict_case({\"a\":\"apple\", \"A\":\"banana\", \"B\":\"banana\"}) should return False.\ncheck_dict_case({\"a\":\"apple\", 8:\"banana\", \"a\":\"apple\"}) should return False.\ncheck_dict_case({\"Name\":\"John\", \"Age\":\"36\", \"City\":\"Houston\"}) should return False.\ncheck_dict_case({\"STATE\":\"NC\", \"ZIP\":\"12345\", \"CITY\": \"New York\" }) should return True."
+  },
+  {
+    "id": "hep_044_check_dict_case",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of check_dict_case, write a Python function check_dict_case(dict) that does what the specification describes.",
+    "reference_doc_title": "Specification of check_dict_case",
+    "reference_doc_content": "Signature: check_dict_case(dict)\n\nGiven a dictionary, return True if all keys are strings in lower \ncase or all keys are strings in upper case, else return False.\nThe function should return False is the given dictionary is empty.\nExamples:\ncheck_dict_case({\"a\":\"apple\", \"b\":\"banana\"}) should return True.\ncheck_dict_case({\"a\":\"apple\", \"A\":\"banana\", \"B\":\"banana\"}) should return False.\ncheck_dict_case({\"a\":\"apple\", 8:\"banana\", \"a\":\"apple\"}) should return False.\ncheck_dict_case({\"Name\":\"John\", \"Age\":\"36\", \"City\":\"Houston\"}) should return False.\ncheck_dict_case({\"STATE\":\"NC\", \"ZIP\":\"12345\" }) should return True."
+  },
+  {
+    "id": "evs_045_fib",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of fib, write a Python function fib(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fib",
+    "reference_doc_content": "Signature: fib(n: int)\n\nReturn (n+1)-th Fibonacci number.\n>>> fib(10)\n89\n>>> fib(1)\n1\n>>> fib(8)\n34"
+  },
+  {
+    "id": "hep_045_fib",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of fib, write a Python function fib(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fib",
+    "reference_doc_content": "Signature: fib(n: int)\n\nReturn n-th Fibonacci number.\n>>> fib(10)\n55\n>>> fib(1)\n1\n>>> fib(8)\n21"
+  },
+  {
+    "id": "hep_046_encrypt",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of encrypt, write a Python function encrypt(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of encrypt",
+    "reference_doc_content": "Signature: encrypt(s)\n\nCreate a function encrypt that takes a string as an argument and\nreturns a string encrypted with the alphabet being rotated. \nThe alphabet should be rotated in a manner such that the letters \nshift down by two multiplied to two places.\nFor example:\nencrypt('hi') returns 'lm'\nencrypt('asdfghjkl') returns 'ewhjklnop'\nencrypt('gf') returns 'kj'\nencrypt('et') returns 'ix'"
+  },
+  {
+    "id": "evs_046_encrypt",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of encrypt, write a Python function encrypt(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of encrypt",
+    "reference_doc_content": "Signature: encrypt(s)\n\nCreate a function encrypt that takes a string as an argument and\nreturns a string encrypted with the alphabet being rotated. \nThe alphabet should be rotated in a manner such that the letters \nshift up by two multiplied to two places.\nFor example:\nencrypt('lm') returns 'hi'\nencrypt('ewhjklnop') returns 'asdfghjkl'\nencrypt('kj') returns 'gf'\nencrypt('ix') returns 'et'"
+  },
+  {
+    "id": "hep_047_any_int",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of any_int, write a Python function any_int(x, y, z) that does what the specification describes.",
+    "reference_doc_title": "Specification of any_int",
+    "reference_doc_content": "Signature: any_int(x, y, z)\n\nCreate a function that takes 3 numbers.\nReturns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.\nReturns false in any other cases.\n\nExamples\nany_int(5, 2, 7) ➞ True\n\nany_int(3, 2, 2) ➞ False\n\nany_int(3, -2, 1) ➞ True\n\nany_int(3.6, -2.2, 2) ➞ False"
+  },
+  {
+    "id": "evs_047_any_int",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of any_int, write a Python function any_int(x, y, z) that does what the specification describes.",
+    "reference_doc_title": "Specification of any_int",
+    "reference_doc_content": "Signature: any_int(x, y, z)\n\nCreate a function that takes 3 numbers.\nReturns true if one of the numbers is equal to the sum of the absolute values of other two, and all numbers are integers.\nReturns false in any other cases.\n\nExamples\nany_int(5, 2, 7) ➞ True\n\nany_int(3, 2, 2) ➞ False\n\nany_int(3, -2, 1) ➞ True\n\nany_int(3.6, -2.2, 2) ➞ False"
+  },
+  {
+    "id": "evs_048_closest_integer",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of closest_integer, write a Python function closest_integer(value) that does what the specification describes.",
+    "reference_doc_title": "Specification of closest_integer",
+    "reference_doc_content": "Signature: closest_integer(value)\n\nCreate a function that takes a value (string) representing a number\nand returns the closest integer to it. If the number is equidistant\nfrom two integers, round it towards zero.\n\nExamples\n>>> closest_integer(\"10\")\n10\n>>> closest_integer(\"15.3\")\n15\n\nNote:\nRounding towards zero means that if the given number is equidistant\nfrom two integers, the one you should return is the one that is the\nclosest to zero. For example closest_integer(\"14.5\") should\nreturn 14 and closest_integer(\"-14.5\") should return -14."
+  },
+  {
+    "id": "hep_048_closest_integer",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of closest_integer, write a Python function closest_integer(value) that does what the specification describes.",
+    "reference_doc_title": "Specification of closest_integer",
+    "reference_doc_content": "Signature: closest_integer(value)\n\nCreate a function that takes a value (string) representing a number\nand returns the closest integer to it. If the number is equidistant\nfrom two integers, round it away from zero.\n\nExamples\n>>> closest_integer(\"10\")\n10\n>>> closest_integer(\"15.3\")\n15\n\nNote:\nRounding away from zero means that if the given number is equidistant\nfrom two integers, the one you should return is the one that is the\nfarthest from zero. For example closest_integer(\"14.5\") should\nreturn 15 and closest_integer(\"-14.5\") should return -15."
+  },
+  {
+    "id": "evs_049_is_happy",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of is_happy, write a Python function is_happy(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_happy",
+    "reference_doc_content": "Signature: is_happy(s)\n\nYou are given a string s.\nYour task is to check if the string is happy or not.\nA string is happy if its length is at least 4 and every 4 consecutive letters are distinct\nFor example:\nis_happy(a) => False\nis_happy(aa) => False\nis_happy(abcd) => True\nis_happy(aabb) => False\nis_happy(adbc) => True\nis_happy(xyyx) => False"
+  },
+  {
+    "id": "hep_049_is_happy",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of is_happy, write a Python function is_happy(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_happy",
+    "reference_doc_content": "Signature: is_happy(s)\n\nYou are given a string s.\nYour task is to check if the string is happy or not.\nA string is happy if its length is at least 3 and every 3 consecutive letters are distinct\nFor example:\nis_happy(a) => False\nis_happy(aa) => False\nis_happy(abcd) => True\nis_happy(aabb) => False\nis_happy(adb) => True\nis_happy(xyy) => False"
+  },
+  {
+    "id": "evs_050_add",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of add, write a Python function add(x: int, y: int) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of add",
+    "reference_doc_content": "Signature: add(x: int, y: int) -> int\n\nAdd two numbers x and y and return the result increased by 1\n>>> add(2, 3)\n6\n>>> add(5, 7)\n13"
+  },
+  {
+    "id": "hep_050_add",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of add, write a Python function add(x: int, y: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of add",
+    "reference_doc_content": "Signature: add(x: int, y: int)\n\nAdd two numbers x and y\n>>> add(2, 3)\n5\n>>> add(5, 7)\n12"
+  },
+  {
+    "id": "evs_051_same_chars",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of same_chars, write a Python function same_chars(s0: str, s1: str) that does what the specification describes.",
+    "reference_doc_title": "Specification of same_chars",
+    "reference_doc_content": "Signature: same_chars(s0: str, s1: str)\n\nCheck if two words have the same characters and the same length.\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')\nFalse\n>>> same_chars('aaaaaaabcd', 'dddddddabc')\nTrue\n>>> same_chars('dddddddabc', 'abcd')\nFalse\n>>> same_chars('eabcd', 'ddabc')\nFalse"
+  },
+  {
+    "id": "hep_051_same_chars",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of same_chars, write a Python function same_chars(s0: str, s1: str) that does what the specification describes.",
+    "reference_doc_title": "Specification of same_chars",
+    "reference_doc_content": "Signature: same_chars(s0: str, s1: str)\n\nCheck if two words have the same characters.\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')\nTrue\n>>> same_chars('abcd', 'dddddddabc')\nTrue\n>>> same_chars('dddddddabc', 'abcd')\nTrue\n>>> same_chars('eabcd', 'dddddddabc')\nFalse\n>>> same_chars('abcd', 'dddddddabce')\nFalse\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')\nFalse"
+  },
+  {
+    "id": "evs_052_prime_length",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of prime_length, write a Python function prime_length(string) that does what the specification describes.",
+    "reference_doc_title": "Specification of prime_length",
+    "reference_doc_content": "Signature: prime_length(string)\n\nWrite a function that takes a string and returns True if the string\nlength is a prime number or False otherwise. The function should ignore white spaces in the string length calculation.\nExamples\nprime_length('Hello') == True\nprime_length(' a b c d c b a ') == True\nprime_length('kittens') == True\nprime_length('orange') == False"
+  },
+  {
+    "id": "hep_052_prime_length",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of prime_length, write a Python function prime_length(string) that does what the specification describes.",
+    "reference_doc_title": "Specification of prime_length",
+    "reference_doc_content": "Signature: prime_length(string)\n\nWrite a function that takes a string and returns True if the string\nlength is a prime number or False otherwise\nExamples\nprime_length('Hello') == True\nprime_length('abcdcba') == True\nprime_length('kittens') == True\nprime_length('orange') == False"
+  },
+  {
+    "id": "evs_053_prime_fib",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of prime_fib, write a Python function prime_fib(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of prime_fib",
+    "reference_doc_content": "Signature: prime_fib(n: int)\n\nprime_fib returns n-th number that is a Fibonacci number and it's also prime. If the number is even, return None.\n>>> prime_fib(1)\nNone\n>>> prime_fib(2)\n3\n>>> prime_fib(3)\n5\n>>> prime_fib(4)\n13\n>>> prime_fib(5)\n89"
+  },
+  {
+    "id": "hep_053_prime_fib",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of prime_fib, write a Python function prime_fib(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of prime_fib",
+    "reference_doc_content": "Signature: prime_fib(n: int)\n\nprime_fib returns n-th number that is a Fibonacci number and it's also prime.\n>>> prime_fib(1)\n2\n>>> prime_fib(2)\n3\n>>> prime_fib(3)\n5\n>>> prime_fib(4)\n13\n>>> prime_fib(5)\n89"
+  },
+  {
+    "id": "evs_054_strange_sort_list",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of strange_sort_list, write a Python function strange_sort_list(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of strange_sort_list",
+    "reference_doc_content": "Signature: strange_sort_list(lst)\n\nGiven list of integers, return list in strange order.\nStrange sorting, is when you start with the maximum value,\nthen minimum of the remaining integers, then maximum and so on.\n\nExamples:\nstrange_sort_list([1, 2, 3, 4]) == [4, 1, 3, 2]\nstrange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]\nstrange_sort_list([]) == []"
+  },
+  {
+    "id": "hep_054_strange_sort_list",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of strange_sort_list, write a Python function strange_sort_list(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of strange_sort_list",
+    "reference_doc_content": "Signature: strange_sort_list(lst)\n\nGiven list of integers, return list in strange order.\nStrange sorting, is when you start with the minimum value,\nthen maximum of the remaining integers, then minimum and so on.\n\nExamples:\nstrange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]\nstrange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]\nstrange_sort_list([]) == []"
+  },
+  {
+    "id": "evs_055_has_close_elements",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of has_close_elements, write a Python function has_close_elements(numbers: List[float], threshold: float) -> bool that does what the specification describes.",
+    "reference_doc_title": "Specification of has_close_elements",
+    "reference_doc_content": "Signature: has_close_elements(numbers: List[float], threshold: float) -> bool\n\nCheck if in given list of numbers, are any two adjacent numbers closer to each other than\ngiven threshold.\n>>> has_close_elements([1.0, 2.0, 3.0], 0.5)\nFalse\n>>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\nTrue\n>>> has_close_elements([], 0.3)\nFalse"
+  },
+  {
+    "id": "hep_055_has_close_elements",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of has_close_elements, write a Python function has_close_elements(numbers: List[float], threshold: float) -> bool that does what the specification describes.",
+    "reference_doc_title": "Specification of has_close_elements",
+    "reference_doc_content": "Signature: has_close_elements(numbers: List[float], threshold: float) -> bool\n\nCheck if in given list of numbers, are any two numbers closer to each other than\ngiven threshold.\n>>> has_close_elements([1.0, 2.0, 3.0], 0.5)\nFalse\n>>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\nTrue"
+  },
+  {
+    "id": "evs_056_filter_by_suffix",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of filter_by_suffix, write a Python function filter_by_suffix(strings: List[str], suffix: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of filter_by_suffix",
+    "reference_doc_content": "Signature: filter_by_suffix(strings: List[str], suffix: str) -> List[str]\n\nFilter an input list of strings only for ones that end with a given suffix.\n>>> filter_by_suffix([], 'a')\n[]\n>>> filter_by_suffix(['abc', 'bcd', 'cde', 'array'], 'c')\n['abc']"
+  },
+  {
+    "id": "hep_056_filter_by_prefix",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of filter_by_prefix, write a Python function filter_by_prefix(strings: List[str], prefix: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of filter_by_prefix",
+    "reference_doc_content": "Signature: filter_by_prefix(strings: List[str], prefix: str) -> List[str]\n\nFilter an input list of strings only for ones that start with a given prefix.\n>>> filter_by_prefix([], 'a')\n[]\n>>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n['abc', 'array']"
+  },
+  {
+    "id": "hep_057_pairs_sum_to_zero",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of pairs_sum_to_zero, write a Python function pairs_sum_to_zero(l) that does what the specification describes.",
+    "reference_doc_title": "Specification of pairs_sum_to_zero",
+    "reference_doc_content": "Signature: pairs_sum_to_zero(l)\n\npairs_sum_to_zero takes a list of integers as an input.\nit returns True if there are two distinct elements in the list that\nsum to zero, and False otherwise.\n>>> pairs_sum_to_zero([1, 3, 5, 0])\nFalse\n>>> pairs_sum_to_zero([1, 3, -2, 1])\nFalse\n>>> pairs_sum_to_zero([1, 2, 3, 7])\nFalse\n>>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])\nTrue\n>>> pairs_sum_to_zero([1])\nFalse"
+  },
+  {
+    "id": "evs_057_pairs_sum_to_one",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of pairs_sum_to_one, write a Python function pairs_sum_to_one(l) that does what the specification describes.",
+    "reference_doc_title": "Specification of pairs_sum_to_one",
+    "reference_doc_content": "Signature: pairs_sum_to_one(l)\n\npairs_sum_to_one takes a list of integers as an input.\nit returns True if there are two distinct elements in the list that\nsum to one, and False otherwise.\n>>> pairs_sum_to_one([1, 3, 5, 0])\nTrue\n>>> pairs_sum_to_one([1, 3, -2, 1])\nTrue\n>>> pairs_sum_to_one([1, 2, 3, 7])\nFalse\n>>> pairs_sum_to_one([2, 4, -5, 3, 5, 7])\nFalse\n>>> pairs_sum_to_one([1])\nFalse"
+  },
+  {
+    "id": "evs_058_truncate_number",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of truncate_number, write a Python function truncate_number(number: float) -> float that does what the specification describes.",
+    "reference_doc_title": "Specification of truncate_number",
+    "reference_doc_content": "Signature: truncate_number(number: float) -> float\n\nGiven a positive floating point number, it can be decomposed into\nand integer part (largest integer smaller than given number) and decimals\n(leftover part always smaller than 1).\n\nReturn the integer and decimal part of the number.\n>>> truncate_number(3.5)\n(3, 0.5)"
+  },
+  {
+    "id": "hep_058_truncate_number",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of truncate_number, write a Python function truncate_number(number: float) -> float that does what the specification describes.",
+    "reference_doc_title": "Specification of truncate_number",
+    "reference_doc_content": "Signature: truncate_number(number: float) -> float\n\nGiven a positive floating point number, it can be decomposed into\nand integer part (largest integer smaller than given number) and decimals\n(leftover part always smaller than 1).\n\nReturn the decimal part of the number.\n>>> truncate_number(3.5)\n0.5"
+  },
+  {
+    "id": "evs_059_sort_even",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of sort_even, write a Python function sort_even(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_even",
+    "reference_doc_content": "Signature: sort_even(l: list)\n\nThis function takes a list l and returns a list l' such that\nl' is identical to l in the odd indicies, while its values at the even indicies are equal\nto the values of the even indicies of l, but sorted in descending order.\n>>> sort_even([1, 2, 3])\n[1, 2, 3]\n>>> sort_even([5, 6, 3, 4])\n[5, 6, 3, 4]"
+  },
+  {
+    "id": "hep_059_sort_even",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of sort_even, write a Python function sort_even(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_even",
+    "reference_doc_content": "Signature: sort_even(l: list)\n\nThis function takes a list l and returns a list l' such that\nl' is identical to l in the odd indicies, while its values at the even indicies are equal\nto the values of the even indicies of l, but sorted.\n>>> sort_even([1, 2, 3])\n[1, 2, 3]\n>>> sort_even([5, 6, 3, 4])\n[3, 6, 5, 4]"
+  },
+  {
+    "id": "hep_060_greatest_common_divisor",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of greatest_common_divisor, write a Python function greatest_common_divisor(a: int, b: int) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of greatest_common_divisor",
+    "reference_doc_content": "Signature: greatest_common_divisor(a: int, b: int) -> int\n\nReturn a greatest common divisor of two integers a and b\n>>> greatest_common_divisor(3, 5)\n1\n>>> greatest_common_divisor(25, 15)\n5"
+  },
+  {
+    "id": "evs_060_least_common_multiple",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of least_common_multiple, write a Python function least_common_multiple(a: int, b: int) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of least_common_multiple",
+    "reference_doc_content": "Signature: least_common_multiple(a: int, b: int) -> int\n\nReturn the least common multiple of two integers a and b\n>>> least_common_multiple(3, 5)\n15\n>>> least_common_multiple(25, 15)\n75"
+  },
+  {
+    "id": "evs_061_change_base",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of change_base, write a Python function change_base(x: int, base: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of change_base",
+    "reference_doc_content": "Signature: change_base(x: int, base: int)\n\nChange numerical base of input number x to base.\nreturn integer representation after the conversion.\nbase numbers are less than 10.\n>>> change_base(8, 3)\n22\n>>> change_base(8, 2)\n1000\n>>> change_base(7, 2)\n111"
+  },
+  {
+    "id": "hep_061_change_base",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of change_base, write a Python function change_base(x: int, base: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of change_base",
+    "reference_doc_content": "Signature: change_base(x: int, base: int)\n\nChange numerical base of input number x to base.\nreturn string representation after the conversion.\nbase numbers are less than 10.\n>>> change_base(8, 3)\n'22'\n>>> change_base(8, 2)\n'1000'\n>>> change_base(7, 2)\n'111'"
+  },
+  {
+    "id": "hep_062_multiply",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of multiply, write a Python function multiply(a, b) that does what the specification describes.",
+    "reference_doc_title": "Specification of multiply",
+    "reference_doc_content": "Signature: multiply(a, b)\n\nComplete the function that takes two integers and returns \nthe product of their unit digits.\nAssume the input is always valid.\nExamples:\nmultiply(148, 412) should return 16.\nmultiply(19, 28) should return 72.\nmultiply(2020, 1851) should return 0.\nmultiply(14,-15) should return 20."
+  },
+  {
+    "id": "evs_062_multiply",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of multiply, write a Python function multiply(a, b) that does what the specification describes.",
+    "reference_doc_title": "Specification of multiply",
+    "reference_doc_content": "Signature: multiply(a, b)\n\nComplete the function that takes two integers and returns \nthe sum of their unit digits.\nAssume the input is always valid.\nExamples:\nmultiply(148, 412) should return 10.\nmultiply(19, 28) should return 17.\nmultiply(2020, 1851) should return 1.\nmultiply(14,-15) should return 9."
+  },
+  {
+    "id": "evs_063_solve",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of solve, write a Python function solve(N) that does what the specification describes.",
+    "reference_doc_title": "Specification of solve",
+    "reference_doc_content": "Signature: solve(N)\n\nGiven a positive integer N, return the total sum of its digits represented as a hexadecimal number.\n\nExample\n    For N = 1000, the sum of digits will be 1 the output should be \"1\".\n    For N = 150, the sum of digits will be 6 the output should be \"6\".\n    For N = 147, the sum of digits will be 12 the output should be \"c\".\n\nVariables:\n    @N integer\n         Constraints: 0 ≤ N ≤ 10000.\nOutput:\n     a string of hexadecimal number"
+  },
+  {
+    "id": "hep_063_solve",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of solve, write a Python function solve(N) that does what the specification describes.",
+    "reference_doc_title": "Specification of solve",
+    "reference_doc_content": "Signature: solve(N)\n\nGiven a positive integer N, return the total sum of its digits in binary.\n\nExample\n    For N = 1000, the sum of digits will be 1 the output should be \"1\".\n    For N = 150, the sum of digits will be 6 the output should be \"110\".\n    For N = 147, the sum of digits will be 12 the output should be \"1100\".\n\nVariables:\n    @N integer\n         Constraints: 0 ≤ N ≤ 10000.\nOutput:\n     a string of binary number"
+  },
+  {
+    "id": "evs_064_digitSum",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of digitSum, write a Python function digitSum(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of digitSum",
+    "reference_doc_content": "Signature: digitSum(s)\n\nTask\nWrite a function that takes a string as input and returns the sum of the lower characters only'\nASCII codes.\n\nExamples:\n    digitSum(\"\") => 0\n    digitSum(\"abAB\") => 195\n    digitSum(\"abcCd\") => 394\n    digitSum(\"helloE\") => 532\n    digitSum(\"woArBld\") => 652\n    digitSum(\"aAaaaXa\") => 485"
+  },
+  {
+    "id": "hep_064_digitSum",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of digitSum, write a Python function digitSum(s) that does what the specification describes.",
+    "reference_doc_title": "Specification of digitSum",
+    "reference_doc_content": "Signature: digitSum(s)\n\nTask\nWrite a function that takes a string as input and returns the sum of the upper characters only'\nASCII codes.\n\nExamples:\n    digitSum(\"\") => 0\n    digitSum(\"abAB\") => 131\n    digitSum(\"abcCd\") => 67\n    digitSum(\"helloE\") => 69\n    digitSum(\"woArBld\") => 131\n    digitSum(\"aAaaaXa\") => 153"
+  },
+  {
+    "id": "evs_065_remove_consonants",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of remove_consonants, write a Python function remove_consonants(text) that does what the specification describes.",
+    "reference_doc_title": "Specification of remove_consonants",
+    "reference_doc_content": "Signature: remove_consonants(text)\n\nremove_consonants is a function that takes string and returns string without consonants.\n    >>> remove_consonants('')\n    ''\n    >>> remove_consonants(\"abcdef\nghijklm\")\n    'ae\ni'\n    >>> remove_consonants('abcdef')\n    'ae'\n    >>> remove_consonants('aaaaa')\n    'aaaaa'\n    >>> remove_consonants('aaBAA')\n    'aaAA'\n    >>> remove_consonants('zbcd')\n    ''"
+  },
+  {
+    "id": "hep_065_remove_vowels",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of remove_vowels, write a Python function remove_vowels(text) that does what the specification describes.",
+    "reference_doc_title": "Specification of remove_vowels",
+    "reference_doc_content": "Signature: remove_vowels(text)\n\nremove_vowels is a function that takes string and returns string without vowels.\n    >>> remove_vowels('')\n    ''\n    >>> remove_vowels(\"abcdef\nghijklm\")\n    'bcdf\nghjklm'\n    >>> remove_vowels('abcdef')\n    'bcdf'\n    >>> remove_vowels('aaaaa')\n    ''\n    >>> remove_vowels('aaBAA')\n    'B'\n    >>> remove_vowels('zbcd')\n    'zbcd'"
+  },
+  {
+    "id": "evs_066_sort_numbers",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of sort_numbers, write a Python function sort_numbers(numbers: str) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_numbers",
+    "reference_doc_content": "Signature: sort_numbers(numbers: str) -> str\n\nInput is a space-delimited string of numerals from 'zero' to 'nine'.\nValid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\nReturn the string with numbers sorted from largest to smallest\n>>> sort_numbers('three one five')\n'five three one'"
+  },
+  {
+    "id": "hep_066_sort_numbers",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of sort_numbers, write a Python function sort_numbers(numbers: str) -> str that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_numbers",
+    "reference_doc_content": "Signature: sort_numbers(numbers: str) -> str\n\nInput is a space-delimited string of numberals from 'zero' to 'nine'.\nValid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\nReturn the string with numbers sorted from smallest to largest\n>>> sort_numbers('three one five')\n'one three five'"
+  },
+  {
+    "id": "hep_067_is_simple_power",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of is_simple_power, write a Python function is_simple_power(x, n) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_simple_power",
+    "reference_doc_content": "Signature: is_simple_power(x, n)\n\nYour task is to write a function that returns true if a number x is a simple\npower of n and false in other cases.\nx is a simple power of n if n**int=x\nFor example:\nis_simple_power(1, 4) => true\nis_simple_power(2, 2) => true\nis_simple_power(8, 2) => true\nis_simple_power(3, 2) => false\nis_simple_power(3, 1) => false\nis_simple_power(5, 3) => false"
+  },
+  {
+    "id": "evs_067_is_simple_power",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of is_simple_power, write a Python function is_simple_power(x, n) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_simple_power",
+    "reference_doc_content": "Signature: is_simple_power(x, n)\n\nYour task is to write a function that returns true if a number x is a simple\npower of n and false in other cases. Additionally, return the smallest power that makes x a simple power of n.\nx is a simple power of n if n**int=x\nFor example:\nis_simple_power(1, 4) => (true, 0)\nis_simple_power(2, 2) => (true, 1)\nis_simple_power(8, 2) => (true, 3)\nis_simple_power(3, 2) => (false, None)\nis_simple_power(3, 1) => (false, None)\nis_simple_power(5, 3) => (false, None)"
+  },
+  {
+    "id": "hep_068_median",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of median, write a Python function median(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of median",
+    "reference_doc_content": "Signature: median(l: list)\n\nReturn median of elements in the list l.\n>>> median([3, 1, 2, 4, 5])\n3\n>>> median([-10, 4, 6, 1000, 10, 20])\n15.0"
+  },
+  {
+    "id": "evs_068_median",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of median, write a Python function median(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of median",
+    "reference_doc_content": "Signature: median(l: list)\n\nReturn median of elements in the list l, but if the list is empty, return 0 instead.\n>>> median([3, 1, 2, 4, 5])\n3\n>>> median([-10, 4, 6, 1000, 10, 20])\n15.0\n>>> median([])\n0"
+  },
+  {
+    "id": "evs_069_total_match",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of total_match, write a Python function total_match(lst1, lst2) that does what the specification describes.",
+    "reference_doc_title": "Specification of total_match",
+    "reference_doc_content": "Signature: total_match(lst1, lst2)\n\nWrite a function that accepts two lists of strings and returns the list that has \ntotal number of chars in the all strings of the list greater than the other list.\n\nif the two lists have the same number of chars, return the second list.\n\nExamples\ntotal_match([], []) ➞ []\ntotal_match(['hi', 'admin'], ['hI', 'Hi']) ➞ ['hi', 'admin']\ntotal_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'hi', 'admin', 'project']\ntotal_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hi', 'admin']\ntotal_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['1', '2', '3', '4', '5']"
+  },
+  {
+    "id": "hep_069_total_match",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of total_match, write a Python function total_match(lst1, lst2) that does what the specification describes.",
+    "reference_doc_title": "Specification of total_match",
+    "reference_doc_content": "Signature: total_match(lst1, lst2)\n\nWrite a function that accepts two lists of strings and returns the list that has \ntotal number of chars in the all strings of the list less than the other list.\n\nif the two lists have the same number of chars, return the first list.\n\nExamples\ntotal_match([], []) ➞ []\ntotal_match(['hi', 'admin'], ['hI', 'Hi']) ➞ ['hI', 'Hi']\ntotal_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']\ntotal_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']\ntotal_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']"
+  },
+  {
+    "id": "evs_070_count_up_to",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of count_up_to, write a Python function count_up_to(n) that does what the specification describes.",
+    "reference_doc_title": "Specification of count_up_to",
+    "reference_doc_content": "Signature: count_up_to(n)\n\nImplement a function that takes an non-negative integer and returns an array of the first n\nintegers that are prime numbers and less than or equal to n. Return the list in descending order.\nfor example:\ncount_up_to(5) => [5,3,2]\ncount_up_to(11) => [11,7,5,3,2]\ncount_up_to(0) => []\ncount_up_to(20) => [19,17,13,11,7,5,3,2]\ncount_up_to(1) => []\ncount_up_to(18) => [17,13,11,7,5,3,2]"
+  },
+  {
+    "id": "hep_070_count_up_to",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of count_up_to, write a Python function count_up_to(n) that does what the specification describes.",
+    "reference_doc_title": "Specification of count_up_to",
+    "reference_doc_content": "Signature: count_up_to(n)\n\nImplement a function that takes an non-negative integer and returns an array of the first n\nintegers that are prime numbers and less than n.\nfor example:\ncount_up_to(5) => [2,3]\ncount_up_to(11) => [2,3,5,7]\ncount_up_to(0) => []\ncount_up_to(20) => [2,3,5,7,11,13,17,19]\ncount_up_to(1) => []\ncount_up_to(18) => [2,3,5,7,11,13,17]"
+  },
+  {
+    "id": "hep_071_triangle_area",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of triangle_area, write a Python function triangle_area(a, b, c) that does what the specification describes.",
+    "reference_doc_title": "Specification of triangle_area",
+    "reference_doc_content": "Signature: triangle_area(a, b, c)\n\nGiven the lengths of the three sides of a triangle. Return the area of\nthe triangle rounded to 2 decimal points if the three sides form a valid triangle. \nOtherwise return -1\nThree sides make a valid triangle when the sum of any two sides is greater \nthan the third side.\nExample:\ntriangle_area(3, 4, 5) == 6.00\ntriangle_area(1, 2, 10) == -1"
+  },
+  {
+    "id": "evs_071_triangle_area",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of triangle_area, write a Python function triangle_area(a, b, c) that does what the specification describes.",
+    "reference_doc_title": "Specification of triangle_area",
+    "reference_doc_content": "Signature: triangle_area(a, b, c)\n\nGiven the lengths of the three sides of a triangle. Return the area of\nthe triangle rounded to 3 decimal points if the three sides form a valid triangle. \nOtherwise return -1\nThree sides make a valid triangle when the sum of any two sides is greater \nthan the third side.\nExample:\ntriangle_area(3, 4, 5) == 6.000\ntriangle_area(1, 2, 10) == -1"
+  },
+  {
+    "id": "hep_072_hex_key",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of hex_key, write a Python function hex_key(num) that does what the specification describes.",
+    "reference_doc_title": "Specification of hex_key",
+    "reference_doc_content": "Signature: hex_key(num)\n\nYou have been tasked to write a function that receives \na hexadecimal number as a string and counts the number of hexadecimal \ndigits that are primes (prime number, or a prime, is a natural number \ngreater than 1 that is not a product of two smaller natural numbers).\nHexadecimal digits are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.\nPrime numbers are 2, 3, 5, 7, 11, 13, 17,...\nSo you have to determine a number of the following digits: 2, 3, 5, 7, \nB (=decimal 11), D (=decimal 13).\nNote: you may assume the input is always correct or empty string, \nand symbols A,B,C,D,E,F are always uppercase.\nExamples:\nFor num = \"AB\" the output should be 1.\nFor num = \"1077E\" the output should be 2.\nFor num = \"ABED1A33\" the output should be 4.\nFor num = \"123456789ABCDEF0\" the output should be 6.\nFor num = \"2020\" the output should be 2."
+  },
+  {
+    "id": "evs_072_hex_key",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of hex_key, write a Python function hex_key(num) that does what the specification describes.",
+    "reference_doc_title": "Specification of hex_key",
+    "reference_doc_content": "Signature: hex_key(num)\n\nYou have been tasked to write a function that receives \na hexadecimal number as a string and counts the number of hexadecimal \ndigits that are not primes (prime number, or a prime, is a natural number \ngreater than 1 that is not a product of two smaller natural numbers).\nHexadecimal digits are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.\nPrime numbers are 2, 3, 5, 7, 11, 13, 17,...\nSo you have to determine a number of the following digits: 0, 1, 4, 6, 8, 9, \nA (=decimal 10), C (=decimal 12), E (=decimal 15).\nNote: you may assume the input is always correct or empty string, \nand symbols A,B,C,D,E,F are always uppercase.\nExamples:\nFor num = \"AB\" the output should be 1.\nFor num = \"1077E\" the output should be 3.\nFor num = \"ABED1A33\" the output should be 4.\nFor num = \"123456789ABCDEF0\" the output should be 9.\nFor num = \"2020\" the output should be 2."
+  },
+  {
+    "id": "evs_073_shortest",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of shortest, write a Python function shortest(strings: List[str]) -> Optional[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of shortest",
+    "reference_doc_content": "Signature: shortest(strings: List[str]) -> Optional[str]\n\nOut of list of strings, return the shortest one. Return the first one in case of multiple\nstrings of the same length. Return None in case the input list is empty.\n>>> shortest([])\n\n>>> shortest(['a', 'b', 'c'])\n'a'\n>>> shortest(['a', 'bb', 'ccc'])\n'a'"
+  },
+  {
+    "id": "hep_073_longest",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of longest, write a Python function longest(strings: List[str]) -> Optional[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of longest",
+    "reference_doc_content": "Signature: longest(strings: List[str]) -> Optional[str]\n\nOut of list of strings, return the longest one. Return the first one in case of multiple\nstrings of the same length. Return None in case the input list is empty.\n>>> longest([])\n\n>>> longest(['a', 'b', 'c'])\n'a'\n>>> longest(['a', 'bb', 'ccc'])\n'ccc'"
+  },
+  {
+    "id": "hep_074_rescale_to_unit",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of rescale_to_unit, write a Python function rescale_to_unit(numbers: List[float]) -> List[float] that does what the specification describes.",
+    "reference_doc_title": "Specification of rescale_to_unit",
+    "reference_doc_content": "Signature: rescale_to_unit(numbers: List[float]) -> List[float]\n\nGiven list of numbers (of at least two elements), apply a linear transform to that list,\nsuch that the smallest number will become 0 and the largest will become 1\n>>> rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])\n[0.0, 0.25, 0.5, 0.75, 1.0]"
+  },
+  {
+    "id": "evs_074_rescale_to_unit",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of rescale_to_unit, write a Python function rescale_to_unit(numbers: List[float]) -> List[float] that does what the specification describes.",
+    "reference_doc_title": "Specification of rescale_to_unit",
+    "reference_doc_content": "Signature: rescale_to_unit(numbers: List[float]) -> List[float]\n\nGiven list of numbers (of at least two elements), apply a linear transform to that list,\nsuch that the smallest number will become 0 and the largest will become 1. Return the list in descending order.\n>>> rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])\n[1.0, 0.75, 0.5, 0.25, 0.0]"
+  },
+  {
+    "id": "hep_075_factorize",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of factorize, write a Python function factorize(n: int) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of factorize",
+    "reference_doc_content": "Signature: factorize(n: int) -> List[int]\n\nReturn list of prime factors of given integer in the order from smallest to largest.\nEach of the factors should be listed number of times corresponding to how many times it appeares in factorization.\nInput number should be equal to the product of all factors\n>>> factorize(8)\n[2, 2, 2]\n>>> factorize(25)\n[5, 5]\n>>> factorize(70)\n[2, 5, 7]"
+  },
+  {
+    "id": "evs_075_factorize",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of factorize, write a Python function factorize(n: int) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of factorize",
+    "reference_doc_content": "Signature: factorize(n: int) -> List[int]\n\nReturn list of prime factors of given integer in the order from largest to smallest.\nEach of the factors should be listed number of times corresponding to how many times it appeares in factorization.\nInput number should be equal to the product of all factors\n>>> factorize(8)\n[2, 2, 2]\n>>> factorize(25)\n[5, 5]\n>>> factorize(70)\n[7, 5, 2]"
+  },
+  {
+    "id": "hep_076_is_multiply_prime",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of is_multiply_prime, write a Python function is_multiply_prime(a) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_multiply_prime",
+    "reference_doc_content": "Signature: is_multiply_prime(a)\n\nWrite a function that returns true if the given number is the multiplication of 3 prime numbers\nand false otherwise.\nKnowing that (a) is less then 100. \nExample:\nis_multiply_prime(30) == True\n30 = 2 * 3 * 5"
+  },
+  {
+    "id": "evs_076_is_multiply_prime",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of is_multiply_prime, write a Python function is_multiply_prime(a) that does what the specification describes.",
+    "reference_doc_title": "Specification of is_multiply_prime",
+    "reference_doc_content": "Signature: is_multiply_prime(a)\n\nWrite a function that returns true if the given number is the multiplication of 4 prime numbers\nand false otherwise.\nKnowing that (a) is less then 100. \nExample:\nis_multiply_prime(90) == True\n90 = 2 * 3 * 3 * 5"
+  },
+  {
+    "id": "evs_077_sort_third",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of sort_third, write a Python function sort_third(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_third",
+    "reference_doc_content": "Signature: sort_third(l: list)\n\nThis function takes a list l and returns a list l' such that\nl' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal\nto the values of the corresponding indicies of l, but sorted in descending order.\n>>> sort_third([1, 2, 3])\n[1, 2, 3]\n>>> sort_third([5, 6, 3, 4, 8, 9, 2])\n[5, 6, 3, 4, 8, 9, 2]"
+  },
+  {
+    "id": "hep_077_sort_third",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of sort_third, write a Python function sort_third(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of sort_third",
+    "reference_doc_content": "Signature: sort_third(l: list)\n\nThis function takes a list l and returns a list l' such that\nl' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal\nto the values of the corresponding indicies of l, but sorted.\n>>> sort_third([1, 2, 3])\n[1, 2, 3]\n>>> sort_third([5, 6, 3, 4, 8, 9, 2])\n[2, 6, 3, 4, 8, 9, 5]"
+  },
+  {
+    "id": "hep_078_parse_nested_parens",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of parse_nested_parens, write a Python function parse_nested_parens(paren_string: str) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of parse_nested_parens",
+    "reference_doc_content": "Signature: parse_nested_parens(paren_string: str) -> List[int]\n\nInput to this function is a string represented multiple groups for nested parentheses separated by spaces.\nFor each of the group, output the deepest level of nesting of parentheses.\nE.g. (()()) has maximum two levels of nesting while ((())) has three.\n\n>>> parse_nested_parens('(()()) ((())) () ((())()())')\n[2, 3, 1, 3]"
+  },
+  {
+    "id": "evs_078_parse_nested_parens",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of parse_nested_parens, write a Python function parse_nested_parens(paren_string: str) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of parse_nested_parens",
+    "reference_doc_content": "Signature: parse_nested_parens(paren_string: str) -> List[int]\n\nInput to this function is a string represented multiple groups for nested parentheses separated by spaces.\nFor each of the group, output the deepest level of nesting of parentheses. Additionally, return the list in descending order.\nE.g. (()()) has maximum two levels of nesting while ((())) has three.\n\n>>> parse_nested_parens('(()()) ((())) () ((())()())')\n[3, 3, 2, 1]"
+  },
+  {
+    "id": "evs_079_all_prefixes",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of all_prefixes, write a Python function all_prefixes(string: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of all_prefixes",
+    "reference_doc_content": "Signature: all_prefixes(string: str) -> List[str]\n\nReturn list of all prefixes from longest to shortest of the input string\n>>> all_prefixes('abc')\n['abc', 'ab', 'a']"
+  },
+  {
+    "id": "hep_079_all_prefixes",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of all_prefixes, write a Python function all_prefixes(string: str) -> List[str] that does what the specification describes.",
+    "reference_doc_title": "Specification of all_prefixes",
+    "reference_doc_content": "Signature: all_prefixes(string: str) -> List[str]\n\nReturn list of all prefixes from shortest to longest of the input string\n>>> all_prefixes('abc')\n['a', 'ab', 'abc']"
+  },
+  {
+    "id": "hep_080_remove_duplicates",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of remove_duplicates, write a Python function remove_duplicates(numbers: List[int]) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of remove_duplicates",
+    "reference_doc_content": "Signature: remove_duplicates(numbers: List[int]) -> List[int]\n\nFrom a list of integers, remove all elements that occur more than once.\nKeep order of elements left the same as in the input.\n>>> remove_duplicates([1, 2, 3, 2, 4])\n[1, 3, 4]"
+  },
+  {
+    "id": "evs_080_remove_duplicates",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of remove_duplicates, write a Python function remove_duplicates(numbers: List[int]) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of remove_duplicates",
+    "reference_doc_content": "Signature: remove_duplicates(numbers: List[int]) -> List[int]\n\nFrom a list of integers, remove all elements that occur more than once.\nReturn the list in the reverse order of the input.\n>>> remove_duplicates([1, 2, 3, 2, 4])\n[4, 3, 1]"
+  },
+  {
+    "id": "evs_081_next_largest",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of next_largest, write a Python function next_largest(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of next_largest",
+    "reference_doc_content": "Signature: next_largest(lst)\n\nYou are given a list of integers.\nWrite a function next_largest() that returns the 2nd largest element of the list.\nReturn None if there is no such element.\n\nnext_largest([1, 2, 3, 4, 5]) == 4\nnext_largest([5, 1, 4, 3, 2]) == 4\nnext_largest([]) == None\nnext_largest([1, 1]) == None"
+  },
+  {
+    "id": "hep_081_next_smallest",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of next_smallest, write a Python function next_smallest(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of next_smallest",
+    "reference_doc_content": "Signature: next_smallest(lst)\n\nYou are given a list of integers.\nWrite a function next_smallest() that returns the 2nd smallest element of the list.\nReturn None if there is no such element.\n\nnext_smallest([1, 2, 3, 4, 5]) == 2\nnext_smallest([5, 1, 4, 3, 2]) == 2\nnext_smallest([]) == None\nnext_smallest([1, 1]) == None"
+  },
+  {
+    "id": "hep_082_fibfib",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of fibfib, write a Python function fibfib(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fibfib",
+    "reference_doc_content": "Signature: fibfib(n: int)\n\nThe FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:\nfibfib(0) == 0\nfibfib(1) == 0\nfibfib(2) == 1\nfibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\nPlease write a function to efficiently compute the n-th element of the fibfib number sequence.\n>>> fibfib(1)\n0\n>>> fibfib(5)\n4\n>>> fibfib(8)\n24"
+  },
+  {
+    "id": "evs_082_fibfib",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of fibfib, write a Python function fibfib(n: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of fibfib",
+    "reference_doc_content": "Signature: fibfib(n: int)\n\nThe FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:\nfibfib(0) == 0\nfibfib(1) == 0\nfibfib(2) == 1\nfibfib(n) == fibfib(n-3) + fibfib(n-2) - fibfib(n-1).\nPlease write a function to efficiently compute the n-th element of the fibfib number sequence.\n>>> fibfib(1)\n0\n>>> fibfib(5)\n-2\n>>> fibfib(8)\n4"
+  },
+  {
+    "id": "evs_083_smallest_divisor",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of smallest_divisor, write a Python function smallest_divisor(n: int) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of smallest_divisor",
+    "reference_doc_content": "Signature: smallest_divisor(n: int) -> int\n\nFor a given number n, find the smallest number that divides n evenly, larger than 1\n>>> smallest_divisor(15)\n3"
+  },
+  {
+    "id": "hep_083_largest_divisor",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of largest_divisor, write a Python function largest_divisor(n: int) -> int that does what the specification describes.",
+    "reference_doc_title": "Specification of largest_divisor",
+    "reference_doc_content": "Signature: largest_divisor(n: int) -> int\n\nFor a given number n, find the largest number that divides n evenly, smaller than n\n>>> largest_divisor(15)\n5"
+  },
+  {
+    "id": "evs_084_modp",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of modp, write a Python function modp(n: int, p: int, q: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of modp",
+    "reference_doc_content": "Signature: modp(n: int, p: int, q: int)\n\nReturn 2^(n+q) modulo p (be aware of numerics).\n>>> modp(3, 5, 1)\n1\n>>> modp(1101, 101, 2)\n8\n>>> modp(0, 101, 1)\n2\n>>> modp(3, 11, 2)\n10\n>>> modp(100, 101, 1)\n2"
+  },
+  {
+    "id": "hep_084_modp",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of modp, write a Python function modp(n: int, p: int) that does what the specification describes.",
+    "reference_doc_title": "Specification of modp",
+    "reference_doc_content": "Signature: modp(n: int, p: int)\n\nReturn 2^n modulo p (be aware of numerics).\n>>> modp(3, 5)\n3\n>>> modp(1101, 101)\n2\n>>> modp(0, 101)\n1\n>>> modp(3, 11)\n8\n>>> modp(100, 101)\n1"
+  },
+  {
+    "id": "evs_085_filter_even_integers",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of filter_even_integers, write a Python function filter_even_integers(values: List[Any]) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of filter_even_integers",
+    "reference_doc_content": "Signature: filter_even_integers(values: List[Any]) -> List[int]\n\nFilter given list of any python values only for even integers\n>>> filter_even_integers(['a', 3.14, 5, 6])\n[6]\n>>> filter_even_integers([1, 2, 3, 'abc', {}, []])\n[2]"
+  },
+  {
+    "id": "hep_085_filter_integers",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of filter_integers, write a Python function filter_integers(values: List[Any]) -> List[int] that does what the specification describes.",
+    "reference_doc_title": "Specification of filter_integers",
+    "reference_doc_content": "Signature: filter_integers(values: List[Any]) -> List[int]\n\nFilter given list of any python values only for integers\n>>> filter_integers(['a', 3.14, 5])\n[5]\n>>> filter_integers([1, 2, 3, 'abc', {}, []])\n[1, 2, 3]"
+  },
+  {
+    "id": "evs_086_get_row",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of get_row, write a Python function get_row(lst, x) that does what the specification describes.",
+    "reference_doc_title": "Specification of get_row",
+    "reference_doc_content": "Signature: get_row(lst, x)\n\nYou are given a 2 dimensional data, as a nested lists,\nwhich is similar to matrix, however, unlike matrices,\neach row may contain a different number of columns.\nGiven lst, and integer x, find integers x in the list,\nand return list of tuples, [(x1, y1), (x2, y2) ...] such that\neach tuple is a coordinate - (row, columns), starting with 0.\nSort coordinates initially by rows in descending order.\nAlso, sort coordinates of the row by columns in ascending order.\n\nExamples:\nget_row([\n  [1,2,3,4,5,6],\n  [1,2,3,4,1,6],\n  [1,2,3,4,5,1]\n], 1) == [(2, 0), (2, 5), (1, 0), (1, 4), (0, 0)]\nget_row([], 1) == []\nget_row([[], [1], [1, 2, 3]], 3) == [(2, 2)]"
+  },
+  {
+    "id": "hep_086_get_row",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of get_row, write a Python function get_row(lst, x) that does what the specification describes.",
+    "reference_doc_title": "Specification of get_row",
+    "reference_doc_content": "Signature: get_row(lst, x)\n\nYou are given a 2 dimensional data, as a nested lists,\nwhich is similar to matrix, however, unlike matrices,\neach row may contain a different number of columns.\nGiven lst, and integer x, find integers x in the list,\nand return list of tuples, [(x1, y1), (x2, y2) ...] such that\neach tuple is a coordinate - (row, columns), starting with 0.\nSort coordinates initially by rows in ascending order.\nAlso, sort coordinates of the row by columns in descending order.\n\nExamples:\nget_row([\n  [1,2,3,4,5,6],\n  [1,2,3,4,1,6],\n  [1,2,3,4,5,1]\n], 1) == [(0, 0), (1, 4), (1, 0), (2, 5), (2, 0)]\nget_row([], 1) == []\nget_row([[], [1], [1, 2, 3]], 3) == [(2, 2)]"
+  },
+  {
+    "id": "evs_087_skjkasdkd",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of skjkasdkd, write a Python function skjkasdkd(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of skjkasdkd",
+    "reference_doc_content": "Signature: skjkasdkd(lst)\n\nYou are given a list of integers.\nYou need to find the smallest prime value and return the sum of its digits.\n\nExamples:\nFor lst = [0,3,2,1,3,5,7,4,5,5,5,2,181,32,4,32,3,2,32,324,4,3] the output should be 2\nFor lst = [1,0,1,8,2,4597,2,1,3,40,1,2,1,2,4,2,5,1] the output should be 2\nFor lst = [1,3,1,32,5107,34,83278,109,163,23,2323,32,30,1,9,3] the output should be 3\nFor lst = [0,724,32,71,99,32,6,0,5,91,83,0,5,6] the output should be 5\nFor lst = [0,81,12,3,1,21] the output should be 3\nFor lst = [0,8,1,2,1,7] the output should be 2"
+  },
+  {
+    "id": "hep_087_skjkasdkd",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of skjkasdkd, write a Python function skjkasdkd(lst) that does what the specification describes.",
+    "reference_doc_title": "Specification of skjkasdkd",
+    "reference_doc_content": "Signature: skjkasdkd(lst)\n\nYou are given a list of integers.\nYou need to find the largest prime value and return the sum of its digits.\n\nExamples:\nFor lst = [0,3,2,1,3,5,7,4,5,5,5,2,181,32,4,32,3,2,32,324,4,3] the output should be 10\nFor lst = [1,0,1,8,2,4597,2,1,3,40,1,2,1,2,4,2,5,1] the output should be 25\nFor lst = [1,3,1,32,5107,34,83278,109,163,23,2323,32,30,1,9,3] the output should be 13\nFor lst = [0,724,32,71,99,32,6,0,5,91,83,0,5,6] the output should be 11\nFor lst = [0,81,12,3,1,21] the output should be 3\nFor lst = [0,8,1,2,1,7] the output should be 7"
+  },
+  {
+    "id": "evs_088_pluck",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of pluck, write a Python function pluck(arr) that does what the specification describes.",
+    "reference_doc_title": "Specification of pluck",
+    "reference_doc_content": "Signature: pluck(arr)\n\n\"Given an array representing a branch of a tree that has non-negative integer nodes\nyour task is to pluck one of the nodes and return it.\nThe plucked node should be the node with the smallest odd value.\nIf multiple nodes with the same smallest odd value are found return the node that has smallest index.\n\nThe plucked node should be returned in a list, [ its index, smalest_value ],\nIf there are no odd values or the given array is empty, return [].\n\nExample 1:\n    Input: [4,3,5]\n    Output: [1, 3]\n    Explanation: 3 has the smallest odd value, and 3 has the smallest index.\n\nExample 2:\n    Input: [1,2,3]\n    Output: [0, 1]\n    Explanation: 1 has the smallest odd value, and 1 has the smallest index. \n\nExample 3:\n    Input: []\n    Output: []\n\nExample 4:\n    Input: [5, 1, 3, 0, 4, 2]\n    Output: [1, 1]\n    Explanation: 1 is the smallest value, but  there are two ones,\n                 so we will choose the first one, which has the smallest index.\n\nConstraints:\n    * 1 <= nodes.length <= 10000\n    * 0 <= node.value"
+  },
+  {
+    "id": "hep_088_pluck",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of pluck, write a Python function pluck(arr) that does what the specification describes.",
+    "reference_doc_title": "Specification of pluck",
+    "reference_doc_content": "Signature: pluck(arr)\n\n\"Given an array representing a branch of a tree that has non-negative integer nodes\nyour task is to pluck one of the nodes and return it.\nThe plucked node should be the node with the smallest even value.\nIf multiple nodes with the same smallest even value are found return the node that has smallest index.\n\nThe plucked node should be returned in a list, [ smalest_value, its index ],\nIf there are no even values or the given array is empty, return [].\n\nExample 1:\n    Input: [4,2,3]\n    Output: [2, 1]\n    Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\nExample 2:\n    Input: [1,2,3]\n    Output: [2, 1]\n    Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\nExample 3:\n    Input: []\n    Output: []\n\nExample 4:\n    Input: [5, 0, 3, 0, 4, 2]\n    Output: [0, 1]\n    Explanation: 0 is the smallest value, but  there are two zeros,\n                 so we will choose the first zero, which has the smallest index.\n\nConstraints:\n    * 1 <= nodes.length <= 10000\n    * 0 <= node.value"
+  },
+  {
+    "id": "evs_089_median_absolute_deviation",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of median_absolute_deviation, write a Python function median_absolute_deviation(numbers: List[float]) -> float that does what the specification describes.",
+    "reference_doc_title": "Specification of median_absolute_deviation",
+    "reference_doc_content": "Signature: median_absolute_deviation(numbers: List[float]) -> float\n\nFor a given list of input numbers, calculate Median Absolute Deviation\naround the median of this dataset.\nMedian Absolute Deviation is the median absolute difference between each\nelement and a centerpoint (median in this case):\nMAD = median | x - x_median |\n>>> median_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n1.0"
+  },
+  {
+    "id": "hep_089_mean_absolute_deviation",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of mean_absolute_deviation, write a Python function mean_absolute_deviation(numbers: List[float]) -> float that does what the specification describes.",
+    "reference_doc_title": "Specification of mean_absolute_deviation",
+    "reference_doc_content": "Signature: mean_absolute_deviation(numbers: List[float]) -> float\n\nFor a given list of input numbers, calculate Mean Absolute Deviation\naround the mean of this dataset.\nMean Absolute Deviation is the average absolute difference between each\nelement and a centerpoint (mean in this case):\nMAD = average | x - x_mean |\n>>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n1.0"
+  },
+  {
+    "id": "hep_090_incr_list",
+    "category": "humaneval_plus",
+    "prompt": "Based on the specification of incr_list, write a Python function incr_list(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of incr_list",
+    "reference_doc_content": "Signature: incr_list(l: list)\n\nReturn list with elements incremented by 1.\n>>> incr_list([1, 2, 3])\n[2, 3, 4]\n>>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])\n[6, 4, 6, 3, 4, 4, 10, 1, 124]"
+  },
+  {
+    "id": "evs_090_incr_list",
+    "category": "evoeval_subtle",
+    "prompt": "Based on the specification of incr_list, write a Python function incr_list(l: list) that does what the specification describes.",
+    "reference_doc_title": "Specification of incr_list",
+    "reference_doc_content": "Signature: incr_list(l: list)\n\nReturn list with elements incremented by 2.\n>>> incr_list([1, 2, 3])\n[3, 4, 5]\n>>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])\n[7, 5, 7, 4, 5, 5, 11, 2, 125]"
+  }
+]

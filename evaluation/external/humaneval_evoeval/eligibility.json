@@ -1,0 +1,1223 @@
+{
+ "datasets": {
+  "original": {
+   "revision": "d32357cf319e50e9c8d8dab5ea876c72b0fd321b",
+   "sha256": "908377f1daf28dcb36846db73a5662b2e05a9907407c2696c89ad9d3b0b04492"
+  },
+  "subtle": {
+   "revision": "b1d6d9da3220957e7d299b0fc90189babb45ce88",
+   "sha256": "7049d125c6ca5525df2973c70c5fcb0a4c175bd5cbac6cbe8598a3eaa4d4386d"
+  }
+ },
+ "timeoutSeconds": 10,
+ "summary": {
+  "eligible": 90,
+  "original reference also passes the subtle test": 2,
+  "helper code in the prompt header": 5,
+  "subtle version is HumanEval/61": 1,
+  "subtle reference failed": 1,
+  "subtle reference timeout": 1
+ },
+ "pairs": [
+  {
+   "n": 0,
+   "entryPoints": [
+    "has_close_elements",
+    "has_close_elements"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 1,
+   "entryPoints": [
+    "separate_paren_groups",
+    "separate_paren_groups"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 2,
+   "entryPoints": [
+    "truncate_number",
+    "truncate_number"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 3,
+   "entryPoints": [
+    "below_zero",
+    "below_one"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "passed",
+   "eligible": false,
+   "reason": "original reference also passes the subtle test"
+  },
+  {
+   "n": 4,
+   "entryPoints": [
+    "mean_absolute_deviation",
+    "median_absolute_deviation"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 5,
+   "entryPoints": [
+    "intersperse",
+    "intersperse"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 6,
+   "entryPoints": [
+    "parse_nested_parens",
+    "parse_nested_parens"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 7,
+   "entryPoints": [
+    "filter_by_substring",
+    "filter_by_substring"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 8,
+   "entryPoints": [
+    "sum_product",
+    "sum_product"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 9,
+   "entryPoints": [
+    "rolling_max",
+    "rolling_min"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 10,
+   "entryPoints": [
+    "make_palindrome",
+    "make_palindrome"
+   ],
+   "original": null,
+   "subtle": null,
+   "originalOnSubtle": null,
+   "eligible": false,
+   "reason": "helper code in the prompt header"
+  },
+  {
+   "n": 11,
+   "entryPoints": [
+    "string_xor",
+    "string_xor"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 12,
+   "entryPoints": [
+    "longest",
+    "shortest"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 13,
+   "entryPoints": [
+    "greatest_common_divisor",
+    "least_common_multiple"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 14,
+   "entryPoints": [
+    "all_prefixes",
+    "all_prefixes"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 15,
+   "entryPoints": [
+    "string_sequence",
+    "string_sequence"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 16,
+   "entryPoints": [
+    "count_distinct_characters",
+    "count_distinct_characters"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 17,
+   "entryPoints": [
+    "parse_music",
+    "parse_music"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 18,
+   "entryPoints": [
+    "how_many_times",
+    "how_many_times"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 19,
+   "entryPoints": [
+    "sort_numbers",
+    "sort_numbers"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 20,
+   "entryPoints": [
+    "find_closest_elements",
+    "find_closest_elements"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 21,
+   "entryPoints": [
+    "rescale_to_unit",
+    "rescale_to_unit"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 22,
+   "entryPoints": [
+    "filter_integers",
+    "filter_even_integers"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 23,
+   "entryPoints": [
+    "strlen",
+    "strlen"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 24,
+   "entryPoints": [
+    "largest_divisor",
+    "smallest_divisor"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 25,
+   "entryPoints": [
+    "factorize",
+    "factorize"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 26,
+   "entryPoints": [
+    "remove_duplicates",
+    "remove_duplicates"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 27,
+   "entryPoints": [
+    "flip_case",
+    "flip_case"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 28,
+   "entryPoints": [
+    "concatenate",
+    "concatenate"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 29,
+   "entryPoints": [
+    "filter_by_prefix",
+    "filter_by_suffix"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 30,
+   "entryPoints": [
+    "get_positive",
+    "get_positive"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 31,
+   "entryPoints": [
+    "is_prime",
+    "is_prime"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 32,
+   "entryPoints": [
+    "find_zero",
+    "find_zero"
+   ],
+   "original": null,
+   "subtle": null,
+   "originalOnSubtle": null,
+   "eligible": false,
+   "reason": "helper code in the prompt header"
+  },
+  {
+   "n": 33,
+   "entryPoints": [
+    "sort_third",
+    "sort_third"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 34,
+   "entryPoints": [
+    "unique",
+    "unique"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 35,
+   "entryPoints": [
+    "max_element",
+    "min_element"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 36,
+   "entryPoints": [
+    "fizz_buzz",
+    "fizz_buzz"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 37,
+   "entryPoints": [
+    "sort_even",
+    "sort_even"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 38,
+   "entryPoints": [
+    "decode_cyclic",
+    "decode_cyclic"
+   ],
+   "original": null,
+   "subtle": null,
+   "originalOnSubtle": null,
+   "eligible": false,
+   "reason": "helper code in the prompt header"
+  },
+  {
+   "n": 39,
+   "entryPoints": [
+    "prime_fib",
+    "prime_fib"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 40,
+   "entryPoints": [
+    "triples_sum_to_zero",
+    "triples_sum_to_ten"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 41,
+   "entryPoints": [
+    "car_race_collision",
+    "car_race_collision"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 42,
+   "entryPoints": [
+    "incr_list",
+    "incr_list"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 43,
+   "entryPoints": [
+    "pairs_sum_to_zero",
+    "pairs_sum_to_one"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 44,
+   "entryPoints": [
+    "change_base",
+    "change_base"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 45,
+   "entryPoints": [
+    "triangle_area",
+    "triangle_perimeter"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 46,
+   "entryPoints": [
+    "fib4",
+    "fib4"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 47,
+   "entryPoints": [
+    "median",
+    "median"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 48,
+   "entryPoints": [
+    "is_palindrome",
+    "is_palindrome"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 49,
+   "entryPoints": [
+    "modp",
+    "modp"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 50,
+   "entryPoints": [
+    "decode_shift",
+    "decode_shift"
+   ],
+   "original": null,
+   "subtle": null,
+   "originalOnSubtle": null,
+   "eligible": false,
+   "reason": "helper code in the prompt header"
+  },
+  {
+   "n": 51,
+   "entryPoints": [
+    "remove_vowels",
+    "remove_consonants"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 52,
+   "entryPoints": [
+    "below_threshold",
+    "below_threshold"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 53,
+   "entryPoints": [
+    "add",
+    "add"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 54,
+   "entryPoints": [
+    "same_chars",
+    "same_chars"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 55,
+   "entryPoints": [
+    "fib",
+    "fib"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 56,
+   "entryPoints": [
+    "correct_bracketing",
+    "correct_bracketing"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": false,
+   "reason": "subtle version is HumanEval/61"
+  },
+  {
+   "n": 57,
+   "entryPoints": [
+    "monotonic",
+    "monotonic"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 58,
+   "entryPoints": [
+    "common",
+    "common"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 59,
+   "entryPoints": [
+    "largest_prime_factor",
+    "smallest_prime_factor"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 60,
+   "entryPoints": [
+    "sum_to_n",
+    "sum_to_n"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 61,
+   "entryPoints": [
+    "correct_bracketing",
+    "correct_bracketing"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 62,
+   "entryPoints": [
+    "derivative",
+    "derivative"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 63,
+   "entryPoints": [
+    "fibfib",
+    "fibfib"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 64,
+   "entryPoints": [
+    "vowels_count",
+    "vowels_count"
+   ],
+   "original": null,
+   "subtle": null,
+   "originalOnSubtle": null,
+   "eligible": false,
+   "reason": "helper code in the prompt header"
+  },
+  {
+   "n": 65,
+   "entryPoints": [
+    "circular_shift",
+    "circular_shift"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 66,
+   "entryPoints": [
+    "digitSum",
+    "digitSum"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 67,
+   "entryPoints": [
+    "fruit_distribution",
+    "fruit_distribution"
+   ],
+   "original": "passed",
+   "subtle": "failed",
+   "originalOnSubtle": "failed",
+   "eligible": false,
+   "reason": "subtle reference failed"
+  },
+  {
+   "n": 68,
+   "entryPoints": [
+    "pluck",
+    "pluck"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 69,
+   "entryPoints": [
+    "search",
+    "search"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 70,
+   "entryPoints": [
+    "strange_sort_list",
+    "strange_sort_list"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 71,
+   "entryPoints": [
+    "triangle_area",
+    "triangle_area"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 72,
+   "entryPoints": [
+    "will_it_fly",
+    "will_it_fly"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 73,
+   "entryPoints": [
+    "smallest_change",
+    "smallest_change"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "passed",
+   "eligible": false,
+   "reason": "original reference also passes the subtle test"
+  },
+  {
+   "n": 74,
+   "entryPoints": [
+    "total_match",
+    "total_match"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 75,
+   "entryPoints": [
+    "is_multiply_prime",
+    "is_multiply_prime"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 76,
+   "entryPoints": [
+    "is_simple_power",
+    "is_simple_power"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 77,
+   "entryPoints": [
+    "iscube",
+    "iscube"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 78,
+   "entryPoints": [
+    "hex_key",
+    "hex_key"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 79,
+   "entryPoints": [
+    "decimal_to_binary",
+    "decimal_to_binary"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 80,
+   "entryPoints": [
+    "is_happy",
+    "is_happy"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 81,
+   "entryPoints": [
+    "numerical_letter_grade",
+    "numerical_letter_grade"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 82,
+   "entryPoints": [
+    "prime_length",
+    "prime_length"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 83,
+   "entryPoints": [
+    "starts_one_ends",
+    "starts_one_ends"
+   ],
+   "original": "passed",
+   "subtle": "timeout",
+   "originalOnSubtle": "timeout",
+   "eligible": false,
+   "reason": "subtle reference timeout"
+  },
+  {
+   "n": 84,
+   "entryPoints": [
+    "solve",
+    "solve"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 85,
+   "entryPoints": [
+    "add",
+    "add"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 86,
+   "entryPoints": [
+    "anti_shuffle",
+    "anti_shuffle"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 87,
+   "entryPoints": [
+    "get_row",
+    "get_row"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 88,
+   "entryPoints": [
+    "sort_array",
+    "sort_array"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 89,
+   "entryPoints": [
+    "encrypt",
+    "encrypt"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 90,
+   "entryPoints": [
+    "next_smallest",
+    "next_largest"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 91,
+   "entryPoints": [
+    "is_bored",
+    "is_bored"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 92,
+   "entryPoints": [
+    "any_int",
+    "any_int"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 93,
+   "entryPoints": [
+    "encode",
+    "encode"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 94,
+   "entryPoints": [
+    "skjkasdkd",
+    "skjkasdkd"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 95,
+   "entryPoints": [
+    "check_dict_case",
+    "check_dict_case"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 96,
+   "entryPoints": [
+    "count_up_to",
+    "count_up_to"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 97,
+   "entryPoints": [
+    "multiply",
+    "multiply"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 98,
+   "entryPoints": [
+    "count_upper",
+    "count_upper"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  },
+  {
+   "n": 99,
+   "entryPoints": [
+    "closest_integer",
+    "closest_integer"
+   ],
+   "original": "passed",
+   "subtle": "passed",
+   "originalOnSubtle": "failed",
+   "eligible": true,
+   "reason": null
+  }
+ ]
+}
