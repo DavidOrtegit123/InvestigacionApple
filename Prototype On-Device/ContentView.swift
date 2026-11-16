@@ -155,12 +155,8 @@ final class GenerationSessionBox {
     fileprivate(set) var usage: LanguageModelSession.Usage?
 }
 
-/// Personalization and retrieval context folded into a single request's prompt.
+/// Retrieval and conversation context folded into a single request's prompt.
 struct TutorContext {
-    var studentName: String
-    var studentLevel: DifficultyLevel
-    var pastTopics: [String]
-    var strugglingTopics: [String]
     var referenceDocument: KnowledgeDocument?
     /// Earlier turns of this chat (normal chat only; always empty in batch runs).
     var conversation: [ChatTurn] = []
@@ -191,8 +187,7 @@ struct FoundationModelsTutorEngine {
     init() {
         instructions = """
         You are a friendly programming tutor for a young student. \
-        Greet them by name occasionally and match your vocabulary to their \
-        knowledge level. Use simple words and short, complete sentences. \
+        Use simple words and short, complete sentences. \
         Do not ask for private information.
         """
     }
@@ -300,15 +295,6 @@ struct FoundationModelsTutorEngine {
     private static func buildPrompt(prompt: String, context: TutorContext) -> String {
         var lines: [String] = []
 
-        var studentLine = "Student: \(context.studentName), level: \(context.studentLevel.displayName)."
-        if !context.pastTopics.isEmpty {
-            studentLine += " Previously asked about: \(context.pastTopics.joined(separator: ", "))."
-        }
-        if !context.strugglingTopics.isEmpty {
-            studentLine += " Has struggled with: \(context.strugglingTopics.joined(separator: ", ")). Be extra patient and thorough on these."
-        }
-        lines.append(studentLine)
-
         if let block = ConversationHistory.promptBlock(context.conversation) {
             lines.append(block)
         }
@@ -344,37 +330,23 @@ final class TutorViewModel: ObservableObject {
     @Published var selectedMaterialID: String?
 
     private let engine = FoundationModelsTutorEngine()
-    private let memoryStore: StudentMemoryStore
     let materialsStore: ImportedMaterialsStore
     /// The student's materials as an OnDeviceRAG index (normal chat only — batch runs always
     /// pin a material or empty the store, so they never reach it).
     let materialIndex = MaterialIndex.live()
 
-    init(memoryStore: StudentMemoryStore, materialsStore: ImportedMaterialsStore) {
-        self.memoryStore = memoryStore
+    init(materialsStore: ImportedMaterialsStore) {
         self.materialsStore = materialsStore
         self.messages = [
             Message(
                 role: .assistant,
-                text: "Hi \(memoryStore.memory.name)! Import a PDF and ask me anything about it."
+                text: "Hi! Import a PDF and ask me anything about it."
             )
         ]
     }
 
     var canSend: Bool {
         !input.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !isResponding
-    }
-
-    /// A live read of the student's saved profile and progress, for display
-    /// in the profile/stats screen.
-    var studentMemory: StudentMemory {
-        memoryStore.memory
-    }
-
-    /// Clears the saved name, level, and topic history, sending the app back
-    /// to the onboarding screen. Useful for demos with a new student.
-    func resetProfile() {
-        memoryStore.reset()
     }
 
     /// Aggregates every response's metrics for one backend, so the two
@@ -622,10 +594,6 @@ final class TutorViewModel: ObservableObject {
         let retrieval = await referenceDocument(for: prompt, history: history)
         let referenceDocument = retrieval.document
         let context = TutorContext(
-            studentName: memoryStore.memory.name,
-            studentLevel: memoryStore.memory.currentLevel,
-            pastTopics: Array(memoryStore.memory.topicsAsked.prefix(3)),
-            strugglingTopics: memoryStore.memory.strugglingTopics,
             referenceDocument: referenceDocument,
             conversation: retrieval.history
         )
@@ -666,19 +634,6 @@ final class TutorViewModel: ObservableObject {
                     retrievedContext: referenceDocument?.content,
                     retrievedDocumentTitle: referenceDocument?.title
                 )
-                let topic = referenceDocument?.topic ?? "general"
-                memoryStore.update { memory in
-                    memory.recordQuestion(topic: topic)
-                    memory.appendTurn(role: "user", text: prompt)
-                    memory.appendTurn(role: "assistant", text: output)
-
-                    // Asking about the same topic repeatedly is a signal it
-                    // still isn't clicking.
-                    let timesAsked = memory.topicProgress[topic]?.timesAsked ?? 0
-                    if timesAsked >= 3 {
-                        memory.markStruggling(topic: topic)
-                    }
-                }
             }
         } catch {
             let responseMetrics = ResponseMetrics(
@@ -771,10 +726,10 @@ struct ContentView: View {
     /// This backs a manual dismiss gesture on the whole chat view instead.
     @FocusState private var isInputFocused: Bool
 
-    init(memoryStore: StudentMemoryStore) {
+    init() {
         let materialsStore = ImportedMaterialsStore()
         _materialsStore = StateObject(wrappedValue: materialsStore)
-        _viewModel = StateObject(wrappedValue: TutorViewModel(memoryStore: memoryStore, materialsStore: materialsStore))
+        _viewModel = StateObject(wrappedValue: TutorViewModel(materialsStore: materialsStore))
     }
 
     var body: some View {
@@ -810,9 +765,9 @@ struct ContentView: View {
                     Button {
                         isShowingProfile = true
                     } label: {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "line.3.horizontal")
                     }
-                    .accessibilityLabel("Profile")
+                    .accessibilityLabel("Menu")
                 }
             }
             .sheet(isPresented: $isShowingProfile) {
@@ -1206,5 +1161,5 @@ struct MetricsSummaryView: View {
 }
 
 #Preview {
-    ContentView(memoryStore: StudentMemoryStore())
+    ContentView()
 }
