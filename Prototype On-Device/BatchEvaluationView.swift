@@ -101,6 +101,13 @@ struct BatchEvaluationView: View {
         return (noRagAnswers + selectedTasks.count * samplesPerTask) * TutorSystem.allCases.count
     }
 
+    /// The no-RAG steppers are locked while running, in retrieved modes, and
+    /// for sets without a no-document control.
+    private var isNoRagControlLocked: Bool {
+        runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval
+            || !runner.taskSet.includesNoDocumentControl
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -183,15 +190,13 @@ struct BatchEvaluationView: View {
                         value: $noRagSampleSize,
                         in: 0...max(selectedTasks.count, 1)
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval
-                              || !runner.taskSet.includesNoDocumentControl)
+                    .disabled(isNoRagControlLocked)
                     Stepper(
                         "Repeticiones del control sin RAG: \(noRagSamplesPerTask)",
                         value: $noRagSamplesPerTask,
                         in: 1...10
                     )
-                    .disabled(runner.isRunning || runner.allTasks.isEmpty || contextMode.usesRetrieval
-                              || !runner.taskSet.includesNoDocumentControl)
+                    .disabled(isNoRagControlLocked)
                     LabeledContent("Respuestas totales", value: "\(estimatedAnswerCount)")
                 }
 
@@ -219,7 +224,7 @@ struct BatchEvaluationView: View {
                         .disabled(selectedTasks.isEmpty || (contextMode.usesRetrieval && retrievalCheck?.isReady != true))
                     }
                 } footer: {
-                    Text("Corre la muestra sin RAG (control) y despues las \(selectedTasks.count) tareas seleccionadas con RAG, para ambos backends. Restaura tu biblioteca de materiales al terminar. Exporta y cierra la app después de cada sesión, para que cada transcripción contenga solo esa sesión.")
+                    Text("Corre la muestra sin RAG (control) y después las \(selectedTasks.count) tareas seleccionadas con RAG, para ambos backends. Restaura tu biblioteca de materiales al terminar. Exporta y cierra la app después de cada sesión, para que cada transcripción contenga solo esa sesión.")
                 }
 
                 Section {
@@ -227,7 +232,7 @@ struct BatchEvaluationView: View {
                         exportURL = viewModel.exportTranscript()
                         isShowingExportSheet = exportURL != nil
                     } label: {
-                        Label("Exportar transcripcion", systemImage: "square.and.arrow.up")
+                        Label("Exportar transcripción", systemImage: "square.and.arrow.up")
                     }
                     .disabled(runner.isRunning)
                 }

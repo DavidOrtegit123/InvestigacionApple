@@ -261,12 +261,12 @@ final class BatchRunner: ObservableObject {
 
         completedCount = 0
 
-        let allTasks = allTasks.filter { taskIDs.contains($0.id) }
+        let tasks = allTasks.filter { taskIDs.contains($0.id) }
         // No no-RAG block in retrieved modes (they reuse H1b's control) or for
         // sets whose protocol has no no-document control.
         let noRagTasks = contextMode == .oracle && taskSet.includesNoDocumentControl
-            ? allTasks.filter { noRagTaskIDs.contains($0.id) } : []
-        totalCount = (noRagTasks.count * noRagSamplesPerTask + allTasks.count * samplesPerTask) * TutorSystem.allCases.count
+            ? tasks.filter { noRagTaskIDs.contains($0.id) } : []
+        totalCount = (noRagTasks.count * noRagSamplesPerTask + tasks.count * samplesPerTask) * TutorSystem.allCases.count
 
         let originalSystem = viewModel.selectedSystem
         let originalMaterialID = viewModel.selectedMaterialID
@@ -295,13 +295,7 @@ final class BatchRunner: ObservableObject {
             if !noRagTasks.isEmpty {
                 await waitUntilCool(label: "Antes de Sin RAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
                 for task in noRagTasks {
-                    for sample in 1...noRagSamplesPerTask {
-                        await waitIfHot(label: "Sin RAG · \(system.displayName)")
-                        statusText = "Sin RAG · \(system.displayName) · \(task.id) · \(sample)/\(noRagSamplesPerTask)"
-                        await viewModel.sendForBatch(prompt: task.prompt)
-                        completedCount += 1
-                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
-                    }
+                    await ask(task, times: noRagSamplesPerTask, block: "Sin RAG · \(system.displayName)", viewModel: viewModel)
                 }
             }
 
@@ -313,29 +307,15 @@ final class BatchRunner: ObservableObject {
                 // semantic retriever entirely, so having all of them in the
                 // store at once is safe.
                 var addedTaskMaterialIDs: [String] = []
-                for task in allTasks {
-                    let material = ImportedMaterial(
-                        id: task.id,
-                        title: task.referenceDocTitle,
-                        topic: "general",
-                        keywords: [],
-                        content: task.referenceDocContent,
-                        kind: .pdf,
-                        importedAt: .now
-                    )
+                for task in tasks {
+                    let material = Self.batchMaterial(id: task.id, title: task.referenceDocTitle, content: task.referenceDocContent)
                     viewModel.materialsStore.add(material)
                     addedTaskMaterialIDs.append(material.id)
                 }
                 await waitUntilCool(label: "Antes de Con RAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
-                for task in allTasks {
+                for task in tasks {
                     viewModel.selectedMaterialID = task.id
-                    for sample in 1...samplesPerTask {
-                        await waitIfHot(label: "Con RAG · \(system.displayName)")
-                        statusText = "Con RAG · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
-                        await viewModel.sendForBatch(prompt: task.prompt)
-                        completedCount += 1
-                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
-                    }
+                    await ask(task, times: samplesPerTask, block: "Con RAG · \(system.displayName)", viewModel: viewModel)
                 }
 
                 // Remove the task materials again so the next backend's
@@ -345,66 +325,40 @@ final class BatchRunner: ObservableObject {
                 }
 
             case .retrieved, .retrievedParent:
-                // Retrieved comparison: right before each task, retrieve on
-                // the device — the top-5 passages (Stage 2) or the top-3
-                // whole sections they point to (Stage 3) — and pin the text
-                // as the only document, so the unchanged prompt path puts it
+                // Right before each task, retrieve on the device — the top-5
+                // passages (Stage 2) or the top-3 whole sections they point to
+                // (Stage 3) — and pin the text as the only document, so it goes
                 // under "Reference material" in place of the oracle spec.
                 guard let retriever else { break }
                 await waitUntilCool(label: "Antes de Recuperado · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
-                for task in allTasks {
+                for task in tasks {
                     let isParent = contextMode == .retrievedParent
-                    let material = ImportedMaterial(
+                    let material = Self.batchMaterial(
                         id: "retrieved-\(task.id)",
                         title: isParent ? RetrievalCorpus.parentSectionsDocumentTitle : RetrievalCorpus.retrievedDocumentTitle,
-                        topic: "general",
-                        keywords: [],
                         content: isParent
                             ? RetrievalCorpus.formattedSections(retriever.retrieveSectionTitles(for: task.prompt), from: specs)
-                            : RetrievalCorpus.formatted(retriever.retrieve(for: task.prompt)),
-                        kind: .pdf,
-                        importedAt: .now
+                            : RetrievalCorpus.formatted(retriever.retrieve(for: task.prompt))
                     )
                     viewModel.materialsStore.add(material)
                     viewModel.selectedMaterialID = material.id
-                    for sample in 1...samplesPerTask {
-                        await waitIfHot(label: "Recuperado · \(system.displayName)")
-                        statusText = "Recuperado · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
-                        await viewModel.sendForBatch(prompt: task.prompt)
-                        completedCount += 1
-                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
-                    }
+                    await ask(task, times: samplesPerTask, block: "Recuperado · \(system.displayName)", viewModel: viewModel)
                     viewModel.materialsStore.remove(id: material.id)
                 }
 
             case .packageBudget:
-                // Stage 4: right before each task, ask the package for its
-                // packed context for the task's main prompt (no history) and
-                // pin it as the only document, exactly like Stages 2–3. A
-                // package error leaves the content empty, which the scorer
-                // sees as a missing Stage 4 answer rather than a silent pass.
+                // Stage 4: like Stages 2–3, with the package's packed context
+                // for the task's main prompt (no history). A package error
+                // leaves the content empty, which the scorer sees as a missing
+                // Stage 4 answer rather than a silent pass.
                 guard let packageContext else { break }
                 await waitUntilCool(label: "Antes de OnDeviceRAG · \(system.displayName)", maximumWait: Self.maximumWaitBeforeBlock)
-                for task in allTasks {
+                for task in tasks {
                     let packed = (try? await packageContext.context(for: task.prompt))?.text ?? ""
-                    let material = ImportedMaterial(
-                        id: "package-\(task.id)",
-                        title: PackageBatchContext.documentTitle,
-                        topic: "general",
-                        keywords: [],
-                        content: packed,
-                        kind: .pdf,
-                        importedAt: .now
-                    )
+                    let material = Self.batchMaterial(id: "package-\(task.id)", title: PackageBatchContext.documentTitle, content: packed)
                     viewModel.materialsStore.add(material)
                     viewModel.selectedMaterialID = material.id
-                    for sample in 1...samplesPerTask {
-                        await waitIfHot(label: "OnDeviceRAG · \(system.displayName)")
-                        statusText = "OnDeviceRAG · \(system.displayName) · \(task.id) · \(sample)/\(samplesPerTask)"
-                        await viewModel.sendForBatch(prompt: task.prompt)
-                        completedCount += 1
-                        try? await Task.sleep(for: Self.pauseBetweenAnswers)
-                    }
+                    await ask(task, times: samplesPerTask, block: "OnDeviceRAG · \(system.displayName)", viewModel: viewModel)
                     viewModel.materialsStore.remove(id: material.id)
                 }
             }
@@ -456,18 +410,8 @@ final class BatchRunner: ObservableObject {
         while ProcessInfo.processInfo.thermalState.rawValue > ProcessInfo.ThermalState.fair.rawValue,
               clock.now < deadline {
             let remaining = Int((deadline - clock.now).components.seconds)
-            statusText = "\(label) · enfriando (\(Self.thermalName(ProcessInfo.processInfo.thermalState))) · máx. \(remaining / 60):\(String(format: "%02d", remaining % 60))"
+            statusText = "\(label) · enfriando (\(ResponseMetrics.describe(ProcessInfo.processInfo.thermalState))) · máx. \(Self.minutesSeconds(remaining))"
             try? await Task.sleep(for: Self.thermalPollInterval)
-        }
-    }
-
-    private static func thermalName(_ state: ProcessInfo.ThermalState) -> String {
-        switch state {
-        case .nominal: "Nominal"
-        case .fair: "Fair"
-        case .serious: "Serious"
-        case .critical: "Critical"
-        @unknown default: "Desconocido"
         }
     }
 
@@ -475,9 +419,31 @@ final class BatchRunner: ObservableObject {
     private func coolDown(for duration: Duration, label: String) async {
         var remaining = Int(duration.components.seconds)
         while remaining > 0 {
-            statusText = "\(label) · \(remaining / 60):\(String(format: "%02d", remaining % 60))"
+            statusText = "\(label) · \(Self.minutesSeconds(remaining))"
             try? await Task.sleep(for: .seconds(1))
             remaining -= 1
         }
+    }
+
+    /// Asks `task` `times` times in a row, with the between-answer pacing.
+    /// `block` labels the status text, e.g. "Con RAG · Apple".
+    private func ask(_ task: BatchTask, times: Int, block: String, viewModel: TutorViewModel) async {
+        for sample in 1...times {
+            await waitIfHot(label: block)
+            statusText = "\(block) · \(task.id) · \(sample)/\(times)"
+            await viewModel.sendForBatch(prompt: task.prompt)
+            completedCount += 1
+            try? await Task.sleep(for: Self.pauseBetweenAnswers)
+        }
+    }
+
+    /// A batch run's temporary reference document.
+    private static func batchMaterial(id: String, title: String, content: String) -> ImportedMaterial {
+        ImportedMaterial(id: id, title: title, topic: "general", keywords: [], content: content, kind: .pdf, importedAt: .now)
+    }
+
+    /// `seconds` as "m:ss" for countdowns.
+    private static func minutesSeconds(_ seconds: Int) -> String {
+        "\(seconds / 60):\(String(format: "%02d", seconds % 60))"
     }
 }

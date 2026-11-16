@@ -398,11 +398,7 @@ final class TutorViewModel: ObservableObject {
 
     func send() async {
         let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty, !isResponding else { return }
-        guard selectedSystem != .appleFoundation || availability == .available else {
-            messages.append(Message(role: .assistant, text: "Apple Foundation Models are unavailable on this device. Turn on Apple Intelligence or try a supported device."))
-            return
-        }
+        guard !trimmed.isEmpty, !isResponding, selectedBackendIsAvailable() else { return }
         guard !materialsStore.materials.isEmpty else {
             messages.append(Message(role: .user, text: trimmed))
             input = ""
@@ -444,11 +440,7 @@ final class TutorViewModel: ObservableObject {
     /// "nothing imported" guard, so the no-RAG control (an empty store) reaches
     /// `generate()` with no reference document. Same generation pipeline.
     func sendForBatch(prompt: String) async {
-        guard !isResponding else { return }
-        guard selectedSystem != .appleFoundation || availability == .available else {
-            messages.append(Message(role: .assistant, text: "Apple Foundation Models are unavailable on this device. Turn on Apple Intelligence or try a supported device."))
-            return
-        }
+        guard !isResponding, selectedBackendIsAvailable() else { return }
 
         messages.append(Message(role: .user, text: prompt))
         isResponding = true
@@ -460,6 +452,16 @@ final class TutorViewModel: ObservableObject {
         await generate(prompt: prompt, assistantMessageID: assistantMessage.id, history: [])
 
         isResponding = false
+    }
+
+    /// False, after posting a notice in the chat, when Apple's model is selected
+    /// but unavailable on this device.
+    private func selectedBackendIsAvailable() -> Bool {
+        guard selectedSystem != .appleFoundation || availability == .available else {
+            messages.append(Message(role: .assistant, text: "Apple Foundation Models are unavailable on this device. Turn on Apple Intelligence or try a supported device."))
+            return false
+        }
+        return true
     }
 
     /// The chat's earlier turns before `index`, without the question being answered (the user
@@ -556,6 +558,32 @@ final class TutorViewModel: ObservableObject {
             conversation: retrieval.history
         )
 
+        // Measured when the reply ends (finished or failed).
+        func finalMetrics() -> ResponseMetrics {
+            ResponseMetrics(
+                timeToFirstToken: firstTokenDate?.timeIntervalSince(start),
+                totalTime: Date().timeIntervalSince(start),
+                inputTokens: sessionBox?.usage?.input.totalTokenCount,
+                outputTokens: sessionBox?.usage?.output.totalTokenCount,
+                thermalStateBefore: thermalStateBefore,
+                thermalStateAfter: ProcessInfo.processInfo.thermalState
+            )
+        }
+
+        func finish(text: String, isIncomplete: Bool, metrics: ResponseMetrics) {
+            updateAssistantMessage(
+                id: assistantMessageID,
+                text: text,
+                isIncomplete: isIncomplete,
+                sourcePrompt: prompt,
+                sourceSystem: requestSystem,
+                metrics: metrics,
+                session: sessionBox?.session,
+                retrievedContext: referenceDocument?.content,
+                retrievedDocumentTitle: referenceDocument?.title
+            )
+        }
+
         do {
             let model = try await resolveModel(for: requestSystem)
             let (stream, box) = engine.streamResponse(for: prompt, context: context, model: model, system: requestSystem)
@@ -569,64 +597,17 @@ final class TutorViewModel: ObservableObject {
                 updateAssistantMessage(id: assistantMessageID, text: output)
             }
 
-            let responseMetrics = ResponseMetrics(
-                timeToFirstToken: firstTokenDate?.timeIntervalSince(start),
-                totalTime: Date().timeIntervalSince(start),
-                inputTokens: sessionBox?.usage?.input.totalTokenCount,
-                outputTokens: sessionBox?.usage?.output.totalTokenCount,
-                thermalStateBefore: thermalStateBefore,
-                thermalStateAfter: ProcessInfo.processInfo.thermalState
-            )
-
+            let metrics = finalMetrics()
             if output.isEmpty {
                 updateAssistantMessage(id: assistantMessageID, text: "No response was generated.")
             } else {
-                updateAssistantMessage(
-                    id: assistantMessageID,
-                    text: output,
-                    isIncomplete: !FoundationModelsTutorEngine.endsWithSentenceTerminator(output),
-                    sourcePrompt: prompt,
-                    sourceSystem: requestSystem,
-                    metrics: responseMetrics,
-                    session: sessionBox?.session,
-                    retrievedContext: referenceDocument?.content,
-                    retrievedDocumentTitle: referenceDocument?.title
-                )
+                finish(text: output, isIncomplete: !FoundationModelsTutorEngine.endsWithSentenceTerminator(output), metrics: metrics)
             }
         } catch {
-            let responseMetrics = ResponseMetrics(
-                timeToFirstToken: firstTokenDate?.timeIntervalSince(start),
-                totalTime: Date().timeIntervalSince(start),
-                inputTokens: sessionBox?.usage?.input.totalTokenCount,
-                outputTokens: sessionBox?.usage?.output.totalTokenCount,
-                thermalStateBefore: thermalStateBefore,
-                thermalStateAfter: ProcessInfo.processInfo.thermalState
-            )
-            if output.isEmpty {
-                updateAssistantMessage(
-                    id: assistantMessageID,
-                    text: "Error: \(error.localizedDescription)",
-                    isIncomplete: true,
-                    sourcePrompt: prompt,
-                    sourceSystem: requestSystem,
-                    metrics: responseMetrics,
-                    session: sessionBox?.session,
-                    retrievedContext: referenceDocument?.content,
-                    retrievedDocumentTitle: referenceDocument?.title
-                )
-            } else {
-                updateAssistantMessage(
-                    id: assistantMessageID,
-                    text: "\(output)\n\n[Response interrupted: \(error.localizedDescription)]",
-                    isIncomplete: true,
-                    sourcePrompt: prompt,
-                    sourceSystem: requestSystem,
-                    metrics: responseMetrics,
-                    session: sessionBox?.session,
-                    retrievedContext: referenceDocument?.content,
-                    retrievedDocumentTitle: referenceDocument?.title
-                )
-            }
+            let text = output.isEmpty
+                ? "Error: \(error.localizedDescription)"
+                : "\(output)\n\n[Response interrupted: \(error.localizedDescription)]"
+            finish(text: text, isIncomplete: true, metrics: finalMetrics())
         }
     }
 

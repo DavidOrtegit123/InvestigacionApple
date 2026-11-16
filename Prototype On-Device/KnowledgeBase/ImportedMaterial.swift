@@ -20,6 +20,13 @@ struct ImportedMaterial: Identifiable, Codable, Equatable {
     var kind: ImportedMaterialKind
     var importedAt: Date
 
+    /// Comma-separated keywords as typed in the import/edit sheets, trimmed and lowercased.
+    static func keywords(from text: String) -> [String] {
+        text.split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespaces).lowercased() }
+            .filter { !$0.isEmpty }
+    }
+
     var asKnowledgeDocument: KnowledgeDocument {
         KnowledgeDocument(id: id, title: title, topic: topic, difficulty: .beginner, keywords: keywords, content: content)
     }
