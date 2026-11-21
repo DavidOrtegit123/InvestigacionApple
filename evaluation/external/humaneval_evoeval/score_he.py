@@ -25,8 +25,7 @@ EVALUATION = HERE.parent.parent
 sys.path.insert(1, str(EVALUATION))
 
 from h1_tests import mcnemar_exact, wilcoxon_signed_rank  # noqa: E402
-from score_code_tasks import extract_code, rag_condition  # noqa: E402
-from score_transcripts import load_entries  # noqa: E402
+from score_code_tasks import extract_code, load_entries, rag_condition  # noqa: E402
 
 SELECTED_FILE = HERE / "selected_pairs.json"
 TASKS_FILE = HERE / "tasks_he.json"

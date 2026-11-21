@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test-strength check (step A of the validity check — test_strength_design.md).
+Test-strength check (step A of the validity check — designs/test_strength_design.md).
 
 Re-tests every answer that PASSED under the frozen scoring with a much
 stronger, EvalPlus-style test: the task's original check first, then a
@@ -18,7 +18,7 @@ Usage (from evaluation/):
     python3 test_strength.py --check-alignment
         Static guard only: re-read the transcripts and match them to the
         results files. Runs no code.
-    python3 test_strength.py [--studies main h1b ...] [-o results_test_strength.json]
+    python3 test_strength.py [--studies main h1b ...] [-o results/results_test_strength.json]
         The run on the passing model answers (only after the researcher's
         approval — design section 6).
 """
@@ -35,8 +35,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from code_task_runner import run_check
 from h1_tests import h1_analysis
-from score_code_tasks import extract_code, matched_answers
-from score_transcripts import load_entries
+from score_code_tasks import extract_code, load_entries, matched_answers
 
 EVALUATION_DIR = os.path.dirname(os.path.abspath(__file__))
 TASKS_DIR = os.path.join(EVALUATION_DIR, "tasks")
@@ -49,23 +48,23 @@ EXTENDED_TIMEOUT_S = 10  # more inputs than the original test (design section 3)
 
 
 def _transcripts(*stamps):
-    return [f"prototype-on-device-transcript-{stamp}.json" for stamp in stamps]
+    return [os.path.join("transcripts", f"prototype-on-device-transcript-{stamp}.json") for stamp in stamps]
 
 
 # Design section 2. Each study's transcripts in the order they were scored
 # together (the order of answers in its results file).
 STUDIES = [
-    {"name": "main", "label": "Main study (H1)", "results": "results_main_2026-10-06.json",
+    {"name": "main", "label": "Main study (H1)", "results": os.path.join("results", "results_main_2026-10-06.json"),
      "transcripts": _transcripts(1791318799, 1791322873, 1791329742)},
-    {"name": "h1b", "label": "H1b (Qwen3-4B)", "results": "results_followup_qwen3_4b.json",
+    {"name": "h1b", "label": "H1b (Qwen3-4B)", "results": os.path.join("results", "results_followup_qwen3_4b.json"),
      "transcripts": _transcripts(1791341354, 1791852486, 1791859325)},
-    {"name": "qwen3_1_7b", "label": "Qwen3-1.7B (exploratory)", "results": "results_followup_qwen3_1_7b.json",
+    {"name": "qwen3_1_7b", "label": "Qwen3-1.7B (exploratory)", "results": os.path.join("results", "results_followup_qwen3_1_7b.json"),
      "transcripts": _transcripts(1791868626, 1792465877, 1792475614)},
-    {"name": "stage2", "label": "RAG Stage 2", "results": "results_rag_stage2.json",
+    {"name": "stage2", "label": "RAG Stage 2", "results": os.path.join("results", "results_rag_stage2.json"),
      "transcripts": _transcripts(1792526133, 1792530423, 1792537895)},
-    {"name": "stage3", "label": "RAG Stage 3", "results": "results_rag_stage3.json",
+    {"name": "stage3", "label": "RAG Stage 3", "results": os.path.join("results", "results_rag_stage3.json"),
      "transcripts": _transcripts(1792544444, 1792554527, 1792560385)},
-    {"name": "stage4", "label": "RAG Stage 4", "results": "results_rag_stage4.json",
+    {"name": "stage4", "label": "RAG Stage 4", "results": os.path.join("results", "results_rag_stage4.json"),
      "transcripts": _transcripts(1793762422, 1793771191, 1793822669)},
 ]
 STUDY_NAMES = [study["name"] for study in STUDIES]
@@ -479,7 +478,7 @@ def main():
     parser.add_argument("--jobs", type=int, default=1,
                         help="Answers checked in parallel (default 1, like the frozen scoring — parallel runs can "
                              "push a slow answer past its timeout)")
-    parser.add_argument("-o", "--output", default=os.path.join(EVALUATION_DIR, "results_test_strength.json"))
+    parser.add_argument("-o", "--output", default=os.path.join(EVALUATION_DIR, "results", "results_test_strength.json"))
     args = parser.parse_args()
 
     tasks = load_tasks()

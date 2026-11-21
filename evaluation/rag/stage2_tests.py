@@ -1,4 +1,4 @@
-"""Stage 2 pre-specified tests (../rag_stage2_design.md, section 5) and checks.
+"""Stage 2 pre-specified tests (../designs/rag_stage2_design.md, section 5) and checks.
 
 R1a / R1b: oracle -> retrieved per model (Wilcoxon on per-task rates, oracle minus retrieved).
 R2: Apple vs. Qwen3-4B under retrieval (Wilcoxon, Apple minus Qwen; McNemar on first answers as secondary).
@@ -6,8 +6,8 @@ Holm across R1a, R1b, R2 (familywise alpha 0.05). Everything else is descriptive
 
 Usage:
   python3 evaluation/rag/stage2_tests.py \
-      --oracle evaluation/results_followup_qwen3_4b.json \
-      --retrieved evaluation/results_rag_stage2.json \
+      --oracle evaluation/results/results_followup_qwen3_4b.json \
+      --retrieved evaluation/results/results_rag_stage2.json \
       [--transcripts T1.json T2.json T3.json] [-o evaluation/rag/stage2_report.json]
 """
 import argparse

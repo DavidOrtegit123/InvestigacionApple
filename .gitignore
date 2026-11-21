@@ -20,6 +20,9 @@ ArchivedModels/
 Presentation/
 docs/superpowers/
 evaluation/figures/*.pptx
+AGENTS.md
+CLAUDE.md
+docs/research-log.md
 
 # SwiftPM build output (Stage 1 retrieval harness)
 .build/

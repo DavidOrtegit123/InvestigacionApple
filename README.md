@@ -5,10 +5,8 @@ Apple Foundation Models vs. open-weight LLMs via Core AI. A research harness by 
 The iOS app (SwiftUI, fully on-device) sends the same retrieval-augmented prompt to either Apple's built-in Foundation Model or an open-weight model running through Apple's Core AI framework. Then `evaluation/` scores the generated code by running it against unit tests (pass@1).
 
 - `Prototype On-Device/`: the iOS app, including the batch evaluation harness (`BatchTaskRunner.swift`, `BatchEvaluationView.swift`).
-- `evaluation/`: the 40 invented-spec tasks, the on-device transcripts (raw data) and their scored results, and the offline tools — pass@1 scoring and statistics, the real-retrieval stages, the test-strength check, the external benchmarks (CodeUpdateArena, HumanEval+ / EvoEval) and the thermal analysis. [`evaluation/README.md`](evaluation/README.md) maps each transcript to its study and shows how to reproduce every result.
+- `evaluation/`: the 40 invented-spec tasks, the on-device transcripts (raw data) and their scored results, pre-specified study designs, and the offline tools — pass@1 scoring and statistics, the real-retrieval stages, the test-strength check, the external benchmarks (CodeUpdateArena, HumanEval+ / EvoEval) and the thermal analysis. [`evaluation/README.md`](evaluation/README.md) maps each transcript to its study and shows how to reproduce every result.
 - `AppTests/`: Mac tests of the app's retrieval and chat-history logic.
-- `docs/research-log.md`: the full research design and decisions log (every result, decision and caveat).
-- `AGENTS.md` (`CLAUDE.md` is a symlink to it): the project summary and working rules for coding assistants.
 - The app version that produced all study data is tagged `study-protocol-final`.
 
 ## Requirements
