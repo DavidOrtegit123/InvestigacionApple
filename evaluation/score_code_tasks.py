@@ -2,14 +2,12 @@
 """
 Offline pass@1 scoring for Prototype On-Device code-task transcripts.
 
-Like score_transcripts.py, this runs outside the Xcode project (see
-AGENTS.md Architecture Rule #1) on the researcher's machine. Instead of
-asking an LLM judge to rate an answer, it extracts the Python code block
-from each answer and *executes* it against that task's test_code — an
-objective pass/fail, not an opinion.
+Runs outside the Xcode project on the researcher's machine. Extracts the
+Python code block from each answer and executes it against that task's
+test_code for an objective, execution-verified pass/fail score.
 
 Usage:
-    python3 score_code_tasks.py transcript1.json transcript2.json -o results.json
+    python3 score_code_tasks.py transcripts/T1.json transcripts/T2.json -o results/out.json
 """
 
 import argparse
@@ -21,9 +19,21 @@ import sys
 
 from code_task_runner import run_check
 from h1_tests import h1_analysis
-from score_transcripts import load_entries
 
 TASKS_DIR = os.path.join(os.path.dirname(__file__), "tasks")
+
+
+def load_entries(paths):
+    """Loads and flattens transcript entries from one or more export files,
+    tagging each with its source file for traceability."""
+    entries = []
+    for path in paths:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        for entry in data:
+            entry["_sourceFile"] = os.path.basename(path)
+            entries.append(entry)
+    return entries
 
 # Any fenced block, with or without a language tag (```python, ```py,
 # ```Python3, or bare ```).
@@ -57,14 +67,8 @@ def rag_condition(entry):
 
 def matched_answers(entries):
     """Pairs each assistant answer with the user question immediately
-    before it — regardless of whether retrievedContext is present.
-
-    This is deliberately NOT score_transcripts.scoreable_pairs(): that
-    function requires retrievedContext to exist, because the faithfulness
-    judge needs something to grade the answer against. pass@1 scoring has
-    no such requirement, and the "no-RAG" control condition specifically
-    depends on scoring answers that have *no* retrievedContext at all —
-    filtering those out would silently drop the control data.
+    before it — regardless of whether retrievedContext is present, so the
+    no-RAG control condition (which has no retrievedContext) is preserved.
 
     Tags each pair with ragCondition ("with_rag" if a document was
     retrieved, "no_rag" if not), inferred from the transcript itself rather
@@ -280,7 +284,7 @@ def main():
         "--tasks-dir",
         default=TASKS_DIR,
         help="Task definitions to match answers against (default: tasks/, the English main set; "
-             "use tasks_pilot_es/ for the Spanish pilot transcripts)",
+             "use pilot/tasks_pilot_es/ for the Spanish pilot transcripts)",
     )
     args = parser.parse_args()
 

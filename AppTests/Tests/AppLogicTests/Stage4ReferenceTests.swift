@@ -28,7 +28,7 @@ private enum FrozenPrompt {
     }
 }
 
-/// Stage 4's Mac reference (evaluation/rag_stage4_design.md §8): the packed context for all 40
+/// Stage 4's Mac reference (evaluation/designs/rag_stage4_design.md §8): the packed context for all 40
 /// prompts with the real model and Apple's tokenizer, plus each full prompt's Apple token count
 /// for the context-fit rule (§3). Writes evaluation/rag/stage4_contexts_mac.json when
 /// WRITE_STAGE4_REFERENCE=1.

@@ -1,4 +1,4 @@
-"""Stage 3 exploratory tests (../rag_stage3_design.md, section 5) and checks.
+"""Stage 3 exploratory tests (../designs/rag_stage3_design.md, section 5) and checks.
 
 E1a / E1b: Stage 2 retrieved -> Stage 3 parent sections, per model (Wilcoxon on per-task
 rates, parent minus retrieved). E2: Apple vs. Qwen3-4B under Stage 3 (Wilcoxon, Apple minus
@@ -7,9 +7,9 @@ variant was chosen after Stage 2's results (from retrieval-only data).
 
 Usage:
   python3 evaluation/rag/stage3_tests.py \
-      --oracle evaluation/results_followup_qwen3_4b.json \
-      --retrieved evaluation/results_rag_stage2.json \
-      --parent evaluation/results_rag_stage3.json \
+      --oracle evaluation/results/results_followup_qwen3_4b.json \
+      --retrieved evaluation/results/results_rag_stage2.json \
+      --parent evaluation/results/results_rag_stage3.json \
       [--transcripts T1.json T2.json T3.json] [-o evaluation/rag/stage3_report.json]
 """
 import argparse

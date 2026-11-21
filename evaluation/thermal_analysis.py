@@ -12,7 +12,7 @@ temperature; it is only recorded at answer boundaries, so transition times are a
 about one answer; the runner's own pacing rule shapes how often waits happen; one device.
 
 Usage (from evaluation/):
-  python3 thermal_analysis.py [-o thermal_report.json]               # every run in RUNS
+  python3 thermal_analysis.py [-o results/thermal_report.json]        # every run in RUNS
   python3 thermal_analysis.py --label "Stage 4" T1.json T2.json T3.json  # any other transcripts
 """
 import argparse
@@ -34,32 +34,32 @@ WAIT_THRESHOLD = 4
 CAP_SECONDS = 600 - 5
 HOT = {"Serious", "Critical"}
 
-# Runs with the pacing each one used (see AGENTS.md, Research Design & Decisions Log).
+# Runs with the pacing each one used.
 RUNS = [
     ("Pilot run 3 — Qwen3-0.6B, fixed 3 s pauses only (2026-09-28)",
-     ["prototype-on-device-transcript-1790654278.json"]),
+     ["pilot/prototype-on-device-transcript-1790654278.json"]),
     ("Pilot run 1 — Qwen2.5-1.5B, fixed 3 s pauses only (2026-09-30)",
-     ["prototype-on-device-transcript-1790787984.json"]),
+     ["pilot/prototype-on-device-transcript-1790787984.json"]),
     ("Pilot run 2 — Qwen2.5-1.5B, adaptive pacing (2026-09-30)",
-     ["prototype-on-device-transcript-1790793369.json"]),
+     ["pilot/prototype-on-device-transcript-1790793369.json"]),
     ("Main study — Qwen2.5-1.5B (H1, 2026-10-06)",
-     ["prototype-on-device-transcript-1791318799.json", "prototype-on-device-transcript-1791322873.json",
-      "prototype-on-device-transcript-1791329742.json"]),
+     ["transcripts/prototype-on-device-transcript-1791318799.json", "transcripts/prototype-on-device-transcript-1791322873.json",
+      "transcripts/prototype-on-device-transcript-1791329742.json"]),
     ("Follow-up — Qwen3-1.7B (2026-10-13/20)",
-     ["prototype-on-device-transcript-1791868626.json", "prototype-on-device-transcript-1792465877.json",
-      "prototype-on-device-transcript-1792475614.json"]),
+     ["transcripts/prototype-on-device-transcript-1791868626.json", "transcripts/prototype-on-device-transcript-1792465877.json",
+      "transcripts/prototype-on-device-transcript-1792475614.json"]),
     ("Follow-up — Qwen3-4B (H1b, 2026-10-07/12)",
-     ["prototype-on-device-transcript-1791341354.json", "prototype-on-device-transcript-1791852486.json",
-      "prototype-on-device-transcript-1791859325.json"]),
+     ["transcripts/prototype-on-device-transcript-1791341354.json", "transcripts/prototype-on-device-transcript-1791852486.json",
+      "transcripts/prototype-on-device-transcript-1791859325.json"]),
     ("RAG Stage 2 — Qwen3-4B (2026-10-20)",
-     ["prototype-on-device-transcript-1792526133.json", "prototype-on-device-transcript-1792530423.json",
-      "prototype-on-device-transcript-1792537895.json"]),
+     ["transcripts/prototype-on-device-transcript-1792526133.json", "transcripts/prototype-on-device-transcript-1792530423.json",
+      "transcripts/prototype-on-device-transcript-1792537895.json"]),
     ("RAG Stage 3 — Qwen3-4B (2026-10-20/21)",
-     ["prototype-on-device-transcript-1792544444.json", "prototype-on-device-transcript-1792554527.json",
-      "prototype-on-device-transcript-1792560385.json"]),
+     ["transcripts/prototype-on-device-transcript-1792544444.json", "transcripts/prototype-on-device-transcript-1792554527.json",
+      "transcripts/prototype-on-device-transcript-1792560385.json"]),
     ("RAG Stage 4 — Qwen3-4B, OnDeviceRAG 2,000 tokens (2026-11-04)",
-     ["prototype-on-device-transcript-1793762422.json", "prototype-on-device-transcript-1793771191.json",
-      "prototype-on-device-transcript-1793822669.json"]),
+     ["transcripts/prototype-on-device-transcript-1793762422.json", "transcripts/prototype-on-device-transcript-1793771191.json",
+      "transcripts/prototype-on-device-transcript-1793822669.json"]),
 ]
 
 

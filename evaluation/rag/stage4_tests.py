@@ -1,4 +1,4 @@
-"""Stage 4 exploratory tests (../rag_stage4_design.md, section 7) and checks.
+"""Stage 4 exploratory tests (../designs/rag_stage4_design.md, section 7) and checks.
 
 S4a / S4b: Stage 3 parent sections -> Stage 4 OnDeviceRAG packed context, per model.
 S4c / S4d: oracle (H1b with_rag) -> Stage 4, per model. Differences are Stage 4 minus baseline.
@@ -8,9 +8,9 @@ chosen after Stages 2-3, from retrieval-only data.
 
 Usage:
   python3 evaluation/rag/stage4_tests.py \\
-      --oracle evaluation/results_followup_qwen3_4b.json \\
-      --parent evaluation/results_rag_stage3.json \\
-      --package evaluation/results_rag_stage4.json \\
+      --oracle evaluation/results/results_followup_qwen3_4b.json \\
+      --parent evaluation/results/results_rag_stage3.json \\
+      --package evaluation/results/results_rag_stage4.json \\
       [--transcripts T1.json T2.json T3.json] [-o evaluation/rag/stage4_report.json]
 """
 import argparse
